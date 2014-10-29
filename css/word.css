@@ -1,0 +1,28 @@
+.h5p-word-selected {
+  background: #93b8e2;
+  color: #000e69;
+}
+.h5p-word-correct {
+  background: #17e23b;
+  color: #0a6917;
+}
+.h5p-word-wrong {
+  background: #e20003;
+  color: #690004;
+}
+.h5p-word-missed {
+  background: #e2e068;
+  color: #696717;
+}
+.h5p-check-button {
+  display: inline-block;
+}
+.h5p-retry-button {
+  display: none;
+}
+.h5p-word-selectable {
+  cursor: pointer;
+}
+.h5p-word-selectable:hover {
+  background: #FAFAFA;
+}

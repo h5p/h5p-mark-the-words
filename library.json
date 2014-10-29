@@ -1,0 +1,35 @@
+{
+  "title": "Mark The Words",
+  "description": "void",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 61,
+  "runnable": 1,
+  "author": "Amendor AS",
+  "license": "cc-by-sa",
+  "machineName": "H5P.MarkTheWords",
+  "preloadedCss": [
+    {
+      "path": "css/word.css"
+    }
+  ],
+  "preloadedJs": [
+    {
+      "path": "js/word.js"
+    }
+  ],
+  "preloadedDependencies": [
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 4,
+      "minorVersion": 1
+    },
+    {
+      "machineName": "H5P.JoubelUI",
+      "majorVersion": 1,
+      "minorVersion": 0
+    }
+  ],
+  "w": 635,
+  "h": 500
+}
