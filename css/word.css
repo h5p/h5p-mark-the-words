@@ -1,0 +1,53 @@
+/* The main containers for the module */
+.h5p-word {
+  position: relative;
+}
+.h5p-word .h5p-word-inner {
+  overflow: hidden;
+  padding: 1em;
+}
+.h5p-word .h5p-word-footer {
+  margin-top: 0.4em;
+  border-top: 0.1em solid #ddd;
+}
+.h5p-word .h5p-word-evaluation-container {
+  float: left;
+  padding: 1em 0 0 0;
+  max-width: 50%;
+}
+.h5p-word .h5p-button-bar {
+  margin-top: .8em;
+  min-height: 2.134em;
+}
+/* Task title and description */
+.h5p-word .h5p-word-title {
+  margin: 0 0 0.4em;
+  border-bottom: 0.1em solid #ddd;
+}
+/* Colors and styling for word selections */
+.h5p-word-selected {
+  background: #93b8e2;
+  color: #000e69;
+}
+.h5p-word-correct {
+  background: #17e23b;
+  color: #0a6917;
+}
+.h5p-word-wrong {
+  background: #e20003;
+  color: #690004;
+}
+.h5p-word-missed {
+  background: #e2e068;
+  color: #696717;
+}
+.h5p-word-selectable {
+  cursor: pointer;
+}
+/* Buttons display and styling */
+.h5p-check-button {
+  display: inline-block;
+}
+.h5p-retry-button {
+  display: none;
+}
