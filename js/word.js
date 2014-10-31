@@ -5,6 +5,25 @@ var H5P = H5P || {};
  * @external {jQuery} $ H5P.jQuery
  */
 H5P.MarkTheWords = (function ($) {
+  //CSS Main Containers:
+  var MAIN_CONTAINER = "h5p-word";
+  var INNER_CONTAINER = "h5p-word-inner";
+  var TITLE_CONTAINER = "h5p-word-title";
+  var WORDS_CONTAINER = "h5p-word-selectable-words";
+  var FOOTER_CONTAINER = "h5p-word-footer";
+  var EVALUATION_CONTAINER = "h5p-word-evaluation-container";
+  var BUTTON_CONTAINER = "h5p-button-bar";
+
+  //Special Sub-containers:
+  var EVALUATION_SCORE = "h5p-word-evaluation-score";
+  var EVALUATION_EMOTICON = "h5p-word-evaluation-score-emoticon";
+  var EVALUATION_EMOTICON_MAX_SCORE = "max-score";
+
+  //CSS Buttons:
+  var BUTTONS = "h5p-button";
+  var CHECK_BUTTON = "h5p-check-button";
+  var RETRY_BUTTON = "h5p-retry-button";
+
 
   /**
    * Initialize module.
@@ -31,10 +50,10 @@ H5P.MarkTheWords = (function ($) {
    * @param {jQuery} $container the jQuery object which this module will attach itself to.
    */
   C.prototype.attach = function ($container) {
-    this._$inner = $container.addClass('h5p-word').html('<div class="h5p-word-inner"><div class="h5p-word-title">' + this.params.taskDescription + '</div></div>').children();
+    this._$inner = $container.addClass(MAIN_CONTAINER).html('<div class='+INNER_CONTAINER+'><div class='+TITLE_CONTAINER+'>' + this.params.taskDescription + '</div></div>').children();
     this.addTaskTo(this._$inner);
 
-    // Add "Check" and "Retry" button.
+    // Add score and button containers.
     this.addFooter();
   };
   
@@ -45,30 +64,30 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.addTaskTo = function ($container) {
     var self = this;
     var textField = self.params.textField;
-    var selectableHTML = '';
     self.selectableWords = [];
-    self.isSelectable = true;
+    self.answers = 0;
 
     //Regexp for splitting string on whitespace(s).
     var selectableStrings = textField.replace(/(\r\n|\n|\r)/gm," <br> ").split(/[\s]+/);
 
-    var $barForSelectables = $('<div/>', {'class': 'h5p-selectables-bar'});
+    var $wordContainer = $('<div/>', {'class': WORDS_CONTAINER});
     //Make each word selectable
     selectableStrings.forEach(function (entry) {
-      var selectableWord = new Word(entry, $barForSelectables);
+      var selectableWord = new Word(entry, $wordContainer);
+      if (selectableWord.isAnswer()) {
+        self.answers += 1;
+      }
       self.selectableWords.push(selectableWord);
-      //selectableHTML += selectableWord.getSpan()+' ';
     });
-
-    $barForSelectables.appendTo($container);
+    $wordContainer.appendTo($container);
   };
+
   /**
    * Append footer to inner block.
    */
   C.prototype.addFooter = function () {
-    console.log("Adding footer");
-    console.log(this);
-    this._$footer = $('<div class="h5p-word-footer"><div class="h5p-word-evaluation-container"></div></div>').appendTo(this._$inner);
+    this._$footer = $('<div class='+FOOTER_CONTAINER+'></div>').appendTo(this._$inner);
+    this._$evaluation = $('<div class='+EVALUATION_CONTAINER+'></div>').appendTo(this._$footer);
     this.addButtons();
   };
 
@@ -76,57 +95,54 @@ H5P.MarkTheWords = (function ($) {
    * Add check solution and retry buttons.
    */
   C.prototype.addButtons = function () {
+    console.log(this);
     var self = this;
-
-    var $buttonBar = $('<div/>', {'class': 'h5p-button-bar'});
+    var $buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
     var $checkAnswerButton = $('<button/>', {
-      class: 'h5p-check-button',
+      class: BUTTONS+' '+CHECK_BUTTON,
       type: 'button',
       text: this.params.checkAnswer
-    }).appendTo($buttonBar).click(function () {
-      self.markResults();
-      if (self.markEvaluation()) {
-        $checkAnswerButton.toggle();
-        self.isSelectable = false;
-        return;
-      }
-      $retryButton.toggle();
+    }).appendTo($buttonContainer).click(function () {
+      self.setAllSelectable(false);
+      self.setAllMarks();
       $checkAnswerButton.toggle();
-      self.isSelectable = false;
+      if (!self.showEvaluation()) {
+        $retryButton.toggle();
+      }
     });
 
     var $retryButton =  $('<button/>', {
-      class: 'h5p-retry-button',
+      class: BUTTONS+' '+RETRY_BUTTON,
       type: 'button',
       text: this.params.tryAgain
-    }).appendTo($buttonBar).click(function () {
-      self.markClear();
+    }).appendTo($buttonContainer).click(function () {
+      self.clearAllMarks();
       self.hideEvaluation();
+      self.setAllSelectable(true);
       $retryButton.toggle();
       $checkAnswerButton.toggle();
-      self.isSelectable = true;
     });
-
-    $buttonBar.appendTo(this._$footer);
+    $buttonContainer.appendTo(this._$footer);
   };
 
   /**
-   * Mark which answers are correct, wrong and missed.
+   * Set whether all the words should be selectable.
+   * @public
+   * @param {Boolean} Set to true to make the words selectable.
    */
-  C.prototype.markResults = function () {
-    this._$inner.find(".h5p-word-selectable").each(function () {
-      if ($(this).hasClass("h5p-word-selected") && $(this).hasClass("h5p-word-answer")){
-        $(this).removeClass("h5p-word-selected");
-        $(this).addClass("h5p-word-correct")
-      }
-      else if ($(this).hasClass("h5p-word-selected")) {
-        $(this).removeClass("h5p-word-selected");
-        $(this).addClass("h5p-word-wrong");
-      }
-      else if ($(this).hasClass("h5p-word-answer")) {
-        $(this).addClass("h5p-word-missed");
-      }
+  C.prototype.setAllSelectable = function (selectable) {
+    this.selectableWords.forEach(function (entry) {
+      entry.setSelectable(selectable);
+    });
+  };
+
+  /**
+   * Mark the words as correct, wrong or missed.
+   */
+  C.prototype.setAllMarks = function () {
+    this.selectableWords.forEach(function (entry) {
+      entry.markCheck();
     });
   };
 
@@ -134,69 +150,106 @@ H5P.MarkTheWords = (function ($) {
    * Evaluate task and display score text for word markings.
    * @return {Boolean} Returns true if maxScore was achieved.
    */
-  C.prototype.markEvaluation = function () {
+  C.prototype.showEvaluation = function () {
     this.hideEvaluation();
-    var maxScore = this.totalAnswers;
-    // answers contain correct, wrong and missed answers.
-    var answers = this.getAnswers();
-    var correctAnswers = answers[0];
-    var wrongAnswers = answers[1];
-    var missed = answers[2];
+    var maxScore = this.answers;
+    var correctAnswers = 0;
+    var wrongAnswers = 0;
+    var missedAnswers = 0;
+    this.selectableWords.forEach(function (entry) {
+      if(entry.isCorrect()) {
+        correctAnswers += 1;
+      }
+      else if(entry.isWrong()) {
+        wrongAnswers += 1;
+      }
+      else if(entry.isMissed()) {
+        missedAnswers += 1;
+      }
+    });
     var score = correctAnswers-wrongAnswers<=0 ? 0 : correctAnswers-wrongAnswers;
 
-    //If score does not equal maxScore, show retry button.
-    //this.SHOW_RETRY_BUTTON = score !== maxScore;
-    this._$evaluation = this._$footer.find('.h5p-word-evaluation-container');
-    this._$evaluationScore = $('<div class="h5p-word-evaluation-score">' + 'Score : '+ score+ ' of '+maxScore + ', correct:'+ correctAnswers+
-    ', wrongAnswers: '+wrongAnswers+', missed: '+missed+'</div>').appendTo(this._$evaluation);
-
+    //Append evaluation emoticon and score to evaluation container.
+    $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this._$evaluation);
+    this._$evaluationScore = $('<div class='+EVALUATION_SCORE+'>' + 'Score : '+ score+ ' of '+maxScore + ', correct:'+ correctAnswers+
+    ', wrong: '+wrongAnswers+', missed: '+missedAnswers+'</div>').appendTo(this._$evaluation);
+    if (score === maxScore) {
+      this._$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
+    }
+    else {
+      this._$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
+    }
     return score === maxScore;
   };
 
   /**
-   * Returns the correct, wrong and missed answers for the word marking.
-   * @returns {Array} An array containing correct, wrong and missed answers.
-   */
-  C.prototype.getAnswers = function () {
-    var correctAnswers = 0;
-    var wrongAnswers = 0;
-    var missed = 0;
-    this._$inner.find(".h5p-word-selectable").each(function () {
-      if ($(this).hasClass("h5p-word-correct")){
-        correctAnswers += 1;
-      }
-      else if ($(this).hasClass("h5p-word-wrong")) {
-        wrongAnswers += 1;
-      }
-      else if ($(this).hasClass("h5p-word-missed")) {
-        missed += 1;
-      }
-    });
-    return [correctAnswers, wrongAnswers, missed];
-  };
-
-
-  /**
-   * Remove the evaluation text.
+   * Clear the evaluation text.
    */
   C.prototype.hideEvaluation = function () {
-    // Clear evaluation section.
-    this._$footer.find('.h5p-word-evaluation-container').html('');
+    this._$evaluation.html('');
   };
 
   /**
    * Clear styling on marked words.
    */
-  C.prototype.markClear = function () {
-    this._$inner.find(".h5p-word-selectable").each(function () {
-      if ($(this).hasClass("h5p-word-missed")){
-        $(this).removeClass("h5p-word-missed");
+  C.prototype.clearAllMarks = function () {
+    this.selectableWords.forEach( function (entry) {
+      entry.markClear();
+    });
+  };
+
+  /**
+   * Needed for contracts.
+   * Always returns true, since MTW has no required actions to give an answer.
+   *
+   * @returns {Boolean} Always returns true.
+   */
+  C.prototype.getAnswerGiven = function () {
+    return true;
+  };
+
+  /**
+   * Needed for contracts.
+   * Counts the score, which is correct answers subtracted by wrong answers.
+   *
+   * @returns {Number} score The amount of points achieved.
+   */
+  C.prototype.getScore = function () {
+    var correctAnswers = 0;
+    var wrongAnswers = 0;
+    var missedAnswers = 0;
+    this.selectableWords.forEach(function (entry) {
+      if(entry.isCorrect()) {
+        correctAnswers += 1;
       }
-      else if ($(this).hasClass("h5p-word-correct")) {
-        $(this).removeClass("h5p-word-correct");
+      else if(entry.isWrong()) {
+        wrongAnswers += 1;
       }
-      else if ($(this).hasClass("h5p-word-wrong")) {
-        $(this).removeClass("h5p-word-wrong");
+    });
+    return correctAnswers-wrongAnswers<=0 ? 0 : correctAnswers-wrongAnswers;
+  };
+
+  /**
+   * Needed for contracts.
+   * Gets max score for this task.
+   *
+   * @returns {Number} maxScore The maximum amount of points achievable.
+   */
+  C.prototype.getMaxScore = function () {
+    return this.answers;
+  };
+
+  /**
+   * Needed for contracts.
+   * Display the correct solution for the input boxes.
+   *
+   */
+  C.prototype.showSolutions = function () {
+    this.selectableWords.forEach(function (entry) {
+      entry.markClear();
+      if(entry.isAnswer()) {
+        entry.markWord();
+        entry.markCheck();
       }
     });
   };
@@ -209,23 +262,40 @@ H5P.MarkTheWords = (function ($) {
    * @returns {String} html Returns a span with correct classes for the word.
    */
   function Word(word, $container) {
+    //CSS Classes for marking words:
+    var MISSED_MARK = 'h5p-word-missed';
+    var CORRECT_MARK = 'h5p-word-correct';
+    var WRONG_MARK = 'h5p-word-wrong';
+    var SELECTED_MARK = 'h5p-word-selected';
+    var SELECTABLE_MARK = 'h5p-word-selectable';
+    var ANSWER_MARK = 'h5p-word-answer';
+
     var self = this;
+    //Check if word is an answer
     var isAnswer = handleInput(word);
+
+    //Remove single asterisk and escape double asterisks.
     var input = handleAsterisks(word);
     var isSelectable = true;
     var isSelected = false;
+
+    //Create jQuery object of word.
     var $word = $('<span /> ', {
-      class: 'h5p-word-selectable',
+      class: SELECTABLE_MARK,
       html: input
-    }).append(' ').appendTo($container);
-    $word.click(function () {
+    }).appendTo($container).click(function () {
       if (!isSelectable){
         return;
       }
-      $word.toggleClass('h5p-word-selected');
+      self.markWord();
     });
+
+    //Append a space after the word.
+    $container.append(' ');
+
+    //Set the answer markings on the word if it is an answer.
     if (isAnswer) {
-      $word.addClass('h5p-word-answer');
+      setMark(ANSWER_MARK);
     }
 
     /**
@@ -246,7 +316,7 @@ H5P.MarkTheWords = (function ($) {
         return false;
       }
       return false;
-    };
+    }
 
     /**
      * Removes double asterisks from string, used to handle input.
@@ -278,41 +348,121 @@ H5P.MarkTheWords = (function ($) {
         asteriskIndex = string.indexOf('*', asteriskIndex+1);
       }
       return string;
+    }
+    /**
+     * Sets the styling of the word as the supplied marking.
+     * @private
+     * @param {String} markClass The css class to mark the word with.
+     */
+    function setMark(markClass) {
+      $word.addClass(markClass);
+    }
+
+    /**
+     * Sets the styling of the word as the supplied marking.
+     * @private
+     * @param {String} markClass The css class to mark the word with.
+     */
+    function removeMark(markClass) {
+      $word.removeClass(markClass);
+    }
+
+    /**
+     * Toggle the marking of a word.
+     * @public
+     */
+    this.markWord = function () {
+      $word.toggleClass(SELECTED_MARK);
+      isSelected = !isSelected;
     };
 
     /**
      * Clears all marks from the word.
      * @public
      */
-    this.clearMarks = function () {
-      if ($word.hasClass("h5p-word-missed")){
-        $word.removeClass("h5p-word-missed");
-      }
-      else if ($word.hasClass("h5p-word-correct")) {
-        $word.removeClass("h5p-word-correct");
-      }
-      else if ($word.hasClass("h5p-word-wrong")) {
-        $word.removeClass("h5p-word-wrong");
-      }
+    this.markClear = function () {
+      removeMark(MISSED_MARK);
+      removeMark(CORRECT_MARK);
+      removeMark(WRONG_MARK);
+      removeMark(SELECTED_MARK);
+      isSelected = false;
     };
 
     /**
-     * Sets the word as wrong.
+     * Check if the word is correctly marked and style it accordingly.
      * @public
      */
-    this.setWrong = function () {
-      return;
+    this.markCheck = function () {
+      if (isSelected) {
+        if (isAnswer) {
+          setMark(CORRECT_MARK);
+        }
+        else {
+          setMark(WRONG_MARK);
+        }
+      }
+      else if (isAnswer) {
+        setMark(MISSED_MARK);
+      }
+      removeMark(SELECTED_MARK);
     };
 
     /**
-     * Returns a selectable span containing the word.
+     * Set whether the word should be selectable.
      * @public
-     * @returns {String} Selectable span as HTML.
+     * @param {Boolean} Set to true to make word selectable.
      */
-    //this.getSpan = function () {
-    //  return $word[0].outerHTML;
-    //};
+    this.setSelectable = function (selectable) {
+      isSelectable = selectable;
+    };
 
+    /**
+     * Checks if the word is marked correctly.
+     * @public
+     * @returns {Boolean} True if the marking is correct.
+     */
+    this.isCorrect = function () {
+      if (isAnswer && isSelected) {
+        return true;
+      }
+      return false;
+    };
+
+    /**
+     * Checks if the word is marked wrong.
+     * @public
+     * @returns {Boolean} True if the marking is wrong.
+     */
+    this.isWrong = function () {
+      if (!isAnswer && isSelected) {
+        return true;
+      }
+      return false;
+    };
+
+    /**
+     * Checks if the word is correct, but has not been marked.
+     * @public
+     * @returns {Boolean} True if the marking is missed.
+     */
+    this.isMissed = function () {
+      if (isAnswer && !isSelected) {
+        return true;
+      }
+      return false;
+    };
+
+    /**
+     * Checks if the word is an answer.
+     * @public
+     * @returns {Boolean} True if the word is an answer.
+     */
+    this.isAnswer = function () {
+      if (isAnswer) {
+        return true;
+      }
+      return false;
+    };
   }
 
     return C;
