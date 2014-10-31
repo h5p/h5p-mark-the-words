@@ -236,7 +236,13 @@ H5P.MarkTheWords = (function ($) {
    * @returns {Number} maxScore The maximum amount of points achievable.
    */
   C.prototype.getMaxScore = function () {
-    return this.answers;
+    var correctAnswers = 0;
+    this.selectableWords.forEach(function (entry) {
+      if(entry.isAnswer()) {
+        correctAnswers += 1;
+      }
+    });
+    return correctAnswers;
   };
 
   /**
@@ -246,11 +252,7 @@ H5P.MarkTheWords = (function ($) {
    */
   C.prototype.showSolutions = function () {
     this.selectableWords.forEach(function (entry) {
-      entry.markClear();
-      if(entry.isAnswer()) {
-        entry.markWord();
-        entry.markCheck();
-      }
+      entry.showSolution();
     });
   };
 
@@ -387,6 +389,20 @@ H5P.MarkTheWords = (function ($) {
       removeMark(SELECTED_MARK);
       isSelected = false;
     };
+
+    /**
+     * Sets correct styling if word is an answer.
+     * @public
+     */
+    this.showSolution = function () {
+      removeMark(MISSED_MARK);
+      removeMark(CORRECT_MARK);
+      removeMark(WRONG_MARK);
+      removeMark(SELECTED_MARK);
+      if (isAnswer) {
+        setMark(CORRECT_MARK);
+      }
+    }
 
     /**
      * Check if the word is correctly marked and style it accordingly.
