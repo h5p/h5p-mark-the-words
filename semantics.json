@@ -19,28 +19,26 @@
     ]
   },
   {
-  "label": "Textfield",
-  "name": "textField",
-  "type": "text",
-  "widget": "textarea",
-  "placeholder": "The answers should be marked with asterix, like: *answer*.",
-  "description": "Marked words are added with an asterix (*). An asterix may be escaped with another asterix, resulting in ** = *. Example: The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
+    "label": "Textfield",
+    "name": "textField",
+    "type": "text",
+    "widget": "textarea",
+    "placeholder": "The answers should be marked with asterix, like: *answer*.",
+    "description": "Marked words are added with an asterix (*). An asterix may be escaped with another asterix, resulting in ** = *. Example: The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
   },
   {
     "label": "Text for \"Check\" button",
     "name": "checkAnswer",
     "type": "text",
     "default": "Check",
-    "common": true,
-    "optional": true
+    "common": true
   },
   {
     "label": "Text for \"Retry\" button",
     "name": "tryAgain",
     "type": "text",
     "default": "Retry",
-    "common": true,
-    "optional": true
+    "common": true
   },
   {
     "label": "Feedback text",
