@@ -41,5 +41,13 @@
     "default": "Retry",
     "common": true,
     "optional": true
+  },
+  {
+    "label": "Feedback text",
+    "name": "score",
+    "type": "text",
+    "default": "Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.",
+    "description": "Feedback text, variables available: @score @total @correct @wrong @missed. Example: 'You got @score of @total possible points'",
+    "common": true
   }
 ]

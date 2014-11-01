@@ -41,7 +41,8 @@ H5P.MarkTheWords = (function ($) {
       textField: "This is a *nice*, *flexible* content type, which allows you to highlight all the *wonderful* words in this *exciting* sentence.\n"+
         "This is another line of *fantastic* text.",
       checkAnswer: "Check",
-      tryAgain: "Retry"
+      tryAgain: "Retry",
+      score: "Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed."
     }, params);
   }
 
@@ -169,10 +170,12 @@ H5P.MarkTheWords = (function ($) {
     });
     var score = correctAnswers-wrongAnswers<=0 ? 0 : correctAnswers-wrongAnswers;
 
+    //replace editor variables with values, uses regexp to replace all instances.
+    var scoreText = this.params.score.replace(/@score/g, score.toString()).replace(/@total/g, maxScore.toString()).replace(/@correct/g, correctAnswers.toString());
+    scoreText = scoreText.replace(/@wrong/g, wrongAnswers.toString()).replace(/@missed/g, missedAnswers.toString());
     //Append evaluation emoticon and score to evaluation container.
     $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this._$evaluation);
-    this._$evaluationScore = $('<div class='+EVALUATION_SCORE+'>' + 'Score : '+ score+ ' of '+maxScore + ', correct:'+ correctAnswers+
-    ', wrong: '+wrongAnswers+', missed: '+missedAnswers+'</div>').appendTo(this._$evaluation);
+    this._$evaluationScore = $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>').appendTo(this._$evaluation);
     if (score === maxScore) {
       this._$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
