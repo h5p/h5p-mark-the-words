@@ -218,14 +218,6 @@ button.h5p-retry-button.h5p-retry-button {
   background: #93b8e2;
   border: 0.2em #0000ff dotted;
 }
-/*.h5p-word-correct {
-  background: #17e23b;
-  color: #0a6917;
-}*/
-/*.h5p-word-wrong {
-  background: #e20003;
-  color: #690004;
-}*/
 .h5p-word-missed {
   padding: 0.2em;
   background: #e9f9f7;
