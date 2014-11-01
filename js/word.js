@@ -273,7 +273,6 @@ H5P.MarkTheWords = (function ($) {
     var WRONG_MARK = 'h5p-word-wrong';
     var SELECTED_MARK = 'h5p-word-selected';
     var SELECTABLE_MARK = 'h5p-word-selectable';
-    var ANSWER_MARK = 'h5p-word-answer';
 
     var self = this;
     //Check if word is an answer
@@ -297,11 +296,6 @@ H5P.MarkTheWords = (function ($) {
 
     //Append a space after the word.
     $container.append(' ');
-
-    //Set the answer markings on the word if it is an answer.
-    if (isAnswer) {
-      setMark(ANSWER_MARK);
-    }
 
     /**
      * Checks if the word is an answer by checking the first, second to last and last character of the word.
