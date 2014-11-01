@@ -96,7 +96,6 @@ H5P.MarkTheWords = (function ($) {
    * Add check solution and retry buttons.
    */
   C.prototype.addButtons = function () {
-    console.log(this);
     var self = this;
     var $buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
