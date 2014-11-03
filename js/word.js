@@ -51,7 +51,9 @@ H5P.MarkTheWords = (function ($) {
    * @param {jQuery} $container the jQuery object which this module will attach itself to.
    */
   C.prototype.attach = function ($container) {
-    this._$inner = $container.addClass(MAIN_CONTAINER).html('<div class='+INNER_CONTAINER+'><div class='+TITLE_CONTAINER+'>' + this.params.taskDescription + '</div></div>').children();
+    this._$inner = $container.addClass(MAIN_CONTAINER)
+        .html('<div class='+INNER_CONTAINER+'><div class='+TITLE_CONTAINER+'>' + this.params.taskDescription + '</div></div>')
+        .children();
     this.addTaskTo(this._$inner);
 
     // Add score and button containers.
@@ -106,9 +108,9 @@ H5P.MarkTheWords = (function ($) {
     }).appendTo($buttonContainer).click(function () {
       self.setAllSelectable(false);
       self.setAllMarks();
-      $checkAnswerButton.toggle();
+      $checkAnswerButton.hide();
       if (!self.showEvaluation()) {
-        $retryButton.toggle();
+        $retryButton.show();
       }
     });
 
@@ -120,8 +122,8 @@ H5P.MarkTheWords = (function ($) {
       self.clearAllMarks();
       self.hideEvaluation();
       self.setAllSelectable(true);
-      $retryButton.toggle();
-      $checkAnswerButton.toggle();
+      $retryButton.hide();
+      $checkAnswerButton.show();
     });
     $buttonContainer.appendTo(this._$footer);
   };
@@ -129,7 +131,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Set whether all the words should be selectable.
    * @public
-   * @param {Boolean} Set to true to make the words selectable.
+   * @param {Boolean} selectable Set to true to make the words selectable.
    */
   C.prototype.setAllSelectable = function (selectable) {
     this.selectableWords.forEach(function (entry) {
@@ -167,14 +169,18 @@ H5P.MarkTheWords = (function ($) {
         missedAnswers += 1;
       }
     });
-    var score = correctAnswers-wrongAnswers<=0 ? 0 : correctAnswers-wrongAnswers;
+    var score = ((correctAnswers - wrongAnswers) <= 0) ? 0 : (correctAnswers - wrongAnswers);
 
     //replace editor variables with values, uses regexp to replace all instances.
-    var scoreText = this.params.score.replace(/@score/g, score.toString()).replace(/@total/g, maxScore.toString()).replace(/@correct/g, correctAnswers.toString());
-    scoreText = scoreText.replace(/@wrong/g, wrongAnswers.toString()).replace(/@missed/g, missedAnswers.toString());
+    var scoreText = this.params.score.replace(/@score/g, score.toString())
+      .replace(/@total/g, maxScore.toString())
+      .replace(/@correct/g, correctAnswers.toString())
+      .replace(/@wrong/g, wrongAnswers.toString())
+      .replace(/@missed/g, missedAnswers.toString());
     //Append evaluation emoticon and score to evaluation container.
     $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this._$evaluation);
-    this._$evaluationScore = $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>').appendTo(this._$evaluation);
+    this._$evaluationScore = $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>')
+      .appendTo(this._$evaluation);
     if (score === maxScore) {
       this._$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
@@ -219,7 +225,6 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.getScore = function () {
     var correctAnswers = 0;
     var wrongAnswers = 0;
-    var missedAnswers = 0;
     this.selectableWords.forEach(function (entry) {
       if(entry.isCorrect()) {
         correctAnswers += 1;
@@ -228,7 +233,7 @@ H5P.MarkTheWords = (function ($) {
         wrongAnswers += 1;
       }
     });
-    return correctAnswers-wrongAnswers<=0 ? 0 : correctAnswers-wrongAnswers;
+    return ((correctAnswers - wrongAnswers) <= 0) ? 0 : (correctAnswers - wrongAnswers);
   };
 
   /**
@@ -238,13 +243,7 @@ H5P.MarkTheWords = (function ($) {
    * @returns {Number} maxScore The maximum amount of points achievable.
    */
   C.prototype.getMaxScore = function () {
-    var correctAnswers = 0;
-    this.selectableWords.forEach(function (entry) {
-      if(entry.isAnswer()) {
-        correctAnswers += 1;
-      }
-    });
-    return correctAnswers;
+    return self.answers;
   };
 
   /**
@@ -274,23 +273,26 @@ H5P.MarkTheWords = (function ($) {
     var SELECTABLE_MARK = 'h5p-word-selectable';
 
     var self = this;
+    var input = word;
+    var handledInput = input;
     //Check if word is an answer
-    var isAnswer = handleInput(word);
+    var isAnswer = checkForAnswer();
 
     //Remove single asterisk and escape double asterisks.
-    var input = handleAsterisks(word);
+    handleAsterisks();
+
     var isSelectable = true;
     var isSelected = false;
 
     //Create jQuery object of word.
     var $word = $('<span /> ', {
       class: SELECTABLE_MARK,
-      html: input
+      html: handledInput
     }).appendTo($container).click(function () {
       if (!isSelectable){
         return;
       }
-      self.markWord();
+      self.toggleMark();
     });
 
     //Append a space after the word.
@@ -301,14 +303,16 @@ H5P.MarkTheWords = (function ($) {
      * @private
      * @return {Boolean} Returns true if the word is an answer.
      */
-    function handleInput(word) {
+    function checkForAnswer() {
       //Check last and next to last character, in case of punctuations.
-      word = removeDoubleAsterisks(word);
-      if (word.charAt(0) === ('*') && word.length>2){
-        if (word.charAt(word.length-1) === ('*')){
+      var wordString = removeDoubleAsterisks(input);
+      if (wordString.charAt(0) === ('*') && wordString.length > 2){
+        if (wordString.charAt(wordString.length - 1) === ('*')){
+          handledInput = input.slice(1, input.length - 1);
           return true;
         }
-        else if(word.charAt(word.length-2) === ('*')) {
+        else if(wordString.charAt(wordString.length - 2) === ('*')) {
+          handledInput = input.slice(1, input.length-2) + input.charAt(input.length-1);
           return true;
         }
         return false;
@@ -319,57 +323,38 @@ H5P.MarkTheWords = (function ($) {
     /**
      * Removes double asterisks from string, used to handle input.
      * @private
-     * @param {String} string The string which will be handled.
-     * @results {String} string Returns a string without double asterisks.
+     * @param {String} wordString The string which will be handled.
+     * @results {String} slicedWord Returns a string without double asterisks.
      */
-    function removeDoubleAsterisks(string) {
-      var asteriskIndex = string.indexOf('*');
+    function removeDoubleAsterisks(wordString) {
+      var asteriskIndex = wordString.indexOf('*');
+      var slicedWord = wordString;
       while (asteriskIndex !== -1){
-        if (string.indexOf('*',asteriskIndex+1) === asteriskIndex+1) {
-          string = string.slice(0, asteriskIndex)+string.slice(asteriskIndex+2, string.length);
+        if (wordString.indexOf('*', asteriskIndex + 1) === asteriskIndex + 1) {
+           slicedWord = wordString.slice(0, asteriskIndex) + wordString.slice(asteriskIndex + 2, input.length);
         }
-        asteriskIndex = string.indexOf('*', asteriskIndex+1);
+        asteriskIndex = wordString.indexOf('*', asteriskIndex + 1);
       }
-      return string;
+      return slicedWord;
     }
 
     /**
      * Escape double asterisks ** = *, and remove single asterisk.
      * @private
-     * @param {String} string The string which will be handled.
-     * @results {String} string Returns a string with handled asterisks.
      */
-    function handleAsterisks(string) {
-      var asteriskIndex = string.indexOf('*');
+    function handleAsterisks() {
+      var asteriskIndex = handledInput.indexOf('*');
       while (asteriskIndex !== -1){
-        string = string.slice(0, asteriskIndex)+string.slice(asteriskIndex+1, string.length);
-        asteriskIndex = string.indexOf('*', asteriskIndex+1);
+        handledInput = handledInput.slice(0, asteriskIndex) + handledInput.slice(asteriskIndex + 1, handledInput.length);
+        asteriskIndex = handledInput.indexOf('*', asteriskIndex + 1);
       }
-      return string;
-    }
-    /**
-     * Sets the styling of the word as the supplied marking.
-     * @private
-     * @param {String} markClass The css class to mark the word with.
-     */
-    function setMark(markClass) {
-      $word.addClass(markClass);
-    }
-
-    /**
-     * Sets the styling of the word as the supplied marking.
-     * @private
-     * @param {String} markClass The css class to mark the word with.
-     */
-    function removeMark(markClass) {
-      $word.removeClass(markClass);
     }
 
     /**
      * Toggle the marking of a word.
      * @public
      */
-    this.markWord = function () {
+    this.toggleMark = function () {
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
     };
@@ -379,10 +364,10 @@ H5P.MarkTheWords = (function ($) {
      * @public
      */
     this.markClear = function () {
-      removeMark(MISSED_MARK);
-      removeMark(CORRECT_MARK);
-      removeMark(WRONG_MARK);
-      removeMark(SELECTED_MARK);
+      $word.removeClass(MISSED_MARK);
+      $word.removeClass(CORRECT_MARK);
+      $word.removeClass(WRONG_MARK);
+      $word.removeClass(SELECTED_MARK);
       isSelected = false;
     };
 
@@ -391,12 +376,12 @@ H5P.MarkTheWords = (function ($) {
      * @public
      */
     this.showSolution = function () {
-      removeMark(MISSED_MARK);
-      removeMark(CORRECT_MARK);
-      removeMark(WRONG_MARK);
-      removeMark(SELECTED_MARK);
+      $word.removeClass(MISSED_MARK);
+      $word.removeClass(CORRECT_MARK);
+      $word.removeClass(WRONG_MARK);
+      $word.removeClass(SELECTED_MARK);
       if (isAnswer) {
-        setMark(CORRECT_MARK);
+        $word.addClass(CORRECT_MARK);
       }
     }
 
@@ -407,22 +392,22 @@ H5P.MarkTheWords = (function ($) {
     this.markCheck = function () {
       if (isSelected) {
         if (isAnswer) {
-          setMark(CORRECT_MARK);
+          $word.addClass(CORRECT_MARK);
         }
         else {
-          setMark(WRONG_MARK);
+          $word.addClass(WRONG_MARK);
         }
       }
       else if (isAnswer) {
-        setMark(MISSED_MARK);
+        $word.addClass(MISSED_MARK);
       }
-      removeMark(SELECTED_MARK);
+      $word.removeClass(SELECTED_MARK);
     };
 
     /**
      * Set whether the word should be selectable.
      * @public
-     * @param {Boolean} Set to true to make word selectable.
+     * @param {Boolean} selectable Set to true to make word selectable.
      */
     this.setSelectable = function (selectable) {
       isSelectable = selectable;
