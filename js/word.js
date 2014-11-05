@@ -28,6 +28,7 @@ H5P.MarkTheWords = (function ($) {
    * Initialize module.
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
+   *
    * @returns {Object} C Mark the words instance
    */
   function C(params, id) {
@@ -98,13 +99,13 @@ H5P.MarkTheWords = (function ($) {
    */
   C.prototype.addButtons = function () {
     var self = this;
-    var $buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
+    self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
     var $checkAnswerButton = $('<button/>', {
       class: BUTTONS+' '+CHECK_BUTTON,
       type: 'button',
       text: this.params.checkAnswer
-    }).appendTo($buttonContainer).click(function () {
+    }).appendTo(self.$buttonContainer).click(function () {
       self.setAllSelectable(false);
       self.setAllMarks();
       $checkAnswerButton.hide();
@@ -117,14 +118,14 @@ H5P.MarkTheWords = (function ($) {
       class: BUTTONS+' '+RETRY_BUTTON,
       type: 'button',
       text: this.params.tryAgain
-    }).appendTo($buttonContainer).click(function () {
+    }).appendTo(self.$buttonContainer).click(function () {
       self.clearAllMarks();
       self.hideEvaluation();
       self.setAllSelectable(true);
       $retryButton.hide();
       $checkAnswerButton.show();
     });
-    $buttonContainer.appendTo(this.$footer);
+    self.$buttonContainer.appendTo(this.$footer);
   };
 
   /**
@@ -149,6 +150,7 @@ H5P.MarkTheWords = (function ($) {
 
   /**
    * Evaluate task and display score text for word markings.
+   *
    * @return {Boolean} Returns true if maxScore was achieved.
    */
   C.prototype.showEvaluation = function () {
@@ -165,8 +167,7 @@ H5P.MarkTheWords = (function ($) {
 
     //Append evaluation emoticon and score to evaluation container.
     $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this.$evaluation);
-    this.$evaluationScore = $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>')
-      .appendTo(this.$evaluation);
+    $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>').appendTo(this.$evaluation);
     if (score === this.answers) {
       this.$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
@@ -183,6 +184,9 @@ H5P.MarkTheWords = (function ($) {
     this.$evaluation.html('');
   };
 
+  /**
+   * Calculate score and store them in class variables.
+   */
   C.prototype.calculateScore = function () {
     var self = this;
     self.correctAnswers = 0;
@@ -199,7 +203,7 @@ H5P.MarkTheWords = (function ($) {
         self.missedAnswers += 1;
       }
     });
-  }
+  };
 
   /**
    * Clear styling on marked words.
@@ -217,7 +221,6 @@ H5P.MarkTheWords = (function ($) {
    * @returns {Boolean} Always returns true.
    */
   C.prototype.getAnswerGiven = function () {
-    this.calculateScore();
     return true;
   };
 
@@ -228,6 +231,7 @@ H5P.MarkTheWords = (function ($) {
    * @returns {Number} score The amount of points achieved.
    */
   C.prototype.getScore = function () {
+    this.calculateScore();
     return ((this.correctAnswers - this.wrongAnswers) <= 0) ? 0 : (this.correctAnswers - this.wrongAnswers);
   };
 
@@ -244,10 +248,17 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Needed for contracts.
    * Display the evaluation of the task, with proper markings.
-   *
    */
   C.prototype.showSolutions = function () {
     this.setAllMarks();
+    this.removeButtons();
+  };
+
+  /**
+   * Remove the buttons in buttonContainer. Used to disable further input for user.
+   */
+  C.prototype.removeButtons = function () {
+    this.$buttonContainer.hide();
   };
 
   /**
@@ -267,7 +278,7 @@ H5P.MarkTheWords = (function ($) {
 
     var self = this;
     var input = word;
-    var handledInput = input;
+    var handledInput = word;
     //Check if word is an answer
     var isAnswer = checkForAnswer();
 
@@ -305,7 +316,7 @@ H5P.MarkTheWords = (function ($) {
           return true;
         }
         else if(wordString.charAt(wordString.length - 2) === ('*')) {
-          handledInput = input.slice(1, input.length-2) + input.charAt(input.length-1);
+          handledInput = input.slice(1, input.length - 2) + input.charAt(input.length - 1);
           return true;
         }
         return false;
@@ -376,7 +387,7 @@ H5P.MarkTheWords = (function ($) {
       if (isAnswer) {
         $word.addClass(CORRECT_MARK);
       }
-    }
+    };
 
     /**
      * Check if the word is correctly marked and style it accordingly.
@@ -412,10 +423,7 @@ H5P.MarkTheWords = (function ($) {
      * @returns {Boolean} True if the marking is correct.
      */
     this.isCorrect = function () {
-      if (isAnswer && isSelected) {
-        return true;
-      }
-      return false;
+      return (isAnswer && isSelected);
     };
 
     /**
@@ -424,10 +432,7 @@ H5P.MarkTheWords = (function ($) {
      * @returns {Boolean} True if the marking is wrong.
      */
     this.isWrong = function () {
-      if (!isAnswer && isSelected) {
-        return true;
-      }
-      return false;
+      return (!isAnswer && isSelected);
     };
 
     /**
@@ -436,10 +441,7 @@ H5P.MarkTheWords = (function ($) {
      * @returns {Boolean} True if the marking is missed.
      */
     this.isMissed = function () {
-      if (isAnswer && !isSelected) {
-        return true;
-      }
-      return false;
+      return (isAnswer && !isSelected);
     };
 
     /**
@@ -448,10 +450,7 @@ H5P.MarkTheWords = (function ($) {
      * @returns {Boolean} True if the word is an answer.
      */
     this.isAnswer = function () {
-      if (isAnswer) {
-        return true;
-      }
-      return false;
+      return isAnswer;
     };
   }
 
