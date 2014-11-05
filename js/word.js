@@ -238,7 +238,7 @@ H5P.MarkTheWords = (function ($) {
    * @returns {Number} maxScore The maximum amount of points achievable.
    */
   C.prototype.getMaxScore = function () {
-    return self.answers;
+    return this.answers;
   };
 
   /**
