@@ -51,7 +51,7 @@ H5P.MarkTheWords = (function ($) {
    */
   C.prototype.attach = function ($container) {
     this.$inner = $container.addClass(MAIN_CONTAINER)
-        .html('<div class='+INNER_CONTAINER+'><div class='+TITLE_CONTAINER+'>' + this.params.taskDescription + '</div></div>')
+        .html('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>')
         .children();
     this.addTaskTo(this.$inner);
 
@@ -88,8 +88,8 @@ H5P.MarkTheWords = (function ($) {
    * Append footer to inner block.
    */
   C.prototype.addFooter = function () {
-    this.$footer = $('<div class='+FOOTER_CONTAINER+'></div>').appendTo(this.$inner);
-    this.$evaluation = $('<div class='+EVALUATION_CONTAINER+'></div>').appendTo(this.$footer);
+    this.$footer = $('<div class=' + FOOTER_CONTAINER + '></div>').appendTo(this.$inner);
+    this.$evaluation = $('<div class=' + EVALUATION_CONTAINER + '></div>').appendTo(this.$footer);
     this.addButtons();
   };
 
@@ -162,6 +162,7 @@ H5P.MarkTheWords = (function ($) {
       .replace(/@correct/g, this.correctAnswers.toString())
       .replace(/@wrong/g, this.wrongAnswers.toString())
       .replace(/@missed/g, this.missedAnswers.toString());
+
     //Append evaluation emoticon and score to evaluation container.
     $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this.$evaluation);
     this.$evaluationScore = $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>')
@@ -183,18 +184,19 @@ H5P.MarkTheWords = (function ($) {
   };
 
   C.prototype.calculateScore = function () {
-    this.correctAnswers = 0;
-    this.wrongAnswers = 0;
-    this.missedAnswers = 0;
-    this.selectableWords.forEach(function (entry) {
+    var self = this;
+    self.correctAnswers = 0;
+    self.wrongAnswers = 0;
+    self.missedAnswers = 0;
+    self.selectableWords.forEach(function (entry) {
       if(entry.isCorrect()) {
-        this.correctAnswers += 1;
+        self.correctAnswers += 1;
       }
       else if(entry.isWrong()) {
-        this.wrongAnswers += 1;
+        self.wrongAnswers += 1;
       }
       else if(entry.isMissed()) {
-        this.missedAnswers += 1;
+        self.missedAnswers += 1;
       }
     });
   }
