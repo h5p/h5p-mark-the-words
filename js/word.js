@@ -24,7 +24,6 @@ H5P.MarkTheWords = (function ($) {
   var CHECK_BUTTON = "h5p-check-button";
   var RETRY_BUTTON = "h5p-retry-button";
 
-
   /**
    * Initialize module.
    * @param {Object} params Behavior settings
@@ -51,10 +50,10 @@ H5P.MarkTheWords = (function ($) {
    * @param {jQuery} $container the jQuery object which this module will attach itself to.
    */
   C.prototype.attach = function ($container) {
-    this._$inner = $container.addClass(MAIN_CONTAINER)
+    this.$inner = $container.addClass(MAIN_CONTAINER)
         .html('<div class='+INNER_CONTAINER+'><div class='+TITLE_CONTAINER+'>' + this.params.taskDescription + '</div></div>')
         .children();
-    this.addTaskTo(this._$inner);
+    this.addTaskTo(this.$inner);
 
     // Add score and button containers.
     this.addFooter();
@@ -89,8 +88,8 @@ H5P.MarkTheWords = (function ($) {
    * Append footer to inner block.
    */
   C.prototype.addFooter = function () {
-    this._$footer = $('<div class='+FOOTER_CONTAINER+'></div>').appendTo(this._$inner);
-    this._$evaluation = $('<div class='+EVALUATION_CONTAINER+'></div>').appendTo(this._$footer);
+    this.$footer = $('<div class='+FOOTER_CONTAINER+'></div>').appendTo(this.$inner);
+    this.$evaluation = $('<div class='+EVALUATION_CONTAINER+'></div>').appendTo(this.$footer);
     this.addButtons();
   };
 
@@ -125,7 +124,7 @@ H5P.MarkTheWords = (function ($) {
       $retryButton.hide();
       $checkAnswerButton.show();
     });
-    $buttonContainer.appendTo(this._$footer);
+    $buttonContainer.appendTo(this.$footer);
   };
 
   /**
@@ -154,48 +153,51 @@ H5P.MarkTheWords = (function ($) {
    */
   C.prototype.showEvaluation = function () {
     this.hideEvaluation();
-    var maxScore = this.answers;
-    var correctAnswers = 0;
-    var wrongAnswers = 0;
-    var missedAnswers = 0;
-    this.selectableWords.forEach(function (entry) {
-      if(entry.isCorrect()) {
-        correctAnswers += 1;
-      }
-      else if(entry.isWrong()) {
-        wrongAnswers += 1;
-      }
-      else if(entry.isMissed()) {
-        missedAnswers += 1;
-      }
-    });
-    var score = ((correctAnswers - wrongAnswers) <= 0) ? 0 : (correctAnswers - wrongAnswers);
+    this.calculateScore();
 
+    var score = ((this.correctAnswers - this.wrongAnswers) <= 0) ? 0 : (this.correctAnswers - this.wrongAnswers);
     //replace editor variables with values, uses regexp to replace all instances.
     var scoreText = this.params.score.replace(/@score/g, score.toString())
-      .replace(/@total/g, maxScore.toString())
-      .replace(/@correct/g, correctAnswers.toString())
-      .replace(/@wrong/g, wrongAnswers.toString())
-      .replace(/@missed/g, missedAnswers.toString());
+      .replace(/@total/g, this.answers.toString())
+      .replace(/@correct/g, this.correctAnswers.toString())
+      .replace(/@wrong/g, this.wrongAnswers.toString())
+      .replace(/@missed/g, this.missedAnswers.toString());
     //Append evaluation emoticon and score to evaluation container.
-    $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this._$evaluation);
-    this._$evaluationScore = $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>')
-      .appendTo(this._$evaluation);
-    if (score === maxScore) {
-      this._$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
+    $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this.$evaluation);
+    this.$evaluationScore = $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>')
+      .appendTo(this.$evaluation);
+    if (score === this.answers) {
+      this.$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
     else {
-      this._$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
+      this.$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
-    return score === maxScore;
+    return score === this.answers;
   };
 
   /**
    * Clear the evaluation text.
    */
   C.prototype.hideEvaluation = function () {
-    this._$evaluation.html('');
+    this.$evaluation.html('');
   };
+
+  C.prototype.calculateScore = function () {
+    this.correctAnswers = 0;
+    this.wrongAnswers = 0;
+    this.missedAnswers = 0;
+    this.selectableWords.forEach(function (entry) {
+      if(entry.isCorrect()) {
+        this.correctAnswers += 1;
+      }
+      else if(entry.isWrong()) {
+        this.wrongAnswers += 1;
+      }
+      else if(entry.isMissed()) {
+        this.missedAnswers += 1;
+      }
+    });
+  }
 
   /**
    * Clear styling on marked words.
@@ -208,11 +210,12 @@ H5P.MarkTheWords = (function ($) {
 
   /**
    * Needed for contracts.
-   * Always returns true, since MTW has no required actions to give an answer.
+   * Always returns true, since MTW has no required actions to give an answer. Also calculates score.
    *
    * @returns {Boolean} Always returns true.
    */
   C.prototype.getAnswerGiven = function () {
+    this.calculateScore();
     return true;
   };
 
@@ -223,17 +226,7 @@ H5P.MarkTheWords = (function ($) {
    * @returns {Number} score The amount of points achieved.
    */
   C.prototype.getScore = function () {
-    var correctAnswers = 0;
-    var wrongAnswers = 0;
-    this.selectableWords.forEach(function (entry) {
-      if(entry.isCorrect()) {
-        correctAnswers += 1;
-      }
-      else if(entry.isWrong()) {
-        wrongAnswers += 1;
-      }
-    });
-    return ((correctAnswers - wrongAnswers) <= 0) ? 0 : (correctAnswers - wrongAnswers);
+    return ((this.correctAnswers - this.wrongAnswers) <= 0) ? 0 : (this.correctAnswers - this.wrongAnswers);
   };
 
   /**
@@ -248,13 +241,11 @@ H5P.MarkTheWords = (function ($) {
 
   /**
    * Needed for contracts.
-   * Display the correct solution for the input boxes.
+   * Display the evaluation of the task, with proper markings.
    *
    */
   C.prototype.showSolutions = function () {
-    this.selectableWords.forEach(function (entry) {
-      entry.showSolution();
-    });
+    this.setAllMarks();
   };
 
   /**
