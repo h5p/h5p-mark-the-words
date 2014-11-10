@@ -24,6 +24,13 @@ H5P.MarkTheWords = (function ($) {
   var CHECK_BUTTON = "h5p-check-button";
   var RETRY_BUTTON = "h5p-retry-button";
 
+  //CSS Classes for marking words:
+  var MISSED_MARK = 'h5p-word-missed';
+  var CORRECT_MARK = 'h5p-word-correct';
+  var WRONG_MARK = 'h5p-word-wrong';
+  var SELECTED_MARK = 'h5p-word-selected';
+  var SELECTABLE_MARK = 'h5p-word-selectable';
+
   /**
    * Initialize module.
    * @param {Object} params Behavior settings
@@ -269,13 +276,6 @@ H5P.MarkTheWords = (function ($) {
    * @returns {String} html Returns a span with correct classes for the word.
    */
   function Word(word, $container) {
-    //CSS Classes for marking words:
-    var MISSED_MARK = 'h5p-word-missed';
-    var CORRECT_MARK = 'h5p-word-correct';
-    var WRONG_MARK = 'h5p-word-wrong';
-    var SELECTED_MARK = 'h5p-word-selected';
-    var SELECTABLE_MARK = 'h5p-word-selectable';
-
     var self = this;
     var input = word;
     var handledInput = word;
