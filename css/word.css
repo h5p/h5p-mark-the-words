@@ -167,15 +167,14 @@
 }
 /* Correctly answered marking */
 .h5p-word .h5p-word-correct{
-  padding-right: 0.5em;
+  padding: 0.15em 0.5em 0.15em 0.5em;
+  border-radius: 0.8em;
   background: #d1e2ce;
-  color: #6aa81b;
-  font-weight: bold;
+  color: #39692e;
 }
 .h5p-word .h5p-word-correct:after {
   position: relative;
   right: -0.25em;
-
   text-decoration: none;
   content: "\f00c";
   font-family: 'H5PFontAwesome4';
@@ -183,7 +182,8 @@
 }
 /* Wrongly answered marking */
 .h5p-word .h5p-word-wrong {
-  padding-right: 0.5em;
+  padding: 0.15em 0.5em 0.15em 0.5em;
+  border-radius: 0.8em;
   background-color: #e6ced1;
   color: #c33f62;
   text-decoration: line-through;
@@ -191,7 +191,7 @@
 .h5p-word .h5p-word-wrong:after {
   position: relative;
   right: -0.25em;
-
+  display: inline-block;
   font-family: 'H5PFontAwesome4';
   text-decoration: none;
   content: "\f00d";
@@ -214,14 +214,14 @@ button.h5p-retry-button.h5p-retry-button {
 
 /* Colors and styling for word selections */
 .h5p-word .h5p-word-selected {
-  padding: 0.1em;
-  background: #93b8e2;
-  border: 0.2em #0000ff dotted;
+  padding: 0.15em 0.5em 0.15em 0.5em;
+  border-radius: 0.8em;
+  background: #cee0f4;
 }
 .h5p-word-missed {
-  padding: 0.2em;
-  background: #e9f9f7;
-  border: 0.2em #0000ff dotted;
+  padding: 0.15em 0.5em 0.15em 0.5em;
+  border-radius: 0.8em;
+  border: 0.1em #2c76c0 dashed;
 }
 .h5p-word-selectable {
   cursor: pointer;

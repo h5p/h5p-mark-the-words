@@ -31,6 +31,9 @@ H5P.MarkTheWords = (function ($) {
   var SELECTED_MARK = 'h5p-word-selected';
   var SELECTABLE_MARK = 'h5p-word-selectable';
 
+  //CSS class for compatability with Question Set:
+  var QUESTION_SET_HIDDEN = 'h5p-question-set-hide';
+
   /**
    * Initialize module.
    * @param {Object} params Behavior settings
@@ -49,7 +52,7 @@ H5P.MarkTheWords = (function ($) {
         "This is another line of *fantastic* text.",
       checkAnswer: "Check",
       tryAgain: "Retry",
-      score: "Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed."
+      score: "You got @score of @total points."
     }, params);
   }
 
