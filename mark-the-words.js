@@ -31,9 +31,6 @@ H5P.MarkTheWords = (function ($) {
   var SELECTED_MARK = 'h5p-word-selected';
   var SELECTABLE_MARK = 'h5p-word-selectable';
 
-  //CSS class for compatability with Question Set:
-  var QUESTION_SET_HIDDEN = 'h5p-question-set-hide';
-
   /**
    * Initialize module.
    * @param {Object} params Behavior settings
@@ -99,8 +96,12 @@ H5P.MarkTheWords = (function ($) {
    * Append footer to inner block.
    */
   C.prototype.addFooter = function () {
-    this.$footer = $('<div class=' + FOOTER_CONTAINER + '></div>').appendTo(this.$inner);
-    this.$evaluation = $('<div class=' + EVALUATION_CONTAINER + '></div>').appendTo(this.$footer);
+    this.$footer = $('<div/>', {
+      'class': FOOTER_CONTAINER
+    }).appendTo(this.$inner);
+    this.$evaluation = $('<div/>', {
+      'class': EVALUATION_CONTAINER
+    }).appendTo(this.$footer);
     this.addButtons();
   };
 
@@ -112,7 +113,7 @@ H5P.MarkTheWords = (function ($) {
     self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
     var $checkAnswerButton = $('<button/>', {
-      class: BUTTONS+' '+CHECK_BUTTON,
+      'class': BUTTONS+' '+CHECK_BUTTON,
       type: 'button',
       text: this.params.checkAnswer
     }).appendTo(self.$buttonContainer).click(function () {
@@ -125,7 +126,7 @@ H5P.MarkTheWords = (function ($) {
     });
 
     var $retryButton =  $('<button/>', {
-      class: BUTTONS+' '+RETRY_BUTTON,
+      'class': BUTTONS+' '+RETRY_BUTTON,
       type: 'button',
       text: this.params.tryAgain
     }).appendTo(self.$buttonContainer).click(function () {
@@ -293,7 +294,7 @@ H5P.MarkTheWords = (function ($) {
 
     //Create jQuery object of word.
     var $word = $('<span /> ', {
-      class: SELECTABLE_MARK,
+      'class': SELECTABLE_MARK,
       html: handledInput
     }).appendTo($container).click(function () {
       if (!isSelectable){

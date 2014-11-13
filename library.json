@@ -1,21 +1,21 @@
 {
   "title": "Mark The Words",
-  "description": "void",
+  "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
   "minorVersion": 0,
   "patchVersion": 0,
   "runnable": 1,
   "author": "Joubel AS",
-  "license": "cc-by-sa",
+  "license": "MIT",
   "machineName": "H5P.MarkTheWords",
   "preloadedCss": [
     {
-      "path": "css/word.css"
+      "path": "mark-the-words.css"
     }
   ],
   "preloadedJs": [
     {
-      "path": "js/word.js"
+      "path": "mark-the-words.js"
     }
   ],
   "preloadedDependencies": [
