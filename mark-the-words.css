@@ -178,7 +178,7 @@
 }
 .h5p-word .h5p-word-correct:after {
   position: relative;
-  right: -0.25em;
+  right: 0.1em;
   text-decoration: none;
   content: "\f00c";
   font-family: 'H5PFontAwesome4';
@@ -195,7 +195,7 @@
 }
 .h5p-word .h5p-word-wrong:after {
   position: relative;
-  right: -0.25em;
+  right: 0.1em;
   display: inline-block;
   font-family: 'H5PFontAwesome4';
   text-decoration: none;
