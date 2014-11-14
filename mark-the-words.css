@@ -25,6 +25,12 @@
   padding: 1em;
 }
 
+.h5p-word-selectable-words {
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
+  line-height: 2em;
+}
+
 /* Actual text paragraphs */
 .h5p-word .h5p-word-inner p {
   font-size: 1em;
@@ -135,8 +141,6 @@
   margin-left: 5.5em;
   z-index: 1;
   border: 1px solid #ccc;
-  -webkit-filter: drop-shadow(0 0 0.2em #999999);
-  filter: drop-shadow(0 0 0.2em #999999);
   line-height: 1.3em;
 }
 
@@ -179,6 +183,7 @@
   content: "\f00c";
   font-family: 'H5PFontAwesome4';
   color: #39692e;
+  padding-left: 0.75em;
 }
 /* Wrongly answered marking */
 .h5p-word .h5p-word-wrong {
@@ -196,6 +201,7 @@
   text-decoration: none;
   content: "\f00d";
   color: #c33f62;
+  padding-left: 0.75em;
 }
 /* SPECIFIC CSS CLASSES FOR MARK THE WORDS MODULE: */
 /* Start state for button: */

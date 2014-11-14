@@ -45,8 +45,7 @@ H5P.MarkTheWords = (function ($) {
     // Set default behavior.
     this.params = $.extend({}, {
       taskDescription: "Highlight the adjectives in the following sentence",
-      textField: "This is a *nice*, *flexible* content type, which allows you to highlight all the *wonderful* words in this *exciting* sentence.\n"+
-        "This is another line of *fantastic* text.",
+      textField: "This is a *nice*, *flexible* content type.",
       checkAnswer: "Check",
       tryAgain: "Retry",
       score: "You got @score of @total points."
@@ -283,6 +282,7 @@ H5P.MarkTheWords = (function ($) {
     var self = this;
     var input = word;
     var handledInput = word;
+    var wordEnding = ' ';
     //Check if word is an answer
     var isAnswer = checkForAnswer();
 
@@ -304,7 +304,7 @@ H5P.MarkTheWords = (function ($) {
     });
 
     //Append a space after the word.
-    $container.append(' ');
+    $container.append(wordEnding);
 
     /**
      * Checks if the word is an answer by checking the first, second to last and last character of the word.
@@ -312,6 +312,7 @@ H5P.MarkTheWords = (function ($) {
      * @return {Boolean} Returns true if the word is an answer.
      */
     function checkForAnswer() {
+      var self = this;
       //Check last and next to last character, in case of punctuations.
       var wordString = removeDoubleAsterisks(input);
       if (wordString.charAt(0) === ('*') && wordString.length > 2){
@@ -320,7 +321,8 @@ H5P.MarkTheWords = (function ($) {
           return true;
         }
         else if(wordString.charAt(wordString.length - 2) === ('*')) {
-          handledInput = input.slice(1, input.length - 2) + input.charAt(input.length - 1);
+          handledInput = input.slice(1, input.length - 2);
+          wordEnding = input.charAt(input.length-1)+' ';
           return true;
         }
         return false;
