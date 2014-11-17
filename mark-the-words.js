@@ -112,7 +112,7 @@ H5P.MarkTheWords = (function ($) {
     self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
     var $checkAnswerButton = $('<button/>', {
-      'class': BUTTONS+' '+CHECK_BUTTON,
+      'class': BUTTONS + ' ' + CHECK_BUTTON,
       type: 'button',
       text: this.params.checkAnswer
     }).appendTo(self.$buttonContainer).click(function () {
@@ -125,7 +125,7 @@ H5P.MarkTheWords = (function ($) {
     });
 
     var $retryButton =  $('<button/>', {
-      'class': BUTTONS+' '+RETRY_BUTTON,
+      'class': BUTTONS + ' ' + RETRY_BUTTON,
       type: 'button',
       text: this.params.tryAgain
     }).appendTo(self.$buttonContainer).click(function () {
@@ -176,7 +176,7 @@ H5P.MarkTheWords = (function ($) {
       .replace(/@missed/g, this.missedAnswers.toString());
 
     //Append evaluation emoticon and score to evaluation container.
-    $('<div class='+EVALUATION_EMOTICON+'></div>').appendTo(this.$evaluation);
+    $('<div class=' + EVALUATION_EMOTICON + '></div>').appendTo(this.$evaluation);
     $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>').appendTo(this.$evaluation);
     if (score === this.answers) {
       this.$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
@@ -322,7 +322,7 @@ H5P.MarkTheWords = (function ($) {
         }
         else if(wordString.charAt(wordString.length - 2) === ('*')) {
           handledInput = input.slice(1, input.length - 2);
-          wordEnding = input.charAt(input.length-1)+' ';
+          wordEnding = input.charAt(input.length - 1) + ' ';
           return true;
         }
         return false;
@@ -374,10 +374,10 @@ H5P.MarkTheWords = (function ($) {
      * @public
      */
     this.markClear = function () {
-      $word.removeClass(MISSED_MARK);
-      $word.removeClass(CORRECT_MARK);
-      $word.removeClass(WRONG_MARK);
-      $word.removeClass(SELECTED_MARK);
+      $word.removeClass(MISSED_MARK)
+        .removeClass(CORRECT_MARK)
+        .removeClass(WRONG_MARK)
+        .removeClass(SELECTED_MARK);
       isSelected = false;
     };
 
@@ -386,10 +386,10 @@ H5P.MarkTheWords = (function ($) {
      * @public
      */
     this.showSolution = function () {
-      $word.removeClass(MISSED_MARK);
-      $word.removeClass(CORRECT_MARK);
-      $word.removeClass(WRONG_MARK);
-      $word.removeClass(SELECTED_MARK);
+      $word.removeClass(MISSED_MARK)
+        .removeClass(CORRECT_MARK)
+        .removeClass(WRONG_MARK)
+        .removeClass(SELECTED_MARK);
       if (isAnswer) {
         $word.addClass(CORRECT_MARK);
       }
