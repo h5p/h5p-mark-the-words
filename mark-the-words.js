@@ -23,6 +23,7 @@ H5P.MarkTheWords = (function ($) {
   var BUTTONS = "h5p-button";
   var CHECK_BUTTON = "h5p-check-button";
   var RETRY_BUTTON = "h5p-retry-button";
+  var SHOW_SOLUTION_BUTTON = "h5p-show-solution-button";
 
   //CSS Classes for marking words:
   var MISSED_MARK = 'h5p-word-missed';
@@ -46,8 +47,11 @@ H5P.MarkTheWords = (function ($) {
     this.params = $.extend({}, {
       taskDescription: "Highlight the adjectives in the following sentence",
       textField: "This is a *nice*, *flexible* content type.",
-      checkAnswer: "Check",
-      tryAgain: "Retry",
+      enableRetry: true,
+      enableShowSolution: true,
+      checkAnswerButton: "Check",
+      tryAgainButton: "Retry",
+      showSolutionButton: "Show solution",
       score: "You got @score of @total points."
     }, params);
   }
@@ -114,28 +118,49 @@ H5P.MarkTheWords = (function ($) {
     var $checkAnswerButton = $('<button/>', {
       'class': BUTTONS + ' ' + CHECK_BUTTON,
       type: 'button',
-      text: this.params.checkAnswer
+      text: this.params.checkAnswerButton
     }).appendTo(self.$buttonContainer).click(function () {
       self.setAllSelectable(false);
-      self.setAllMarks();
+      self.feedbackSelectedWords();
       $checkAnswerButton.hide();
       if (!self.showEvaluation()) {
-        $retryButton.show();
+        if (self.params.enableShowSolution) {
+          $showSolutionButton.show();
+        }
+        if (self.params.enableRetry) {
+          $retryButton.show();
+        }
       }
     });
 
     var $retryButton =  $('<button/>', {
       'class': BUTTONS + ' ' + RETRY_BUTTON,
       type: 'button',
-      text: this.params.tryAgain
+      text: this.params.tryAgainButton
     }).appendTo(self.$buttonContainer).click(function () {
       self.clearAllMarks();
       self.hideEvaluation();
       self.setAllSelectable(true);
       $retryButton.hide();
+      $showSolutionButton.hide();
       $checkAnswerButton.show();
     });
     self.$buttonContainer.appendTo(this.$footer);
+
+    var $showSolutionButton = $('<button/>', {
+      'class': BUTTONS+' '+ SHOW_SOLUTION_BUTTON,
+      type: 'button',
+      text: this.params.showSolutionButton
+    }).appendTo(self.$buttonContainer).click(function () {
+      self.setAllSelectable(false);
+      self.setAllMarks();
+      $checkAnswerButton.hide();
+      $showSolutionButton.hide();
+      if (self.params.enableRetry) {
+        $retryButton.show();
+      }
+    });
+
   };
 
   /**
@@ -155,6 +180,17 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.setAllMarks = function () {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
+    });
+  };
+
+  /**
+   * Mark the selected words as correct or wrong.
+   */
+  C.prototype.feedbackSelectedWords = function () {
+    this.selectableWords.forEach(function (entry) {
+      if (entry.isSelected()) {
+        entry.markCheck();
+      }
     });
   };
 
@@ -260,8 +296,10 @@ H5P.MarkTheWords = (function ($) {
    * Display the evaluation of the task, with proper markings.
    */
   C.prototype.showSolutions = function () {
+    this.showEvaluation();
     this.setAllMarks();
     this.removeButtons();
+    this.setAllSelectable(false);
   };
 
   /**
@@ -458,6 +496,15 @@ H5P.MarkTheWords = (function ($) {
     this.isAnswer = function () {
       return isAnswer;
     };
+
+    /**
+     * Checks if the word is selected.
+     * @public
+     * @returns {Boolean} True if the word is selected.
+     */
+    this.isSelected = function () {
+      return isSelected;
+    }
   }
 
     return C;

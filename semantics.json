@@ -27,17 +27,36 @@
     "description": "Marked words are added with an asterix (*). An asterix may be escaped with another asterix, resulting in ** = *. Example: The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
   },
   {
+    "name": "enableRetry",
+    "type": "boolean",
+    "label": "Enable \"Retry\" button",
+    "default": true
+  },
+  {
+    "name": "enableShowSolution",
+    "type": "boolean",
+    "label": "Enable \"Show solution\" button",
+    "default": true
+  },
+  {
     "label": "Text for \"Check\" button",
-    "name": "checkAnswer",
+    "name": "checkAnswerButton",
     "type": "text",
     "default": "Check",
     "common": true
   },
   {
     "label": "Text for \"Retry\" button",
-    "name": "tryAgain",
+    "name": "tryAgainButton",
     "type": "text",
     "default": "Retry",
+    "common": true
+  },
+  {
+    "label": "Text for \"Show solution\" button",
+    "name": "showSolutionButton",
+    "type": "text",
+    "default": "Show solution",
     "common": true
   },
   {
