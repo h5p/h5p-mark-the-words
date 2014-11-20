@@ -326,6 +326,7 @@ H5P.MarkTheWords = (function ($) {
 
     //Remove single asterisk and escape double asterisks.
     handleAsterisks();
+    checkForPunctuation();
 
     var isSelectable = true;
     var isSelected = false;
@@ -358,6 +359,7 @@ H5P.MarkTheWords = (function ($) {
           handledInput = input.slice(1, input.length - 1);
           return true;
         }
+        // If punctuation, add the punctuation to the end of the word.
         else if(wordString.charAt(wordString.length - 2) === ('*')) {
           handledInput = input.slice(1, input.length - 2);
           wordEnding = input.charAt(input.length - 1) + ' ';
@@ -366,6 +368,19 @@ H5P.MarkTheWords = (function ($) {
         return false;
       }
       return false;
+    }
+
+    /**
+     * Checks if the word has a punctuation at the ending, and make sure this part is not a part of the word.
+     * @private
+     */
+    function checkForPunctuation() {
+      var self = this;
+      var punctuations = new RegExp(/[.,\-!$%;:=-_`~]/);
+      if (punctuations.test(handledInput.charAt(handledInput.length-1))) {
+        wordEnding = handledInput.charAt(handledInput.length-1)+' ';
+        handledInput = handledInput.slice(0, handledInput.length-1);
+      }
     }
 
     /**

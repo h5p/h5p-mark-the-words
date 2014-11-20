@@ -91,7 +91,7 @@
 .h5p-word .h5p-word-evaluation-container {
   float: left;
   padding: 1em 0 0 0;
-  max-width: 50%;
+  max-width: 30em;
 }
 .h5p-word .h5p-word-evaluation-container .h5p-word-evaluation-score-emoticon:before {
   display: block;
@@ -141,6 +141,8 @@
   margin-left: 5.5em;
   z-index: 1;
   border: 1px solid #ccc;
+  -webkit-filter: drop-shadow(0 0 0.2em #999999);
+  filter: drop-shadow(0 0 0.2em #999999);
   line-height: 1.3em;
 }
 
