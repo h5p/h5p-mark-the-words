@@ -376,7 +376,7 @@ H5P.MarkTheWords = (function ($) {
      */
     function checkForPunctuation() {
       var self = this;
-      var punctuations = new RegExp(/[.,\-!$%;:=-_`~]/);
+      var punctuations = new RegExp(/[!#$%&+,-.:;=?_|~]/);
       if (punctuations.test(handledInput.charAt(handledInput.length-1))) {
         wordEnding = handledInput.charAt(handledInput.length-1)+' ';
         handledInput = handledInput.slice(0, handledInput.length-1);
