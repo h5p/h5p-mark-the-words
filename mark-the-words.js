@@ -47,8 +47,8 @@ H5P.MarkTheWords = (function ($) {
     this.params = $.extend({}, {
       taskDescription: "Highlight the adjectives in the following sentence",
       textField: "This is a *nice*, *flexible* content type.",
-      enableRetry: true,
-      enableShowSolution: true,
+      enableRetryButton: true,
+      enableSolutionsButton: true,
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
@@ -124,10 +124,10 @@ H5P.MarkTheWords = (function ($) {
       self.feedbackSelectedWords();
       $checkAnswerButton.hide();
       if (!self.showEvaluation()) {
-        if (self.params.enableShowSolution) {
+        if (self.params.enableSolutionsButton) {
           $showSolutionButton.show();
         }
-        if (self.params.enableRetry) {
+        if (self.params.enableRetryButton) {
           $retryButton.show();
         }
       }
@@ -156,10 +156,15 @@ H5P.MarkTheWords = (function ($) {
       self.setAllMarks();
       $checkAnswerButton.hide();
       $showSolutionButton.hide();
-      if (self.params.enableRetry) {
+      if (self.params.enableRetryButton) {
         $retryButton.show();
       }
     });
+
+    //Make the buttons accessible.
+    self.$checkAnswerButton = $checkAnswerButton;
+    self.$retryButton = $retryButton;
+    self.$showSolutionButton = $showSolutionButton;
 
   };
 
@@ -298,15 +303,37 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.showSolutions = function () {
     this.showEvaluation();
     this.setAllMarks();
-    this.removeButtons();
+    this.hideAllButtons();
     this.setAllSelectable(false);
   };
 
   /**
-   * Remove the buttons in buttonContainer. Used to disable further input for user.
+   * Needed for contracts.
+   * Resets the task back to its' initial state.
    */
-  C.prototype.removeButtons = function () {
+  C.prototype.resetTask = function () {
+    var self = this;
+    self.clearAllMarks();
+    self.hideEvaluation();
+    self.setAllSelectable(true);
+    self.showAllButtons();
+    self.$retryButton.hide();
+    self.$showSolutionButton.hide();
+    self.$checkAnswerButton.show();
+  };
+
+  /**
+   * Hide all buttons. Used to disable further input for user.
+   */
+  C.prototype.hideAllButtons = function () {
     this.$buttonContainer.hide();
+  };
+
+  /**
+   * Show all buttons in the task.
+   */
+  C.prototype.showAllButtons = function () {
+    this.$buttonContainer.show();
   };
 
   /**

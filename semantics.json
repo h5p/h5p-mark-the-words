@@ -27,13 +27,13 @@
     "description": "Marked words are added with an asterix (*). An asterix may be escaped with another asterix, resulting in ** = *. Example: The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
   },
   {
-    "name": "enableRetry",
+    "name": "enableRetryButton",
     "type": "boolean",
     "label": "Enable \"Retry\" button",
     "default": true
   },
   {
-    "name": "enableShowSolution",
+    "name": "enableSolutionsButton",
     "type": "boolean",
     "label": "Enable \"Show solution\" button",
     "default": true
