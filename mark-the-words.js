@@ -48,8 +48,10 @@ H5P.MarkTheWords = (function ($) {
     this.params = $.extend({}, {
       taskDescription: "Highlight the adjectives in the following sentence",
       textField: "This is a *nice*, *flexible* content type.",
-      enableRetry: true,
-      enableSolutionsButton: true,
+      behaviour: {
+        enableRetry: true,
+        enableSolutionsButton: true
+      },
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
@@ -127,10 +129,10 @@ H5P.MarkTheWords = (function ($) {
       self.feedbackSelectedWords();
       $checkAnswerButton.hide();
       if (!self.showEvaluation()) {
-        if (self.params.enableSolutionsButton) {
+        if (self.params.behaviour.enableSolutionsButton) {
           $showSolutionButton.show();
         }
-        if (self.params.enableRetry) {
+        if (self.params.behaviour.enableRetry) {
           $retryButton.show();
         }
       }
@@ -159,7 +161,7 @@ H5P.MarkTheWords = (function ($) {
       self.setAllMarks();
       $checkAnswerButton.hide();
       $showSolutionButton.hide();
-      if (self.params.enableRetry) {
+      if (self.params.behaviour.enableRetry) {
         $retryButton.show();
       }
     });
