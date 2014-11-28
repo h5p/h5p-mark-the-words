@@ -26,11 +26,12 @@ H5P.MarkTheWords = (function ($) {
   var SHOW_SOLUTION_BUTTON = "h5p-show-solution-button";
 
   //CSS Classes for marking words:
-  var MISSED_MARK = 'h5p-word-missed';
-  var CORRECT_MARK = 'h5p-word-correct';
-  var WRONG_MARK = 'h5p-word-wrong';
-  var SELECTED_MARK = 'h5p-word-selected';
-  var SELECTABLE_MARK = 'h5p-word-selectable';
+  var MISSED_MARK = "h5p-word-missed";
+  var CORRECT_MARK = "h5p-word-correct";
+  var WRONG_MARK = "h5p-word-wrong";
+  var SELECTED_MARK = "h5p-word-selected";
+  var SELECTABLE_MARK = "h5p-word-selectable";
+  var WORD_DISABLED = "h5p-word-disabled";
 
   /**
    * Initialize module.
@@ -47,7 +48,7 @@ H5P.MarkTheWords = (function ($) {
     this.params = $.extend({}, {
       taskDescription: "Highlight the adjectives in the following sentence",
       textField: "This is a *nice*, *flexible* content type.",
-      enableRetryButton: true,
+      enableRetry: true,
       enableSolutionsButton: true,
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
@@ -93,6 +94,8 @@ H5P.MarkTheWords = (function ($) {
       self.selectableWords.push(selectableWord);
     });
     $wordContainer.appendTo($container);
+
+    self.$wordContainer = $wordContainer;
   };
 
   /**
@@ -127,7 +130,7 @@ H5P.MarkTheWords = (function ($) {
         if (self.params.enableSolutionsButton) {
           $showSolutionButton.show();
         }
-        if (self.params.enableRetryButton) {
+        if (self.params.enableRetry) {
           $retryButton.show();
         }
       }
@@ -156,7 +159,7 @@ H5P.MarkTheWords = (function ($) {
       self.setAllMarks();
       $checkAnswerButton.hide();
       $showSolutionButton.hide();
-      if (self.params.enableRetryButton) {
+      if (self.params.enableRetry) {
         $retryButton.show();
       }
     });
@@ -177,6 +180,7 @@ H5P.MarkTheWords = (function ($) {
     this.selectableWords.forEach(function (entry) {
       entry.setSelectable(selectable);
     });
+
   };
 
   /**
@@ -495,12 +499,19 @@ H5P.MarkTheWords = (function ($) {
     };
 
     /**
-     * Set whether the word should be selectable.
+     * Set whether the word should be selectable, and proper feedback.
      * @public
      * @param {Boolean} selectable Set to true to make word selectable.
      */
     this.setSelectable = function (selectable) {
       isSelectable = selectable;
+      //Toggle feedback class
+      if (selectable) {
+        $word.removeClass(WORD_DISABLED);
+      }
+      else {
+        $word.addClass(WORD_DISABLED);
+      }
     };
 
     /**
