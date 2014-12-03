@@ -8,10 +8,10 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
           // Moved all behavioural settings into "behaviour" group.
           parameters.behaviour = {
             enableRetry: parameters.enableRetry,
-            enableSolutionsButton: parameters.enableSolutionsButton
+            enableSolutionsButton: parameters.enableShowSolution
           };
           delete parameters.enableRetry;
-          delete parameters.enableSolutionsButton;
+          delete parameters.enableShowSolution;
           finished(null, parameters);
         }
       }
