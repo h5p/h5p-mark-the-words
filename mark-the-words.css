@@ -174,10 +174,16 @@
 }
 /* Selectable words*/
 .h5p-word-selectable {
+  white-space: nowrap;
   padding: 0.15em 0.15em 0.15em 0.15em;
   border-radius: 0.4em;
   cursor: pointer;
 }
+
+.h5p-word-selectable.h5p-word-disabled {
+  cursor: default;
+}
+
 /* Colors and styling for word selections */
 .h5p-word .h5p-word-selected {
   background: #cee0f4;

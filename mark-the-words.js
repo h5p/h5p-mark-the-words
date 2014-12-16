@@ -26,11 +26,12 @@ H5P.MarkTheWords = (function ($) {
   var SHOW_SOLUTION_BUTTON = "h5p-show-solution-button";
 
   //CSS Classes for marking words:
-  var MISSED_MARK = 'h5p-word-missed';
-  var CORRECT_MARK = 'h5p-word-correct';
-  var WRONG_MARK = 'h5p-word-wrong';
-  var SELECTED_MARK = 'h5p-word-selected';
-  var SELECTABLE_MARK = 'h5p-word-selectable';
+  var MISSED_MARK = "h5p-word-missed";
+  var CORRECT_MARK = "h5p-word-correct";
+  var WRONG_MARK = "h5p-word-wrong";
+  var SELECTED_MARK = "h5p-word-selected";
+  var SELECTABLE_MARK = "h5p-word-selectable";
+  var WORD_DISABLED = "h5p-word-disabled";
 
   /**
    * Initialize module.
@@ -47,8 +48,10 @@ H5P.MarkTheWords = (function ($) {
     this.params = $.extend({}, {
       taskDescription: "Highlight the adjectives in the following sentence",
       textField: "This is a *nice*, *flexible* content type.",
-      enableRetry: true,
-      enableShowSolution: true,
+      behaviour: {
+        enableRetry: true,
+        enableSolutionsButton: true
+      },
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
@@ -93,6 +96,8 @@ H5P.MarkTheWords = (function ($) {
       self.selectableWords.push(selectableWord);
     });
     $wordContainer.appendTo($container);
+
+    self.$wordContainer = $wordContainer;
   };
 
   /**
@@ -124,10 +129,10 @@ H5P.MarkTheWords = (function ($) {
       self.feedbackSelectedWords();
       $checkAnswerButton.hide();
       if (!self.showEvaluation()) {
-        if (self.params.enableShowSolution) {
+        if (self.params.behaviour.enableSolutionsButton) {
           $showSolutionButton.show();
         }
-        if (self.params.enableRetry) {
+        if (self.params.behaviour.enableRetry) {
           $retryButton.show();
         }
       }
@@ -156,10 +161,15 @@ H5P.MarkTheWords = (function ($) {
       self.setAllMarks();
       $checkAnswerButton.hide();
       $showSolutionButton.hide();
-      if (self.params.enableRetry) {
+      if (self.params.behaviour.enableRetry) {
         $retryButton.show();
       }
     });
+
+    //Make the buttons accessible.
+    self.$checkAnswerButton = $checkAnswerButton;
+    self.$retryButton = $retryButton;
+    self.$showSolutionButton = $showSolutionButton;
 
   };
 
@@ -172,6 +182,7 @@ H5P.MarkTheWords = (function ($) {
     this.selectableWords.forEach(function (entry) {
       entry.setSelectable(selectable);
     });
+
   };
 
   /**
@@ -298,15 +309,37 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.showSolutions = function () {
     this.showEvaluation();
     this.setAllMarks();
-    this.removeButtons();
+    this.hideAllButtons();
     this.setAllSelectable(false);
   };
 
   /**
-   * Remove the buttons in buttonContainer. Used to disable further input for user.
+   * Needed for contracts.
+   * Resets the task back to its' initial state.
    */
-  C.prototype.removeButtons = function () {
+  C.prototype.resetTask = function () {
+    var self = this;
+    self.clearAllMarks();
+    self.hideEvaluation();
+    self.setAllSelectable(true);
+    self.showAllButtons();
+    self.$retryButton.hide();
+    self.$showSolutionButton.hide();
+    self.$checkAnswerButton.show();
+  };
+
+  /**
+   * Hide all buttons. Used to disable further input for user.
+   */
+  C.prototype.hideAllButtons = function () {
     this.$buttonContainer.hide();
+  };
+
+  /**
+   * Show all buttons in the task.
+   */
+  C.prototype.showAllButtons = function () {
+    this.$buttonContainer.show();
   };
 
   /**
@@ -468,12 +501,19 @@ H5P.MarkTheWords = (function ($) {
     };
 
     /**
-     * Set whether the word should be selectable.
+     * Set whether the word should be selectable, and proper feedback.
      * @public
      * @param {Boolean} selectable Set to true to make word selectable.
      */
     this.setSelectable = function (selectable) {
       isSelectable = selectable;
+      //Toggle feedback class
+      if (selectable) {
+        $word.removeClass(WORD_DISABLED);
+      }
+      else {
+        $word.addClass(WORD_DISABLED);
+      }
     };
 
     /**

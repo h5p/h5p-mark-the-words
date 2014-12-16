@@ -27,18 +27,6 @@
     "description": "Marked words are added with an asterix (*). An asterix may be escaped with another asterix, resulting in ** = *. Example: The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
   },
   {
-    "name": "enableRetry",
-    "type": "boolean",
-    "label": "Enable \"Retry\" button",
-    "default": true
-  },
-  {
-    "name": "enableShowSolution",
-    "type": "boolean",
-    "label": "Enable \"Show solution\" button",
-    "default": true
-  },
-  {
     "label": "Text for \"Check\" button",
     "name": "checkAnswerButton",
     "type": "text",
@@ -67,5 +55,26 @@
     "placeholder": "You got @score of @total points.",
     "description": "Feedback text, variables available: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
     "common": true
+  },
+  {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings.",
+    "description": "These options will let you control how the task behaves.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "enableRetry",
+        "type": "boolean",
+        "label": "Enable \"Retry\"",
+        "default": true
+      },
+      {
+        "name": "enableSolutionsButton",
+        "type": "boolean",
+        "label": "Enable \"Show solution\" button",
+        "default": true
+      }
+    ]
   }
 ]
