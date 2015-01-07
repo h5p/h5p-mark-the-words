@@ -72,6 +72,108 @@ H5P.MarkTheWords = (function ($) {
     // Add score and button containers.
     this.addFooter();
   };
+
+  C.prototype.addChart = function () {
+    $('.chart').remove();
+
+    var data = [4, 8, 15, 16, 23, 42];
+
+    var $chart = $('<div/>', {'class': 'chart'})
+      .appendTo(this.$inner);
+
+    var w = 600;
+    var h = 250;
+
+    var correct = this.correctAnswers === undefined ? 2 : this.correctAnswers;
+    var wrong = this.wrongAnswers === undefined ? 3 : this.wrongAnswers;
+    var missed = this.missedAnswers === undefined ? 6 : this.missedAnswers;
+    var rest =  this.selectableWords.length - correct - wrong - missed;
+
+    var dataset = [
+      { key: 0, value: rest, text: 'All words'},
+      { key: 1, value: correct, text: 'Correct' },
+      { key: 2, value: wrong, text: 'Wrong' },
+      { key: 3, value: missed, text: 'Missed' }];
+
+    var key = function(d) {
+      return d.key;
+    };
+
+    var formatData = function(d) {
+      return dataset[d %4].text;
+    };
+
+    var margin = {top: 30, right: 20, bottom: 30, left: 50},
+      width = 600 - margin.left - margin.right,
+      height = 250 - margin.top - margin.bottom;
+
+
+    var xScale = d3.scale.ordinal()
+      .domain(d3.range(dataset.length))
+      .rangeRoundBands([0, width], 0.05);
+
+    var yScale = d3.scale.linear()
+      .domain([0, d3.max(dataset, function(d) {return d.value;})])
+      .range([0, height]);
+
+    var x = d3.time.scale().range([0, width]);
+    var y = d3.scale.linear().range([height, 0]);
+
+    var xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient("bottom")
+      .tickFormat(formatData);
+
+    //Create SVG element
+    var svg = d3.select(".chart")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h);
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+    //Create bars
+    svg.selectAll("rect")
+      .data(dataset, key)
+      .enter()
+      .append("rect")
+      .attr("x", function(d, i) {
+        return xScale(i);
+      })
+      .attr("y", function(d) {
+        return height - yScale(d.value);
+      })
+      .attr("width", xScale.rangeBand())
+      .attr("height", function(d) {
+        return yScale(d.value);
+      })
+      .attr("fill", function(d) {
+        return "rgb(0, 0, " + (d.value * 10) + ")";
+      });
+
+    //Create labels
+    svg.selectAll("text")
+      .data(dataset, key)
+      .enter()
+      .append("text")
+      .text(function(d) {
+        return d.value;
+      })
+      .attr("text-anchor", "middle")
+      .attr("x", function(d, i) {
+        return xScale(i) + xScale.rangeBand() / 2;
+      })
+      .attr("y", function(d) {
+        return height - yScale(d.value) + 14;
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "11px")
+      .attr("fill", "white");
+  };
+
   
   /**
    * Handle task and add it to container.
@@ -136,6 +238,7 @@ H5P.MarkTheWords = (function ($) {
           $retryButton.show();
         }
       }
+      self.addChart();
     });
 
     var $retryButton =  $('<button/>', {
@@ -149,6 +252,7 @@ H5P.MarkTheWords = (function ($) {
       $retryButton.hide();
       $showSolutionButton.hide();
       $checkAnswerButton.show();
+      $('.chart').remove();
     });
     self.$buttonContainer.appendTo(this.$footer);
 

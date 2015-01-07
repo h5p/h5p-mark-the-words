@@ -16,6 +16,9 @@
   "preloadedJs": [
     {
       "path": "mark-the-words.js"
+    },
+    {
+      "path": "d3.js"
     }
   ],
   "preloadedDependencies": [
