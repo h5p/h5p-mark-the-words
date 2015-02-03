@@ -40,9 +40,11 @@ H5P.MarkTheWords = (function ($) {
    *
    * @returns {Object} C Mark the words instance
    */
-  function C(params, id) {
+  function C(params, contentId) {
     this.$ = $(this);
-    this.id = id;
+    this.contentId = contentId;
+
+    H5P.EventDispatcher.call(this);
 
     // Set default behavior.
     this.params = $.extend({}, {
@@ -58,6 +60,9 @@ H5P.MarkTheWords = (function ($) {
       score: "You got @score of @total points."
     }, params);
   }
+  
+  C.prototype = Object.create(H5P.EventDispatcher.prototype);
+  C.prototype.constructor = C;
 
   /**
    * Append field to wrapper.
@@ -231,6 +236,7 @@ H5P.MarkTheWords = (function ($) {
     else {
       this.$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
+    this.triggerXAPICompleted(score, this.answers);
     return score === this.answers;
   };
 

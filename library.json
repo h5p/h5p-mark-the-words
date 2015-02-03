@@ -2,8 +2,12 @@
   "title": "Mark The Words",
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
-  "minorVersion": 1,
-  "patchVersion": 1,
+  "minorVersion": 2,
+  "patchVersion": 0,
+  "coreApi": {
+    "majorVersion": 1,
+    "minorVersion": 4
+  },
   "runnable": 1,
   "author": "Joubel AS",
   "license": "MIT",
