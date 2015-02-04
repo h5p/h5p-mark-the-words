@@ -197,6 +197,7 @@ H5P.MarkTheWords = (function ($) {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
     });
+    this.trigger('resize');
   };
 
   /**
@@ -208,6 +209,7 @@ H5P.MarkTheWords = (function ($) {
         entry.markCheck();
       }
     });
+    this.trigger('resize');
   };
 
   /**
@@ -237,6 +239,7 @@ H5P.MarkTheWords = (function ($) {
       this.$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
     this.triggerXAPICompleted(score, this.answers);
+    this.trigger('resize');
     return score === this.answers;
   };
 
@@ -245,6 +248,7 @@ H5P.MarkTheWords = (function ($) {
    */
   C.prototype.hideEvaluation = function () {
     this.$evaluation.html('');
+    this.trigger('resize');
   };
 
   /**
@@ -275,6 +279,7 @@ H5P.MarkTheWords = (function ($) {
     this.selectableWords.forEach( function (entry) {
       entry.markClear();
     });
+    this.trigger('resize');
   };
 
   /**
@@ -339,6 +344,7 @@ H5P.MarkTheWords = (function ($) {
    */
   C.prototype.hideAllButtons = function () {
     this.$buttonContainer.hide();
+    this.trigger('resize');
   };
 
   /**
@@ -346,6 +352,7 @@ H5P.MarkTheWords = (function ($) {
    */
   C.prototype.showAllButtons = function () {
     this.$buttonContainer.show();
+    this.trigger('resize');
   };
 
   /**
