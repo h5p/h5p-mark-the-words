@@ -41,7 +41,6 @@ H5P.MarkTheWords = (function ($) {
    * @returns {Object} C Mark the words instance
    */
   function C(params, contentId) {
-    this.$ = $(this);
     this.contentId = contentId;
 
     H5P.EventDispatcher.call(this);
@@ -95,6 +94,11 @@ H5P.MarkTheWords = (function ($) {
     //Make each word selectable
     selectableStrings.forEach(function (entry) {
       var selectableWord = new Word(entry, $wordContainer);
+      selectableWord.on('xAPI', function(event) {
+        if (event.getVerb() === 'attempted') {
+          self.triggerXAPI('attempted');
+        }
+      });
       if (selectableWord.isAnswer()) {
         self.answers += 1;
       }
@@ -364,6 +368,7 @@ H5P.MarkTheWords = (function ($) {
    */
   function Word(word, $container) {
     var self = this;
+    H5P.EventDispatcher.call(this);
     var input = word;
     var handledInput = word;
     var wordEnding = ' ';
@@ -464,6 +469,7 @@ H5P.MarkTheWords = (function ($) {
      * @public
      */
     this.toggleMark = function () {
+      self.triggerXAPI('attempted');
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
     };
@@ -574,6 +580,8 @@ H5P.MarkTheWords = (function ($) {
       return isSelected;
     }
   }
+  Word.prototype = Object.create(H5P.EventDispatcher.prototype);
+  Word.prototype.constructor = Word;
 
-    return C;
+  return C;
 })(H5P.jQuery);
