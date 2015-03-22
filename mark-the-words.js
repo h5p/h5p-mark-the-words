@@ -37,7 +37,7 @@ H5P.MarkTheWords = (function ($) {
    * Initialize module.
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
-   * @param {Object} additionalData Data object containing
+   * @param {Object} additionalData Object containing extra data
    *
    * @returns {Object} C Mark the words instance
    */
