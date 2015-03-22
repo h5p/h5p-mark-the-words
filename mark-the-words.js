@@ -316,6 +316,10 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.getMaxScore = function () {
     return this.answers;
   };
+  
+  C.prototype.getH5PTitle = function() {
+    return H5P.createH5PTitle(this.params.taskDescription);
+  };
 
   /**
    * Needed for contracts.
