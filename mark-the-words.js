@@ -37,10 +37,11 @@ H5P.MarkTheWords = (function ($) {
    * Initialize module.
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
+   * @param {Object} additionalData Object containing extra data
    *
    * @returns {Object} C Mark the words instance
    */
-  function C(params, contentId) {
+  function C(params, contentId, additionalData) {
     this.contentId = contentId;
 
     H5P.EventDispatcher.call(this);
@@ -58,6 +59,11 @@ H5P.MarkTheWords = (function ($) {
       showSolutionButton: "Show solution",
       score: "You got @score of @total points."
     }, params);
+
+    this.additionalData = additionalData;
+    if (this.additionalData !== undefined && this.additionalData.userState !== undefined) {
+      this.userState = this.additionalData.userState;
+    }
   }
   
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -72,6 +78,9 @@ H5P.MarkTheWords = (function ($) {
         .html('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>')
         .children();
     this.addTaskTo(this.$inner);
+
+    // Set user state
+    this.setH5PUserState();
 
     // Add score and button containers.
     this.addFooter();
@@ -361,6 +370,42 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.showAllButtons = function () {
     this.$buttonContainer.show();
     this.trigger('resize');
+  };
+
+  /**
+   * Returns a json object containing the selected words
+   * @returns {JSON} JSON string containing indexes of selected words
+   */
+  C.prototype.getH5PUserState = function () {
+    var selectedWordsIndexes = [];
+    this.selectableWords.forEach(function (selectableWord, swIndex) {
+      if (selectableWord.isSelected()) {
+        selectedWordsIndexes.push(swIndex);
+      }
+    });
+    var jsonSelectedWordsIndexes = JSON.stringify(selectedWordsIndexes);
+
+    return jsonSelectedWordsIndexes;
+  };
+
+  /**
+   * Sets answers to current user state
+   */
+  C.prototype.setH5PUserState = function () {
+    var self = this;
+
+    // Do nothing if user state is undefined
+    if (this.userState === undefined || this.userState.answers === undefined) {
+      return;
+    }
+
+    // Select words from user state
+    this.userState.answers.forEach(function (answeredWordIndex) {
+      if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
+        throw new Error('Stored user state is invalid');
+      }
+      self.selectableWords[answeredWordIndex].toggleMark();
+    })
   };
 
   /**
