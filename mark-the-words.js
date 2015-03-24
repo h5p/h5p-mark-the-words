@@ -37,11 +37,11 @@ H5P.MarkTheWords = (function ($) {
    * Initialize module.
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
-   * @param {Object} additionalData Object containing extra data
+   * @param {Object} contentData Object containing task specific content data
    *
    * @returns {Object} C Mark the words instance
    */
-  function C(params, contentId, additionalData) {
+  function C(params, contentId, contentData) {
     this.contentId = contentId;
 
     H5P.EventDispatcher.call(this);
@@ -60,9 +60,9 @@ H5P.MarkTheWords = (function ($) {
       score: "You got @score of @total points."
     }, params);
 
-    this.additionalData = additionalData;
-    if (this.additionalData !== undefined && this.additionalData.userState !== undefined) {
-      this.userState = this.additionalData.userState;
+    this.contentData = contentData;
+    if (this.contentData !== undefined && this.contentData.previousState !== undefined) {
+      this.previousState = JSON.parse(this.contentData.previousState);
     }
   }
   
@@ -372,7 +372,7 @@ H5P.MarkTheWords = (function ($) {
    * Returns a json object containing the selected words
    * @returns {JSON} JSON string containing indexes of selected words
    */
-  C.prototype.getH5PUserState = function () {
+  C.prototype.getCurrentState = function () {
     var selectedWordsIndexes = [];
     this.selectableWords.forEach(function (selectableWord, swIndex) {
       if (selectableWord.isSelected()) {
@@ -391,12 +391,12 @@ H5P.MarkTheWords = (function ($) {
     var self = this;
 
     // Do nothing if user state is undefined
-    if (this.userState === undefined || this.userState.answers === undefined) {
+    if (this.previousState === undefined) {
       return;
     }
 
     // Select words from user state
-    this.userState.answers.forEach(function (answeredWordIndex) {
+    this.previousState.forEach(function (answeredWordIndex) {
       if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
         throw new Error('Stored user state is invalid');
       }
