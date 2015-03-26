@@ -62,7 +62,7 @@ H5P.MarkTheWords = (function ($) {
 
     this.contentData = contentData;
     if (this.contentData !== undefined && this.contentData.previousState !== undefined) {
-      this.previousState = JSON.parse(this.contentData.previousState);
+      this.previousState = this.contentData.previousState;
     }
   }
   
@@ -373,8 +373,9 @@ H5P.MarkTheWords = (function ($) {
   };
 
   /**
-   * Returns a json object containing the selected words
-   * @returns {JSON} JSON string containing indexes of selected words
+   * Returns an object containing the selected words
+   * 
+   * @returns {object} containing indexes of selected words
    */
   C.prototype.getCurrentState = function () {
     var selectedWordsIndexes = [];
@@ -383,9 +384,7 @@ H5P.MarkTheWords = (function ($) {
         selectedWordsIndexes.push(swIndex);
       }
     });
-    var jsonSelectedWordsIndexes = JSON.stringify(selectedWordsIndexes);
-
-    return jsonSelectedWordsIndexes;
+    return selectedWordsIndexes;
   };
 
   /**
