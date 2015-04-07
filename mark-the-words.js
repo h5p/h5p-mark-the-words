@@ -326,8 +326,8 @@ H5P.MarkTheWords = (function ($) {
     return this.answers;
   };
   
-  C.prototype.getH5PTitle = function() {
-    return H5P.createH5PTitle(this.params.taskDescription);
+  C.prototype.getTitle = function() {
+    return H5P.createTitle(this.params.taskDescription);
   };
 
   /**
