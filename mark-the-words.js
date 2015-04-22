@@ -37,10 +37,11 @@ H5P.MarkTheWords = (function ($) {
    * Initialize module.
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
+   * @param {Object} contentData Object containing task specific content data
    *
    * @returns {Object} C Mark the words instance
    */
-  function C(params, contentId) {
+  function C(params, contentId, contentData) {
     this.contentId = contentId;
 
     H5P.EventDispatcher.call(this);
@@ -58,6 +59,11 @@ H5P.MarkTheWords = (function ($) {
       showSolutionButton: "Show solution",
       score: "You got @score of @total points."
     }, params);
+
+    this.contentData = contentData;
+    if (this.contentData !== undefined && this.contentData.previousState !== undefined) {
+      this.previousState = this.contentData.previousState;
+    }
   }
   
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -72,6 +78,9 @@ H5P.MarkTheWords = (function ($) {
         .html('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>')
         .children();
     this.addTaskTo(this.$inner);
+
+    // Set user state
+    this.setH5PUserState();
 
     // Add score and button containers.
     this.addFooter();
@@ -316,6 +325,10 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.getMaxScore = function () {
     return this.answers;
   };
+  
+  C.prototype.getTitle = function() {
+    return H5P.createTitle(this.params.taskDescription);
+  };
 
   /**
    * Needed for contracts.
@@ -357,6 +370,41 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.showAllButtons = function () {
     this.$buttonContainer.show();
     this.trigger('resize');
+  };
+
+  /**
+   * Returns an object containing the selected words
+   * 
+   * @returns {object} containing indexes of selected words
+   */
+  C.prototype.getCurrentState = function () {
+    var selectedWordsIndexes = [];
+    this.selectableWords.forEach(function (selectableWord, swIndex) {
+      if (selectableWord.isSelected()) {
+        selectedWordsIndexes.push(swIndex);
+      }
+    });
+    return selectedWordsIndexes;
+  };
+
+  /**
+   * Sets answers to current user state
+   */
+  C.prototype.setH5PUserState = function () {
+    var self = this;
+
+    // Do nothing if user state is undefined
+    if (this.previousState === undefined) {
+      return;
+    }
+
+    // Select words from user state
+    this.previousState.forEach(function (answeredWordIndex) {
+      if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
+        throw new Error('Stored user state is invalid');
+      }
+      self.selectableWords[answeredWordIndex].toggleMark();
+    })
   };
 
   /**
