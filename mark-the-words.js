@@ -65,7 +65,7 @@ H5P.MarkTheWords = (function ($) {
       this.previousState = this.contentData.previousState;
     }
   }
-  
+
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
   C.prototype.constructor = C;
 
@@ -85,7 +85,7 @@ H5P.MarkTheWords = (function ($) {
     // Add score and button containers.
     this.addFooter();
   };
-  
+
   /**
    * Handle task and add it to container.
    * @param {jQuery} $container The object which our task will attach to.
@@ -325,7 +325,7 @@ H5P.MarkTheWords = (function ($) {
   C.prototype.getMaxScore = function () {
     return this.answers;
   };
-  
+
   C.prototype.getTitle = function() {
     return H5P.createTitle(this.params.taskDescription);
   };
@@ -374,11 +374,15 @@ H5P.MarkTheWords = (function ($) {
 
   /**
    * Returns an object containing the selected words
-   * 
+   *
    * @returns {object} containing indexes of selected words
    */
   C.prototype.getCurrentState = function () {
     var selectedWordsIndexes = [];
+    if (this.selectableWords === undefined) {
+      return undefined;
+    }
+
     this.selectableWords.forEach(function (selectableWord, swIndex) {
       if (selectableWord.isSelected()) {
         selectedWordsIndexes.push(swIndex);
