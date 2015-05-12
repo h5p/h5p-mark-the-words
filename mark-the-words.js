@@ -36,12 +36,12 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Initialize module.
    * @param {Object} params Behavior settings
-   * @param {Number} id Content identification
+   * @param {Number} contentId Content identification
    * @param {Object} contentData Object containing task specific content data
    *
-   * @returns {Object} C Mark the words instance
+   * @returns {Object} MarkTheWords Mark the words instance
    */
-  function C(params, contentId, contentData) {
+  function MarkTheWords(params, contentId, contentData) {
     this.contentId = contentId;
 
     H5P.EventDispatcher.call(this);
@@ -64,19 +64,28 @@ H5P.MarkTheWords = (function ($) {
     if (this.contentData !== undefined && this.contentData.previousState !== undefined) {
       this.previousState = this.contentData.previousState;
     }
+
+    this.initMarkTheWords();
   }
 
-  C.prototype = Object.create(H5P.EventDispatcher.prototype);
-  C.prototype.constructor = C;
+  MarkTheWords.prototype = Object.create(H5P.EventDispatcher.prototype);
+  MarkTheWords.prototype.constructor = MarkTheWords;
 
   /**
    * Append field to wrapper.
    * @param {jQuery} $container the jQuery object which this module will attach itself to.
    */
-  C.prototype.attach = function ($container) {
-    this.$inner = $container.addClass(MAIN_CONTAINER)
-        .html('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>')
-        .children();
+  MarkTheWords.prototype.attach = function ($container) {
+    $container.addClass(MAIN_CONTAINER).append(this.$inner);
+  };
+
+  /**
+   * Initialize Mark The Words task
+   */
+  MarkTheWords.prototype.initMarkTheWords = function () {
+    this.$inner = $('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>')
+      .children();
+
     this.addTaskTo(this.$inner);
 
     // Set user state
@@ -90,20 +99,20 @@ H5P.MarkTheWords = (function ($) {
    * Handle task and add it to container.
    * @param {jQuery} $container The object which our task will attach to.
    */
-  C.prototype.addTaskTo = function ($container) {
+  MarkTheWords.prototype.addTaskTo = function ($container) {
     var self = this;
     var textField = self.params.textField;
     self.selectableWords = [];
     self.answers = 0;
 
     //Regexp for splitting string on whitespace(s).
-    var selectableStrings = textField.replace(/(\r\n|\n|\r)/gm," <br> ").split(/[\s]+/);
+    var selectableStrings = textField.replace(/(\r\n|\n|\r)/gm, " <br> ").split(/[\s]+/);
 
     var $wordContainer = $('<div/>', {'class': WORDS_CONTAINER});
     //Make each word selectable
     selectableStrings.forEach(function (entry) {
       var selectableWord = new Word(entry, $wordContainer);
-      selectableWord.on('xAPI', function(event) {
+      selectableWord.on('xAPI', function (event) {
         if (event.getVerb() === 'attempted') {
           self.triggerXAPI('attempted');
         }
@@ -121,7 +130,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Append footer to inner block.
    */
-  C.prototype.addFooter = function () {
+  MarkTheWords.prototype.addFooter = function () {
     this.$footer = $('<div/>', {
       'class': FOOTER_CONTAINER
     }).appendTo(this.$inner);
@@ -134,7 +143,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Add check solution and retry buttons.
    */
-  C.prototype.addButtons = function () {
+  MarkTheWords.prototype.addButtons = function () {
     var self = this;
     self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
@@ -171,7 +180,7 @@ H5P.MarkTheWords = (function ($) {
     self.$buttonContainer.appendTo(this.$footer);
 
     var $showSolutionButton = $('<button/>', {
-      'class': BUTTONS+' '+ SHOW_SOLUTION_BUTTON,
+      'class': BUTTONS + ' ' + SHOW_SOLUTION_BUTTON,
       type: 'button',
       text: this.params.showSolutionButton
     }).appendTo(self.$buttonContainer).click(function () {
@@ -196,7 +205,7 @@ H5P.MarkTheWords = (function ($) {
    * @public
    * @param {Boolean} selectable Set to true to make the words selectable.
    */
-  C.prototype.setAllSelectable = function (selectable) {
+  MarkTheWords.prototype.setAllSelectable = function (selectable) {
     this.selectableWords.forEach(function (entry) {
       entry.setSelectable(selectable);
     });
@@ -206,7 +215,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Mark the words as correct, wrong or missed.
    */
-  C.prototype.setAllMarks = function () {
+  MarkTheWords.prototype.setAllMarks = function () {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
     });
@@ -216,7 +225,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Mark the selected words as correct or wrong.
    */
-  C.prototype.feedbackSelectedWords = function () {
+  MarkTheWords.prototype.feedbackSelectedWords = function () {
     this.selectableWords.forEach(function (entry) {
       if (entry.isSelected()) {
         entry.markCheck();
@@ -230,7 +239,7 @@ H5P.MarkTheWords = (function ($) {
    *
    * @return {Boolean} Returns true if maxScore was achieved.
    */
-  C.prototype.showEvaluation = function () {
+  MarkTheWords.prototype.showEvaluation = function () {
     this.hideEvaluation();
     this.calculateScore();
 
@@ -247,11 +256,10 @@ H5P.MarkTheWords = (function ($) {
     $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>').appendTo(this.$evaluation);
     if (score === this.answers) {
       this.$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
-    }
-    else {
+    } else {
       this.$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
-    this.triggerXAPICompleted(score, this.answers);
+    this.triggerXAPIScored(score, this.answers, 'completed');
     this.trigger('resize');
     return score === this.answers;
   };
@@ -259,7 +267,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Clear the evaluation text.
    */
-  C.prototype.hideEvaluation = function () {
+  MarkTheWords.prototype.hideEvaluation = function () {
     this.$evaluation.html('');
     this.trigger('resize');
   };
@@ -267,19 +275,17 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Calculate score and store them in class variables.
    */
-  C.prototype.calculateScore = function () {
+  MarkTheWords.prototype.calculateScore = function () {
     var self = this;
     self.correctAnswers = 0;
     self.wrongAnswers = 0;
     self.missedAnswers = 0;
     self.selectableWords.forEach(function (entry) {
-      if(entry.isCorrect()) {
+      if (entry.isCorrect()) {
         self.correctAnswers += 1;
-      }
-      else if(entry.isWrong()) {
+      } else if (entry.isWrong()) {
         self.wrongAnswers += 1;
-      }
-      else if(entry.isMissed()) {
+      } else if (entry.isMissed()) {
         self.missedAnswers += 1;
       }
     });
@@ -288,7 +294,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Clear styling on marked words.
    */
-  C.prototype.clearAllMarks = function () {
+  MarkTheWords.prototype.clearAllMarks = function () {
     this.selectableWords.forEach( function (entry) {
       entry.markClear();
     });
@@ -301,7 +307,7 @@ H5P.MarkTheWords = (function ($) {
    *
    * @returns {Boolean} Always returns true.
    */
-  C.prototype.getAnswerGiven = function () {
+  MarkTheWords.prototype.getAnswerGiven = function () {
     return true;
   };
 
@@ -311,7 +317,7 @@ H5P.MarkTheWords = (function ($) {
    *
    * @returns {Number} score The amount of points achieved.
    */
-  C.prototype.getScore = function () {
+  MarkTheWords.prototype.getScore = function () {
     this.calculateScore();
     return ((this.correctAnswers - this.wrongAnswers) <= 0) ? 0 : (this.correctAnswers - this.wrongAnswers);
   };
@@ -322,11 +328,15 @@ H5P.MarkTheWords = (function ($) {
    *
    * @returns {Number} maxScore The maximum amount of points achievable.
    */
-  C.prototype.getMaxScore = function () {
+  MarkTheWords.prototype.getMaxScore = function () {
     return this.answers;
   };
 
-  C.prototype.getTitle = function() {
+  /**
+   * Get title
+   * @returns {string}
+   */
+  MarkTheWords.prototype.getTitle = function() {
     return H5P.createTitle(this.params.taskDescription);
   };
 
@@ -334,7 +344,7 @@ H5P.MarkTheWords = (function ($) {
    * Needed for contracts.
    * Display the evaluation of the task, with proper markings.
    */
-  C.prototype.showSolutions = function () {
+  MarkTheWords.prototype.showSolutions = function () {
     this.showEvaluation();
     this.setAllMarks();
     this.hideAllButtons();
@@ -345,7 +355,7 @@ H5P.MarkTheWords = (function ($) {
    * Needed for contracts.
    * Resets the task back to its' initial state.
    */
-  C.prototype.resetTask = function () {
+  MarkTheWords.prototype.resetTask = function () {
     var self = this;
     self.clearAllMarks();
     self.hideEvaluation();
@@ -359,7 +369,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Hide all buttons. Used to disable further input for user.
    */
-  C.prototype.hideAllButtons = function () {
+  MarkTheWords.prototype.hideAllButtons = function () {
     this.$buttonContainer.hide();
     this.trigger('resize');
   };
@@ -367,7 +377,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Show all buttons in the task.
    */
-  C.prototype.showAllButtons = function () {
+  MarkTheWords.prototype.showAllButtons = function () {
     this.$buttonContainer.show();
     this.trigger('resize');
   };
@@ -377,7 +387,7 @@ H5P.MarkTheWords = (function ($) {
    *
    * @returns {object} containing indexes of selected words
    */
-  C.prototype.getCurrentState = function () {
+  MarkTheWords.prototype.getCurrentState = function () {
     var selectedWordsIndexes = [];
     if (this.selectableWords === undefined) {
       return undefined;
@@ -394,7 +404,7 @@ H5P.MarkTheWords = (function ($) {
   /**
    * Sets answers to current user state
    */
-  C.prototype.setH5PUserState = function () {
+  MarkTheWords.prototype.setH5PUserState = function () {
     var self = this;
 
     // Do nothing if user state is undefined
@@ -630,10 +640,10 @@ H5P.MarkTheWords = (function ($) {
      */
     this.isSelected = function () {
       return isSelected;
-    }
+    };
   }
   Word.prototype = Object.create(H5P.EventDispatcher.prototype);
   Word.prototype.constructor = Word;
 
-  return C;
+  return MarkTheWords;
 })(H5P.jQuery);
