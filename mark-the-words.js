@@ -83,8 +83,7 @@ H5P.MarkTheWords = (function ($) {
    * Initialize Mark The Words task
    */
   MarkTheWords.prototype.initMarkTheWords = function () {
-    this.$inner = $('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>')
-      .children();
+    this.$inner = $('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>');
 
     this.addTaskTo(this.$inner);
 
