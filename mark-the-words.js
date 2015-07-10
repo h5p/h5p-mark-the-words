@@ -258,7 +258,7 @@ H5P.MarkTheWords = (function ($) {
     } else {
       this.$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
     }
-    this.triggerXAPIScored(score, this.answers, 'completed');
+    this.triggerXAPIScored(score, this.answers, 'answered');
     this.trigger('resize');
     return score === this.answers;
   };
