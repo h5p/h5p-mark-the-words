@@ -76,6 +76,7 @@ H5P.MarkTheWords = (function ($) {
    * @param {jQuery} $container the jQuery object which this module will attach itself to.
    */
   MarkTheWords.prototype.attach = function ($container) {
+    this.setActivityStarted();
     $container.addClass(MAIN_CONTAINER).append(this.$inner);
   };
 

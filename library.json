@@ -6,7 +6,7 @@
   "patchVersion": 1,
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 5
+    "minorVersion": 6
   },
   "runnable": 1,
   "author": "Joubel AS",
