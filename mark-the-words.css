@@ -13,40 +13,36 @@
 }
 
 /* The main containers for the module, specific to this module. */
-.h5p-word {
+.h5p-mark-the-words {
   position: relative;
   background: rgba(255, 255, 255, 0.9);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
   overflow: hidden;
   font-family: Verdana, Arial, sans-serif;
 }
-.h5p-word .h5p-word-inner {
+.h5p-mark-the-words .h5p-word-inner {
   overflow: hidden;
   padding: 1em;
 }
 
 /* Actual text paragraphs */
-.h5p-word .h5p-word-inner p {
+.h5p-mark-the-words .h5p-word-inner p {
   font-size: 1em;
   font-weight: normal;
   line-height: 1.75em;
   padding: 0;
   margin: 0 0 1em;
 }
-/* Header and footer blocks (title + evaluation, buttons) */
-.h5p-word .h5p-word-title {
-  margin: 0 0 0.4em;
+.h5p-mark-the-words .h5p-question-content {
   border-bottom: 0.1em solid #ddd;
-}
-.h5p-word .h5p-word-footer {
-  margin-top: 0.4em;
   border-top: 0.1em solid #ddd;
 }
-.h5p-word .h5p-button-bar {
+
+.h5p-mark-the-words .h5p-button-bar {
   margin-top: .8em;
   min-height: 2.134em;
 }
-.h5p-word button.h5p-button {
+.h5p-mark-the-words button.h5p-button {
   float: right;
   display: none;
   font-size: 1em;
@@ -68,7 +64,7 @@
   background: -ms-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6498fe', endColorstr='#0468ce',GradientType=0 );
 }
-.h5p-word button.h5p-button:hover {
+.h5p-mark-the-words button.h5p-button:hover {
   background: rgb(4,104,206); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(4,104,206,1) 0%, rgba(100,152,254,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(4,104,206,1)), color-stop(100%,rgba(100,152,254,1))); /* Chrome,Safari4+ */
@@ -77,17 +73,17 @@
   background: -ms-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0468ce', endColorstr='#6498fe',GradientType=0 ); /* IE6-9 */
 }
-.h5p-word button.h5p-button:before {
+.h5p-mark-the-words button.h5p-button:before {
   font-family: 'H5PFontAwesome4';
   content: "\f06e";
   padding-right: 0.5em;
 }
-.h5p-word .h5p-word-evaluation-container {
+.h5p-mark-the-words .h5p-word-evaluation-container {
   float: left;
   padding: 1em 0 0 0;
   max-width: 30em;
 }
-.h5p-word .h5p-word-evaluation-container .h5p-word-evaluation-score-emoticon:before {
+.h5p-mark-the-words .h5p-word-evaluation-container .h5p-word-evaluation-score-emoticon:before {
   display: block;
   float: left;
 
@@ -96,7 +92,7 @@
   line-height: 1em; /* inherits 4em */
   content: "\e605";
 }
-.h5p-word .h5p-word-evaluation-container.max-score .h5p-word-evaluation-score-emoticon:before {
+.h5p-mark-the-words .h5p-word-evaluation-container.max-score .h5p-word-evaluation-score-emoticon:before {
   content: "\e606";
 }
 
@@ -126,7 +122,7 @@
   90% { transform: translate(2px, 2px) rotate(0deg);}
   100% {transform: translate(1px, -2px) rotate(-1deg);}
 }
-.h5p-word .h5p-word-evaluation-container .h5p-word-evaluation-score {
+.h5p-mark-the-words .h5p-word-evaluation-container .h5p-word-evaluation-score {
   position: relative;
   display: block;
   background: #ffffff;
@@ -140,8 +136,8 @@
   line-height: 1.3em;
 }
 
-.h5p-word .h5p-word-evaluation-container .h5p-word-evaluation-score:before,
-.h5p-word .h5p-word-evaluation-container .h5p-word-evaluation-score:after {
+.h5p-mark-the-words .h5p-word-evaluation-container .h5p-word-evaluation-score:before,
+.h5p-mark-the-words .h5p-word-evaluation-container .h5p-word-evaluation-score:after {
   right: 100%;
   border: solid transparent;
   content: " ";
@@ -151,14 +147,14 @@
   pointer-events: none;
 }
 
-.h5p-word .h5p-word-evaluation-container .h5p-word-evaluation-score:before {
+.h5p-mark-the-words .h5p-word-evaluation-container .h5p-word-evaluation-score:before {
   margin-top: -11px;
   top: 50%;
   border-width: 11px;
   border-color: transparent;
   border-right-color: #ccc;
 }
-.h5p-word .h5p-word-evaluation-container .h5p-word-evaluation-score:after {
+.h5p-mark-the-words .h5p-word-evaluation-container .h5p-word-evaluation-score:after {
   margin-top: -10px;
   top: 50%;
   border-width: 10px;
@@ -167,44 +163,44 @@
 }
 /* SELECTABLE WORDS STYLING */
 /* Selectable words container */
-.h5p-word-selectable-words {
+.h5p-mark-the-words .h5p-word-selectable-words {
   margin-bottom: 0.8em;
   margin-top: 0.8em;
   line-height: 2em;
 }
 /* Selectable words*/
-.h5p-word-selectable {
+.h5p-mark-the-words .h5p-word-selectable {
   white-space: nowrap;
   padding: 0.15em 0.15em 0.15em 0.15em;
   border-radius: 0.4em;
   cursor: pointer;
 }
 
-.h5p-word-selectable.h5p-word-disabled {
+.h5p-mark-the-words .h5p-word-selectable.h5p-word-disabled {
   cursor: default;
 }
 
 /* Colors and styling for word selections */
-.h5p-word .h5p-word-selected {
+.h5p-mark-the-words .h5p-word-selected {
   background: #cee0f4;
 }
 /* Missed word*/
-.h5p-word-missed {
+.h5p-mark-the-words .h5p-word-missed {
   border: 0.1em #2c76c0 dashed;
 }
 /* Correctly answered marking */
-.h5p-word .h5p-word-correct{
+.h5p-mark-the-words .h5p-word-correct{
   background: #d1e2ce;
   color: #39692e;
 }
 /* Wrongly answered marking */
-.h5p-word .h5p-word-wrong {
+.h5p-mark-the-words .h5p-word-wrong {
   background-color: #e6ced1;
   color: #c33f62;
   text-decoration: line-through;
 }
 /* Feedback icons */
-.h5p-word .h5p-word-correct:after {
+.h5p-mark-the-words .h5p-word-correct:after {
   position: relative;
   right: 0.1em;
   text-decoration: none;
@@ -213,7 +209,7 @@
   color: #39692e;
   padding-left: 0.75em;
 }
-.h5p-word .h5p-word-wrong:after {
+.h5p-mark-the-words .h5p-word-wrong:after {
   position: relative;
   right: 0.1em;
   display: inline-block;
@@ -225,13 +221,13 @@
 }
 /* SPECIFIC CSS CLASSES FOR MARK THE WORDS MODULE: */
 /* Start state for button: */
-.h5p-word button.h5p-button.h5p-check-button:before {
+.h5p-mark-the-words button.h5p-button.h5p-check-button:before {
   content: "\f058";
 }
-.h5p-word button.h5p-button.h5p-retry-button:before {
+.h5p-mark-the-words button.h5p-button.h5p-retry-button:before {
   content: "\f021";
 }
-.h5p-word button.h5p-button.h5p-check-button {
+.h5p-mark-the-words button.h5p-button.h5p-check-button {
   display: inline-block;
 }
 button.h5p-retry-button.h5p-retry-button {

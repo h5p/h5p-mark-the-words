@@ -1,10 +1,10 @@
-var H5P = H5P || {};
+/*global H5P*/
 
 /**
  * Mark The Words module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.MarkTheWords = (function ($) {
+H5P.MarkTheWords = (function ($, Question) {
   //CSS Main Containers:
   var MAIN_CONTAINER = "h5p-word";
   var INNER_CONTAINER = "h5p-word-inner";
@@ -44,7 +44,7 @@ H5P.MarkTheWords = (function ($) {
   function MarkTheWords(params, contentId, contentData) {
     this.contentId = contentId;
 
-    H5P.EventDispatcher.call(this);
+    Question.call(this, 'mark-the-words');
 
     // Set default behavior.
     this.params = $.extend({}, {
@@ -72,26 +72,15 @@ H5P.MarkTheWords = (function ($) {
   MarkTheWords.prototype.constructor = MarkTheWords;
 
   /**
-   * Append field to wrapper.
-   * @param {jQuery} $container the jQuery object which this module will attach itself to.
-   */
-  MarkTheWords.prototype.attach = function ($container) {
-    $container.addClass(MAIN_CONTAINER).append(this.$inner);
-  };
-
-  /**
    * Initialize Mark The Words task
    */
   MarkTheWords.prototype.initMarkTheWords = function () {
-    this.$inner = $('<div class=' + INNER_CONTAINER + '><div class=' + TITLE_CONTAINER + '>' + this.params.taskDescription + '</div></div>');
+    this.$inner = $('<div class=' + INNER_CONTAINER + '></div>');
 
     this.addTaskTo(this.$inner);
 
     // Set user state
     this.setH5PUserState();
-
-    // Add score and button containers.
-    this.addFooter();
   };
 
   /**
@@ -127,76 +116,44 @@ H5P.MarkTheWords = (function ($) {
   };
 
   /**
-   * Append footer to inner block.
-   */
-  MarkTheWords.prototype.addFooter = function () {
-    this.$footer = $('<div/>', {
-      'class': FOOTER_CONTAINER
-    }).appendTo(this.$inner);
-    this.$evaluation = $('<div/>', {
-      'class': EVALUATION_CONTAINER
-    }).appendTo(this.$footer);
-    this.addButtons();
-  };
-
-  /**
    * Add check solution and retry buttons.
    */
   MarkTheWords.prototype.addButtons = function () {
     var self = this;
     self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
-    var $checkAnswerButton = $('<button/>', {
-      'class': BUTTONS + ' ' + CHECK_BUTTON,
-      type: 'button',
-      text: this.params.checkAnswerButton
-    }).appendTo(self.$buttonContainer).click(function () {
+    this.addButton('check-answer', this.params.checkAnswerButton, function () {
       self.setAllSelectable(false);
       self.feedbackSelectedWords();
-      $checkAnswerButton.hide();
+      self.hideButton('check-answer');
       if (!self.showEvaluation()) {
         if (self.params.behaviour.enableSolutionsButton) {
-          $showSolutionButton.show();
+          self.showButton('show-solution');
         }
         if (self.params.behaviour.enableRetry) {
-          $retryButton.show();
+          self.showButton('try-again');
         }
       }
     });
 
-    var $retryButton =  $('<button/>', {
-      'class': BUTTONS + ' ' + RETRY_BUTTON,
-      type: 'button',
-      text: this.params.tryAgainButton
-    }).appendTo(self.$buttonContainer).click(function () {
+    this.addButton('try-again', this.params.tryAgainButton, function () {
       self.clearAllMarks();
       self.hideEvaluation();
       self.setAllSelectable(true);
-      $retryButton.hide();
-      $showSolutionButton.hide();
-      $checkAnswerButton.show();
-    });
-    self.$buttonContainer.appendTo(this.$footer);
+      self.hideButton('try-again');
+      self.hideButton('show-solution');
+      self.showButton('check-answer');
+    }, false);
 
-    var $showSolutionButton = $('<button/>', {
-      'class': BUTTONS + ' ' + SHOW_SOLUTION_BUTTON,
-      type: 'button',
-      text: this.params.showSolutionButton
-    }).appendTo(self.$buttonContainer).click(function () {
+    this.addButton('show-solution', this.params.showSolutionButton, function () {
       self.setAllSelectable(false);
       self.setAllMarks();
-      $checkAnswerButton.hide();
-      $showSolutionButton.hide();
+      self.hideButton('check-answer');
+      self.hideButton('show-solution');
       if (self.params.behaviour.enableRetry) {
-        $retryButton.show();
+        self.showButton('try-again');
       }
-    });
-
-    //Make the buttons accessible.
-    self.$checkAnswerButton = $checkAnswerButton;
-    self.$retryButton = $retryButton;
-    self.$showSolutionButton = $showSolutionButton;
-
+    }, false);
   };
 
   /**
@@ -250,14 +207,8 @@ H5P.MarkTheWords = (function ($) {
       .replace(/@wrong/g, this.wrongAnswers.toString())
       .replace(/@missed/g, this.missedAnswers.toString());
 
-    //Append evaluation emoticon and score to evaluation container.
-    $('<div class=' + EVALUATION_EMOTICON + '></div>').appendTo(this.$evaluation);
-    $('<div class=' + EVALUATION_SCORE + '>' + scoreText + '</div>').appendTo(this.$evaluation);
-    if (score === this.answers) {
-      this.$evaluation.addClass(EVALUATION_EMOTICON_MAX_SCORE);
-    } else {
-      this.$evaluation.removeClass(EVALUATION_EMOTICON_MAX_SCORE);
-    }
+    this.setFeedback(scoreText, score, this.answers);
+
     this.triggerXAPIScored(score, this.answers, 'completed');
     this.trigger('resize');
     return score === this.answers;
@@ -267,7 +218,7 @@ H5P.MarkTheWords = (function ($) {
    * Clear the evaluation text.
    */
   MarkTheWords.prototype.hideEvaluation = function () {
-    this.$evaluation.html('');
+    this.setFeedback();
     this.trigger('resize');
   };
 
@@ -294,7 +245,7 @@ H5P.MarkTheWords = (function ($) {
    * Clear styling on marked words.
    */
   MarkTheWords.prototype.clearAllMarks = function () {
-    this.selectableWords.forEach( function (entry) {
+    this.selectableWords.forEach(function (entry) {
       entry.markClear();
     });
     this.trigger('resize');
@@ -335,7 +286,7 @@ H5P.MarkTheWords = (function ($) {
    * Get title
    * @returns {string}
    */
-  MarkTheWords.prototype.getTitle = function() {
+  MarkTheWords.prototype.getTitle = function () {
     return H5P.createTitle(this.params.taskDescription);
   };
 
@@ -355,29 +306,21 @@ H5P.MarkTheWords = (function ($) {
    * Resets the task back to its' initial state.
    */
   MarkTheWords.prototype.resetTask = function () {
-    var self = this;
-    self.clearAllMarks();
-    self.hideEvaluation();
-    self.setAllSelectable(true);
-    self.showAllButtons();
-    self.$retryButton.hide();
-    self.$showSolutionButton.hide();
-    self.$checkAnswerButton.show();
+    this.clearAllMarks();
+    this.hideEvaluation();
+    this.setAllSelectable(true);
+    this.hideButton('try-again');
+    this.hideButton('show-solution');
+    this.showButton('check-answer');
   };
 
   /**
    * Hide all buttons. Used to disable further input for user.
    */
   MarkTheWords.prototype.hideAllButtons = function () {
-    this.$buttonContainer.hide();
-    this.trigger('resize');
-  };
-
-  /**
-   * Show all buttons in the task.
-   */
-  MarkTheWords.prototype.showAllButtons = function () {
-    this.$buttonContainer.show();
+    this.hideButton('try-again');
+    this.hideButton('show-solution');
+    this.hideButton('check-answer');
     this.trigger('resize');
   };
 
@@ -417,7 +360,21 @@ H5P.MarkTheWords = (function ($) {
         throw new Error('Stored user state is invalid');
       }
       self.selectableWords[answeredWordIndex].toggleMark();
-    })
+    });
+  };
+
+  MarkTheWords.prototype.registerDomElements = function () {
+
+    // Register description
+    this.setIntroduction(this.params.taskDescription);
+
+    // Register content
+    this.setContent(this.$inner, {
+      'class': MAIN_CONTAINER
+    });
+
+    // Register buttons
+    this.addButtons();
   };
 
   /**
@@ -448,7 +405,7 @@ H5P.MarkTheWords = (function ($) {
       'class': SELECTABLE_MARK,
       html: handledInput
     }).appendTo($container).click(function () {
-      if (!isSelectable){
+      if (!isSelectable) {
         return;
       }
       self.toggleMark();
@@ -463,11 +420,10 @@ H5P.MarkTheWords = (function ($) {
      * @return {Boolean} Returns true if the word is an answer.
      */
     function checkForAnswer() {
-      var self = this;
       //Check last and next to last character, in case of punctuations.
       var wordString = removeDoubleAsterisks(input);
-      if (wordString.charAt(0) === ('*') && wordString.length > 2){
-        if (wordString.charAt(wordString.length - 1) === ('*')){
+      if (wordString.charAt(0) === ('*') && wordString.length > 2) {
+        if (wordString.charAt(wordString.length - 1) === ('*')) {
           handledInput = input.slice(1, input.length - 1);
           return true;
         }
@@ -487,11 +443,10 @@ H5P.MarkTheWords = (function ($) {
      * @private
      */
     function checkForPunctuation() {
-      var self = this;
       var punctuations = new RegExp(/[!#$%&+,-.:;=?_|~]/);
-      if (punctuations.test(handledInput.charAt(handledInput.length-1))) {
-        wordEnding = handledInput.charAt(handledInput.length-1)+' ';
-        handledInput = handledInput.slice(0, handledInput.length-1);
+      if (punctuations.test(handledInput.charAt(handledInput.length - 1))) {
+        wordEnding = handledInput.charAt(handledInput.length - 1) + ' ';
+        handledInput = handledInput.slice(0, handledInput.length - 1);
       }
     }
 
@@ -504,9 +459,9 @@ H5P.MarkTheWords = (function ($) {
     function removeDoubleAsterisks(wordString) {
       var asteriskIndex = wordString.indexOf('*');
       var slicedWord = wordString;
-      while (asteriskIndex !== -1){
+      while (asteriskIndex !== -1) {
         if (wordString.indexOf('*', asteriskIndex + 1) === asteriskIndex + 1) {
-           slicedWord = wordString.slice(0, asteriskIndex) + wordString.slice(asteriskIndex + 2, input.length);
+          slicedWord = wordString.slice(0, asteriskIndex) + wordString.slice(asteriskIndex + 2, input.length);
         }
         asteriskIndex = wordString.indexOf('*', asteriskIndex + 1);
       }
@@ -519,7 +474,7 @@ H5P.MarkTheWords = (function ($) {
      */
     function handleAsterisks() {
       var asteriskIndex = handledInput.indexOf('*');
-      while (asteriskIndex !== -1){
+      while (asteriskIndex !== -1) {
         handledInput = handledInput.slice(0, asteriskIndex) + handledInput.slice(asteriskIndex + 1, handledInput.length);
         asteriskIndex = handledInput.indexOf('*', asteriskIndex + 1);
       }
@@ -569,12 +524,10 @@ H5P.MarkTheWords = (function ($) {
       if (isSelected) {
         if (isAnswer) {
           $word.addClass(CORRECT_MARK);
-        }
-        else {
+        } else {
           $word.addClass(WRONG_MARK);
         }
-      }
-      else if (isAnswer) {
+      } else if (isAnswer) {
         $word.addClass(MISSED_MARK);
       }
       $word.removeClass(SELECTED_MARK);
@@ -590,8 +543,7 @@ H5P.MarkTheWords = (function ($) {
       //Toggle feedback class
       if (selectable) {
         $word.removeClass(WORD_DISABLED);
-      }
-      else {
+      } else {
         $word.addClass(WORD_DISABLED);
       }
     };
@@ -645,4 +597,4 @@ H5P.MarkTheWords = (function ($) {
   Word.prototype.constructor = Word;
 
   return MarkTheWords;
-})(H5P.jQuery);
+}(H5P.jQuery, H5P.Question));
