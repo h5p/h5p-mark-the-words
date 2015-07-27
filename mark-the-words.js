@@ -104,8 +104,8 @@ H5P.MarkTheWords = (function ($, Question) {
     selectableStrings.forEach(function (entry) {
       var selectableWord = new Word(entry, $wordContainer);
       selectableWord.on('xAPI', function (event) {
-        if (event.getVerb() === 'attempted') {
-          self.triggerXAPI('attempted');
+        if (event.getVerb() === 'interacted') {
+          self.triggerXAPI('interacted');
         }
       });
       if (selectableWord.isAnswer()) {
@@ -212,7 +212,7 @@ H5P.MarkTheWords = (function ($, Question) {
 
     this.setFeedback(scoreText, score, this.answers);
 
-    this.triggerXAPIScored(score, this.answers, 'completed');
+    this.triggerXAPIScored(score, this.answers, 'answered');
     this.trigger('resize');
     return score === this.answers;
   };
@@ -488,7 +488,7 @@ H5P.MarkTheWords = (function ($, Question) {
      * @public
      */
     this.toggleMark = function () {
-      self.triggerXAPI('attempted');
+      self.triggerXAPI('interacted');
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
     };
