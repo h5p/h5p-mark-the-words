@@ -22,7 +22,6 @@
 }
 .h5p-mark-the-words .h5p-word-inner {
   overflow: hidden;
-  padding: 1em;
 }
 
 /* Actual text paragraphs */
@@ -32,10 +31,6 @@
   line-height: 1.75em;
   padding: 0;
   margin: 0 0 1em;
-}
-.h5p-mark-the-words .h5p-question-content {
-  border-bottom: 0.1em solid #ddd;
-  border-top: 0.1em solid #ddd;
 }
 
 .h5p-mark-the-words .h5p-button-bar {
@@ -164,8 +159,6 @@
 /* SELECTABLE WORDS STYLING */
 /* Selectable words container */
 .h5p-mark-the-words .h5p-word-selectable-words {
-  margin-bottom: 0.8em;
-  margin-top: 0.8em;
   line-height: 2em;
 }
 /* Selectable words*/
