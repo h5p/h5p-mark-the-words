@@ -35,6 +35,9 @@ H5P.MarkTheWords = (function ($, Question) {
 
   /**
    * Initialize module.
+   *
+   * @class H5P.MarkTheWords
+   * @extends H5P.Question
    * @param {Object} params Behavior settings
    * @param {Number} contentId Content identification
    * @param {Object} contentData Object containing task specific content data
