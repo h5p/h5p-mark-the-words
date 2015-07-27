@@ -8,22 +8,8 @@ H5P.MarkTheWords = (function ($, Question) {
   //CSS Main Containers:
   var MAIN_CONTAINER = "h5p-word";
   var INNER_CONTAINER = "h5p-word-inner";
-  var TITLE_CONTAINER = "h5p-word-title";
   var WORDS_CONTAINER = "h5p-word-selectable-words";
-  var FOOTER_CONTAINER = "h5p-word-footer";
-  var EVALUATION_CONTAINER = "h5p-word-evaluation-container";
   var BUTTON_CONTAINER = "h5p-button-bar";
-
-  //Special Sub-containers:
-  var EVALUATION_SCORE = "h5p-word-evaluation-score";
-  var EVALUATION_EMOTICON = "h5p-word-evaluation-score-emoticon";
-  var EVALUATION_EMOTICON_MAX_SCORE = "max-score";
-
-  //CSS Buttons:
-  var BUTTONS = "h5p-button";
-  var CHECK_BUTTON = "h5p-check-button";
-  var RETRY_BUTTON = "h5p-retry-button";
-  var SHOW_SOLUTION_BUTTON = "h5p-show-solution-button";
 
   //CSS Classes for marking words:
   var MISSED_MARK = "h5p-word-missed";
