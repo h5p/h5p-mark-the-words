@@ -28,7 +28,6 @@
 .h5p-mark-the-words .h5p-word-inner p {
   font-size: 1em;
   font-weight: normal;
-  line-height: 1.75em;
   padding: 0;
   margin: 0 0 1em;
 }
@@ -156,15 +155,14 @@
   border-color: transparent;
   border-right-color: #ffffff;
 }
-/* SELECTABLE WORDS STYLING */
 /* Selectable words container */
 .h5p-mark-the-words .h5p-word-selectable-words {
-  line-height: 2em;
+  line-height: 1.75em;
 }
 /* Selectable words*/
 .h5p-mark-the-words .h5p-word-selectable {
   white-space: nowrap;
-  padding: 0.15em 0.15em 0.15em 0.15em;
+  padding: 0.15em;
   border-radius: 0.4em;
   cursor: pointer;
 }
