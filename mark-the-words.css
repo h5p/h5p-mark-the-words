@@ -181,13 +181,13 @@
 }
 /* Correctly answered marking */
 .h5p-mark-the-words .h5p-word-correct{
-  background: #d1e2ce;
-  color: #39692e;
+  background: #9dd8bb;
+  color: #255c41;
 }
 /* Wrongly answered marking */
 .h5p-mark-the-words .h5p-word-wrong {
-  background-color: #e6ced1;
-  color: #c33f62;
+  background-color: #f7d0d0;
+  color: #b71c1c;
   text-decoration: line-through;
 }
 /* Feedback icons */
@@ -197,7 +197,7 @@
   text-decoration: none;
   content: "\f00c";
   font-family: 'H5PFontAwesome4';
-  color: #39692e;
+  color: #255c41;
   padding-left: 0.75em;
 }
 .h5p-mark-the-words .h5p-word-wrong:after {
@@ -207,7 +207,7 @@
   font-family: 'H5PFontAwesome4';
   text-decoration: none;
   content: "\f00d";
-  color: #c33f62;
+  color: #b71c1c;
   padding-left: 0.75em;
 }
 /* SPECIFIC CSS CLASSES FOR MARK THE WORDS MODULE: */
