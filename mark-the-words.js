@@ -37,7 +37,7 @@ H5P.MarkTheWords = (function ($, Question) {
 
     // Set default behavior.
     this.params = $.extend({}, {
-      taskDescription: "Highlight the adjectives in the following sentence",
+      taskDescription: "",
       textField: "This is a *nice*, *flexible* content type.",
       behaviour: {
         enableRetry: true,
