@@ -339,7 +339,7 @@ H5P.MarkTheWords = (function ($, Question) {
     var self = this;
 
     // Do nothing if user state is undefined
-    if (this.previousState === undefined) {
+    if (this.previousState === undefined || this.previousState.length === undefined) {
       return;
     }
 
