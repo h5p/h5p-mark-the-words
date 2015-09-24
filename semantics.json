@@ -23,7 +23,8 @@
     "label": "Textfield",
     "name": "textField",
     "type": "text",
-    "widget": "textarea",
+    "widget": "html",
+    "tags": ["p", "br", "strong", "em"],
     "placeholder": "This is an answer: *answer*.",
     "description": "Marked words are added with an asterix (*). An asterix may be escaped with another asterix, resulting in ** = *. Example: The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
   },
