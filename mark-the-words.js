@@ -73,67 +73,89 @@ H5P.MarkTheWords = (function ($, Question) {
   };
 
   /**
+   * Recursive function that creates html for the words
+   * @method createHtmlForWords
+   * @param  {Array}           nodes Array of dom nodes
+   * @return {string}
+   */
+  MarkTheWords.prototype.createHtmlForWords = function (nodes) {
+    var self = this;
+    var html = '';
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i];
+
+      if (node instanceof Text) {
+        var text = $(node).text();
+        var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
+          .match(/ \*[^\*]+\* |[^\s]+/g);
+
+        if (selectableStrings) {
+          selectableStrings.forEach(function (entry) {
+            entry = entry.trim();
+
+            // Words
+            if (html) {
+              // Add space before
+              html += ' ';
+            }
+
+            // Remove prefix punctuations from word
+            var prefix = entry.match(/^[\[\({⟨¿¡"«„]+/);
+            var start = 0;
+            if (prefix !== null) {
+              start = prefix.length;
+              html += prefix;
+            }
+
+            // Remove suffix punctuations from word
+            var suffix = entry.match(/[",….:;?!\]\)}⟩»”]+$/);
+            var end = entry.length - start;
+            if (suffix !== null) {
+              end -= suffix.length;
+            }
+
+            // Word
+            entry = entry.substr(start, end);
+            if (entry.length) {
+              html += '<span class="' + SELECTABLE_MARK + '">' + entry + '</span>';
+            }
+
+            if (suffix !== null) {
+              html += suffix;
+            }
+          });
+        }
+        else {
+          html += '<span class="' + SELECTABLE_MARK + '">' + text + '</span>';
+        }
+      }
+      else {
+        var attributes = ' ';
+        for (var j = 0; j < node.attributes.length; j++) {
+          attributes +=node.attributes[j].name + '="' + node.attributes[j].nodeValue + '" ';
+        }
+        html += '<' + node.nodeName +  attributes + '>';
+        html += self.createHtmlForWords(node.childNodes);
+        html += '</' + node.nodeName + '>';
+      }
+    }
+
+    return html;
+  };
+
+  /**
    * Handle task and add it to container.
    * @param {jQuery} $container The object which our task will attach to.
    */
   MarkTheWords.prototype.addTaskTo = function ($container) {
     var self = this;
-    var textField = self.params.textField;
-    var $conv = $('<div/>');
     self.selectableWords = [];
     self.answers = 0;
-
-    // Split up words and html tags
-    var selectableStrings = textField.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
-      .match(/\<\/?[a-zA-Z^>][a-zA-Z0-9^>]*>| \*[^\*]+\* |[^\s<]+/g);
-
-    // Make each word selectable
-    var html = '';
-    selectableStrings.forEach(function (entry) {
-      if (entry.match(/^\<\/?[a-zA-Z^>][a-zA-Z0-9^>]*>$/)) {
-        // Html tags
-        html += entry;
-      }
-      else {
-        // Words
-        if (html) {
-          // Add space before
-          html += ' ';
-        }
-        // Convert any html entities
-        entry = $conv.html(entry.trim()).text();
-
-        // Remove prefix punctuations from word
-        var prefix = entry.match(/^[\[\({⟨¿¡"«„]+/);
-        var start = 0;
-        if (prefix !== null) {
-          start = prefix.length;
-          html += prefix;
-        }
-
-        // Remove suffix punctuations from word
-        var suffix = entry.match(/[",….:;?!\]\)}⟩»”]+$/);
-        var end = entry.length - start;
-        if (suffix !== null) {
-          end -= suffix.length;
-        }
-
-        // Word
-        entry = entry.substr(start, end);
-        if (entry.length) {
-          html += '<span class="' + SELECTABLE_MARK + '">' + entry + '</span>';
-        }
-
-        if (suffix !== null) {
-          html += suffix;
-        }
-      }
-    });
 
     // Wrapper
     var $wordContainer = $('<div/>', {
       'class': WORDS_CONTAINER,
-      html: html
+      html: self.createHtmlForWords($.parseHTML(self.params.textField))
     });
 
     $wordContainer.find('.' + SELECTABLE_MARK).each(function () {
