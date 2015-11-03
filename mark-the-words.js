@@ -187,7 +187,8 @@ H5P.MarkTheWords = (function ($, Question) {
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
       if (!self.showEvaluation()) {
-        if (self.params.behaviour.enableSolutionsButton) {
+        // Only show if a correct answer was not found.
+        if (self.params.behaviour.enableSolutionsButton && (self.correctAnswers < self.answers)) {
           self.showButton('show-solution');
         }
         if (self.params.behaviour.enableRetry) {
