@@ -125,7 +125,7 @@ H5P.MarkTheWords = (function ($, Question) {
             }
           });
         }
-        else {
+        else if ((selectableStrings !== null) && text.length) {
           html += '<span class="' + SELECTABLE_MARK + '">' + text + '</span>';
         }
       }
