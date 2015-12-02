@@ -5,13 +5,13 @@
  * @external {jQuery} $ H5P.jQuery
  */
 H5P.MarkTheWords = (function ($, Question) {
-  //CSS Main Containers:
+  // CSS Main Containers:
   var MAIN_CONTAINER = "h5p-word";
   var INNER_CONTAINER = "h5p-word-inner";
   var WORDS_CONTAINER = "h5p-word-selectable-words";
   var BUTTON_CONTAINER = "h5p-button-bar";
 
-  //CSS Classes for marking words:
+  // CSS Classes for marking words:
   var MISSED_MARK = "h5p-word-missed";
   var CORRECT_MARK = "h5p-word-correct";
   var WRONG_MARK = "h5p-word-wrong";
@@ -73,22 +73,93 @@ H5P.MarkTheWords = (function ($, Question) {
   };
 
   /**
+   * Recursive function that creates html for the words
+   * @method createHtmlForWords
+   * @param  {Array}           nodes Array of dom nodes
+   * @return {string}
+   */
+  MarkTheWords.prototype.createHtmlForWords = function (nodes) {
+    var self = this;
+    var html = '';
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i];
+
+      if (node instanceof Text) {
+        var text = $(node).text();
+        var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
+          .match(/ \*[^\*]+\* |[^\s]+/g);
+
+        if (selectableStrings) {
+          selectableStrings.forEach(function (entry) {
+            entry = entry.trim();
+
+            // Words
+            if (html) {
+              // Add space before
+              html += ' ';
+            }
+
+            // Remove prefix punctuations from word
+            var prefix = entry.match(/^[\[\({⟨¿¡"«„]+/);
+            var start = 0;
+            if (prefix !== null) {
+              start = prefix.length;
+              html += prefix;
+            }
+
+            // Remove suffix punctuations from word
+            var suffix = entry.match(/[",….:;?!\]\)}⟩»”]+$/);
+            var end = entry.length - start;
+            if (suffix !== null) {
+              end -= suffix.length;
+            }
+
+            // Word
+            entry = entry.substr(start, end);
+            if (entry.length) {
+              html += '<span class="' + SELECTABLE_MARK + '">' + entry + '</span>';
+            }
+
+            if (suffix !== null) {
+              html += suffix;
+            }
+          });
+        }
+        else if ((selectableStrings !== null) && text.length) {
+          html += '<span class="' + SELECTABLE_MARK + '">' + text + '</span>';
+        }
+      }
+      else {
+        var attributes = ' ';
+        for (var j = 0; j < node.attributes.length; j++) {
+          attributes +=node.attributes[j].name + '="' + node.attributes[j].nodeValue + '" ';
+        }
+        html += '<' + node.nodeName +  attributes + '>';
+        html += self.createHtmlForWords(node.childNodes);
+        html += '</' + node.nodeName + '>';
+      }
+    }
+
+    return html;
+  };
+
+  /**
    * Handle task and add it to container.
    * @param {jQuery} $container The object which our task will attach to.
    */
   MarkTheWords.prototype.addTaskTo = function ($container) {
     var self = this;
-    var textField = self.params.textField;
     self.selectableWords = [];
     self.answers = 0;
 
-    //Regexp for splitting string on whitespace(s).
-    var selectableStrings = textField.replace(/(\r\n|\n|\r)/gm, " <br> ").split(/[\s]+/);
+    // Wrapper
+    var $wordContainer = $('<div/>', {
+      'class': WORDS_CONTAINER,
+      html: self.createHtmlForWords($.parseHTML(self.params.textField))
+    });
 
-    var $wordContainer = $('<div/>', {'class': WORDS_CONTAINER});
-    //Make each word selectable
-    selectableStrings.forEach(function (entry) {
-      var selectableWord = new Word(entry, $wordContainer);
+    $wordContainer.find('.' + SELECTABLE_MARK).each(function () {
+      var selectableWord = new Word($(this));
       selectableWord.on('xAPI', function (event) {
         if (event.getVerb() === 'interacted') {
           self.triggerXAPI('interacted');
@@ -99,8 +170,8 @@ H5P.MarkTheWords = (function ($, Question) {
       }
       self.selectableWords.push(selectableWord);
     });
-    $wordContainer.appendTo($container);
 
+    $wordContainer.appendTo($container);
     self.$wordContainer = $wordContainer;
   };
 
@@ -116,7 +187,8 @@ H5P.MarkTheWords = (function ($, Question) {
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
       if (!self.showEvaluation()) {
-        if (self.params.behaviour.enableSolutionsButton) {
+        // Only show if a correct answer was not found.
+        if (self.params.behaviour.enableSolutionsButton && (self.correctAnswers < self.answers)) {
           self.showButton('show-solution');
         }
         if (self.params.behaviour.enableRetry) {
@@ -369,39 +441,36 @@ H5P.MarkTheWords = (function ($, Question) {
   /**
    * Private class for keeping track of selectable words.
    *
-   * @param {String} word A string that will be turned into a selectable word.
-   * @param {Object} $container The container which the word will be appended to.
-   * @returns {String} html Returns a span with correct classes for the word.
+   * @class
+   * @param {H5P.jQuery} $word
    */
-  function Word(word, $container) {
+  function Word($word) {
     var self = this;
-    H5P.EventDispatcher.call(this);
-    var input = word;
-    var handledInput = word;
-    var wordEnding = ' ';
-    //Check if word is an answer
+    H5P.EventDispatcher.call(self);
+
+    var input = $word.text();
+    var handledInput = input;
+
+    // Check if word is an answer
     var isAnswer = checkForAnswer();
 
-    //Remove single asterisk and escape double asterisks.
+    // Remove single asterisk and escape double asterisks.
     handleAsterisks();
-    checkForPunctuation();
 
     var isSelectable = true;
     var isSelected = false;
 
-    //Create jQuery object of word.
-    var $word = $('<span /> ', {
-      'class': SELECTABLE_MARK,
-      html: handledInput
-    }).appendTo($container).click(function () {
+    if (isAnswer) {
+      $word.text(handledInput);
+    }
+
+    // Handle click events
+    $word.click(function () {
       if (!isSelectable) {
         return;
       }
       self.toggleMark();
     });
-
-    //Append a space after the word.
-    $container.append(wordEnding);
 
     /**
      * Checks if the word is an answer by checking the first, second to last and last character of the word.
@@ -409,7 +478,7 @@ H5P.MarkTheWords = (function ($, Question) {
      * @return {Boolean} Returns true if the word is an answer.
      */
     function checkForAnswer() {
-      //Check last and next to last character, in case of punctuations.
+      // Check last and next to last character, in case of punctuations.
       var wordString = removeDoubleAsterisks(input);
       if (wordString.charAt(0) === ('*') && wordString.length > 2) {
         if (wordString.charAt(wordString.length - 1) === ('*')) {
@@ -419,24 +488,11 @@ H5P.MarkTheWords = (function ($, Question) {
         // If punctuation, add the punctuation to the end of the word.
         else if(wordString.charAt(wordString.length - 2) === ('*')) {
           handledInput = input.slice(1, input.length - 2);
-          wordEnding = input.charAt(input.length - 1) + ' ';
           return true;
         }
         return false;
       }
       return false;
-    }
-
-    /**
-     * Checks if the word has a punctuation at the ending, and make sure this part is not a part of the word.
-     * @private
-     */
-    function checkForPunctuation() {
-      var punctuations = new RegExp(/[!#$%&+,-.:;=?_|~]/);
-      if (punctuations.test(handledInput.charAt(handledInput.length - 1))) {
-        wordEnding = handledInput.charAt(handledInput.length - 1) + ' ';
-        handledInput = handledInput.slice(0, handledInput.length - 1);
-      }
     }
 
     /**

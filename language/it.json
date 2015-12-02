@@ -1,12 +1,12 @@
 {
   "semantics": [
     {
-      "label": "Descrizione attivit�",
+      "label": "Descrizione attività",
       "description": "Descrivere come l'utente deve risolvere il compito."
     },
     {
       "label": "Campo testo",
-      "description": "Le parole contrassegnate sono aggiunte con un asterisco (*). Un asterisco pu� essere sottratto con un altro asterisco, con conseguente ** = *. Esempio: Le parole corrette sono contrassegnate in questo modo: *parolacorretta* , e un carattere asterisco � scritto in questo modo: **."
+      "description": "Le parole contrassegnate sono aggiunte con un asterisco (*). Un asterisco può essere sottratto con un altro asterisco, con conseguente ** = *. Esempio: Le parole corrette sono contrassegnate in questo modo: *parolacorretta* , e un carattere asterisco è scritto in questo modo: **."
     },
     {
       "label": "Testo per il pulsante \"Verifica\""
