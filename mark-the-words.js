@@ -130,13 +130,18 @@ H5P.MarkTheWords = (function ($, Question) {
         }
       }
       else {
-        var attributes = ' ';
-        for (var j = 0; j < node.attributes.length; j++) {
-          attributes +=node.attributes[j].name + '="' + node.attributes[j].nodeValue + '" ';
+        if (node.nodeName === 'BR') {
+          html += '<br/>';
         }
-        html += '<' + node.nodeName +  attributes + '>';
-        html += self.createHtmlForWords(node.childNodes);
-        html += '</' + node.nodeName + '>';
+        else {
+          var attributes = ' ';
+          for (var j = 0; j < node.attributes.length; j++) {
+            attributes +=node.attributes[j].name + '="' + node.attributes[j].nodeValue + '" ';
+          }
+          html += '<' + node.nodeName +  attributes + '>';
+          html += self.createHtmlForWords(node.childNodes);
+          html += '</' + node.nodeName + '>';
+        }
       }
     }
 
