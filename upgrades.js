@@ -17,7 +17,9 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
       },
       5: {
         contentUpgrade: function (parameters, finished) {
-          parameters.textField = parameters.textField.replace(/\n/g, "<br />");
+          if (parameters.textField !== undefined) {
+            parameters.textField = parameters.textField.replace(/\n/g, "<br />");
+          }
           finished(null, parameters);
         }
       }
