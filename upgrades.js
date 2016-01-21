@@ -14,6 +14,14 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
           delete parameters.enableShowSolution;
           finished(null, parameters);
         }
+      },
+      5: {
+        contentUpgrade: function (parameters, finished) {
+          if (parameters.textField !== undefined) {
+            parameters.textField = parameters.textField.replace(/\n/g, "<br />");
+          }
+          finished(null, parameters);
+        }
       }
     }
   };
