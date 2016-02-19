@@ -3,7 +3,7 @@
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
   "minorVersion": 5,
-  "patchVersion": 1,
+  "patchVersion": 2,
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 6
@@ -26,7 +26,7 @@
     {
       "machineName": "FontAwesome",
       "majorVersion": 4,
-      "minorVersion": 3
+      "minorVersion": 5
     },
     {
       "machineName": "H5P.JoubelUI",
