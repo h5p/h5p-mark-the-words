@@ -604,7 +604,7 @@ H5P.MarkTheWords = (function ($, Question) {
         $word.attr('tabindex', '0');
       } else {
         $word.addClass(WORD_DISABLED);
-        $word.attr('tabindex', '-1');
+        $word.removeAttr('tabindex');
       }
     };
 
