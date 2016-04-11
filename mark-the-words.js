@@ -117,7 +117,7 @@ H5P.MarkTheWords = (function ($, Question) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span class="' + SELECTABLE_MARK + '">' + entry + '</span>';
+              html += '<span role="button" tabindex="0" class="' + SELECTABLE_MARK + '">' + entry + '</span>';
             }
 
             if (suffix !== null) {
@@ -126,7 +126,7 @@ H5P.MarkTheWords = (function ($, Question) {
           });
         }
         else if ((selectableStrings !== null) && text.length) {
-          html += '<span class="' + SELECTABLE_MARK + '">' + text + '</span>';
+          html += '<span role="button" tabindex="0" class="' + SELECTABLE_MARK + '">' + text + '</span>';
         }
       }
       else {
@@ -447,7 +447,7 @@ H5P.MarkTheWords = (function ($, Question) {
    * Private class for keeping track of selectable words.
    *
    * @class
-   * @param {H5P.jQuery} $word
+   * @param {jQuery} $word
    */
   function Word($word) {
     var self = this;
@@ -471,10 +471,14 @@ H5P.MarkTheWords = (function ($, Question) {
 
     // Handle click events
     $word.click(function () {
-      if (!isSelectable) {
-        return;
-      }
       self.toggleMark();
+    }).keypress(function (e) {
+      var keyPressed = e.which;
+      // 32 - space
+      if (keyPressed === 32) {
+        self.toggleMark();
+        e.preventDefault();
+      }
     });
 
     /**
@@ -535,6 +539,10 @@ H5P.MarkTheWords = (function ($, Question) {
      * @public
      */
     this.toggleMark = function () {
+      if (!isSelectable) {
+        return;
+      }
+
       self.triggerXAPI('interacted');
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
@@ -593,8 +601,10 @@ H5P.MarkTheWords = (function ($, Question) {
       //Toggle feedback class
       if (selectable) {
         $word.removeClass(WORD_DISABLED);
+        $word.attr('tabindex', '0');
       } else {
         $word.addClass(WORD_DISABLED);
+        $word.removeAttr('tabindex');
       }
     };
 
