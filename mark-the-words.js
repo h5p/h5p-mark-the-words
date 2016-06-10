@@ -45,8 +45,8 @@ H5P.MarkTheWords = (function ($, Question) {
       },
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
-      showSolutionButton: "Solution",
-      score: "@score of @total points"
+      showSolutionButton: "Show solution",
+      score: "You got @score of @total points"
     }, params);
 
     this.contentData = contentData;
