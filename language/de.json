@@ -1,0 +1,65 @@
+{
+  "semantics":
+  [
+    {
+      "label": "Aufgabenbeschreibung",
+
+      "description": "Beschreibung darüber, wie der Benutzer die Aufgabe lösen muss.",
+      "placeholder": "Auf alle Verben im folgenden Text klicken.",
+
+      "tags": [
+
+      ]
+    },
+    {
+      "label": "Textfeld",
+
+      "tags": [],
+      "placeholder": "Dies ist eine Antwort: *Antwort*.",
+      "description": "Markierte Wörter werden mit einem Asterisk (*) hinzugefügt. Ein Asterisk kann mit einem weiteren Asterisk beendet werden, was in ** = * endet. Beispiel: Die korrekten Worte werden so markiert: *korrektes Wort* und ein Asterisk wird folgendermaßen geschrieben: **."
+    },
+    {
+      "label": "Text für den \"Überprüfen\" Button",
+
+      "default": "Überprüfen",
+
+    },
+    {
+      "label": "Text für den \"Wiederholen\" Button",
+
+      "default": "Wiederholen",
+
+    },
+    {
+      "label": "Text für den \"Lösung anzeigen\" Button",
+
+      "default": "Lösung anzeigen",
+
+    },
+    {
+      "label": "Feedbacktext",
+
+      "default": "@score von @total Punkten erhalten.",
+      "placeholder": "@score von @total Punkten erhalten.",
+      "description": "Feedbacktext, Variablen verfügbar: @score @total @correct @wrong @missed. Beispiel: 'Spielstand : @score von @total, Korrekt: @correct, Falsch: @wrong, Verpasst: @missed.'",
+
+    },
+    {
+
+      "label": "Verhaltenseinstellungen.",
+      "description": "Diese Optionen kontrollieren das Verhalten der Aufgabe.",
+
+      "fields": [
+        {
+
+          "label": "\"Wiederholen\" aktivieren",
+
+        },
+        {
+
+          "label": "Den \"Lösung anzeigen\" Button aktivieren",
+
+        }
+      ]
+    }
+  ]
