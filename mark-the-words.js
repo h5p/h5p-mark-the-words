@@ -165,15 +165,11 @@ H5P.MarkTheWords = (function ($, Question) {
 
     $wordContainer.find('.' + SELECTABLE_MARK).each(function () {
       var selectableWord = new Word($(this));
-      selectableWord.on('xAPI', function (event) {
-        if (event.getVerb() === 'interacted') {
-          self.triggerXAPI('interacted');
-        }
-      });
 
       // word clicked
       selectableWord.on('toggledMark', function () {
         self.isAnswered = true;
+        self.triggerXAPI('interacted');
       });
       if (selectableWord.isAnswer()) {
         self.answers += 1;
@@ -551,7 +547,6 @@ H5P.MarkTheWords = (function ($, Question) {
       }
 
       self.trigger('toggledMark');
-      self.triggerXAPI('interacted');
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
     };
