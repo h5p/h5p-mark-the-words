@@ -46,7 +46,7 @@ H5P.MarkTheWords = (function ($, Question) {
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
-      score: "You got @score of @total points."
+      score: "You got @score of @total points"
     }, params);
 
     this.contentData = contentData;
@@ -165,10 +165,11 @@ H5P.MarkTheWords = (function ($, Question) {
 
     $wordContainer.find('.' + SELECTABLE_MARK).each(function () {
       var selectableWord = new Word($(this));
-      selectableWord.on('xAPI', function (event) {
-        if (event.getVerb() === 'interacted') {
-          self.triggerXAPI('interacted');
-        }
+
+      // word clicked
+      selectableWord.on('toggledMark', function () {
+        self.isAnswered = true;
+        self.triggerXAPI('interacted');
       });
       if (selectableWord.isAnswer()) {
         self.answers += 1;
@@ -188,6 +189,7 @@ H5P.MarkTheWords = (function ($, Question) {
     self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
     this.addButton('check-answer', this.params.checkAnswerButton, function () {
+      self.isAnswered = true;
       self.setAllSelectable(false);
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
@@ -319,12 +321,12 @@ H5P.MarkTheWords = (function ($, Question) {
 
   /**
    * Needed for contracts.
-   * Always returns true, since MTW has no required actions to give an answer. Also calculates score.
+   * Returns true if task is checked or a word has been clicked
    *
    * @returns {Boolean} Always returns true.
    */
   MarkTheWords.prototype.getAnswerGiven = function () {
-    return true;
+    return this.isAnswered;
   };
 
   /**
@@ -372,6 +374,7 @@ H5P.MarkTheWords = (function ($, Question) {
    * Resets the task back to its' initial state.
    */
   MarkTheWords.prototype.resetTask = function () {
+    this.isAnswered = false;
     this.clearAllMarks();
     this.hideEvaluation();
     this.setAllSelectable(true);
@@ -543,7 +546,7 @@ H5P.MarkTheWords = (function ($, Question) {
         return;
       }
 
-      self.triggerXAPI('interacted');
+      self.trigger('toggledMark');
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
     };

@@ -19,12 +19,12 @@
       "default": "Prøv igjen"
     },
     {
-      "label": "Tekst for \"Vis svar\" knapp",
-      "default": "Vis svar"
+      "label": "Tekst for \"Fasit\" knapp",
+      "default": "Fasit"
     },
     {
       "label": "Tilbakemelding",
-      "default": "Du fikk @score av @total felt rett.",
+      "default": "@score av @total poeng",
       "description": "Tekstlig tilbakemelding, tilgjengelige variabler: @score og @total. Eksempel: 'Du fikk @score av @total felt rett.'"
     },
     {
@@ -35,7 +35,7 @@
           "label": "Aktiver \"Prøv igjen\""
         },
         {
-          "label": "Aktiver \"Vis svar\" knapp"
+          "label": "Aktiver \"Fasit\" knapp"
         }
       ]
     }
