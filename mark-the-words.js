@@ -167,9 +167,12 @@ H5P.MarkTheWords = (function ($, Question) {
       var selectableWord = new Word($(this));
 
       // word clicked
-      selectableWord.on('toggledMark', function () {
+      selectableWord.on('toggledMark', function (event) {
+        event.data = event.data || {};
         self.isAnswered = true;
-        self.triggerXAPI('interacted');
+        if (!event.data.skipDispatch) {
+          self.triggerXAPI('interacted');
+        }
       });
       if (selectableWord.isAnswer()) {
         self.answers += 1;
@@ -428,7 +431,7 @@ H5P.MarkTheWords = (function ($, Question) {
       if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
         throw new Error('Stored user state is invalid');
       }
-      self.selectableWords[answeredWordIndex].toggleMark();
+      self.selectableWords[answeredWordIndex].toggleMark(true);
     });
   };
 
@@ -540,13 +543,16 @@ H5P.MarkTheWords = (function ($, Question) {
     /**
      * Toggle the marking of a word.
      * @public
+     * @param {boolean} [skipDispatch] Skip dispatching xAPI event
      */
-    this.toggleMark = function () {
+    this.toggleMark = function (skipDispatch) {
       if (!isSelectable) {
         return;
       }
 
-      self.trigger('toggledMark');
+      self.trigger('toggledMark', {
+        skipDispatch
+      });
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
     };
