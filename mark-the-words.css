@@ -49,7 +49,7 @@
 }
 
 .h5p-mark-the-words .h5p-word-selectable.h5p-word-disabled {
-  cursor: default;
+  cursor: auto;
 }
 
 /* Colors and styling for word selections */
