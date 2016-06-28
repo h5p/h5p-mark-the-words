@@ -214,6 +214,7 @@ H5P.MarkTheWords = (function ($, Question) {
       self.hideButton('try-again');
       self.hideButton('show-solution');
       self.showButton('check-answer');
+      self.isAnswered = false;
     }, false);
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
