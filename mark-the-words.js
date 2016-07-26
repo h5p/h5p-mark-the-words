@@ -180,6 +180,11 @@ H5P.MarkTheWords = (function ($, Question) {
       self.selectableWords.push(selectableWord);
     });
 
+    self.blankIsCorrect = (self.answers === 0);
+    if (self.blankIsCorrect) {
+      self.answers = 1;
+    }
+
     $wordContainer.appendTo($container);
     self.$wordContainer = $wordContainer;
   };
@@ -311,6 +316,10 @@ H5P.MarkTheWords = (function ($, Question) {
         self.missedAnswers += 1;
       }
     });
+
+    if (self.blankIsCorrect && self.wrongAnswers === 0) {
+      self.correctAnswers += 1;
+    }
   };
 
   /**
