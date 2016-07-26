@@ -339,7 +339,7 @@ H5P.MarkTheWords = (function ($, Question) {
    * @returns {Boolean} Always returns true.
    */
   MarkTheWords.prototype.getAnswerGiven = function () {
-    return this.isAnswered;
+    return this.isAnswered || this.answers === 0;
   };
 
   /**
