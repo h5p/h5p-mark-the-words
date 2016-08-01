@@ -561,7 +561,7 @@ H5P.MarkTheWords = (function ($, Question) {
       }
 
       self.trigger('toggledMark', {
-        skipDispatch
+        skipDispatch: skipDispatch
       });
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
