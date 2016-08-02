@@ -2,34 +2,41 @@
   "semantics": [
     {
       "label": "Consigne",
-      "description": "La consigne indique ce que l'utilisateur doit faire."
+      "description": "La consigne indique ce que l'utilisateur doit faire.",
+      "placeholder": "Clique sur les verbes du texte."
     },
     {
       "label": "Champ de texte",
-      "description": "Les mots marqués sont précédés et suivis d'une astérisque (*). Pour un caractère, deux astérisques se suivent, soit ** = *. Exemple: Les mots corrects sont écrits ainsi: *correctword*, et un caractère comme cela: **."
+      "placeholder": "Voici une réponse exacte : *réponse*.",
+      "description": "Les mots marqués sont précédés et suivis d'une astérisque (*). Pour afficher un astérisque, on utilise avec un autre astéristique ; ainsi ** = *. Au final, les réponses exactes sont marquées ainsi : *motcorrect* et un astéristique est noté comme cela: **."
     },
     {
-      "label": "Texte pour le bouton \"Vérifier\""
+      "label": "Texte pour le bouton \"Vérifier\"",
+      "default": "Vérifier"
     },
     {
-      "label": "Texte pour le bouton \"Réessayer\""
+      "label": "Texte pour le bouton \"Recommencer\"",
+      "default": "Recommencer"
     },
     {
-      "label": "Texte pour le bouton \"Montrer la solution\""
+      "label": "Texte pour le bouton \"Voir la solution\"",
+      "default": "Voir la solution"
     },
     {
-      "label": "Texte de feedback",
-      "description": "Texte de feedback, variables possibles: @score @total @correct @wrong @missed. Exemple: 'Score : @score sur @total, correct: @correct, faux: @wrong, passé: @missed.'"
+      "label": "Texte de commentaire",
+      "default": "Tu as obtenu @score point(s) sur @total",
+      "placeholder": "Tu as obtenu @score point(s) sur @total",
+      "description": "Texte de commentaire, variables possibles : @score @total @correct @wrong @missed. Exemple: 'Ton score : @score sur @total (réponses justes : @correct, réponses fausses : @wrong, oublis : @missed.)'"
     },
     {
       "label": "Options générales.",
-      "description": "Ces options permettent de contrôler le déroulement de l'activité.",
+      "description": "Ces options vous permettent de contrôler le déroulement de l'activité.",
       "fields": [
         {
-          "label": "Activer le bouton \"Réessayer\""
+          "label": "Activer le bouton \"Recommencer\""
         },
         {
-          "label": "Activer le bouton \"Solution\""
+          "label": "Activer le bouton \"Voir la solution\""
         }
       ]
     }
