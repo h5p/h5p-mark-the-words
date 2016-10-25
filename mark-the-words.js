@@ -100,10 +100,10 @@ H5P.MarkTheWords = (function ($, Question) {
             }
 
             // Remove prefix punctuations from word
-            var prefix = entry.match(/^[\[\({⟨¿¡"«„]+/);
+            var prefix = entry.match(/^[\[\({⟨¿¡“"«„]+/);
             var start = 0;
             if (prefix !== null) {
-              start = prefix.length;
+              start = prefix[0].length;
               html += prefix;
             }
 
@@ -111,7 +111,7 @@ H5P.MarkTheWords = (function ($, Question) {
             var suffix = entry.match(/[",….:;?!\]\)}⟩»”]+$/);
             var end = entry.length - start;
             if (suffix !== null) {
-              end -= suffix.length;
+              end -= suffix[0].length;
             }
 
             // Word
