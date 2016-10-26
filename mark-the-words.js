@@ -46,7 +46,7 @@ H5P.MarkTheWords = (function ($, Question) {
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
-      score: "You got @score of @total points."
+      score: "You got @score of @total points"
     }, params);
 
     this.contentData = contentData;
@@ -100,10 +100,10 @@ H5P.MarkTheWords = (function ($, Question) {
             }
 
             // Remove prefix punctuations from word
-            var prefix = entry.match(/^[\[\({⟨¿¡"«„]+/);
+            var prefix = entry.match(/^[\[\({⟨¿¡“"«„]+/);
             var start = 0;
             if (prefix !== null) {
-              start = prefix.length;
+              start = prefix[0].length;
               html += prefix;
             }
 
@@ -111,7 +111,7 @@ H5P.MarkTheWords = (function ($, Question) {
             var suffix = entry.match(/[",….:;?!\]\)}⟩»”]+$/);
             var end = entry.length - start;
             if (suffix !== null) {
-              end -= suffix.length;
+              end -= suffix[0].length;
             }
 
             // Word
@@ -165,8 +165,12 @@ H5P.MarkTheWords = (function ($, Question) {
 
     $wordContainer.find('.' + SELECTABLE_MARK).each(function () {
       var selectableWord = new Word($(this));
-      selectableWord.on('xAPI', function (event) {
-        if (event.getVerb() === 'interacted') {
+
+      // word clicked
+      selectableWord.on('toggledMark', function (event) {
+        event.data = event.data || {};
+        self.isAnswered = true;
+        if (!event.data.skipDispatch) {
           self.triggerXAPI('interacted');
         }
       });
@@ -175,6 +179,11 @@ H5P.MarkTheWords = (function ($, Question) {
       }
       self.selectableWords.push(selectableWord);
     });
+
+    self.blankIsCorrect = (self.answers === 0);
+    if (self.blankIsCorrect) {
+      self.answers = 1;
+    }
 
     $wordContainer.appendTo($container);
     self.$wordContainer = $wordContainer;
@@ -188,6 +197,7 @@ H5P.MarkTheWords = (function ($, Question) {
     self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
 
     this.addButton('check-answer', this.params.checkAnswerButton, function () {
+      self.isAnswered = true;
       self.setAllSelectable(false);
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
@@ -209,6 +219,7 @@ H5P.MarkTheWords = (function ($, Question) {
       self.hideButton('try-again');
       self.hideButton('show-solution');
       self.showButton('check-answer');
+      self.isAnswered = false;
     }, false);
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
@@ -305,6 +316,10 @@ H5P.MarkTheWords = (function ($, Question) {
         self.missedAnswers += 1;
       }
     });
+
+    if (self.blankIsCorrect && self.wrongAnswers === 0) {
+      self.correctAnswers += 1;
+    }
   };
 
   /**
@@ -319,12 +334,12 @@ H5P.MarkTheWords = (function ($, Question) {
 
   /**
    * Needed for contracts.
-   * Always returns true, since MTW has no required actions to give an answer. Also calculates score.
+   * Returns true if task is checked or a word has been clicked
    *
    * @returns {Boolean} Always returns true.
    */
   MarkTheWords.prototype.getAnswerGiven = function () {
-    return true;
+    return this.blankIsCorrect ? true : this.isAnswered;
   };
 
   /**
@@ -372,6 +387,7 @@ H5P.MarkTheWords = (function ($, Question) {
    * Resets the task back to its' initial state.
    */
   MarkTheWords.prototype.resetTask = function () {
+    this.isAnswered = false;
     this.clearAllMarks();
     this.hideEvaluation();
     this.setAllSelectable(true);
@@ -425,7 +441,7 @@ H5P.MarkTheWords = (function ($, Question) {
       if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
         throw new Error('Stored user state is invalid');
       }
-      self.selectableWords[answeredWordIndex].toggleMark();
+      self.selectableWords[answeredWordIndex].toggleMark(true);
     });
   };
 
@@ -537,13 +553,16 @@ H5P.MarkTheWords = (function ($, Question) {
     /**
      * Toggle the marking of a word.
      * @public
+     * @param {boolean} [skipDispatch] Skip dispatching xAPI event
      */
-    this.toggleMark = function () {
+    this.toggleMark = function (skipDispatch) {
       if (!isSelectable) {
         return;
       }
 
-      self.triggerXAPI('interacted');
+      self.trigger('toggledMark', {
+        skipDispatch: skipDispatch
+      });
       $word.toggleClass(SELECTED_MARK);
       isSelected = !isSelected;
     };
