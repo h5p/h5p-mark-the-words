@@ -210,6 +210,7 @@ H5P.MarkTheWords = (function ($, Question) {
           self.showButton('try-again');
         }
       }
+      self.triggerXAPIScored(self.getScore(), self.getMaxScore(), 'answered');
     });
 
     this.addButton('try-again', this.params.tryAgainButton, function () {
@@ -286,7 +287,6 @@ H5P.MarkTheWords = (function ($, Question) {
 
     this.setFeedback(scoreText, score, this.answers);
 
-    this.triggerXAPIScored(score, this.answers, 'answered');
     this.trigger('resize');
     return score === this.answers;
   };
