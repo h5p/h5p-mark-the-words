@@ -4,9 +4,6 @@ H5P.MarkTheWords.Word =(function(){
   var MISSED_MARK = "h5p-word-missed";
   var CORRECT_MARK = "h5p-word-correct";
   var WRONG_MARK = "h5p-word-wrong";
-  var SELECTED_MARK = "h5p-word-selected";
-  var SELECTABLE_MARK = "h5p-word-selectable";
-  var WORD_DISABLED = "h5p-word-disabled";
 
   /**
    * Class for keeping track of selectable words.
@@ -28,23 +25,10 @@ H5P.MarkTheWords.Word =(function(){
     handleAsterisks();
 
     var isSelectable = true;
-    var isSelected = false;
 
     if (isAnswer) {
       $word.text(handledInput);
     }
-
-    // Handle click events
-    $word.click(function () {
-      self.toggleMark();
-    }).keypress(function (e) {
-      var keyPressed = e.which;
-      // 32 - space
-      if (keyPressed === 32) {
-        self.toggleMark();
-        e.preventDefault();
-      }
-    });
 
     /**
      * Checks if the word is an answer by checking the first, second to last and last character of the word.
@@ -100,23 +84,6 @@ H5P.MarkTheWords.Word =(function(){
     }
 
     /**
-     * Toggle the marking of a word.
-     * @public
-     * @param {boolean} [skipDispatch] Skip dispatching xAPI event
-     */
-    this.toggleMark = function (skipDispatch) {
-      if (!isSelectable) {
-        return;
-      }
-
-      self.trigger('toggledMark', {
-        skipDispatch: skipDispatch
-      });
-      $word.toggleClass(SELECTED_MARK);
-      isSelected = !isSelected;
-    };
-
-    /**
      * Clears all marks from the word.
      * @public
      */
@@ -124,30 +91,17 @@ H5P.MarkTheWords.Word =(function(){
       $word.removeClass(MISSED_MARK)
         .removeClass(CORRECT_MARK)
         .removeClass(WRONG_MARK)
-        .removeClass(SELECTED_MARK);
-      isSelected = false;
-    };
-
-    /**
-     * Sets correct styling if word is an answer.
-     * @public
-     */
-    this.showSolution = function () {
-      $word.removeClass(MISSED_MARK)
-        .removeClass(CORRECT_MARK)
-        .removeClass(WRONG_MARK)
-        .removeClass(SELECTED_MARK);
-      if (isAnswer) {
-        $word.addClass(CORRECT_MARK);
-      }
+        .attr('aria-selected', false);
     };
 
     /**
      * Check if the word is correctly marked and style it accordingly.
+     * Reveal result
+     *
      * @public
      */
     this.markCheck = function () {
-      if (isSelected) {
+      if (this.isSelected()) {
         if (isAnswer) {
           $word.addClass(CORRECT_MARK);
         } else {
@@ -155,24 +109,6 @@ H5P.MarkTheWords.Word =(function(){
         }
       } else if (isAnswer) {
         $word.addClass(MISSED_MARK);
-      }
-      $word.removeClass(SELECTED_MARK);
-    };
-
-    /**
-     * Set whether the word should be selectable, and proper feedback.
-     * @public
-     * @param {Boolean} selectable Set to true to make word selectable.
-     */
-    this.setSelectable = function (selectable) {
-      isSelectable = selectable;
-      //Toggle feedback class
-      if (selectable) {
-        $word.removeClass(WORD_DISABLED);
-        $word.attr('tabindex', '0');
-      } else {
-        $word.addClass(WORD_DISABLED);
-        $word.removeAttr('tabindex');
       }
     };
 
@@ -182,7 +118,7 @@ H5P.MarkTheWords.Word =(function(){
      * @returns {Boolean} True if the marking is correct.
      */
     this.isCorrect = function () {
-      return (isAnswer && isSelected);
+      return (isAnswer && this.isSelected());
     };
 
     /**
@@ -191,7 +127,7 @@ H5P.MarkTheWords.Word =(function(){
      * @returns {Boolean} True if the marking is wrong.
      */
     this.isWrong = function () {
-      return (!isAnswer && isSelected);
+      return (!isAnswer && this.isSelected());
     };
 
     /**
@@ -200,7 +136,7 @@ H5P.MarkTheWords.Word =(function(){
      * @returns {Boolean} True if the marking is missed.
      */
     this.isMissed = function () {
-      return (isAnswer && !isSelected);
+      return (isAnswer && !this.isSelected());
     };
 
     /**
@@ -218,7 +154,16 @@ H5P.MarkTheWords.Word =(function(){
      * @returns {Boolean} True if the word is selected.
      */
     this.isSelected = function () {
-      return isSelected;
+      return $word.attr('aria-selected').toLowerCase() !== 'false';
+    };
+
+    /**
+     * Sets if the Word is selected
+     *
+     * @param selected
+     */
+    this.setSelected = function(selected){
+      $word.attr('aria-selected', selected);
     };
   }
   Word.prototype = Object.create(H5P.EventDispatcher.prototype);
