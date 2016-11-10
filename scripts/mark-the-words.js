@@ -119,7 +119,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span role="option" tabindex="-1">' + entry + '</span>';
+              html += '<span role="option">' + entry + '</span>';
             }
 
             if (suffix !== null) {
@@ -128,7 +128,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
           });
         }
         else if ((selectableStrings !== null) && text.length) {
-          html += '<span role="option" tabindex="-1">' + text + '</span>';
+          html += '<span role="option">' + text + '</span>';
         }
       }
       else {
