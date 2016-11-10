@@ -32,8 +32,8 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
     var $el = $(el);
     $el.keydown(this.handleKeyDown.bind(this));
     $el.click(this.onClick.bind(this));
-    //$el.focus(onFocus);
 
+    // add to array to navigate over
     elements.push(el);
 
     if(elements.length === 1){ // if first
@@ -106,8 +106,14 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
 
   KeyboardNav.prototype.toggleSelect = function(el){
     var $el = $(el);
-    var selected = !isElementSelected($el);
-    $el.attr('aria-selected', selected);
+
+    // toggle selection
+    if(isElementSelected($el)){
+      $el.removeAttr('aria-selected');
+    }
+    else {
+      $el.attr('aria-selected', true);
+    }
 
     // focus current
     $el.attr('tabindex', 0);
@@ -130,7 +136,7 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
   };
 
   var isElementSelected = function($el){
-    return $el.attr('aria-selected').toLowerCase() !== 'false';
+    return $el.attr('aria-selected') === 'true';
   };
 
   var isFirstElement = function(index){
@@ -139,10 +145,6 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
 
   var isLastElement = function(index){
     return index === elements.length - 1;
-  };
-
-  var onFocus = function(event){
-    this.trigger('focus', event);
   };
 
   return KeyboardNav;
