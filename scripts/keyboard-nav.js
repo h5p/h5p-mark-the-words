@@ -101,7 +101,7 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
    * Remove tabbable from all entries
    */
   KeyboardNav.prototype.removeAllTabbable = function () {
-    elements.forEach(function(el){ $(el).attr('tabindex', -1); });
+    elements.forEach(function(el){ $(el).removeAttr('tabindex'); });
   };
 
   KeyboardNav.prototype.toggleSelect = function(el){
