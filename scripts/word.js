@@ -91,7 +91,7 @@ H5P.MarkTheWords.Word =(function(){
       $word.removeClass(MISSED_MARK)
         .removeClass(CORRECT_MARK)
         .removeClass(WRONG_MARK)
-        .attr('aria-selected', false);
+        .removeAttr('aria-selected');
     };
 
     /**
@@ -154,16 +154,16 @@ H5P.MarkTheWords.Word =(function(){
      * @returns {Boolean} True if the word is selected.
      */
     this.isSelected = function () {
-      return $word.attr('aria-selected').toLowerCase() !== 'false';
+      return $word.attr('aria-selected') === 'true';
     };
 
     /**
-     * Sets if the Word is selected
+     * Sets that the Word is selected
      *
      * @param selected
      */
-    this.setSelected = function(selected){
-      $word.attr('aria-selected', selected);
+    this.setSelected = function(){
+      $word.attr('aria-selected', true);
     };
   }
   Word.prototype = Object.create(H5P.EventDispatcher.prototype);
