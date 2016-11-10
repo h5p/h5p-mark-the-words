@@ -53,7 +53,7 @@
 }
 
 /* Colors and styling for word selections */
-.h5p-mark-the-words .h5p-word-selected {
+.h5p-mark-the-words [aria-selected="true"] {
   background: #cee0f4;
 }
 /* Missed word*/

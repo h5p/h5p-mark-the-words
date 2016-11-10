@@ -4,20 +4,12 @@
  * Mark The Words module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.MarkTheWords = (function ($, Question, Word) {
+H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   // CSS Main Containers:
   var MAIN_CONTAINER = "h5p-word";
   var INNER_CONTAINER = "h5p-word-inner";
   var WORDS_CONTAINER = "h5p-word-selectable-words";
   var BUTTON_CONTAINER = "h5p-button-bar";
-
-  // CSS Classes for marking words:
-  var MISSED_MARK = "h5p-word-missed";
-  var CORRECT_MARK = "h5p-word-correct";
-  var WRONG_MARK = "h5p-word-wrong";
-  var SELECTED_MARK = "h5p-word-selected";
-  var SELECTABLE_MARK = "h5p-word-selectable";
-  var WORD_DISABLED = "h5p-word-disabled";
 
   /**
    * Initialize module.
@@ -31,6 +23,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
    * @returns {Object} MarkTheWords Mark the words instance
    */
   function MarkTheWords(params, contentId, contentData) {
+    var self = this;
     this.contentId = contentId;
 
     Question.call(this, 'mark-the-words');
@@ -53,6 +46,14 @@ H5P.MarkTheWords = (function ($, Question, Word) {
     if (this.contentData !== undefined && this.contentData.previousState !== undefined) {
       this.previousState = this.contentData.previousState;
     }
+
+    // Add keyboard navigation helper
+    this.keyboardNav = new KeyboardNav();
+    // on word clicked
+    this.keyboardNav.on('selected', function(event){
+      self.isAnswered = true;
+      self.triggerXAPI('interacted');
+    });
 
     this.initMarkTheWords();
     this.XapiGenerator = new H5P.MarkTheWords.XapiGenerator(this);
@@ -118,7 +119,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span role="button" tabindex="0" class="' + SELECTABLE_MARK + '">' + entry + '</span>';
+              html += '<span role="option" aria-selected="false" tabindex="-1">' + entry + '</span>';
             }
 
             if (suffix !== null) {
@@ -127,7 +128,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
           });
         }
         else if ((selectableStrings !== null) && text.length) {
-          html += '<span role="button" tabindex="0" class="' + SELECTABLE_MARK + '">' + text + '</span>';
+          html += '<span role="option" aria-selected="false" tabindex="-1">' + text + '</span>';
         }
       }
       else {
@@ -185,20 +186,17 @@ H5P.MarkTheWords = (function ($, Question, Word) {
     // Wrapper
     var $wordContainer = $('<div/>', {
       'class': WORDS_CONTAINER,
+      'aria-multiselect': true,
+      'role': 'listbox',
+      'tabindex': 0,
       html: self.createHtmlForWords($.parseHTML(self.params.textField))
     });
 
-    $wordContainer.find('.' + SELECTABLE_MARK).each(function () {
-      var selectableWord = new Word($(this));
+    $wordContainer.find('[role="option"]').each(function () {
+      // Add keyboard navigation to this element
+      self.keyboardNav.addElement(this);
 
-      // word clicked
-      selectableWord.on('toggledMark', function (event) {
-        event.data = event.data || {};
-        self.isAnswered = true;
-        if (!event.data.skipDispatch) {
-          self.triggerXAPI('interacted');
-        }
-      });
+      var selectableWord = new Word($(this));
       if (selectableWord.isAnswer()) {
         self.answers += 1;
       }
@@ -223,7 +221,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
 
     this.addButton('check-answer', this.params.checkAnswerButton, function () {
       self.isAnswered = true;
-      self.setAllSelectable(false);
+      self.keyboardNav.removeAllTabbable();
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
       if (!self.showEvaluation()) {
@@ -241,7 +239,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
     this.addButton('try-again', this.params.tryAgainButton, function () {
       self.clearAllMarks();
       self.hideEvaluation();
-      self.setAllSelectable(true);
+      self.keyboardNav.setTabbableAt(0);
       self.hideButton('try-again');
       self.hideButton('show-solution');
       self.showButton('check-answer');
@@ -249,7 +247,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
     }, false);
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
-      self.setAllSelectable(false);
+      self.keyboardNav.removeAllTabbable();
       self.setAllMarks();
       self.hideButton('check-answer');
       self.hideButton('show-solution');
@@ -415,7 +413,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
     this.showEvaluation();
     this.setAllMarks();
     this.hideAllButtons();
-    this.setAllSelectable(false);
+    this.keyboardNav.removeAllTabbable();
   };
 
   /**
@@ -426,7 +424,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
     this.isAnswered = false;
     this.clearAllMarks();
     this.hideEvaluation();
-    this.setAllSelectable(true);
+    this.keyboardNav.setTabbableAt(0);
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.showButton('check-answer');
@@ -477,7 +475,7 @@ H5P.MarkTheWords = (function ($, Question, Word) {
       if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
         throw new Error('Stored user state is invalid');
       }
-      self.selectableWords[answeredWordIndex].toggleMark(true);
+      self.selectableWords[answeredWordIndex].setSelected(true);
     });
   };
 
@@ -496,4 +494,4 @@ H5P.MarkTheWords = (function ($, Question, Word) {
   };
 
   return MarkTheWords;
-}(H5P.jQuery, H5P.Question, H5P.MarkTheWords.Word));
+}(H5P.jQuery, H5P.Question, H5P.MarkTheWords.Word, H5P.KeyboardNav));
