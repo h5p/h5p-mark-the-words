@@ -19,13 +19,13 @@
   ],
   "preloadedJs": [
     {
-      "path": "mark-the-words.js"
-    },
-    {
       "path": "scripts/keyboard-nav.js"
     },
     {
       "path": "scripts/xAPI-generator.js"
+    },
+    {
+      "path": "scripts/word.js"
     },
     {
       "path": "scripts/mark-the-words.js"
