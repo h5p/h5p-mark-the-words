@@ -78,5 +78,33 @@
         "default": true
       }
     ]
+  },
+  {
+    "label": "Correct answer text",
+    "name": "correctAnswer",
+    "type": "text",
+    "default": "Correct!",
+    "description": "Text used to indicate that an answer is correct"
+  },
+  {
+    "label": "Incorrect answer text",
+    "name": "incorrectAnswer",
+    "type": "text",
+    "default": "Incorrect!",
+    "description": "Text used to indicate that an answer is incorrect"
+  },
+  {
+    "label": "Missed answer text",
+    "name": "missedAnswer",
+    "type": "text",
+    "default": "Missed!",
+    "description": "Text used to indicate that an answer is missing"
+  },
+  {
+    "label": "Description for Display Solution",
+    "name": "displaySolutionDescription",
+    "type": "text",
+    "default": "Task is updated to contain the solution.",
+    "description": "This text tells the user that the tasks has been updated with the solution."
   }
 ]

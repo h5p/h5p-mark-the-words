@@ -1,9 +1,9 @@
 H5P.MarkTheWords = H5P.MarkTheWords || {};
 H5P.MarkTheWords.Word =(function(){
-  // CSS Classes for marking words:
-  var MISSED_MARK = "h5p-word-missed";
-  var CORRECT_MARK = "h5p-word-correct";
-  var WRONG_MARK = "h5p-word-wrong";
+  // ARIA IDs for marking words:
+  Word.MISSED_MARK = "h5p-description-missed";
+  Word.CORRECT_MARK = "h5p-description-correct";
+  Word.INCORRECT_MARK = "h5p-description-incorrect";
 
   /**
    * Class for keeping track of selectable words.
@@ -88,10 +88,9 @@ H5P.MarkTheWords.Word =(function(){
      * @public
      */
     this.markClear = function () {
-      $word.removeClass(MISSED_MARK)
-        .removeClass(CORRECT_MARK)
-        .removeClass(WRONG_MARK)
-        .removeAttr('aria-selected');
+      $word
+        .removeAttr('aria-selected')
+        .removeAttr('aria-describedby');
     };
 
     /**
@@ -103,12 +102,12 @@ H5P.MarkTheWords.Word =(function(){
     this.markCheck = function () {
       if (this.isSelected()) {
         if (isAnswer) {
-          $word.addClass(CORRECT_MARK);
+          $word.attr('aria-describedby', Word.CORRECT_MARK);
         } else {
-          $word.addClass(WRONG_MARK);
+          $word.attr('aria-describedby', Word.INCORRECT_MARK);
         }
       } else if (isAnswer) {
-        $word.addClass(MISSED_MARK);
+        $word.attr('aria-describedby', Word.MISSED_MARK);
       }
     };
 

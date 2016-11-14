@@ -34,7 +34,11 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
-      score: "You got @score of @total points"
+      score: "You got @score of @total points",
+      correctAnswer: "Correct!",
+      incorrectAnswer: "Incorrect!",
+      missedAnswer: "Missed!",
+      displaySolutionDescription:  "Task is updated to contain the solution."
     }, params);
 
     this.contentData = contentData;
@@ -44,6 +48,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
     // Add keyboard navigation helper
     this.keyboardNav = new KeyboardNav();
+
     // on word clicked
     this.keyboardNav.on('selected', function(event){
       self.isAnswered = true;
@@ -219,7 +224,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
     this.addButton('check-answer', this.params.checkAnswerButton, function () {
       self.isAnswered = true;
-      self.keyboardNav.removeAllTabbable();
+      self.keyboardNav.setTabbableAt(0);
+      self.keyboardNav.disableSelectability();
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
       if (!self.showEvaluation()) {
@@ -238,6 +244,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
       self.clearAllMarks();
       self.hideEvaluation();
       self.keyboardNav.setTabbableAt(0);
+      self.keyboardNav.enableSelectability();
       self.hideButton('try-again');
       self.hideButton('show-solution');
       self.showButton('check-answer');
@@ -245,13 +252,16 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     }, false);
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
-      self.keyboardNav.removeAllTabbable();
+      self.keyboardNav.setTabbableAt(0);
+      self.keyboardNav.disableSelectability();
       self.setAllMarks();
       self.hideButton('check-answer');
       self.hideButton('show-solution');
       if (self.params.behaviour.enableRetry) {
         self.showButton('try-again');
       }
+
+      self.read(self.params.displaySolutionDescription);
     }, false);
   };
 
@@ -339,6 +349,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     self.correctAnswers = 0;
     self.wrongAnswers = 0;
     self.missedAnswers = 0;
+
     self.selectableWords.forEach(function (entry) {
       if (entry.isCorrect()) {
         self.correctAnswers += 1;
@@ -411,7 +422,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     this.showEvaluation();
     this.setAllMarks();
     this.hideAllButtons();
-    this.keyboardNav.removeAllTabbable();
+    this.keyboardNav.setTabbableAt(0);
   };
 
   /**
@@ -441,6 +452,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   /**
    * Returns an object containing the selected words
    *
+   * @public
    * @returns {object} containing indexes of selected words
    */
   MarkTheWords.prototype.getCurrentState = function () {
@@ -484,6 +496,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     // Register description
     this.setIntroduction(introduction);
 
+    // creates aria descriptions for correct/incorrect/missed
+    this.createDescriptionsDom().appendTo(this.$inner);
+
     // Register content
     this.setContent(this.$inner, {
       'class': 'h5p-word'
@@ -491,6 +506,21 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
     // Register buttons
     this.addButtons();
+  };
+
+  /**
+   * Creates dom with description to be used with aria-describedby
+   * @return {jQuery}
+   */
+  MarkTheWords.prototype.createDescriptionsDom = function () {
+    var self = this;
+    var $el = $('<div class="h5p-mark-the-words-descriptions"></div>');
+
+    $('<div id="' + Word.CORRECT_MARK + '">' + self.params.correctAnswer + '</div>').appendTo($el);
+    $('<div id="' + Word.INCORRECT_MARK + '">' + self.params.incorrectAnswer + '</div>').appendTo($el);
+    $('<div id="' + Word.MISSED_MARK + '">' + self.params.missedAnswer + '</div>').appendTo($el);
+
+    return $el;
   };
 
   return MarkTheWords;
