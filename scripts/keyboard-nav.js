@@ -17,6 +17,7 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
    */
   function KeyboardNav() {
     var self = this;
+    this.selectability = true;
     EventDispatcher.call(self);
   }
 
@@ -47,7 +48,7 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
       case 32: // Space
         // Select
         this.toggleSelect(event.target);
-        //event.preventDefault();
+        event.preventDefault();
         break;
 
       case 37: // Left Arrow
@@ -84,16 +85,30 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
    * @param {Number} index The index of the alternative to focus on
    */
   KeyboardNav.prototype.focusOnElementAt = function (index) {
-    this.removeAllTabbable();
     this.setTabbableAt(index);
     var $el = $(elements[index]);
     $el.focus();
   };
 
   /**
+   * Disable posibility to select a word trough click and space or enter
+   */
+  KeyboardNav.prototype.disableSelectability = function () {
+    this.selectability = false;
+  };
+
+  /**
+   * Enable posibility to select a word trough click and space or enter
+   */
+  KeyboardNav.prototype.enableSelectability = function () {
+    this.selectability = true;
+  };
+
+  /**
    * Remove tabbable from all entries
    */
   KeyboardNav.prototype.setTabbableAt = function (index) {
+    this.removeAllTabbable();
     $(elements[index]).attr('tabindex', 0);
   };
 
@@ -105,22 +120,24 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
   };
 
   KeyboardNav.prototype.toggleSelect = function(el){
-    var $el = $(el);
+    if(this.selectability) {
+      var $el = $(el);
 
-    // toggle selection
-    if(isElementSelected($el)){
-      $el.removeAttr('aria-selected');
+      // toggle selection
+      if (isElementSelected($el)) {
+        $el.removeAttr('aria-selected');
+      }
+      else {
+        $el.attr('aria-selected', true);
+      }
+
+      // focus current
+      $el.attr('tabindex', 0);
+      $el.focus();
+
+      // fire select event
+      this.trigger('select', createEventPayload(el));
     }
-    else {
-      $el.attr('aria-selected', true);
-    }
-
-    // focus current
-    $el.attr('tabindex', 0);
-    $el.focus();
-
-    // fire select event
-    this.trigger('select', createEventPayload(el));
   };
 
   KeyboardNav.prototype.onClick = function(event){
