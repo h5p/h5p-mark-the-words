@@ -41,15 +41,11 @@
   line-height: 1.75em;
 }
 /* Selectable words*/
-.h5p-mark-the-words .h5p-word-selectable {
+.h5p-mark-the-words [role="option"] {
   white-space: nowrap;
   padding: 0.15em;
   border-radius: 0.25em;
   cursor: pointer;
-}
-
-.h5p-mark-the-words .h5p-word-selectable.h5p-word-disabled {
-  cursor: auto;
 }
 
 /* Colors and styling for word selections */

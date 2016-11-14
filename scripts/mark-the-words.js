@@ -5,12 +5,6 @@
  * @external {jQuery} $ H5P.jQuery
  */
 H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
-  // CSS Main Containers:
-  var MAIN_CONTAINER = "h5p-word";
-  var INNER_CONTAINER = "h5p-word-inner";
-  var WORDS_CONTAINER = "h5p-word-selectable-words";
-  var BUTTON_CONTAINER = "h5p-button-bar";
-
   /**
    * Initialize module.
    *
@@ -25,6 +19,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   function MarkTheWords(params, contentId, contentData) {
     var self = this;
     this.contentId = contentId;
+    this.introductionId = 'mark-the-words-introduction-' + contentId;
 
     Question.call(this, 'mark-the-words');
 
@@ -66,7 +61,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
    * Initialize Mark The Words task
    */
   MarkTheWords.prototype.initMarkTheWords = function () {
-    this.$inner = $('<div class=' + INNER_CONTAINER + '></div>');
+    this.$inner = $('<div class="h5p-word-inner"></div>');
 
     this.addTaskTo(this.$inner);
 
@@ -185,7 +180,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
     // Wrapper
     var $wordContainer = $('<div/>', {
-      'class': WORDS_CONTAINER,
+      'class': 'h5p-word-selectable-words',
+      'aria-labelledby': self.introductionId,
       'aria-multiselect': true,
       'role': 'listbox',
       'tabindex': 0,
@@ -217,7 +213,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
    */
   MarkTheWords.prototype.addButtons = function () {
     var self = this;
-    self.$buttonContainer = $('<div/>', {'class': BUTTON_CONTAINER});
+    self.$buttonContainer = $('<div/>', {
+      'class': 'h5p-button-bar'
+    });
 
     this.addButton('check-answer', this.params.checkAnswerButton, function () {
       self.isAnswered = true;
@@ -480,13 +478,15 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   };
 
   MarkTheWords.prototype.registerDomElements = function () {
+    // wrap introduction in div with id
+    var introduction = '<div id="' + this.introductionId + '">' + this.params.taskDescription + '</div>';
 
     // Register description
-    this.setIntroduction(this.params.taskDescription);
+    this.setIntroduction(introduction);
 
     // Register content
     this.setContent(this.$inner, {
-      'class': MAIN_CONTAINER
+      'class': 'h5p-word'
     });
 
     // Register buttons
