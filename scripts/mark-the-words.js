@@ -228,9 +228,13 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
       self.keyboardNav.disableSelectability();
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
-      if (!self.showEvaluation()) {
+
+
+      var answers = self.calculateScore();
+
+      if (!self.showEvaluation(answers)) {
         // Only show if a correct answer was not found.
-        if (self.params.behaviour.enableSolutionsButton && (self.correctAnswers < self.answers)) {
+        if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
           self.showButton('show-solution');
         }
         if (self.params.behaviour.enableRetry) {
@@ -295,6 +299,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
     });
+
     this.trigger('resize');
   };
 
@@ -307,6 +312,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
         entry.markCheck();
       }
     });
+
     this.trigger('resize');
   };
 
@@ -315,17 +321,16 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
    *
    * @return {Boolean} Returns true if maxScore was achieved.
    */
-  MarkTheWords.prototype.showEvaluation = function () {
+  MarkTheWords.prototype.showEvaluation = function (answers) {
     this.hideEvaluation();
-    this.calculateScore();
+    var score = answers.score;
 
-    var score = ((this.correctAnswers - this.wrongAnswers) <= 0) ? 0 : (this.correctAnswers - this.wrongAnswers);
     //replace editor variables with values, uses regexp to replace all instances.
     var scoreText = this.params.score.replace(/@score/g, score.toString())
       .replace(/@total/g, this.answers.toString())
-      .replace(/@correct/g, this.correctAnswers.toString())
-      .replace(/@wrong/g, this.wrongAnswers.toString())
-      .replace(/@missed/g, this.missedAnswers.toString());
+      .replace(/@correct/g, answers.correct.toString())
+      .replace(/@wrong/g, answers.wrong.toString())
+      .replace(/@missed/g, answers.missed.toString());
 
     this.setFeedback(scoreText, score, this.answers);
 
@@ -342,27 +347,50 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   };
 
   /**
-   * Calculate score and store them in class variables.
+   * Calculate the score.
+   * @return {Answers}
    */
   MarkTheWords.prototype.calculateScore = function () {
     var self = this;
-    self.correctAnswers = 0;
-    self.wrongAnswers = 0;
-    self.missedAnswers = 0;
 
-    self.selectableWords.forEach(function (entry) {
-      if (entry.isCorrect()) {
-        self.correctAnswers += 1;
-      } else if (entry.isWrong()) {
-        self.wrongAnswers += 1;
-      } else if (entry.isMissed()) {
-        self.missedAnswers += 1;
+    /**
+     * @typedef {Object} Answers
+     * @property {number} correct The number of correct answers
+     * @property {number} wrong The number of wrong answers
+     * @property {number} missed The number of answers the user missed
+     * @property {number} score The calculated score
+     */
+    var initial = {
+      correct: 0,
+      wrong: 0,
+      missed: 0,
+      score: 0
+    };
+
+    // iterate over words, and calculate score
+    var answers = self.selectableWords.reduce(function (result, word) {
+      if (word.isCorrect()) {
+        result.correct++;
       }
-    });
+      else if (word.isWrong()) {
+        result.correct--;
+      }
+      else if (word.isMissed()) {
+        result.missed--;
+      }
 
-    if (self.blankIsCorrect && self.wrongAnswers === 0) {
-      self.correctAnswers += 1;
+      return result;
+    }, initial);
+
+    // if no wrong answers, and black is correct
+    if (answers.wrong === 0 && self.blankIsCorrect) {
+      answers.correct = 1;
     }
+
+    // no negative score
+    answers.score = Math.max(answers.correct - answers.wrong - answers.missed, 0);
+
+    return answers;
   };
 
   /**
@@ -372,6 +400,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     this.selectableWords.forEach(function (entry) {
       entry.markClear();
     });
+
     this.trigger('resize');
   };
 
@@ -392,8 +421,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
    * @returns {Number} score The amount of points achieved.
    */
   MarkTheWords.prototype.getScore = function () {
-    this.calculateScore();
-    return ((this.correctAnswers - this.wrongAnswers) <= 0) ? 0 : (this.correctAnswers - this.wrongAnswers);
+    return this.calculateScore().score;
   };
 
   /**
@@ -412,41 +440,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
    */
   MarkTheWords.prototype.getTitle = function () {
     return H5P.createTitle(this.params.taskDescription);
-  };
-
-  /**
-   * Needed for contracts.
-   * Display the evaluation of the task, with proper markings.
-   */
-  MarkTheWords.prototype.showSolutions = function () {
-    this.showEvaluation();
-    this.setAllMarks();
-    this.hideAllButtons();
-    this.keyboardNav.setTabbableAt(0);
-  };
-
-  /**
-   * Needed for contracts.
-   * Resets the task back to its' initial state.
-   */
-  MarkTheWords.prototype.resetTask = function () {
-    this.isAnswered = false;
-    this.clearAllMarks();
-    this.hideEvaluation();
-    this.keyboardNav.setTabbableAt(0);
-    this.hideButton('try-again');
-    this.hideButton('show-solution');
-    this.showButton('check-answer');
-  };
-
-  /**
-   * Hide all buttons. Used to disable further input for user.
-   */
-  MarkTheWords.prototype.hideAllButtons = function () {
-    this.hideButton('try-again');
-    this.hideButton('show-solution');
-    this.hideButton('check-answer');
-    this.trigger('resize');
   };
 
   /**
