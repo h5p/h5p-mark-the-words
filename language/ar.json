@@ -32,6 +32,30 @@
           "label": "تمكين زر \"مشاهدة الحل\""
         }
       ]
+    },
+    {
+      "englishLabel": "Correct answer text",
+      "label": "نص الجواب الصحيح",
+      "englishDefault": "Correct!",
+      "default": "صحيح!"
+    },
+    {
+      "englishLabel": "Incorrect answer text",
+      "label": "نص الجواب غير صحيح",
+      "englishDefault": "Incorrect!",
+      "default": "غير صحيح!"
+    },
+    {
+      "englishLabel": "Missed answer text",
+      "label": "غاب نص الجواب",
+      "englishDefault": "Missed!",
+      "default": "افتقد!"
+    },
+    {
+      "englishLabel": "Description for Display Solution",
+      "label": "وصف لعرض الحل",
+      "englishDefault": "Task is updated to contain the solution.",
+      "default": "يتم تحديث مهمة لاحتواء الحل."
     }
   ]
 }
