@@ -285,17 +285,26 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
   /**
    * Mark the words as correct, wrong or missed.
+   *
+   * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.setAllMarks = function () {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
     });
 
+    /**
+     * Resize event
+     *
+     * @event MarkTheWords#resize
+     */
     this.trigger('resize');
   };
 
   /**
    * Mark the selected words as correct or wrong.
+   *
+   * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.feedbackSelectedWords = function () {
     this.selectableWords.forEach(function (entry) {
@@ -310,6 +319,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   /**
    * Evaluate task and display score text for word markings.
    *
+   * @fires MarkTheWords#resize
    * @return {Boolean} Returns true if maxScore was achieved.
    */
   MarkTheWords.prototype.showEvaluation = function (answers) {
@@ -331,6 +341,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
   /**
    * Clear the evaluation text.
+   *
+   * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.hideEvaluation = function () {
     this.setFeedback();
@@ -339,6 +351,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
   /**
    * Calculate the score.
+   *
    * @return {Answers}
    */
   MarkTheWords.prototype.calculateScore = function () {
@@ -386,6 +399,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
 
   /**
    * Clear styling on marked words.
+   *
+   * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.clearAllMarks = function () {
     this.selectableWords.forEach(function (entry) {
@@ -436,6 +451,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   /**
    * Display the evaluation of the task, with proper markings.
    *
+   * @fires MarkTheWords#resize
    * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    */
   MarkTheWords.prototype.showSolutions = function () {
@@ -448,12 +464,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.hideButton('check-answer');
+
     this.trigger('resize');
   };
 
   /**
    * Resets the task back to its' initial state.
    *
+   * @fires MarkTheWords#resize
    * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    */
   MarkTheWords.prototype.resetTask = function () {
@@ -540,9 +558,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     var self = this;
     var $el = $('<div class="h5p-mark-the-words-descriptions"></div>');
 
-    $('<div id="' + Word.CORRECT_MARK + '">' + self.params.correctAnswer + '</div>').appendTo($el);
-    $('<div id="' + Word.INCORRECT_MARK + '">' + self.params.incorrectAnswer + '</div>').appendTo($el);
-    $('<div id="' + Word.MISSED_MARK + '">' + self.params.missedAnswer + '</div>').appendTo($el);
+    $('<div id="' + Word.ID_MARK_CORRECT + '">' + self.params.correctAnswer + '</div>').appendTo($el);
+    $('<div id="' + Word.ID_MARK_INCORRECT + '">' + self.params.incorrectAnswer + '</div>').appendTo($el);
+    $('<div id="' + Word.ID_MARK_MISSED + '">' + self.params.missedAnswer + '</div>').appendTo($el);
 
     return $el;
   };

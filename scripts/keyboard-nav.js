@@ -1,48 +1,184 @@
 /*global H5P*/
 
 /**
- * Mark The Words module
- * @external {jQuery} $ H5P.jQuery
+ * @class
+ * @classdesc Keyboard navigation for accessibility support
+ * @extends H5P.EventDispatcher
  */
-H5P.KeyboardNav = (function ($, EventDispatcher) {
-  var elements = [];
-
+H5P.KeyboardNav = (function (EventDispatcher) {
   /**
-   * Initialize module.
-   *
-   * @class H5P.KeyboardNav
-   * @extends H5P.EventDispatcher
-   *
-   * @returns {Object} KeyboardNav Navigate a set of elements
+   * Construct a new KeyboardNav
+   * @constructor
    */
   function KeyboardNav() {
-    var self = this;
+    EventDispatcher.call(this);
+
+    /** @member {boolean} */
     this.selectability = true;
-    EventDispatcher.call(self);
+
+    /** @member {HTMLElement[]} */
+    this.elements = [];
   }
 
   KeyboardNav.prototype = Object.create(EventDispatcher.prototype);
   KeyboardNav.prototype.constructor = KeyboardNav;
 
   /**
-   * Adds a element to navigation
+   * Adds a new element to navigation
    *
-   * @param {jQuery} $el The element
+   * @param {HTMLElement} el The element
+   * @public
    */
   KeyboardNav.prototype.addElement = function(el){
-    var $el = $(el);
-    $el.keydown(this.handleKeyDown.bind(this));
-    $el.click(this.onClick.bind(this));
+    el.addEventListener('keydown', this.handleKeyDown.bind(this));
+    el.addEventListener('click', this.onClick.bind(this));
 
     // add to array to navigate over
-    elements.push(el);
+    this.elements.push(el);
 
-    if(elements.length === 1){ // if first
+    if(this.elements.length === 1){ // if first
       this.setTabbableAt(0);
     }
   };
 
+  /**
+   * Select the previous element in the list. Select the last element,
+   * if the current element is the first element in the list.
+   *
+   * @param {Number} index The index of currently selected element
+   * @public
+   * @fires KeyboardNav#previousOption
+   */
+  KeyboardNav.prototype.previousOption = function (index) {
+    var isFirstElement = index === 0;
+    this.focusOnElementAt(isFirstElement ? (this.elements.length - 1) : (index - 1));
+
+    /**
+     * Previous option event
+     *
+     * @event KeyboardNav#previousOption
+     * @type KeyboardNavigationEventData
+     */
+    this.trigger('previousOption', this.createEventPayload(index));
+  };
+
+
+  /**
+   * Select the next element in the list. Select the first element,
+   * if the current element is the first element in the list.
+   *
+   * @param {Number} index The index of the currently selected element
+   * @public
+   * @fires KeyboardNav#previousOption
+   */
+  KeyboardNav.prototype.nextOption = function (index) {
+    var isLastElement = index === this.elements.length - 1;
+    this.focusOnElementAt(isLastElement ? 0 : (index + 1));
+
+    /**
+     * Previous option event
+     *
+     * @event KeyboardNav#nextOption
+     * @type KeyboardNavigationEventData
+     */
+    this.trigger('nextOption', this.createEventPayload(index));
+  };
+
+  /**
+   * Focus on an element by index
+   *
+   * @param {Number} index The index of the element to focus on
+   * @public
+   */
+  KeyboardNav.prototype.focusOnElementAt = function (index) {
+    this.setTabbableAt(index);
+    this.elements[index].focus();
+  };
+
+  /**
+   * Disable possibility to select a word trough click and space or enter
+   *
+   * @public
+   */
+  KeyboardNav.prototype.disableSelectability = function () {
+    this.selectability = false;
+  };
+
+  /**
+   * Enable possibility to select a word trough click and space or enter
+   *
+   * @public
+   */
+  KeyboardNav.prototype.enableSelectability = function () {
+    this.selectability = true;
+  };
+
+  /**
+   * Sets tabbable on a single element in the list, by index
+   * Also removes tabbable from all other elements in the list
+   *
+   * @param {Number} index The index of the element to set tabbale on
+   * @public
+   */
+  KeyboardNav.prototype.setTabbableAt = function (index) {
+    this.removeAllTabbable();
+    this.elements[index].setAttribute('tabindex', '0');
+  };
+
+  /**
+   * Remove tabbable from all entries
+   *
+   * @public
+   */
+  KeyboardNav.prototype.removeAllTabbable = function () {
+    this.elements.forEach(function(el){
+      el.removeAttribute('tabindex');
+    });
+  };
+
+  /**
+   * Toggles 'aria-selected' on an element, if selectability == true
+   *
+   * @param {EventTarget|HTMLElement} el The element to select/unselect
+   * @private
+   * @fires KeyboardNav#select
+   */
+  KeyboardNav.prototype.toggleSelect = function(el){
+    if(this.selectability) {
+
+      // toggle selection
+      if (isElementSelected(el)) {
+        el.removeAttribute('aria-selected');
+      }
+      else {
+        el.setAttribute('aria-selected', 'true');
+      }
+
+      // focus current
+      el.setAttribute('tabindex', '0');
+      el.focus();
+
+      var index = this.elements.indexOf(el);
+
+      /**
+       * Previous option event
+       *
+       * @event KeyboardNav#select
+       * @type KeyboardNavigationEventData
+       */
+      this.trigger('select', this.createEventPayload(index));
+    }
+  };
+
+  /**
+   * Handles key down
+   *
+   * @param {KeyboardEvent} event Keyboard event
+   * @private
+   */
   KeyboardNav.prototype.handleKeyDown = function(event){
+    var index;
+
     switch (event.which) {
       case 13: // Enter
       case 32: // Space
@@ -54,115 +190,62 @@ H5P.KeyboardNav = (function ($, EventDispatcher) {
       case 37: // Left Arrow
       case 38: // Up Arrow
         // Go to previous Option
-        this.previousOption(event.currentTarget);
+        index = this.elements.indexOf(event.currentTarget);
+        this.previousOption(index);
         event.preventDefault();
         break;
 
       case 39: // Right Arrow
       case 40: // Down Arrow
         // Go to next Option
-        this.nextOption(event.currentTarget);
+        index = this.elements.indexOf(event.currentTarget);
+        this.nextOption(index);
         event.preventDefault();
         break;
     }
   };
 
-  KeyboardNav.prototype.previousOption = function (el) {
-    var index = elements.indexOf(el);
-    this.focusOnElementAt(isFirstElement(index) ? (elements.length - 1) : (index - 1));
-    this.trigger('previousOption', createEventPayload(el));
-  };
-
-  KeyboardNav.prototype.nextOption = function (el) {
-    var index = elements.indexOf(el);
-    this.focusOnElementAt(isLastElement(index) ? 0 : (index + 1));
-    this.trigger('nextOption', createEventPayload(el));
-  };
-
   /**
-   * Focus on an alternative by index
+   * Handles element click. Toggles 'aria-selected' on element
    *
-   * @param {Number} index The index of the alternative to focus on
+   * @param {MouseEvent} event Mouse click event
+   * @private
    */
-  KeyboardNav.prototype.focusOnElementAt = function (index) {
-    this.setTabbableAt(index);
-    var $el = $(elements[index]);
-    $el.focus();
-  };
-
-  /**
-   * Disable posibility to select a word trough click and space or enter
-   */
-  KeyboardNav.prototype.disableSelectability = function () {
-    this.selectability = false;
-  };
-
-  /**
-   * Enable posibility to select a word trough click and space or enter
-   */
-  KeyboardNav.prototype.enableSelectability = function () {
-    this.selectability = true;
-  };
-
-  /**
-   * Remove tabbable from all entries
-   */
-  KeyboardNav.prototype.setTabbableAt = function (index) {
-    this.removeAllTabbable();
-    $(elements[index]).attr('tabindex', 0);
-  };
-
-  /**
-   * Remove tabbable from all entries
-   */
-  KeyboardNav.prototype.removeAllTabbable = function () {
-    elements.forEach(function(el){ $(el).removeAttr('tabindex'); });
-  };
-
-  KeyboardNav.prototype.toggleSelect = function(el){
-    if(this.selectability) {
-      var $el = $(el);
-
-      // toggle selection
-      if (isElementSelected($el)) {
-        $el.removeAttr('aria-selected');
-      }
-      else {
-        $el.attr('aria-selected', true);
-      }
-
-      // focus current
-      $el.attr('tabindex', 0);
-      $el.focus();
-
-      // fire select event
-      this.trigger('select', createEventPayload(el));
-    }
-  };
-
   KeyboardNav.prototype.onClick = function(event){
     this.toggleSelect(event.currentTarget);
   };
 
-  var createEventPayload = function(el){
+  /**
+   * Creates a paylod for event that is fired
+   *
+   * @param {Number} index
+   * @return {KeyboardNavigationEventData}
+   */
+  KeyboardNav.prototype.createEventPayload = function(index){
+    /**
+     * Data that is passed along as the event parameter
+     *
+     * @typedef {Object} KeyboardNavigationEventData
+     * @property {HTMLElement} element
+     * @property {number} index
+     * @property {boolean} selected
+     */
     return {
-      element: el,
-      index: elements.indexOf(el),
-      selected: isElementSelected($(el))
+      element: this.elements[index],
+      index: index,
+      selected: isElementSelected(this.elements[index])
     };
   };
 
-  var isElementSelected = function($el){
-    return $el.attr('aria-selected') === 'true';
-  };
-
-  var isFirstElement = function(index){
-    return index === 0;
-  };
-
-  var isLastElement = function(index){
-    return index === elements.length - 1;
+  /**
+   * Sets aria-selected="true" on an element
+   *
+   * @param {HTMLElement} el The element to set selected
+   * @return {boolean}
+   */
+  var isElementSelected = function(el){
+    return el.getAttribute('aria-selected') === 'true';
   };
 
   return KeyboardNav;
-})(H5P.jQuery, H5P.EventDispatcher);
+})(H5P.EventDispatcher);
