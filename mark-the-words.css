@@ -58,8 +58,10 @@
 }
 /* Missed word*/
 .h5p-mark-the-words .h5p-word-missed {
-  border: 0.1em #2c76c0 dashed;
+  border: 0.1em #77b395 dotted;
+  background-color: #E4F4EC;
 }
+
 /* Correctly answered marking */
 .h5p-mark-the-words .h5p-word-correct{
   background: #9dd8bb;
