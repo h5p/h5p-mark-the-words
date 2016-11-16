@@ -1,9 +1,23 @@
 H5P.MarkTheWords = H5P.MarkTheWords || {};
 H5P.MarkTheWords.Word =(function(){
-  // ARIA IDs for marking words:
-  Word.MISSED_MARK = "h5p-description-missed";
-  Word.CORRECT_MARK = "h5p-description-correct";
-  Word.INCORRECT_MARK = "h5p-description-incorrect";
+  /**
+   * @constant
+   *
+   * @type {string}
+  */
+  Word.ID_MARK_MISSED = "h5p-description-missed";
+  /**
+   * @constant
+   *
+   * @type {string}
+   */
+  Word.ID_MARK_CORRECT = "h5p-description-correct";
+  /**
+   * @constant
+   *
+   * @type {string}
+   */
+  Word.ID_MARK_INCORRECT = "h5p-description-incorrect";
 
   /**
    * Class for keeping track of selectable words.
@@ -24,14 +38,13 @@ H5P.MarkTheWords.Word =(function(){
     // Remove single asterisk and escape double asterisks.
     handleAsterisks();
 
-    var isSelectable = true;
-
     if (isAnswer) {
       $word.text(handledInput);
     }
 
     /**
      * Checks if the word is an answer by checking the first, second to last and last character of the word.
+     *
      * @private
      * @return {Boolean} Returns true if the word is an answer.
      */
@@ -55,28 +68,33 @@ H5P.MarkTheWords.Word =(function(){
 
     /**
      * Removes double asterisks from string, used to handle input.
+     *
      * @private
      * @param {String} wordString The string which will be handled.
-     * @results {String} slicedWord Returns a string without double asterisks.
+     * @return {String} Returns a string without double asterisks.
      */
     function removeDoubleAsterisks(wordString) {
       var asteriskIndex = wordString.indexOf('*');
       var slicedWord = wordString;
+
       while (asteriskIndex !== -1) {
         if (wordString.indexOf('*', asteriskIndex + 1) === asteriskIndex + 1) {
           slicedWord = wordString.slice(0, asteriskIndex) + wordString.slice(asteriskIndex + 2, input.length);
         }
         asteriskIndex = wordString.indexOf('*', asteriskIndex + 1);
       }
+
       return slicedWord;
     }
 
     /**
      * Escape double asterisks ** = *, and remove single asterisk.
+     *
      * @private
      */
     function handleAsterisks() {
       var asteriskIndex = handledInput.indexOf('*');
+
       while (asteriskIndex !== -1) {
         handledInput = handledInput.slice(0, asteriskIndex) + handledInput.slice(asteriskIndex + 1, handledInput.length);
         asteriskIndex = handledInput.indexOf('*', asteriskIndex + 1);
@@ -85,6 +103,7 @@ H5P.MarkTheWords.Word =(function(){
 
     /**
      * Clears all marks from the word.
+     *
      * @public
      */
     this.markClear = function () {
@@ -102,17 +121,20 @@ H5P.MarkTheWords.Word =(function(){
     this.markCheck = function () {
       if (this.isSelected()) {
         if (isAnswer) {
-          $word.attr('aria-describedby', Word.CORRECT_MARK);
-        } else {
-          $word.attr('aria-describedby', Word.INCORRECT_MARK);
+          $word.attr('aria-describedby', Word.ID_MARK_CORRECT);
         }
-      } else if (isAnswer) {
-        $word.attr('aria-describedby', Word.MISSED_MARK);
+        else {
+          $word.attr('aria-describedby', Word.ID_MARK_INCORRECT);
+        }
+      }
+      else if (isAnswer) {
+        $word.attr('aria-describedby', Word.ID_MARK_MISSED);
       }
     };
 
     /**
      * Checks if the word is marked correctly.
+     *
      * @public
      * @returns {Boolean} True if the marking is correct.
      */
@@ -122,6 +144,7 @@ H5P.MarkTheWords.Word =(function(){
 
     /**
      * Checks if the word is marked wrong.
+     *
      * @public
      * @returns {Boolean} True if the marking is wrong.
      */
@@ -131,6 +154,7 @@ H5P.MarkTheWords.Word =(function(){
 
     /**
      * Checks if the word is correct, but has not been marked.
+     *
      * @public
      * @returns {Boolean} True if the marking is missed.
      */
@@ -140,6 +164,7 @@ H5P.MarkTheWords.Word =(function(){
 
     /**
      * Checks if the word is an answer.
+     *
      * @public
      * @returns {Boolean} True if the word is an answer.
      */
@@ -149,6 +174,7 @@ H5P.MarkTheWords.Word =(function(){
 
     /**
      * Checks if the word is selected.
+     *
      * @public
      * @returns {Boolean} True if the word is selected.
      */
@@ -159,6 +185,7 @@ H5P.MarkTheWords.Word =(function(){
     /**
      * Sets that the Word is selected
      *
+     * @public
      * @param selected
      */
     this.setSelected = function(){
