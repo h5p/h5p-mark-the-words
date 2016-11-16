@@ -244,16 +244,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
       self.triggerXAPIScored(self.getScore(), self.getMaxScore(), 'answered');
     });
 
-    this.addButton('try-again', this.params.tryAgainButton, function () {
-      self.clearAllMarks();
-      self.hideEvaluation();
-      self.keyboardNav.setTabbableAt(0);
-      self.keyboardNav.enableSelectability();
-      self.hideButton('try-again');
-      self.hideButton('show-solution');
-      self.showButton('check-answer');
-      self.isAnswered = false;
-    }, false);
+    this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
       self.keyboardNav.setTabbableAt(0);
@@ -405,9 +396,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   };
 
   /**
-   * Needed for contracts.
    * Returns true if task is checked or a word has been clicked
    *
+   * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    * @returns {Boolean} Always returns true.
    */
   MarkTheWords.prototype.getAnswerGiven = function () {
@@ -415,9 +406,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   };
 
   /**
-   * Needed for contracts.
    * Counts the score, which is correct answers subtracted by wrong answers.
    *
+   * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    * @returns {Number} score The amount of points achieved.
    */
   MarkTheWords.prototype.getScore = function () {
@@ -425,9 +416,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   };
 
   /**
-   * Needed for contracts.
    * Gets max score for this task.
    *
+   * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    * @returns {Number} maxScore The maximum amount of points achievable.
    */
   MarkTheWords.prototype.getMaxScore = function () {
@@ -440,6 +431,41 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
    */
   MarkTheWords.prototype.getTitle = function () {
     return H5P.createTitle(this.params.taskDescription);
+  };
+
+  /**
+   * Display the evaluation of the task, with proper markings.
+   *
+   * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
+   */
+  MarkTheWords.prototype.showSolutions = function () {
+    const answers = this.calculateScore();
+    this.showEvaluation(answers);
+    this.setAllMarks();
+    this.keyboardNav.setTabbableAt(0);
+    this.keyboardNav.disableSelectability();
+    this.read(this.params.displaySolutionDescription);
+    this.hideButton('try-again');
+    this.hideButton('show-solution');
+    this.hideButton('check-answer');
+    this.trigger('resize');
+  };
+
+  /**
+   * Resets the task back to its' initial state.
+   *
+   * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
+   */
+  MarkTheWords.prototype.resetTask = function () {
+    this.isAnswered = false;
+    this.clearAllMarks();
+    this.hideEvaluation();
+    this.keyboardNav.setTabbableAt(0);
+    this.keyboardNav.enableSelectability();
+    this.hideButton('try-again');
+    this.hideButton('show-solution');
+    this.showButton('check-answer');
+    this.trigger('resize');
   };
 
   /**
@@ -482,6 +508,11 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     });
   };
 
+  /**
+   * Register dom elements
+   *
+   * @see {@link https://github.com/h5p/h5p-question/blob/1558b6144333a431dd71e61c7021d0126b18e252/scripts/question.js#L1236|Called from H5P.Question}
+   */
   MarkTheWords.prototype.registerDomElements = function () {
     // wrap introduction in div with id
     var introduction = '<div id="' + this.introductionId + '">' + this.params.taskDescription + '</div>';
