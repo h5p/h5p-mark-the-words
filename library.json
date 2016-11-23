@@ -20,6 +20,9 @@
   "preloadedJs": [
     {
       "path": "mark-the-words.js"
+    },
+    {
+      "path": "xAPI-generator.js"
     }
   ],
   "preloadedDependencies": [

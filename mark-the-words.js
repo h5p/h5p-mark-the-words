@@ -55,6 +55,7 @@ H5P.MarkTheWords = (function ($, Question) {
     }
 
     this.initMarkTheWords();
+    this.XapiGenerator = new H5P.MarkTheWords.XapiGenerator(this);
   }
 
   MarkTheWords.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -235,6 +236,16 @@ H5P.MarkTheWords = (function ($, Question) {
   };
 
   /**
+   * Get Xapi Data.
+   *
+   * @see used in contracts {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
+   * @return {H5P.XAPIEvent}
+   */
+  MarkTheWords.prototype.getXAPIData = function () {
+    return this.XapiGenerator.generateAnsweredEvent();
+  };
+
+  /**
    * Set whether all the words should be selectable.
    * @public
    * @param {Boolean} selectable Set to true to make the words selectable.
@@ -243,7 +254,6 @@ H5P.MarkTheWords = (function ($, Question) {
     this.selectableWords.forEach(function (entry) {
       entry.setSelectable(selectable);
     });
-
   };
 
   /**
@@ -549,6 +559,15 @@ H5P.MarkTheWords = (function ($, Question) {
         asteriskIndex = handledInput.indexOf('*', asteriskIndex + 1);
       }
     }
+
+    /**
+     * Get Word as a string
+     *
+     * @return {string} Word as text
+     */
+    this.getText = function() {
+      return input;
+    };
 
     /**
      * Toggle the marking of a word.
