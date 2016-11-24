@@ -581,11 +581,12 @@ H5P.MarkTheWords = (function ($, Question) {
         return;
       }
 
+      $word.toggleClass(SELECTED_MARK);
+      isSelected = !isSelected;
+
       self.trigger('toggledMark', {
         skipDispatch: skipDispatch
       });
-      $word.toggleClass(SELECTED_MARK);
-      isSelected = !isSelected;
     };
 
     /**
