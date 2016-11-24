@@ -49,13 +49,24 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
   function createDefinition(markTheWords) {
     var definition = {};
     definition.description = {
-      'en-US': $('<div>' + markTheWords.params.taskDescription + '</div>').text()
+      'en-US': replaceLineBreaks(markTheWords.params.taskDescription)
     };
     definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
     definition.interactionType = 'long-choice';
     definition.correctResponsesPattern = [getCorrectResponsesPattern(markTheWords)];
     definition.choices = getChoices(markTheWords);
     return definition;
+  }
+
+  /**
+   * Replace line breaks
+   *
+   * @param {string} description
+   * @return {string}
+   */
+  function replaceLineBreaks(description) {
+    var sanitized = $('<div>' + description + '</div>').text();
+    return sanitized.replace(/(\n)+/g, '<br/>');
   }
 
   /**
