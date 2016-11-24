@@ -239,10 +239,12 @@ H5P.MarkTheWords = (function ($, Question) {
    * Get Xapi Data.
    *
    * @see used in contracts {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
-   * @return {H5P.XAPIEvent}
+   * @return {Object}
    */
   MarkTheWords.prototype.getXAPIData = function () {
-    return this.XapiGenerator.generateAnsweredEvent();
+    return {
+      statement: this.XapiGenerator.generateAnsweredEvent().data.statement
+    };
   };
 
   /**

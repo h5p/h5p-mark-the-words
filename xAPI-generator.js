@@ -53,7 +53,7 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
     };
     definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
     definition.interactionType = 'long-choice';
-    definition.correctResponsesPattern = getCorrectResponsesPattern(markTheWords);
+    definition.correctResponsesPattern = [getCorrectResponsesPattern(markTheWords)];
     definition.choices = getChoices(markTheWords);
     return definition;
   }
