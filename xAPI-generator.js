@@ -55,6 +55,9 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
     definition.interactionType = 'long-choice';
     definition.correctResponsesPattern = [getCorrectResponsesPattern(markTheWords)];
     definition.choices = getChoices(markTheWords);
+    definition.extensions = {
+      'https://h5p.org/x-api/h5p-mark-the-words-line-breaks': markTheWords.getIndexesOfLineBreaks()
+    };
     return definition;
   }
 

@@ -150,6 +150,25 @@ H5P.MarkTheWords = (function ($, Question) {
   };
 
   /**
+   * Search for the last children in every paragraph and 
+   * return their indexes in an array 
+   *
+   * @returns {Array}
+   */
+  
+  MarkTheWords.prototype.getIndexesOfLineBreaks = function () {
+
+    var selectables = this.$wordContainer.find('span.h5p-word-selectable');  
+    
+    var indexes = selectables.map(function(index, selectable) {
+      if($(selectable).parent('p') && $(selectable).is(':last-child')) 
+        return index;
+    });
+
+    return indexes;
+  }
+
+  /**
    * Handle task and add it to container.
    * @param {jQuery} $container The object which our task will attach to.
    */
