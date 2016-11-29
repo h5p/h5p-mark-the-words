@@ -160,9 +160,10 @@ H5P.MarkTheWords = (function ($, Question) {
     var indexes = [];
     var selectables = this.$wordContainer.find('span.h5p-word-selectable');  
 
-    selectables.filter(function(index, selectable) {
-      if($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')) 
+    selectables.each(function(index, selectable) {
+      if($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')){
         indexes.push(index);
+      }
     });
 
     return indexes;
