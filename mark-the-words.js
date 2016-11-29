@@ -155,14 +155,14 @@ H5P.MarkTheWords = (function ($, Question) {
    *
    * @returns {Array}
    */
-  
   MarkTheWords.prototype.getIndexesOfLineBreaks = function () {
 
+    var indexes = [];
     var selectables = this.$wordContainer.find('span.h5p-word-selectable');  
-    
-    var indexes = selectables.map(function(index, selectable) {
-      if($(selectable).parent('p') && $(selectable).is(':last-child')) 
-        return index;
+
+    selectables.filter(function(index, selectable) {
+      if($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')) 
+        indexes.push(index);
     });
 
     return indexes;
