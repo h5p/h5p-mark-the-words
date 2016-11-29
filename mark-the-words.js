@@ -161,7 +161,11 @@ H5P.MarkTheWords = (function ($, Question) {
     var selectables = this.$wordContainer.find('span.h5p-word-selectable');  
 
     selectables.each(function(index, selectable) {
-      if($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')){
+      if ($(selectable).next().is('br')){
+        indexes.push(index);
+      }
+
+      if ($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')){
         indexes.push(index);
       }
     });
