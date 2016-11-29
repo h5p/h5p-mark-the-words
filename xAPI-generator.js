@@ -52,7 +52,7 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
       'en-US': replaceLineBreaks(markTheWords.params.taskDescription)
     };
     definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
-    definition.interactionType = 'long-choice';
+    definition.interactionType = 'choice';
     definition.correctResponsesPattern = [getCorrectResponsesPattern(markTheWords)];
     definition.choices = getChoices(markTheWords);
     definition.extensions = {
