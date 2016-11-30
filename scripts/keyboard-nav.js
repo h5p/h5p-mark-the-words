@@ -16,7 +16,7 @@ H5P.KeyboardNav = (function (EventDispatcher) {
     /** @member {boolean} */
     this.selectability = true;
 
-    /** @member {HTMLElement[]} */
+    /** @member {HTMLElement[]|EventTarget[]} */
     this.elements = [];
   }
 
