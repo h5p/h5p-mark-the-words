@@ -86,7 +86,7 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
       }
 
       return {
-        id: index,
+        id: index.toString(),
         description: {
           'en-US': $('<div>' + text + '</div>').text()
         }
