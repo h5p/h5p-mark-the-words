@@ -66,12 +66,16 @@
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"] {
   background: #9dd8bb;
   color: #255c41;
+  display: inline-block;
+  line-height: 1;
 }
 /* Wrongly answered marking */
 .h5p-mark-the-words [aria-describedby="h5p-description-incorrect"] {
   background-color: #f7d0d0;
   color: #b71c1c;
   text-decoration: line-through;
+  display: inline-block;
+  line-height: 1;
 }
 /* Feedback icons */
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"]:after {
