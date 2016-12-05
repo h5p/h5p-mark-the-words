@@ -4,7 +4,7 @@
  * Mark The Words module
  * @external {jQuery} $ H5P.jQuery
  */
-H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
+H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   /**
    * Initialize module.
    *
@@ -56,7 +56,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
     });
 
     this.initMarkTheWords();
-    this.XapiGenerator = new H5P.MarkTheWords.XapiGenerator(this);
+    this.XapiGenerator = new XapiGenerator(this);
   }
 
   MarkTheWords.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -566,4 +566,4 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav) {
   };
 
   return MarkTheWords;
-}(H5P.jQuery, H5P.Question, H5P.MarkTheWords.Word, H5P.KeyboardNav));
+}(H5P.jQuery, H5P.Question, H5P.MarkTheWords.Word, H5P.KeyboardNav, H5P.MarkTheWords.XapiGenerator));

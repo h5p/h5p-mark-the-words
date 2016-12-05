@@ -1,3 +1,5 @@
+H5P.MarkTheWords = H5P.MarkTheWords || {};
+
 /**
  * Mark the words XapiGenerator
  */
@@ -127,4 +129,4 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
   }
 
   return XapiGenerator;
-}(H5P.jQuery));
+})(H5P.jQuery);
