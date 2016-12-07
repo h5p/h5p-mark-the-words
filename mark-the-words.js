@@ -55,6 +55,7 @@ H5P.MarkTheWords = (function ($, Question) {
     }
 
     this.initMarkTheWords();
+    this.XapiGenerator = new H5P.MarkTheWords.XapiGenerator(this);
   }
 
   MarkTheWords.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -149,6 +150,30 @@ H5P.MarkTheWords = (function ($, Question) {
   };
 
   /**
+   * Search for the last children in every paragraph and 
+   * return their indexes in an array 
+   *
+   * @returns {Array}
+   */
+  MarkTheWords.prototype.getIndexesOfLineBreaks = function () {
+
+    var indexes = [];
+    var selectables = this.$wordContainer.find('span.h5p-word-selectable');  
+
+    selectables.each(function(index, selectable) {
+      if ($(selectable).next().is('br')){
+        indexes.push(index);
+      }
+
+      if ($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')){
+        indexes.push(index);
+      }
+    });
+
+    return indexes;
+  }
+
+  /**
    * Handle task and add it to container.
    * @param {jQuery} $container The object which our task will attach to.
    */
@@ -235,6 +260,18 @@ H5P.MarkTheWords = (function ($, Question) {
   };
 
   /**
+   * Get Xapi Data.
+   *
+   * @see used in contracts {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
+   * @return {Object}
+   */
+  MarkTheWords.prototype.getXAPIData = function () {
+    return {
+      statement: this.XapiGenerator.generateAnsweredEvent().data.statement
+    };
+  };
+
+  /**
    * Set whether all the words should be selectable.
    * @public
    * @param {Boolean} selectable Set to true to make the words selectable.
@@ -243,7 +280,6 @@ H5P.MarkTheWords = (function ($, Question) {
     this.selectableWords.forEach(function (entry) {
       entry.setSelectable(selectable);
     });
-
   };
 
   /**
@@ -551,6 +587,15 @@ H5P.MarkTheWords = (function ($, Question) {
     }
 
     /**
+     * Get Word as a string
+     *
+     * @return {string} Word as text
+     */
+    this.getText = function() {
+      return input;
+    };
+
+    /**
      * Toggle the marking of a word.
      * @public
      * @param {boolean} [skipDispatch] Skip dispatching xAPI event
@@ -560,11 +605,12 @@ H5P.MarkTheWords = (function ($, Question) {
         return;
       }
 
+      $word.toggleClass(SELECTED_MARK);
+      isSelected = !isSelected;
+
       self.trigger('toggledMark', {
         skipDispatch: skipDispatch
       });
-      $word.toggleClass(SELECTED_MARK);
-      isSelected = !isSelected;
     };
 
     /**
