@@ -84,27 +84,31 @@
     "name": "correctAnswer",
     "type": "text",
     "default": "Correct!",
-    "description": "Text used to indicate that an answer is correct"
+    "description": "Text used to indicate that an answer is correct",
+    "common": true
   },
   {
     "label": "Incorrect answer text",
     "name": "incorrectAnswer",
     "type": "text",
     "default": "Incorrect!",
-    "description": "Text used to indicate that an answer is incorrect"
+    "description": "Text used to indicate that an answer is incorrect",
+    "common": true
   },
   {
     "label": "Missed answer text",
     "name": "missedAnswer",
     "type": "text",
     "default": "Missed!",
-    "description": "Text used to indicate that an answer is missing"
+    "description": "Text used to indicate that an answer is missing",
+    "common": true
   },
   {
     "label": "Description for Display Solution",
     "name": "displaySolutionDescription",
     "type": "text",
     "default": "Task is updated to contain the solution.",
-    "description": "This text tells the user that the tasks has been updated with the solution."
+    "description": "This text tells the user that the tasks has been updated with the solution.",
+    "common": true
   }
 ]
