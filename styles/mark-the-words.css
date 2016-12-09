@@ -43,6 +43,7 @@
 /* Selectable words container */
 .h5p-mark-the-words .h5p-word-selectable-words {
   line-height: 1.75em;
+  outline: none;
 }
 /* Selectable words*/
 .h5p-mark-the-words [role="option"] {
