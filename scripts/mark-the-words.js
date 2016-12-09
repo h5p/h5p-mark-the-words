@@ -273,17 +273,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   };
 
   /**
-   * Set whether all the words should be selectable.
-   * @public
-   * @param {Boolean} selectable Set to true to make the words selectable.
-   */
-  MarkTheWords.prototype.setAllSelectable = function (selectable) {
-    this.selectableWords.forEach(function (entry) {
-      entry.setSelectable(selectable);
-    });
-  };
-
-  /**
    * Mark the words as correct, wrong or missed.
    *
    * @fires MarkTheWords#resize

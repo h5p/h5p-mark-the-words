@@ -186,7 +186,6 @@ H5P.MarkTheWords.Word =(function(){
      * Sets that the Word is selected
      *
      * @public
-     * @param selected
      */
     this.setSelected = function(){
       $word.attr('aria-selected', true);
