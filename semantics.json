@@ -1,6 +1,7 @@
 [
   {
     "label": "Task description",
+    "importance": "high",
     "name": "taskDescription",
     "type": "text",
     "widget": "html",
@@ -21,6 +22,7 @@
   },
   {
     "label": "Textfield",
+    "importance": "high",
     "name": "textField",
     "type": "text",
     "widget": "html",
@@ -30,6 +32,7 @@
   },
   {
     "label": "Text for \"Check\" button",
+    "importance": "low",
     "name": "checkAnswerButton",
     "type": "text",
     "default": "Check",
@@ -37,6 +40,7 @@
   },
   {
     "label": "Text for \"Retry\" button",
+    "importance": "low",
     "name": "tryAgainButton",
     "type": "text",
     "default": "Retry",
@@ -44,6 +48,7 @@
   },
   {
     "label": "Text for \"Show solution\" button",
+    "importance": "low",
     "name": "showSolutionButton",
     "type": "text",
     "default": "Show solution",
@@ -51,6 +56,7 @@
   },
   {
     "label": "Feedback text",
+    "importance": "low",
     "name": "score",
     "type": "text",
     "default": "You got @score of @total points",
@@ -60,6 +66,7 @@
   },
   {
     "name": "behaviour",
+    "importance": "low",
     "type": "group",
     "label": "Behavioural settings.",
     "description": "These options will let you control how the task behaves.",
@@ -69,18 +76,21 @@
         "name": "enableRetry",
         "type": "boolean",
         "label": "Enable \"Retry\"",
+        "importance": "low",
         "default": true
       },
       {
         "name": "enableSolutionsButton",
         "type": "boolean",
         "label": "Enable \"Show solution\" button",
+        "importance": "low",
         "default": true
       }
     ]
   },
   {
     "label": "Correct answer text",
+    "importance": "low",
     "name": "correctAnswer",
     "type": "text",
     "default": "Correct!",
@@ -89,6 +99,7 @@
   },
   {
     "label": "Incorrect answer text",
+    "importance": "low",
     "name": "incorrectAnswer",
     "type": "text",
     "default": "Incorrect!",
@@ -97,6 +108,7 @@
   },
   {
     "label": "Missed answer text",
+    "importance": "low",
     "name": "missedAnswer",
     "type": "text",
     "default": "Missed!",
@@ -105,6 +117,7 @@
   },
   {
     "label": "Description for Display Solution",
+    "importance": "low",
     "name": "displaySolutionDescription",
     "type": "text",
     "default": "Task is updated to contain the solution.",
