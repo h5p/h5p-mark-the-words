@@ -101,6 +101,15 @@ H5P.MarkTheWords.Word =(function(){
       }
     }
 
+     /**
+     * Get Word as a string
+     *
+     * @return {string} Word as text
+     */
+    this.getText = function() {
+      return input;
+    };
+
     /**
      * Clears all marks from the word.
      *
