@@ -21,7 +21,7 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
 
       // Extend definition
       var objectDefinition = createDefinition(markTheWords);
-      $.extend(xAPIEvent.getVerifiedStatementValue(['object', 'definition']), objectDefinition);
+      $.extend(true, xAPIEvent.getVerifiedStatementValue(['object', 'definition']), objectDefinition);
 
       // Set score
       xAPIEvent.setScoredResult(markTheWords.getScore(),

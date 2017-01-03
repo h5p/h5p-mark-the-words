@@ -240,7 +240,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
           self.showButton('try-again');
         }
       }
-      self.triggerXAPIScored(self.getScore(), self.getMaxScore(), 'answered');
+      self.trigger(self.XapiGenerator.generateAnsweredEvent());
     });
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
