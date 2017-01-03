@@ -1,5 +1,5 @@
 H5P.MarkTheWords = H5P.MarkTheWords || {};
-H5P.MarkTheWords.Word =(function(){
+H5P.MarkTheWords.Word = (function () {
   /**
    * @constant
    *
@@ -129,12 +129,7 @@ H5P.MarkTheWords.Word =(function(){
      */
     this.markCheck = function () {
       if (this.isSelected()) {
-        if (isAnswer) {
-          $word.attr('aria-describedby', Word.ID_MARK_CORRECT);
-        }
-        else {
-          $word.attr('aria-describedby', Word.ID_MARK_INCORRECT);
-        }
+        $word.attr('aria-describedby', isAnswer ? Word.ID_MARK_CORRECT : Word.ID_MARK_INCORRECT);
       }
       else if (isAnswer) {
         $word.attr('aria-describedby', Word.ID_MARK_MISSED);

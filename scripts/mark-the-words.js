@@ -151,15 +151,15 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   };
 
   /**
-   * Search for the last children in every paragraph and 
-   * return their indexes in an array 
+   * Search for the last children in every paragraph and
+   * return their indexes in an array
    *
    * @returns {Array}
    */
   MarkTheWords.prototype.getIndexesOfLineBreaks = function () {
 
     var indexes = [];
-    var selectables = this.$wordContainer.find('span.h5p-word-selectable');  
+    var selectables = this.$wordContainer.find('span.h5p-word-selectable');
 
     selectables.each(function(index, selectable) {
       if ($(selectable).next().is('br')){
@@ -228,7 +228,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.keyboardNav.disableSelectability();
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
-
 
       var answers = self.calculateScore();
 
