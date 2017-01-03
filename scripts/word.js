@@ -106,7 +106,7 @@ H5P.MarkTheWords.Word = (function () {
      *
      * @return {string} Word as text
      */
-    this.getText = function() {
+    this.getText = function () {
       return input;
     };
 
@@ -191,7 +191,7 @@ H5P.MarkTheWords.Word = (function () {
      *
      * @public
      */
-    this.setSelected = function(){
+    this.setSelected = function () {
       $word.attr('aria-selected', true);
     };
   }
