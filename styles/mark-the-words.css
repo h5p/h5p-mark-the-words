@@ -3,11 +3,11 @@
 /* IcoMoon font licensed under the GNU General Public License: http://www.gnu.org/licenses/gpl.html */
 @font-face {
   font-family: 'icomoon-word';
-  src:url('fonts/icomoon.eot');
-  src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-  url('fonts/icomoon.woff') format('woff'),
-  url('fonts/icomoon.ttf') format('truetype'),
-  url('fonts/icomoon.svg#icomoon') format('svg');
+  src:url('../fonts/icomoon.eot');
+  src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.woff') format('woff'),
+  url('../fonts/icomoon.ttf') format('truetype'),
+  url('../fonts/icomoon.svg#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -21,6 +21,10 @@
 }
 .h5p-mark-the-words .h5p-word-inner {
   overflow: hidden;
+}
+
+.h5p-mark-the-words-descriptions {
+  display: none;
 }
 
 /* Actual text paragraphs */
@@ -39,40 +43,43 @@
 /* Selectable words container */
 .h5p-mark-the-words .h5p-word-selectable-words {
   line-height: 1.75em;
+  outline: none;
 }
 /* Selectable words*/
-.h5p-mark-the-words .h5p-word-selectable {
+.h5p-mark-the-words [role="option"] {
   white-space: nowrap;
   padding: 0.15em;
   border-radius: 0.25em;
   cursor: pointer;
 }
 
-.h5p-mark-the-words .h5p-word-selectable.h5p-word-disabled {
-  cursor: auto;
-}
-
 /* Colors and styling for word selections */
-.h5p-mark-the-words .h5p-word-selected {
+.h5p-mark-the-words [aria-selected="true"] {
   background: #cee0f4;
 }
 /* Missed word*/
-.h5p-mark-the-words .h5p-word-missed {
-  border: 0.1em #2c76c0 dashed;
+.h5p-mark-the-words [aria-describedby="h5p-description-missed"] {
+  border: 0.1em #77b395 dotted;
+  background-color: #E4F4EC;
 }
+
 /* Correctly answered marking */
-.h5p-mark-the-words .h5p-word-correct{
+.h5p-mark-the-words [aria-describedby="h5p-description-correct"] {
   background: #9dd8bb;
   color: #255c41;
+  display: inline-block;
+  line-height: 1;
 }
 /* Wrongly answered marking */
-.h5p-mark-the-words .h5p-word-wrong {
+.h5p-mark-the-words [aria-describedby="h5p-description-incorrect"] {
   background-color: #f7d0d0;
   color: #b71c1c;
   text-decoration: line-through;
+  display: inline-block;
+  line-height: 1;
 }
 /* Feedback icons */
-.h5p-mark-the-words .h5p-word-correct:after {
+.h5p-mark-the-words [aria-describedby="h5p-description-correct"]:after {
   position: relative;
   right: 0.1em;
   text-decoration: none;
@@ -81,7 +88,7 @@
   color: #255c41;
   padding-left: 0.75em;
 }
-.h5p-mark-the-words .h5p-word-wrong:after {
+.h5p-mark-the-words [aria-describedby="h5p-description-incorrect"]:after {
   position: relative;
   right: 0.1em;
   display: inline-block;

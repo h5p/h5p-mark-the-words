@@ -1,3 +1,5 @@
+H5P.MarkTheWords = H5P.MarkTheWords || {};
+
 /**
  * Mark the words XapiGenerator
  */
@@ -19,7 +21,7 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
 
       // Extend definition
       var objectDefinition = createDefinition(markTheWords);
-      $.extend(xAPIEvent.getVerifiedStatementValue(['object', 'definition']), objectDefinition);
+      $.extend(true, xAPIEvent.getVerifiedStatementValue(['object', 'definition']), objectDefinition);
 
       // Set score
       xAPIEvent.setScoredResult(markTheWords.getScore(),
@@ -127,4 +129,4 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
   }
 
   return XapiGenerator;
-}(H5P.jQuery));
+})(H5P.jQuery);

@@ -38,6 +38,30 @@
           "label": "Aktiver \"Fasit\" knapp"
         }
       ]
+    },
+    {
+      "englishLabel": "Correct answer text",
+      "label": "Riktig svar tekst",
+      "englishDefault": "Correct!",
+      "default": "Riktig"
+    },
+    {
+      "englishLabel": "Incorrect answer text",
+      "label": "Feil svar tekst",
+      "englishDefault": "Incorrect!",
+      "default": "Feil"
+    },
+    {
+      "englishLabel": "Missed answer text",
+      "label": "Mangler svar tekst",
+      "englishDefault": "Missed!",
+      "default": "Mangler!"
+    },
+    {
+      "englishLabel": "Description for Display Solution",
+      "label": "Beskrivelse for Vis Løsning",
+      "englishDefault": "Task is updated to contain the solution.",
+      "default": "Oppgaven er oppdatert til å inneholde fasiten."
     }
   ]
 }
