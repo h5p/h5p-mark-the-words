@@ -33,12 +33,10 @@
       "description": "Diese Optionen bestimmen, wie die Aufgabe auf Eingaben reagiert.",
       "fields": [
         {
-          "label": "\"Wiederholen\" ermöglichen",
-          "default": true
+          "label": "\"Wiederholen\" ermöglichen"
         },
         {
-          "label": "\"Lösung zeigen\" ermöglichen",
-          "default": true
+          "label": "\"Lösung zeigen\" ermöglichen"
         }
       ]
     },
