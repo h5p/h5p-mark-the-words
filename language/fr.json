@@ -39,6 +39,30 @@
           "label": "Activer le bouton \"Voir la solution\""
         }
       ]
+    },
+    {
+      "englishLabel": "Correct answer text",
+      "label": "Texte de réponse correct",
+      "englishDefault": "Correct!",
+      "default": "Correct!"
+    },
+    {
+      "englishLabel": "Incorrect answer text",
+      "label": "Texte de réponse incorrect",
+      "englishDefault": "Incorrect!",
+      "default": "Incorrect!"
+    },
+    {
+      "englishLabel": "Missed answer text",
+      "label": "Texte de réponse manqué",
+      "englishDefault": "Missed!",
+      "default": "Manqué!"
+    },
+    {
+      "englishLabel": "Description for Display Solution",
+      "label": "Description pour la solution d'affichage",
+      "englishDefault": "Task is updated to contain the solution.",
+      "default": "La tâche est mise à jour pour contenir la solution."
     }
   ]
 }

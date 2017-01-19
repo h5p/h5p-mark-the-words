@@ -3,7 +3,7 @@
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
   "minorVersion": 6,
-  "patchVersion": 5,
+  "patchVersion": 6,
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 6
@@ -14,15 +14,21 @@
   "machineName": "H5P.MarkTheWords",
   "preloadedCss": [
     {
-      "path": "mark-the-words.css"
+      "path": "styles/mark-the-words.css"
     }
   ],
   "preloadedJs": [
     {
-      "path": "mark-the-words.js"
+      "path": "scripts/keyboard-nav.js"
     },
     {
-      "path": "xAPI-generator.js"
+      "path": "scripts/xAPI-generator.js"
+    },
+    {
+      "path": "scripts/word.js"
+    },
+    {
+      "path": "scripts/mark-the-words.js"
     }
   ],
   "preloadedDependencies": [
