@@ -380,7 +380,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }
 
     // no negative score
-    answers.score = Math.max(answers.correct - answers.wrong - answers.missed, 0);
+    answers.score = Math.max(answers.correct - answers.wrong, 0);
 
     return answers;
   };
