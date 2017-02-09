@@ -1,5 +1,3 @@
-/*global H5P*/
-
 /**
  * @class
  * @classdesc Keyboard navigation for accessibility support

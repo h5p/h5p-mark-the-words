@@ -50,7 +50,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.keyboardNav = new KeyboardNav();
 
     // on word clicked
-    this.keyboardNav.on('selected', function(event){
+    this.keyboardNav.on('select', function(event){
       self.isAnswered = true;
       self.triggerXAPI('interacted');
     });
@@ -151,15 +151,15 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   };
 
   /**
-   * Search for the last children in every paragraph and 
-   * return their indexes in an array 
+   * Search for the last children in every paragraph and
+   * return their indexes in an array
    *
    * @returns {Array}
    */
   MarkTheWords.prototype.getIndexesOfLineBreaks = function () {
 
     var indexes = [];
-    var selectables = this.$wordContainer.find('span.h5p-word-selectable');  
+    var selectables = this.$wordContainer.find('span.h5p-word-selectable');
 
     selectables.each(function(index, selectable) {
       if ($(selectable).next().is('br')){
@@ -229,7 +229,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
 
-
       var answers = self.calculateScore();
 
       if (!self.showEvaluation(answers)) {
@@ -241,7 +240,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
           self.showButton('try-again');
         }
       }
-      self.triggerXAPIScored(self.getScore(), self.getMaxScore(), 'answered');
+      self.trigger(self.XapiGenerator.generateAnsweredEvent());
     });
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
