@@ -1,0 +1,68 @@
+{
+  "semantics": [
+    {
+      "label": "Tehtävän kuvaus",
+      "description": "Kuvaile kuinka käyttäjän pitää ratkaista tehtävä.",
+      "placeholder": "Klikkaa kaikkia verbejä seuraavasta tekstistä."
+    },
+    {
+      "label": "Tekstikenttä",
+      "placeholder": "Tämä on vastais : *vastaus*.",
+      "description": "Tähdillä (*) merkitään halutut sanat. Jos on tarve vain esittää pelkkä tähti, niin se kirjoitetaan **. Esimerkki: Oikeat sanat merkitään *oikeasana*, ja tähti **."
+    },
+    {
+      "label": "Nimike painikkeelle \"Tarkista\"",
+      "default": "Tarkista"
+    },
+    {
+      "label": "Nimike painikkeelle \"Yritä uudelleen\"",
+      "default": "Yritä uudelleen"
+    },
+    {
+      "label": "Nimike painikkeelle \"Katso vastaus\"",
+      "default": "Katso vastaus"
+    },
+    {
+      "label": "Palauteteksti",
+      "default": "Sait @score \/ @total pistettä",
+      "placeholder": "Sait @score \/ @total pistettä",
+      "description": "Palauteteksti, käytettävissä muuttujat : @score @total @correct @wrong @missed. Esimerkki: 'Pisteesi : @score \/ @total (Oikein : @correct, Väärin : @wrong, ohitetut : @missed.)'"
+    },
+    {
+      "label": "Yleiasetukset.",
+      "description": "Näillä valinnoilla voit hallita tehtävän toimintaa.",
+      "fields": [
+        {
+          "label": "Salli nappi  \"Yritä uudelleen\""
+        },
+        {
+          "label": "Salli nappi \"Katso vastaus\""
+        }
+      ]
+    },
+    {
+      "englishLabel": "Correct answer text",
+      "label": "Nimike oikealle vastaukselle",
+      "englishDefault": "Correct!",
+      "default": "Oikein!"
+    },
+    {
+      "englishLabel": "Incorrect answer text",
+      "label": "Nimike väärälle vastaukselle",
+      "englishDefault": "Incorrect!",
+      "default": "Väärin!"
+    },
+    {
+      "englishLabel": "Missed answer text",
+      "label": "Nimike ohitetuille vastauksille",
+      "englishDefault": "Missed!",
+      "default": "Ohi!"
+    },
+    {
+      "englishLabel": "Description for Display Solution",
+      "label": "Kuvaus vastauksien näyttämiselle",
+      "englishDefault": "Task is updated to contain the solution.",
+      "default": "Tehtävä on päivitetty vastauksien näyttämiseksi."
+    }
+  ]
+}
