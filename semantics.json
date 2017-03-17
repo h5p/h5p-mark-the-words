@@ -33,7 +33,11 @@
       "em"
     ],
     "placeholder": "This is an answer: *answer*.",
-    "description": "Marked words are added with an asterix (*). An asterix may be escaped with another asterix, resulting in ** = *. Example: The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
+    "description": "",
+    "important": {
+      "description": "<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>",
+      "example": "The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
+    }
   },
   {
     "label": "Text for \"Check\" button",

@@ -8,7 +8,11 @@
     {
       "label": "Tekstliner",
       "placeholder": "Oslo er hovudstaden i *Noreg*",
-      "description": "Opne felter merkast med ein stjerne * foran og bak det korrekte ordet/uttrykket. Symbolet * lages ved å bruke to etter hverandre, slik ** = *. Eks: Dette er et *svar*, og dette er en asterisk **."
+      "description": "",
+      "important": {
+        "listItems": "<ul><li>Opne felter merkast med ein stjerne * foran og bak det korrekte ordet/uttrykket.</li><li>Symbolet * lages ved å bruke to etter hverandre, slik ** = *.</li></ul>",
+        "example": "Dette er eit *svar*, og dette er ein asterisk **."
+      }
     },
     {
       "label": "Tekst for \"Sjekk svar\" knapp",
