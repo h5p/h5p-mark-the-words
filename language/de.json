@@ -19,30 +19,30 @@
       "default": "Wiederholen"
     },
     {
-      "label": "Text für den \"Lösung zeigen\"-Button",
-      "default": "Lüsung zeigen"
+      "label": "Text für den \"Lösung anzeigen\"-Button",
+      "default": "Lösung anzeigen"
     },
     {
       "label": "Rückmeldungstext",
-      "default": "Du hast @score von @total Punkten",
-      "placeholder": "Du hast @score von @total Punkten",
-      "description": "Als Variablen für den Rückmeldungstext gibt es: @score @total @correct @wrong @missed. Beispiel: 'Punkte: @score von @total, korrekt: @correct, falsch: @wrong, übergangen: @missed.'"
+      "default": "Du hast @score von @total Punkten erreicht.",
+      "placeholder": "Du hast @score von @total Punkten erreicht.",
+      "description": "Als Variablen für den Rückmeldungstext gibt es: @score @total @correct @wrong @missed. Beispiel: 'Punkte: @score von @total, richtig: @correct, falsch: @wrong, übergangen: @missed.'"
     },
     {
-      "label": "Verhaltenseinstellungen.",
+      "label": "Interaktionseinstellungen.",
       "description": "Diese Optionen bestimmen, wie die Aufgabe auf Eingaben reagiert.",
       "fields": [
         {
           "label": "\"Wiederholen\" ermöglichen"
         },
         {
-          "label": "\"Lösung zeigen\" ermöglichen"
+          "label": "\"Lösung anzeigen\" ermöglichen"
         }
       ]
     },
     {
       "label": "Text für richtige Antworten",
-      "default": "Korrekt!",
+      "default": "Richtig!",
       "description": "Mit diesem Text wird angezeigt, dass die Antwort richtig war."
     },
     {
