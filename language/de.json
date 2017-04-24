@@ -25,7 +25,7 @@
     {
       "label": "Rückmeldungstext",
       "default": "Du hast @score von @total Punkten erreicht.",
-      "placeholder": "Du hast @score von @total Punkten erreicht",
+      "placeholder": "Du hast @score von @total Punkten erreicht.",
       "description": "Als Variablen für den Rückmeldungstext gibt es: @score @total @correct @wrong @missed. Beispiel: 'Punkte: @score von @total, richtig: @correct, falsch: @wrong, übergangen: @missed.'"
     },
     {
