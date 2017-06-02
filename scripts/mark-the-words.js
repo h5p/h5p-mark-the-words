@@ -301,6 +301,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       }
     });
 
+    this.$wordContainer.addClass('h5p-disable-hover');
     this.trigger('resize');
   };
 
@@ -395,6 +396,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       entry.markClear();
     });
 
+    this.$wordContainer.removeClass('h5p-disable-hover');
     this.trigger('resize');
   };
 
