@@ -39,6 +39,10 @@
   cursor: pointer;
 }
 
+.h5p-mark-the-words [role="option"]:hover {
+  box-shadow: inset 0px 0px 0px 2px #cee0f4;
+}
+
 /* Colors and styling for word selections */
 .h5p-mark-the-words [aria-selected="true"] {
   background: #cee0f4;
