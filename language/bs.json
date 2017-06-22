@@ -1,0 +1,67 @@
+{
+  "semantics":[
+    {
+      "label":"Task description",
+      "description":"Describe how the user should solve the task.",
+      "placeholder":"Click on all the verbs in the text that follows."
+    },
+    {
+      "label":"Textfield",
+      "placeholder":"This is an answer: *answer*.",
+      "description":"",
+      "important":{
+        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      }
+    },
+    {
+      "label":"Text for \"Check\" button",
+      "default":"Check"
+    },
+    {
+      "label":"Text for \"Retry\" button",
+      "default":"Retry"
+    },
+    {
+      "label":"Text for \"Show solution\" button",
+      "default":"Show solution"
+    },
+    {
+      "label":"Feedback text",
+      "default":"You got @score of @total points",
+      "placeholder":"You got @score of @total points",
+      "description":"Feedback text, variables available: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'"
+    },
+    {
+      "label":"Behavioural settings.",
+      "description":"These options will let you control how the task behaves.",
+      "fields":[
+        {
+          "label":"Enable \"Retry\""
+        },
+        {
+          "label":"Enable \"Show solution\" button"
+        }
+      ]
+    },
+    {
+      "label":"Correct answer text",
+      "default":"Correct!",
+      "description":"Text used to indicate that an answer is correct"
+    },
+    {
+      "label":"Incorrect answer text",
+      "default":"Incorrect!",
+      "description":"Text used to indicate that an answer is incorrect"
+    },
+    {
+      "label":"Missed answer text",
+      "default":"Missed!",
+      "description":"Text used to indicate that an answer is missing"
+    },
+    {
+      "label":"Description for Display Solution",
+      "default":"Task is updated to contain the solution.",
+      "description":"This text tells the user that the tasks has been updated with the solution."
+    }
+  ]
+}
