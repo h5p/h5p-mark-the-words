@@ -1,57 +1,67 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "وصف النشاط",
-      "description": "وصف الكيفية التي ينبغي للمستخدم حل النشاط"
+      "label":"وصف النشاط",
+      "description":"وصف الكيفية التي ينبغي للمستخدم حل النشاط",
+      "placeholder":"Click on all the verbs in the text that follows."
     },
     {
-      "label": "الحقل النصي",
-      "description": "تضاف الكلمات التي تحمل علامة أستريكس (*) في بديتهاونهايتها بدون اضافة مسافة في منتصف الكلمة. على سبيل المثال: يتم وضع علامة على الكلمات الصحيحة مع مثل هذا *كلمة* ا"
+      "label":"الحقل النصي",
+      "placeholder":"This is an answer: *answer*.",
+      "description":"",
+      "important":{
+        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      }
     },
     {
-      "label": "النص   \"تحقق \" لزر"
+      "label":"النص   \"تحقق \" لزر",
+      "default":"Check"
     },
     {
-      "label": "النص   \"إعادة المحاولة \" لزر"
+      "label":"النص   \"إعادة المحاولة \" لزر",
+      "default":"Retry"
     },
     {
-      "label": "النص  \"مشاهدة الحل \" لزر"
+      "label":"النص  \"مشاهدة الحل \" لزر",
+      "default":"Show solution"
     },
     {
-      "label": "نص الملاحظات",
-      "description": "ملاحظات النص، والمتغيرات المتاحة:@score @total @correct @wrong @missed. مثال: 'نقاط : @score of @total, الصحيحة: @correct, الخطأ: @wrong, غائب: @missed'"
+      "label":"نص الملاحظات",
+      "default":"You got @score of @total points",
+      "placeholder":"You got @score of @total points",
+      "description":"ملاحظات النص، والمتغيرات المتاحة:@score @total @correct @wrong @missed. مثال: 'نقاط : @score of @total, الصحيحة: @correct, الخطأ: @wrong, غائب: @missed'"
     },
     {
-      "label": "حساسية الاجابة",
-      "description": "يتأكد من إجابة المستخدم بأن تكون بالضبط نفس الجواب",
-      "fields": [
+      "label":"حساسية الاجابة",
+      "description":"يتأكد من إجابة المستخدم بأن تكون بالضبط نفس الجواب",
+      "fields":[
         {
-          "label": "تمكين زر \"إعادة المحاولة\""
+          "label":"تمكين زر \"إعادة المحاولة\""
         },
         {
-          "label": "تمكين زر \"مشاهدة الحل\""
+          "label":"تمكين زر \"مشاهدة الحل\""
         }
       ]
     },
     {
-      "label": "نص الجواب الصحيح",
-      "englishDefault": "Correct!",
-      "default": "صحيح!"
+      "label":"نص الجواب الصحيح",
+      "default":"صحيح!",
+      "description":"Text used to indicate that an answer is correct"
     },
     {
-      "label": "نص الجواب غير صحيح",
-      "englishDefault": "Incorrect!",
-      "default": "غير صحيح!"
+      "label":"نص الجواب غير صحيح",
+      "default":"غير صحيح!",
+      "description":"Text used to indicate that an answer is incorrect"
     },
     {
-      "label": "غاب نص الجواب",
-      "englishDefault": "Missed!",
-      "default": "افتقد!"
+      "label":"غاب نص الجواب",
+      "default":"افتقد!",
+      "description":"Text used to indicate that an answer is missing"
     },
     {
-      "label": "وصف لعرض الحل",
-      "englishDefault": "Task is updated to contain the solution.",
-      "default": "يتم تحديث مهمة لاحتواء الحل."
+      "label":"وصف لعرض الحل",
+      "default":"يتم تحديث مهمة لاحتواء الحل.",
+      "description":"This text tells the user that the tasks has been updated with the solution."
     }
   ]
 }
