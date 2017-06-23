@@ -28,6 +28,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       taskDescription: "",
       textField: "This is a *nice*, *flexible* content type.",
       behaviour: {
+        enableCheck: true,
         enableRetry: true,
         enableSolutionsButton: true
       },
@@ -222,26 +223,28 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       'class': 'h5p-button-bar'
     });
 
-    this.addButton('check-answer', this.params.checkAnswerButton, function () {
-      self.isAnswered = true;
-      self.keyboardNav.setTabbableAt(0);
-      self.keyboardNav.disableSelectability();
-      self.feedbackSelectedWords();
-      self.hideButton('check-answer');
+    if (this.params.behaviour.enableCheck) {
+      this.addButton('check-answer', this.params.checkAnswerButton, function () {
+        self.isAnswered = true;
+        self.keyboardNav.setTabbableAt(0);
+        self.keyboardNav.disableSelectability();
+        self.feedbackSelectedWords();
+        self.hideButton('check-answer');
 
-      var answers = self.calculateScore();
+        var answers = self.calculateScore();
 
-      if (!self.showEvaluation(answers)) {
-        // Only show if a correct answer was not found.
-        if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
-          self.showButton('show-solution');
+        if (!self.showEvaluation(answers)) {
+          // Only show if a correct answer was not found.
+          if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
+            self.showButton('show-solution');
+          }
+          if (self.params.behaviour.enableRetry) {
+            self.showButton('try-again');
+          }
         }
-        if (self.params.behaviour.enableRetry) {
-          self.showButton('try-again');
-        }
-      }
-      self.trigger(self.XapiGenerator.generateAnsweredEvent());
-    });
+        self.trigger(self.XapiGenerator.generateAnsweredEvent());
+      });
+    }
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
 
