@@ -14,6 +14,39 @@
       }
     },
     {
+      "englishLabel": "Overall Feedback",
+      "label": "Samlet tilbakemelding",
+      "fields": [
+        {
+          "widgets": [
+            {
+              "englishLabel": "Default",
+              "label": "Standard"
+            }
+          ],
+          "englishLabel": "Define custom feedback for any score range",
+          "label": "Definer tilpasset tilbakemelding for et poengområde",
+          "englishDescription": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!\nAvailable variables: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
+          "description": "For eksempel: 0-20% Dårlig poengsum, 21-91% Gjennomsnittlig poengsum, 91-100% Stor poengsum!\nTilgjengelige variabler: @score @total @correct @wrong @missed. For eksempel: 'Poeng : @score av @total, rett: @correct, feil: @wrong, oversett: @missed.'",
+          "field": {
+            "fields": [
+              {
+                "englishLabel": "Score Range",
+                "label": "Poengområde"
+              },
+              {},
+              {
+                "englishLabel": "Feedback for defined score range",
+                "label": "Tilbakemelding for definert poengområde",
+                "englishPlaceholder": "Fill in the feedback",
+                "placeholder": "Fyll inn tilbakemeldingen"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "label": "Tekst for \"Sjekk svar\" knapp",
       "default": "Sjekk"
     },
@@ -24,11 +57,6 @@
     {
       "label": "Tekst for \"Fasit\" knapp",
       "default": "Fasit"
-    },
-    {
-      "label": "Tilbakemelding",
-      "default": "@score av @total poeng",
-      "description": "Tekstleg tilbakemelding, tilgjengelege variabler: @score og @total. Eksempel: 'Du fikk @score av @total felt rett.'"
     },
     {
       "label": "Innstillinger for oppgåve-åtferd",

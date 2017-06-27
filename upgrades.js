@@ -22,6 +22,31 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
           }
           finished(null, parameters);
         }
+      },
+
+      /**
+       * Asynchronous content upgrade hook.
+       * Upgrades content parameters to support Mark the Words 1.7
+       *
+       * Move old feedback message to the new overall feedback system.
+       *
+       * @param {object} parameters
+       * @param {function} finished
+       */
+      7: function (parameters, finished) {
+        if (parameters && parameters.score) {
+          parameters.overallFeedback = [
+            {
+              'from': 0,
+              'to': 100,
+              'feedback': parameters.score
+            }
+          ];
+
+          delete parameters.score;
+        }
+
+        finished(null, parameters);
       }
     }
   };
