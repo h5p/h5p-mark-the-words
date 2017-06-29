@@ -30,10 +30,10 @@
 .h5p-mark-the-words .h5p-word-selectable-words {
   line-height: 1.75em;
   outline: none;
+  display: initial;
 }
 /* Selectable words*/
-.h5p-mark-the-words [role="option"] {
-  white-space: nowrap;
+.h5p-mark-the-words [role="option"] {  
   padding: 0.15em;
   border-radius: 0.25em;
   cursor: pointer;
@@ -57,7 +57,6 @@
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"] {
   background: #9dd8bb;
   color: #255c41;
-  display: inline-block;
   line-height: 1;
 }
 /* Wrongly answered marking */
