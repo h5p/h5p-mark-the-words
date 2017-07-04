@@ -27,13 +27,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.params = $.extend({}, {
       taskDescription: "",
       textField: "This is a *nice*, *flexible* content type.",
-      overallFeedback: [
-        {
-          'from': 0,
-          'to': 100,
-          'feedback': 'You got @score of @total points'
-        }
-      ],
+      overallFeedback: [],
       behaviour: {
         enableRetry: true,
         enableSolutionsButton: true
