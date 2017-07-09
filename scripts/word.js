@@ -1,4 +1,4 @@
-H5P.MarkTheWords = H5P.MarkTheWords || {};
+﻿H5P.MarkTheWords = H5P.MarkTheWords || {};
 H5P.MarkTheWords.Word = (function () {
   /**
    * @constant
@@ -38,9 +38,7 @@ H5P.MarkTheWords.Word = (function () {
     // Remove single asterisk and escape double asterisks.
     handleAsterisks();
 
-    if (isAnswer) {
-      $word.text(handledInput);
-    }
+    $word.text(handledInput);
 
     /**
      * Checks if the word is an answer by checking the first, second to last and last character of the word.

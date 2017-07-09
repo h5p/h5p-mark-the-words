@@ -1,4 +1,4 @@
-/*global H5P*/
+﻿/*global H5P*/
 
 /**
  * Mark The Words module
@@ -89,7 +89,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       if (node instanceof Text) {
         var text = $(node).text();
         var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
-          .match(/ \*[^\*]+\* |[^\s]+/g);
+          .match(/\s*\*[^\*]+\*\s*|[^\s]+/g);
 
         if (selectableStrings) {
           selectableStrings.forEach(function (entry) {
