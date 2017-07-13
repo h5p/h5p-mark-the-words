@@ -11,6 +11,32 @@
       "description": "Markierte Wörter werden mit einem Sternchen (*) hinzugefügt. Ein Sternchen kann mit einem weiteren Sternchen maskiert werden, so dass im Text aus ** ein * wird. Beispiel: Die korrekten Wörter sind mit: *korrekteswort* markiert, und ein Sternchen als Zeichen wir so geschrieben: **."
     },
     {
+      "englishLabel": "Overall Feedback",
+      "fields": [
+        {
+          "widgets": [
+            {
+              "englishLabel": "Default"
+            }
+          ],
+          "englishLabel": "Define custom feedback for any score range",
+          "englishDescription": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!\nAvailable variables: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
+          "field": {
+            "fields": [
+              {
+                "englishLabel": "Score Range"
+              },
+              {},
+              {
+                "englishLabel": "Feedback for defined score range",
+                "englishPlaceholder": "Fill in the feedback"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "label": "Text für den \"Überprüfen\"-Button",
       "default": "Überprüfen"
     },
@@ -21,12 +47,6 @@
     {
       "label": "Text für den \"Lösung anzeigen\"-Button",
       "default": "Lösung anzeigen"
-    },
-    {
-      "label": "Rückmeldungstext",
-      "default": "Du hast @score von @total Punkten erreicht.",
-      "placeholder": "Du hast @score von @total Punkten erreicht.",
-      "description": "Als Variablen für den Rückmeldungstext gibt es: @score @total @correct @wrong @missed. Beispiel: 'Punkte: @score von @total, richtig: @correct, falsch: @wrong, übergangen: @missed.'"
     },
     {
       "label": "Interaktionseinstellungen.",

@@ -9,6 +9,32 @@
       "description": "تضاف الكلمات التي تحمل علامة أستريكس (*) في بديتهاونهايتها بدون اضافة مسافة في منتصف الكلمة. على سبيل المثال: يتم وضع علامة على الكلمات الصحيحة مع مثل هذا *كلمة* ا"
     },
     {
+      "englishLabel": "Overall Feedback",
+      "fields": [
+        {
+          "widgets": [
+            {
+              "englishLabel": "Default"
+            }
+          ],
+          "englishLabel": "Define custom feedback for any score range",
+          "englishDescription": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!\nAvailable variables: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
+          "field": {
+            "fields": [
+              {
+                "englishLabel": "Score Range"
+              },
+              {},
+              {
+                "englishLabel": "Feedback for defined score range",
+                "englishPlaceholder": "Fill in the feedback"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "label": "النص   \"تحقق \" لزر"
     },
     {
@@ -16,10 +42,6 @@
     },
     {
       "label": "النص  \"مشاهدة الحل \" لزر"
-    },
-    {
-      "label": "نص الملاحظات",
-      "description": "ملاحظات النص، والمتغيرات المتاحة:@score @total @correct @wrong @missed. مثال: 'نقاط : @score of @total, الصحيحة: @correct, الخطأ: @wrong, غائب: @missed'"
     },
     {
       "label": "حساسية الاجابة",
