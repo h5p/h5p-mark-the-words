@@ -227,10 +227,10 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.isAnswered = true;
       self.keyboardNav.setTabbableAt(0);
       self.keyboardNav.disableSelectability();
-      self.feedbackSelectedWords();
+      var answers = self.calculateScore();
+      self.feedbackSelectedWords(answers.correct + answers.wrong);
       self.hideButton('check-answer');
 
-      var answers = self.calculateScore();
 
       if (!self.showEvaluation(answers)) {
         // Only show if a correct answer was not found.
@@ -295,16 +295,26 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * Mark the selected words as correct or wrong.
    *
    * @fires MarkTheWords#resize
+   * @param {number} numSelected The total number of words marked
    */
-  MarkTheWords.prototype.feedbackSelectedWords = function () {
+  MarkTheWords.prototype.feedbackSelectedWords = function (numSelected) {
     var self = this;
 
+    // Determine the delay between the triggering of each animation
     var showScoreDelay = (self.params.behaviour.showScorePoints ? 1 : false);
+    var scoreDelayIncrement = 150;
+    var maxTime = 1000;
+
+    if (showScoreDelay && numSelected > Math.ceil(maxTime / scoreDelayIncrement)) {
+      // Animations will run for more than ~1 second, reduce it.
+      scoreDelayIncrement = maxTime / numSelected;
+    }
+
     this.selectableWords.forEach(function (entry) {
       if (entry.isSelected()) {
         entry.markCheck(showScoreDelay);
         if (showScoreDelay) {
-          showScoreDelay += 150;
+          showScoreDelay += scoreDelayIncrement;
         }
       }
     });
