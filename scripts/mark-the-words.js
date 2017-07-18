@@ -302,13 +302,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     // Determine the delay between the triggering of each animation
     var showScoreDelay = (self.params.behaviour.showScorePoints ? 1 : false);
-    var scoreDelayIncrement = 150;
-    var maxTime = 1000;
-
-    if (showScoreDelay && numSelected > Math.ceil(maxTime / scoreDelayIncrement)) {
-      // Animations will run for more than ~1 second, reduce it.
-      scoreDelayIncrement = maxTime / numSelected;
-    }
+    var scoreDelayIncrement = H5P.Question.getShowScoreDelayIncrement(numSelected);
 
     this.selectableWords.forEach(function (entry) {
       if (entry.isSelected()) {
