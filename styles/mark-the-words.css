@@ -16,6 +16,7 @@
   font-weight: normal;
   padding: 0;
   margin: 0 0 1em;
+  line-height: inherit;
 }
 
 .h5p-mark-the-words button.h5p-button:before {
@@ -25,7 +26,7 @@
 }
 /* Selectable words container */
 .h5p-mark-the-words .h5p-word-selectable-words {
-  line-height: 1.75em;
+  line-height: 1.8em;
   outline: none;
 }
 /* Selectable words*/
