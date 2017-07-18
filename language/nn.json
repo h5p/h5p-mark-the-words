@@ -40,6 +40,10 @@
         },
         {
           "label":"Aktiver \"Fasit\" knapp"
+        },
+        {
+          "label":"Show score points",
+          "description":"Show points earned for each answer."
         }
       ]
     },
