@@ -280,6 +280,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   MarkTheWords.prototype.setAllMarks = function () {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
+      entry.clearScorePoint();
     });
 
     /**
