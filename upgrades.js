@@ -29,6 +29,7 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
        * Upgrades content parameters to support Mark the Words 1.7
        *
        * Move old feedback message to the new overall feedback system.
+       * Do not show the new score points for old content being upgraded.
        *
        * @param {object} parameters
        * @param {function} finished
@@ -45,6 +46,12 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
 
           delete parameters.score;
         }
+
+        // Hide score points for old content
+        if (!parameters.behaviour) {
+          parameters.behaviour = {};
+        }
+        parameters.behaviour.showScorePoints = false;
 
         finished(null, parameters);
       }

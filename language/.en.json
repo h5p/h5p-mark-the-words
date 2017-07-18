@@ -40,6 +40,10 @@
         },
         {
           "label": "Enable \"Show solution\" button"
+        },
+        {
+          "label": "Show score points",
+          "description": "Show points earned for each answer."
         }
       ]
     },

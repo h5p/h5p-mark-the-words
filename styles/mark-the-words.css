@@ -5,9 +5,6 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#e6FFFFFF,endColorstr=#e6FFFFFF);
   overflow: hidden;
 }
-.h5p-mark-the-words .h5p-word-inner {
-  overflow: hidden;
-}
 
 .h5p-mark-the-words-descriptions {
   display: none;
@@ -37,6 +34,7 @@
   padding: 0.15em;
   border-radius: 0.25em;
   cursor: pointer;
+  position: relative;
 }
 
 .h5p-mark-the-words .h5p-word-selectable-words:not(.h5p-disable-hover) [role="option"]:hover {

@@ -119,6 +119,11 @@ H5P.MarkTheWords.Word = (function () {
       $word
         .removeAttr('aria-selected')
         .removeAttr('aria-describedby');
+
+      // Remove any children
+      for (var i = 0; $word[0].children.length; i++) {
+        $word[0].children[i].remove();
+      }
     };
 
     /**
@@ -126,10 +131,15 @@ H5P.MarkTheWords.Word = (function () {
      * Reveal result
      *
      * @public
+     * @param {boolean} showScorePoints
      */
-    this.markCheck = function () {
+    this.markCheck = function (showScoreDelay) {
       if (this.isSelected()) {
         $word.attr('aria-describedby', isAnswer ? Word.ID_MARK_CORRECT : Word.ID_MARK_INCORRECT);
+
+        if (showScoreDelay) {
+          $word[0].appendChild(Question.createScorePointLabel(isAnswer, showScoreDelay));
+        }
       }
       else if (isAnswer) {
         $word.attr('aria-describedby', Word.ID_MARK_MISSED);

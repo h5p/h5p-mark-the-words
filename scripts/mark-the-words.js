@@ -24,13 +24,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     Question.call(this, 'mark-the-words');
 
     // Set default behavior.
-    this.params = $.extend({}, {
+    this.params = $.extend(true, {
       taskDescription: "",
       textField: "This is a *nice*, *flexible* content type.",
       overallFeedback: [],
       behaviour: {
         enableRetry: true,
-        enableSolutionsButton: true
+        enableSolutionsButton: true,
+        showScorePoints: true
       },
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
@@ -172,7 +173,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     });
 
     return indexes;
-  }
+  };
 
   /**
    * Handle task and add it to container.
@@ -295,9 +296,15 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.feedbackSelectedWords = function () {
+    var self = this;
+
+    var showScoreDelay = (self.params.behaviour.showScorePoints ? 1 : false);
     this.selectableWords.forEach(function (entry) {
       if (entry.isSelected()) {
-        entry.markCheck();
+        entry.markCheck(showScoreDelay);
+        if (showScoreDelay) {
+          showScoreDelay += 150;
+        }
       }
     });
 
@@ -445,7 +452,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    */
   MarkTheWords.prototype.showSolutions = function () {
-    const answers = this.calculateScore();
+    var answers = this.calculateScore();
     this.showEvaluation(answers);
     this.setAllMarks();
     this.keyboardNav.setTabbableAt(0);
