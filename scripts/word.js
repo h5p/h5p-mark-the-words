@@ -137,14 +137,14 @@ H5P.MarkTheWords.Word = (function () {
      * Reveal result
      *
      * @public
-     * @param {boolean} showScorePoints
+     * @param {H5P.Question.ScorePoints} scorePoints
      */
-    this.markCheck = function (showScoreDelay) {
+    this.markCheck = function (scorePoints) {
       if (this.isSelected()) {
         $word.attr('aria-describedby', isAnswer ? Word.ID_MARK_CORRECT : Word.ID_MARK_INCORRECT);
 
-        if (showScoreDelay) {
-          $word[0].appendChild(H5P.Question.createScorePointLabel(isAnswer, showScoreDelay));
+        if (scorePoints) {
+          $word[0].appendChild(scorePoints.getElement(isAnswer));
         }
       }
       else if (isAnswer) {
