@@ -300,16 +300,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   MarkTheWords.prototype.feedbackSelectedWords = function (numSelected) {
     var self = this;
 
-    // Determine the delay between the triggering of each animation
-    var showScoreDelay = (self.params.behaviour.showScorePoints ? 1 : false);
-    var scoreDelayIncrement = H5P.Question.getShowScoreDelayIncrement(numSelected);
+    var scorePoints;
+    if (self.params.behaviour.showScorePoints) {
+      scorePoints = new H5P.Question.ScorePoints(numSelected);
+    }
 
     this.selectableWords.forEach(function (entry) {
       if (entry.isSelected()) {
-        entry.markCheck(showScoreDelay);
-        if (showScoreDelay) {
-          showScoreDelay += scoreDelayIncrement;
-        }
+        entry.markCheck(scorePoints);
       }
     });
 
