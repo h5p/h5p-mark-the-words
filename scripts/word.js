@@ -1,4 +1,4 @@
-﻿H5P.MarkTheWords = H5P.MarkTheWords || {};
+H5P.MarkTheWords = H5P.MarkTheWords || {};
 H5P.MarkTheWords.Word = (function () {
   /**
    * @constant

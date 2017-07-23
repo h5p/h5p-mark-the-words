@@ -1,4 +1,4 @@
-﻿/*global H5P*/
+/*global H5P*/
 
 /**
  * Mark The Words module
