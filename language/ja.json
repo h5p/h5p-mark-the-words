@@ -29,7 +29,7 @@
       "label":"フィードバックテキスト",
       "default":"@score / @total 獲得",
       "placeholder":"@score / @total 獲得",
-      "description":"フィードバック テキストです。利用可能な変数: @score @total @correct @wrong @missed 例: 「スコア: @score / @total 、正解: @correct 、不正解: @wrong 、未記入: @missed 」"
+      "description":"フィードバック テキストです。利用可能な変数: @score @total @correct @wrong @missed 例: 「スコア: @score / @total 、正解: @correct 、不正解: @wrong 、未回答: @missed 」"
     },
     {
       "label":"動作設定",
@@ -50,17 +50,17 @@
     {
       "label":"正解のテキスト",
       "default":"正解 !",
-      "description":"Text used to indicate that an answer is correct"
+      "description":"正解であることを示すために使用するテキスト"
     },
     {
-      "label":"Incorrect answer text",
-      "default":"Incorrect!",
-      "description":"Text used to indicate that an answer is incorrect"
+      "label":"不正解のテキスト",
+      "default":"不正解 !",
+      "description":"不正解であることを示すために使用するテキスト"
     },
     {
-      "label":"Missed answer text",
-      "default":"Missed!",
-      "description":"Text used to indicate that an answer is missing"
+      "label":"未回答テキスト",
+      "default":"未回答 !",
+      "description":"未回答であることを示すために使用するテキスト"
     },
     {
       "label":"Description for Display Solution",
