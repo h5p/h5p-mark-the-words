@@ -63,9 +63,9 @@
       "description":"未回答であることを示すために使用するテキスト"
     },
     {
-      "label":"Description for Display Solution",
-      "default":"Task is updated to contain the solution.",
-      "description":"This text tells the user that the tasks has been updated with the solution."
+      "label":"解を表示の説明",
+      "default":"解が含まれるようにタスクが更新されます。",
+      "description":"このテキストは、タスクが解で更新されたことをユーザーに伝えます。"
     }
   ]
 }
