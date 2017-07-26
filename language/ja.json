@@ -1,12 +1,12 @@
 {
   "semantics":[
     {
-      "label":"Task description",
-      "description":"Describe how the user should solve the task.",
-      "placeholder":"Click on all the verbs in the text that follows."
+      "label":"タスクの説明",
+      "description":"ユーザーがタスクを解決する方法について説明してください。",
+      "placeholder":"後に続くテキストのすべての動詞をクリックします。"
     },
     {
-      "label":"Textfield",
+      "label":"テキストフィールド",
       "placeholder":"This is an answer: *answer*.",
       "description":"",
       "important":{
