@@ -10,25 +10,25 @@
       "placeholder":"これが解答です。: *answer*",
       "description":"",
       "important":{
-        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+        "description":"<ul><li>マークする単語にはアスタリスク (*) を加えます。</li><li>アスタリスクは別のアスタリスクでエスケープ処理されるので、** は * となります。</li></ul>"
       }
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"「チェック」ボタンのテキスト",
+      "default":"チェック"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"「リトライ」ボタンのテキスト",
+      "default":"リトライ"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"「解を表示」ボタンのテキスト",
+      "default":"解を表示"
     },
     {
-      "label":"Feedback text",
-      "default":"You got @score of @total points",
-      "placeholder":"You got @score of @total points",
+      "label":"フィードバックテキスト",
+      "default":"@score / @total 獲得",
+      "placeholder":"@score / @total 獲得",
       "description":"Feedback text, variables available: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'"
     },
     {
