@@ -29,27 +29,27 @@
       "label":"フィードバックテキスト",
       "default":"@score / @total 獲得",
       "placeholder":"@score / @total 獲得",
-      "description":"Feedback text, variables available: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'"
+      "description":"フィードバック テキストです。利用可能な変数: @score @total @correct @wrong @missed 例: 「スコア: @score / @total 、正解: @correct 、不正解: @wrong 、未記入: @missed 」"
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "label":"動作設定",
+      "description":"これらのオプションでタスクがどのように動作するかを制御できます。",
       "fields":[
         {
-          "label":"Enable \"Retry\""
+          "label":"「リトライ」を有効化"
         },
         {
-          "label":"Enable \"Show solution\" button"
+          "label":"「解を表示」ボタンを有効化"
         },
         {
-          "label":"Show score points",
-          "description":"Show points earned for each answer."
+          "label":"得点ポイントを表示",
+          "description":"それぞれの解答で得られたポイントを表示"
         }
       ]
     },
     {
-      "label":"Correct answer text",
-      "default":"Correct!",
+      "label":"正解のテキスト",
+      "default":"正解 !",
       "description":"Text used to indicate that an answer is correct"
     },
     {
