@@ -344,7 +344,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.hideEvaluation = function () {
-    this.setFeedback();
+    this.removeFeedback();
     this.trigger('resize');
   };
 
