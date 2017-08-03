@@ -228,7 +228,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.keyboardNav.setTabbableAt(0);
       self.keyboardNav.disableSelectability();
       var answers = self.calculateScore();
-      self.feedbackSelectedWords();
+      self.feedbackSelectedWords(answers.correct + answers.wrong);
       self.hideButton('check-answer');
 
 
@@ -295,13 +295,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * Mark the selected words as correct or wrong.
    *
    * @fires MarkTheWords#resize
+   * @param {number} numSelected The total number of words marked
    */
-  MarkTheWords.prototype.feedbackSelectedWords = function () {
+  MarkTheWords.prototype.feedbackSelectedWords = function (numSelected) {
     var self = this;
 
     var scorePoints;
     if (self.params.behaviour.showScorePoints) {
-      scorePoints = new H5P.Question.ScorePoints();
+      scorePoints = new H5P.Question.ScorePoints(numSelected);
     }
 
     this.selectableWords.forEach(function (entry) {

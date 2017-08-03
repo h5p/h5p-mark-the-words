@@ -1,6 +1,5 @@
 {
-  "semantics":
-  [
+  "semantics": [
     {
       "label": "Oppgavebeskrivelse",
       "description": "Forklar hvordan brukeren skal løse oppgaven."
@@ -8,7 +7,44 @@
     {
       "label": "Tekstlinjer",
       "placeholder": "Oslo er hovedstaden i *Norge*",
-      "description": "Åpne felter merkes med en stjerne * foran og bak det korrekte ordet/uttrykket. Symbolet * lages ved å bruke to etter hverandre, slik ** = *. Eks: Dette er et *svar*, og dette er en asterisk **."
+      "description": "",
+      "important": {
+        "listItems": "<ul><li>Åpne felter merkes med en stjerne * foran og bak det korrekte ordet/uttrykket.</li><li>Symbolet * lages ved å bruke to etter hverandre, slik ** = *.</li></ul>",
+        "example": "Dette er et *svar*, og dette er en asterisk **."
+      }
+    },
+    {
+      "englishLabel": "Overall Feedback",
+      "label": "Samlet tilbakemelding",
+      "fields": [
+        {
+          "widgets": [
+            {
+              "englishLabel": "Default",
+              "label": "Standard"
+            }
+          ],
+          "englishLabel": "Define custom feedback for any score range",
+          "label": "Definer tilpasset tilbakemelding for et poengområde",
+          "englishDescription": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!\nAvailable variables: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
+          "description": "For eksempel: 0-20% Dårlig poengsum, 21-91% Gjennomsnittlig poengsum, 91-100% Stor poengsum!\nTilgjengelige variabler: @score @total @correct @wrong @missed. For eksempel: 'Poeng : @score av @total, rett: @correct, feil: @wrong, oversett: @missed.'",
+          "field": {
+            "fields": [
+              {
+                "englishLabel": "Score Range",
+                "label": "Poengområde"
+              },
+              {},
+              {
+                "englishLabel": "Feedback for defined score range",
+                "label": "Tilbakemelding for definert poengområde",
+                "englishPlaceholder": "Fill in the feedback",
+                "placeholder": "Fyll inn tilbakemeldingen"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "label": "Tekst for \"Sjekk svar\" knapp",
@@ -23,11 +59,6 @@
       "default": "Fasit"
     },
     {
-      "label": "Tilbakemelding",
-      "default": "@score av @total poeng",
-      "description": "Tekstlig tilbakemelding, tilgjengelige variabler: @score og @total. Eksempel: 'Du fikk @score av @total felt rett.'"
-    },
-    {
       "label": "Innstillinger for oppgave-oppførsel",
       "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
       "fields": [
@@ -40,25 +71,21 @@
       ]
     },
     {
-      "englishLabel": "Correct answer text",
       "label": "Riktig svar tekst",
       "englishDefault": "Correct!",
       "default": "Riktig"
     },
     {
-      "englishLabel": "Incorrect answer text",
       "label": "Feil svar tekst",
       "englishDefault": "Incorrect!",
       "default": "Feil"
     },
     {
-      "englishLabel": "Missed answer text",
       "label": "Mangler svar tekst",
       "englishDefault": "Missed!",
       "default": "Mangler!"
     },
     {
-      "englishLabel": "Description for Display Solution",
       "label": "Beskrivelse for Vis Løsning",
       "englishDefault": "Task is updated to contain the solution.",
       "default": "Oppgaven er oppdatert til å inneholde fasiten."

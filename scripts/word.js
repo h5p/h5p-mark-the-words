@@ -101,6 +101,15 @@ H5P.MarkTheWords.Word = (function () {
       }
     }
 
+    /**
+     * Removes any score points added to the marked word.
+     */
+    self.clearScorePoint = function () {
+      for (var i = 0; $word[0].children.length; i++) {
+        $word[0].children[i].remove();
+      }
+    };
+
      /**
      * Get Word as a string
      *
@@ -119,6 +128,8 @@ H5P.MarkTheWords.Word = (function () {
       $word
         .removeAttr('aria-selected')
         .removeAttr('aria-describedby');
+
+      this.clearScorePoint();
     };
 
     /**
@@ -126,10 +137,15 @@ H5P.MarkTheWords.Word = (function () {
      * Reveal result
      *
      * @public
+     * @param {H5P.Question.ScorePoints} scorePoints
      */
-    this.markCheck = function () {
+    this.markCheck = function (scorePoints) {
       if (this.isSelected()) {
         $word.attr('aria-describedby', isAnswer ? Word.ID_MARK_CORRECT : Word.ID_MARK_INCORRECT);
+
+        if (scorePoints) {
+          $word[0].appendChild(scorePoints.getElement(isAnswer));
+        }
       }
       else if (isAnswer) {
         $word.attr('aria-describedby', Word.ID_MARK_MISSED);
