@@ -3,7 +3,7 @@
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
   "minorVersion": 7,
-  "patchVersion": 0,
+  "patchVersion": 1,
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 6
@@ -40,12 +40,12 @@
     {
       "machineName": "H5P.JoubelUI",
       "majorVersion": 1,
-      "minorVersion": 2
+      "minorVersion": 3
     },
     {
       "machineName": "H5P.Question",
       "majorVersion": 1,
-      "minorVersion": 2
+      "minorVersion": 3
     }
   ],
   "editorDependencies": [
