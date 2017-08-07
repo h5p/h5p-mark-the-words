@@ -9,6 +9,7 @@
     "minorVersion": 6
   },
   "runnable": 1,
+  "embedTypes": ["iframe"],
   "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.MarkTheWords",
