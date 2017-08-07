@@ -47,12 +47,6 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
           delete parameters.score;
         }
 
-        // Hide score points for old content
-        if (!parameters.behaviour) {
-          parameters.behaviour = {};
-        }
-        parameters.behaviour.showScorePoints = false;
-
         finished(null, parameters);
       }
     }
