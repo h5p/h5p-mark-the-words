@@ -190,7 +190,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       'aria-labelledby': self.introductionId,
       'aria-multiselect': true,
       'role': 'listbox',
-      'tabindex': 0,
       html: self.createHtmlForWords($.parseHTML(self.params.textField))
     });
 
