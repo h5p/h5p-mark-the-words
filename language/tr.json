@@ -19,7 +19,7 @@
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Varsayılan"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,20 +43,20 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"\"Kontrol et\" butonu için metin",
+      "default":"Kontrol et"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"\"Yeniden dene\" butonu için metin",
+      "default":"Yeniden dene"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"\"Çözümü göster\" butonunu için metin",
+      "default":"Çözümü göster"
     },
     {
       "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "description":"Bu seçenekler aktivitenin çalışma şeklini denetlemenize izin verir.",
       "fields":[
         {
           "label":"Enable \"Retry\""
