@@ -48,7 +48,7 @@
     },
     {
       "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "default":"Επανάληψη"
     },
     {
       "label":"Text for \"Show solution\" button",
