@@ -14,22 +14,45 @@
       }
     },
     {
-      "label":"「チェック」ボタンのテキスト",
-      "default":"チェック"
+      "label":"Overall Feedback",
+      "fields":[
+        {
+          "widgets":[
+            {
+              "label":"Default"
+            }
+          ],
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
+              {
+                "label":"Score Range"
+              },
+              {
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "label":"「リトライ」ボタンのテキスト",
-      "default":"リトライ"
+      "label":"Text for \"Check\" button",
+      "default":"Check"
     },
     {
-      "label":"「解を表示」ボタンのテキスト",
-      "default":"解を表示"
+      "label":"Text for \"Retry\" button",
+      "default":"Retry"
     },
     {
-      "label":"フィードバックテキスト",
-      "default":"@score / @total 獲得",
-      "placeholder":"@score / @total 獲得",
-      "description":"フィードバック テキストです。利用可能な変数: @score @total @correct @wrong @missed 例: 「スコア: @score / @total 、正解: @correct 、不正解: @wrong 、未回答: @missed 」"
+      "label":"Text for \"Show solution\" button",
+      "default":"Show solution"
     },
     {
       "label":"動作設定",
