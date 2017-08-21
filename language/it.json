@@ -14,22 +14,45 @@
       }
     },
     {
-      "label":"Testo per il pulsante \"Verifica\"",
+      "label":"Overall Feedback",
+      "fields":[
+        {
+          "widgets":[
+            {
+              "label":"Default"
+            }
+          ],
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
+              {
+                "label":"Score Range"
+              },
+              {
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label":"Text for \"Check\" button",
       "default":"Check"
     },
     {
-      "label":"Testo per il pulsante \"Riprova\"",
+      "label":"Text for \"Retry\" button",
       "default":"Retry"
     },
     {
-      "label":"Testo per il pulsante \"Mostra Soluzione\"",
+      "label":"Text for \"Show solution\" button",
       "default":"Show solution"
-    },
-    {
-      "label":"Testo del Feedback",
-      "default":"You got @score of @total points",
-      "placeholder":"You got @score of @total points",
-      "description":"Testo del Feedback (Riscontro), variabili consentite: @score @total @correct @wrong @missed. Esempio: 'Punteggio : @score di @total, corretto: @correct, errato: @wrong, mancante: @missed.'"
     },
     {
       "label":"Impostazioni esecuzione",
