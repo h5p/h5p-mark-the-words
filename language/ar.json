@@ -14,12 +14,12 @@
       }
     },
     {
-      "label":"Overall Feedback",
+      "label":"شفافية خلفية العناصر",
       "fields":[
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"الافتراضي"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,23 +43,23 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
+      "label":"النص ل \"تحقق \" الزر",
       "default":"Check"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"النص ل \"إعادة المحاولة \" الزر",
+      "default":"إعادة المحاولة"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"النص  \"مشاهدة الحل \" لزر",
+      "default":"مشاهدة الحل"
     },
     {
-      "label":"حساسية الاجابة",
-      "description":"يتأكد من إجابة المستخدم بأن تكون بالضبط نفس الجواب",
+      "label":"إعدادت النشاط",
+      "description":"وهذه الخيارات تمكنك من التحكم في كيفية سلوك هذا النشاط",
       "fields":[
         {
-          "label":"تمكين زر \"إعادة المحاولة\""
+          "label":"تمكين \"إعادة المحاولة \""
         },
         {
           "label":"تمكين زر \"مشاهدة الحل\""

@@ -14,12 +14,12 @@
       }
     },
     {
-      "label":"Overall Feedback",
+      "label":"Samlet tilbakemelding",
       "fields":[
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Standard"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,23 +43,23 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"Etikett for \"Sjekk\"-knapp",
+      "default":"Sjekk"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"Etikett for \"Prøv igjen\"-knappen.",
+      "default":"Prøv igjen"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"Etikett for \"Fasit\"-knapp",
+      "default":"Fasit"
     },
     {
       "label":"Innstillinger for oppgave-oppførsel",
       "description":"Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
       "fields":[
         {
-          "label":"Aktiver \"Prøv igjen\""
+          "label":"Aktiver \"Prøv igjen\"-knapp"
         },
         {
           "label":"Aktiver \"Fasit\" knapp"
@@ -72,12 +72,12 @@
     },
     {
       "label":"Riktig svar tekst",
-      "default":"Riktig",
+      "default":"Riktig!",
       "description":"Text used to indicate that an answer is correct"
     },
     {
       "label":"Feil svar tekst",
-      "default":"Feil",
+      "default":"Feil!",
       "description":"Text used to indicate that an answer is incorrect"
     },
     {

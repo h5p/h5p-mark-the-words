@@ -44,15 +44,15 @@
     },
     {
       "label":"Text for \"Check\" button",
-      "default":"Check"
+      "default":"Kontrolli"
     },
     {
       "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "default":"Proovi uuesti"
     },
     {
       "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "default":"Õige vastus"
     },
     {
       "label":"Behavioural settings.",
