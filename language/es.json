@@ -1,7 +1,7 @@
 {
   "semantics":[
     {
-      "label":"Task description",
+      "label":"Descripción de la tarea",
       "description":"Describe how the user should solve the task.",
       "placeholder":"Click on all the verbs in the text that follows."
     },
@@ -19,7 +19,7 @@
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Predeterminado"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -47,12 +47,12 @@
       "default":"Check"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"Texto para el botón de \"Reintentar\"",
+      "default":"Reintentar"
     },
     {
       "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "default":"Mostrar solución"
     },
     {
       "label":"Behavioural settings.",
