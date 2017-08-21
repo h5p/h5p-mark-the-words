@@ -1,7 +1,7 @@
 {
   "semantics":[
     {
-      "label":"Task description",
+      "label":"Opis zadatka",
       "description":"Describe how the user should solve the task.",
       "placeholder":"Click on all the verbs in the text that follows."
     },
@@ -14,12 +14,12 @@
       }
     },
     {
-      "label":"Overall Feedback",
+      "label":"Pozadinska zamućenost za elemente za uzimanje",
       "fields":[
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Standard"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,23 +43,23 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"Oznaka za dugme \"Provjeri\"",
+      "default":"Provjeri"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"Oznaka za dugme \"Ponovi\"",
+      "default":"Ponovi"
     },
     {
       "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "default":"Prikaži rješenje"
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "label":"Podešavanje ponašanja.",
+      "description":"Diese Optionen kontrollieren, wie sich die Aufgabe verhält.",
       "fields":[
         {
-          "label":"Enable \"Retry\""
+          "label":"Omogući \"Ponovi\" dugme"
         },
         {
           "label":"Enable \"Show solution\" button"
@@ -72,12 +72,12 @@
     },
     {
       "label":"Correct answer text",
-      "default":"Correct!",
+      "default":"Tačno!!",
       "description":"Text used to indicate that an answer is correct"
     },
     {
       "label":"Incorrect answer text",
-      "default":"Incorrect!",
+      "default":"Netačno!!",
       "description":"Text used to indicate that an answer is incorrect"
     },
     {
