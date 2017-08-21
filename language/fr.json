@@ -2,7 +2,7 @@
   "semantics":[
     {
       "label":"Consigne",
-      "description":"La consigne indique ce que l'utilisateur doit faire.",
+      "description":"Expliquez ce que doit faire l'utilisateur.",
       "placeholder":"Clique sur les verbes du texte."
     },
     {
@@ -14,12 +14,12 @@
       }
     },
     {
-      "label":"Overall Feedback",
+      "label":"Opacité des étiquettes",
       "fields":[
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Par défaut"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,20 +43,20 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"Texte du bouton \"Vérifier\"",
+      "default":"Vérifier"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"Texte du bouton \"Recommencer\"",
+      "default":"Recommencer"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"Texte du bouton \"Voir la solution\"",
+      "default":"Voir la solution"
     },
     {
       "label":"Options générales.",
-      "description":"Ces options vous permettent de contrôler le déroulement de l'activité.",
+      "description":"Ces options vous permettent de contrôler le déroulement de vos activités.",
       "fields":[
         {
           "label":"Activer le bouton \"Recommencer\""
