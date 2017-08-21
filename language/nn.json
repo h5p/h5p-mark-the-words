@@ -1,8 +1,8 @@
 {
   "semantics":[
     {
-      "label":"Oppgåve beskriving",
-      "description":"Forklar korleis brukeren skal løyse oppgaven.",
+      "label":"Oppgave beskriving",
+      "description":"Forklar hvordan brukeren skal løyse oppgåva.",
       "placeholder":"Click on all the verbs in the text that follows."
     },
     {
@@ -14,12 +14,12 @@
       }
     },
     {
-      "label":"Overall Feedback",
+      "label":"Bakgrunnsopasitet på flyttbare elementer",
       "fields":[
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Standard"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,23 +43,23 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"Tekst for \"Sjekk\"-knapp",
+      "default":"Sjekk"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"Tekst for \"Prøv igjen\"-knapp",
+      "default":"Prøv igjen"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"Tekst for \"Fasit\" knapp",
+      "default":"Fasit"
     },
     {
-      "label":"Innstillinger for oppgåve-åtferd",
+      "label":"Innstillinger for oppgave-åtferd",
       "description":"Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
       "fields":[
         {
-          "label":"Aktiver \"Prøv igjen\""
+          "label":"Aktiver \"Prøv igjen\"-knapp"
         },
         {
           "label":"Aktiver \"Fasit\" knapp"
@@ -72,12 +72,12 @@
     },
     {
       "label":"Riktig svar tekst",
-      "default":"Riktig",
+      "default":"Riktig!",
       "description":"Text used to indicate that an answer is correct"
     },
     {
       "label":"Feil svar tekst",
-      "default":"Feil",
+      "default":"Feil!",
       "description":"Text used to indicate that an answer is incorrect"
     },
     {
