@@ -14,22 +14,45 @@
       }
     },
     {
-      "label":"النص   \"تحقق \" لزر",
+      "label":"Overall Feedback",
+      "fields":[
+        {
+          "widgets":[
+            {
+              "label":"Default"
+            }
+          ],
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
+              {
+                "label":"Score Range"
+              },
+              {
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label":"Text for \"Check\" button",
       "default":"Check"
     },
     {
-      "label":"النص   \"إعادة المحاولة \" لزر",
+      "label":"Text for \"Retry\" button",
       "default":"Retry"
     },
     {
-      "label":"النص  \"مشاهدة الحل \" لزر",
+      "label":"Text for \"Show solution\" button",
       "default":"Show solution"
-    },
-    {
-      "label":"نص الملاحظات",
-      "default":"You got @score of @total points",
-      "placeholder":"You got @score of @total points",
-      "description":"ملاحظات النص، والمتغيرات المتاحة:@score @total @correct @wrong @missed. مثال: 'نقاط : @score of @total, الصحيحة: @correct, الخطأ: @wrong, غائب: @missed'"
     },
     {
       "label":"حساسية الاجابة",
