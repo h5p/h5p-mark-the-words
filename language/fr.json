@@ -14,22 +14,45 @@
       }
     },
     {
-      "label":"Texte pour le bouton \"Vérifier\"",
-      "default":"Vérifier"
+      "label":"Overall Feedback",
+      "fields":[
+        {
+          "widgets":[
+            {
+              "label":"Default"
+            }
+          ],
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
+              {
+                "label":"Score Range"
+              },
+              {
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "label":"Texte pour le bouton \"Recommencer\"",
-      "default":"Recommencer"
+      "label":"Text for \"Check\" button",
+      "default":"Check"
     },
     {
-      "label":"Texte pour le bouton \"Voir la solution\"",
-      "default":"Voir la solution"
+      "label":"Text for \"Retry\" button",
+      "default":"Retry"
     },
     {
-      "label":"Texte de commentaire",
-      "default":"Tu as obtenu @score point(s) sur @total",
-      "placeholder":"Tu as obtenu @score point(s) sur @total",
-      "description":"Texte de commentaire, variables possibles : @score @total @correct @wrong @missed. Exemple: 'Ton score : @score sur @total (réponses justes : @correct, réponses fausses : @wrong, oublis : @missed.)'"
+      "label":"Text for \"Show solution\" button",
+      "default":"Show solution"
     },
     {
       "label":"Options générales.",
