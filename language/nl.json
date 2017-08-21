@@ -1,8 +1,8 @@
 {
   "semantics":[
     {
-      "label":"Task description",
-      "description":"Describe how the user should solve the task.",
+      "label":"Beschrijving taak",
+      "description":"Beschrijf hoe de gebruiker de taak moet uitvoeren.",
       "placeholder":"Click on all the verbs in the text that follows."
     },
     {
@@ -19,7 +19,7 @@
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Standaard"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,23 +43,23 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"Tekst voor de \"Controleer\"-knop",
+      "default":"Controleer"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"Tekst voor de \"Opnieuw proberen\"-knop",
+      "default":"Opnieuw proberen"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"Tekst voor de \"Toon oplossing\"-knop",
+      "default":"Toon oplossing"
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "label":"Gedragsinstellingen",
+      "description":"Deze opties bepalen hoe de taak op de input reageert.",
       "fields":[
         {
-          "label":"Enable \"Retry\""
+          "label":"Schakel de knop \"Opnieuw\" in"
         },
         {
           "label":"Enable \"Show solution\" button"
