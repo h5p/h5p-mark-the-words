@@ -1,13 +1,13 @@
 {
   "semantics":[
     {
-      "label":"Consigne",
-      "description":"La consigne indique ce que l'utilisateur doit faire.",
-      "placeholder":"Clique sur les verbes du texte."
+      "label":"Task description",
+      "description":"Describe how the user should solve the task.",
+      "placeholder":"Click on all the verbs in the text that follows."
     },
     {
-      "label":"Champ de texte",
-      "placeholder":"Voici une réponse exacte : *réponse*.",
+      "label":"Textfield",
+      "placeholder":"This is an answer: *answer*.",
       "description":"",
       "important":{
         "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
@@ -55,14 +55,14 @@
       "default":"Show solution"
     },
     {
-      "label":"Options générales.",
-      "description":"Ces options vous permettent de contrôler le déroulement de l'activité.",
+      "label":"Behavioural settings.",
+      "description":"These options will let you control how the task behaves.",
       "fields":[
         {
-          "label":"Activer le bouton \"Recommencer\""
+          "label":"Enable \"Retry\""
         },
         {
-          "label":"Activer le bouton \"Voir la solution\""
+          "label":"Enable \"Show solution\" button"
         },
         {
           "label":"Show score points",
@@ -71,23 +71,23 @@
       ]
     },
     {
-      "label":"Texte de réponse correct",
+      "label":"Correct answer text",
       "default":"Correct!",
       "description":"Text used to indicate that an answer is correct"
     },
     {
-      "label":"Texte de réponse incorrect",
+      "label":"Incorrect answer text",
       "default":"Incorrect!",
       "description":"Text used to indicate that an answer is incorrect"
     },
     {
-      "label":"Texte de réponse manqué",
-      "default":"Manqué!",
+      "label":"Missed answer text",
+      "default":"Missed!",
       "description":"Text used to indicate that an answer is missing"
     },
     {
-      "label":"Description pour la solution d'affichage",
-      "default":"La tâche est mise à jour pour contenir la solution.",
+      "label":"Description for Display Solution",
+      "default":"Task is updated to contain the solution.",
       "description":"This text tells the user that the tasks has been updated with the solution."
     }
   ]

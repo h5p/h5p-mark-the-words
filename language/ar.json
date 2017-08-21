@@ -1,33 +1,41 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "وصف النشاط",
-      "description": "وصف الكيفية التي ينبغي للمستخدم حل النشاط"
+      "label":"وصف النشاط",
+      "description":"وصف الكيفية التي ينبغي للمستخدم حل النشاط",
+      "placeholder":"Click on all the verbs in the text that follows."
     },
     {
-      "label": "الحقل النصي",
-      "description": "تضاف الكلمات التي تحمل علامة أستريكس (*) في بديتهاونهايتها بدون اضافة مسافة في منتصف الكلمة. على سبيل المثال: يتم وضع علامة على الكلمات الصحيحة مع مثل هذا *كلمة* ا"
+      "label":"الحقل النصي",
+      "placeholder":"This is an answer: *answer*.",
+      "description":"",
+      "important":{
+        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      }
     },
     {
-      "englishLabel": "Overall Feedback",
-      "fields": [
+      "label":"Overall Feedback",
+      "fields":[
         {
-          "widgets": [
+          "widgets":[
             {
-              "englishLabel": "Default"
+              "label":"Default"
             }
           ],
-          "englishLabel": "Define custom feedback for any score range",
-          "englishDescription": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!\nAvailable variables: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
-          "field": {
-            "fields": [
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
               {
-                "englishLabel": "Score Range"
+                "label":"Score Range"
               },
-              {},
               {
-                "englishLabel": "Feedback for defined score range",
-                "englishPlaceholder": "Fill in the feedback"
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
               }
             ]
           }
@@ -35,45 +43,52 @@
       ]
     },
     {
-      "label": "النص   \"تحقق \" لزر"
+      "label":"Text for \"Check\" button",
+      "default":"Check"
     },
     {
-      "label": "النص   \"إعادة المحاولة \" لزر"
+      "label":"Text for \"Retry\" button",
+      "default":"Retry"
     },
     {
-      "label": "النص  \"مشاهدة الحل \" لزر"
+      "label":"Text for \"Show solution\" button",
+      "default":"Show solution"
     },
     {
-      "label": "حساسية الاجابة",
-      "description": "يتأكد من إجابة المستخدم بأن تكون بالضبط نفس الجواب",
-      "fields": [
+      "label":"حساسية الاجابة",
+      "description":"يتأكد من إجابة المستخدم بأن تكون بالضبط نفس الجواب",
+      "fields":[
         {
-          "label": "تمكين زر \"إعادة المحاولة\""
+          "label":"تمكين زر \"إعادة المحاولة\""
         },
         {
-          "label": "تمكين زر \"مشاهدة الحل\""
+          "label":"تمكين زر \"مشاهدة الحل\""
+        },
+        {
+          "label":"Show score points",
+          "description":"Show points earned for each answer."
         }
       ]
     },
     {
-      "label": "نص الجواب الصحيح",
-      "englishDefault": "Correct!",
-      "default": "صحيح!"
+      "label":"نص الجواب الصحيح",
+      "default":"صحيح!",
+      "description":"Text used to indicate that an answer is correct"
     },
     {
-      "label": "نص الجواب غير صحيح",
-      "englishDefault": "Incorrect!",
-      "default": "غير صحيح!"
+      "label":"نص الجواب غير صحيح",
+      "default":"غير صحيح!",
+      "description":"Text used to indicate that an answer is incorrect"
     },
     {
-      "label": "غاب نص الجواب",
-      "englishDefault": "Missed!",
-      "default": "افتقد!"
+      "label":"غاب نص الجواب",
+      "default":"افتقد!",
+      "description":"Text used to indicate that an answer is missing"
     },
     {
-      "label": "وصف لعرض الحل",
-      "englishDefault": "Task is updated to contain the solution.",
-      "default": "يتم تحديث مهمة لاحتواء الحل."
+      "label":"وصف لعرض الحل",
+      "default":"يتم تحديث مهمة لاحتواء الحل.",
+      "description":"This text tells the user that the tasks has been updated with the solution."
     }
   ]
 }
