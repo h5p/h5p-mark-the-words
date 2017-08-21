@@ -19,7 +19,7 @@
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Per defecte"
             }
           ],
           "label":"Define custom feedback for any score range",
@@ -43,20 +43,20 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"Text pel botó \"Verificar\"",
+      "default":"Verificar"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Retry"
+      "label":"Text pel botó \"Tornar-ho a provar\"",
+      "default":"Tornar-ho a provar"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"Text pel botó \"Mostrar solució\"",
+      "default":"Mostrar solució"
     },
     {
       "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "description":"Aquestes opcions et permetran controlar com es comporta la tasca.",
       "fields":[
         {
           "label":"Enable \"Retry\""
