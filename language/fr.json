@@ -1,35 +1,41 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "Consigne",
-      "description": "La consigne indique ce que l'utilisateur doit faire.",
-      "placeholder": "Clique sur les verbes du texte."
+      "label":"Consigne",
+      "description":"Expliquez ce que doit faire l'utilisateur.",
+      "placeholder":"Clique sur les verbes du texte."
     },
     {
-      "label": "Champ de texte",
-      "placeholder": "Voici une réponse exacte : *réponse*.",
-      "description": "Les mots marqués sont précédés et suivis d'une astérisque (*). Pour afficher un astérisque, on utilise avec un autre astéristique ; ainsi ** = *. Au final, les réponses exactes sont marquées ainsi : *motcorrect* et un astéristique est noté comme cela: **."
+      "label":"Champ de texte",
+      "placeholder":"Voici une réponse exacte : *réponse*.",
+      "description":"",
+      "important":{
+        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      }
     },
     {
-      "englishLabel": "Overall Feedback",
-      "fields": [
+      "label":"Opacité des étiquettes",
+      "fields":[
         {
-          "widgets": [
+          "widgets":[
             {
-              "englishLabel": "Default"
+              "label":"Par défaut"
             }
           ],
-          "englishLabel": "Define custom feedback for any score range",
-          "englishDescription": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!\nAvailable variables: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
-          "field": {
-            "fields": [
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
               {
-                "englishLabel": "Score Range"
+                "label":"Score Range"
               },
-              {},
               {
-                "englishLabel": "Feedback for defined score range",
-                "englishPlaceholder": "Fill in the feedback"
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
               }
             ]
           }
@@ -37,48 +43,52 @@
       ]
     },
     {
-      "label": "Texte pour le bouton \"Vérifier\"",
-      "default": "Vérifier"
+      "label":"Texte du bouton \"Vérifier\"",
+      "default":"Vérifier"
     },
     {
-      "label": "Texte pour le bouton \"Recommencer\"",
-      "default": "Recommencer"
+      "label":"Texte du bouton \"Recommencer\"",
+      "default":"Recommencer"
     },
     {
-      "label": "Texte pour le bouton \"Voir la solution\"",
-      "default": "Voir la solution"
+      "label":"Texte du bouton \"Voir la solution\"",
+      "default":"Voir la solution"
     },
     {
-      "label": "Options générales.",
-      "description": "Ces options vous permettent de contrôler le déroulement de l'activité.",
-      "fields": [
+      "label":"Options générales.",
+      "description":"Ces options vous permettent de contrôler le déroulement de vos activités.",
+      "fields":[
         {
-          "label": "Activer le bouton \"Recommencer\""
+          "label":"Activer le bouton \"Recommencer\""
         },
         {
-          "label": "Activer le bouton \"Voir la solution\""
+          "label":"Activer le bouton \"Voir la solution\""
+        },
+        {
+          "label":"Show score points",
+          "description":"Show points earned for each answer."
         }
       ]
     },
     {
-      "label": "Texte de réponse correct",
-      "englishDefault": "Correct!",
-      "default": "Correct!"
+      "label":"Texte de réponse correct",
+      "default":"Correct!",
+      "description":"Text used to indicate that an answer is correct"
     },
     {
-      "label": "Texte de réponse incorrect",
-      "englishDefault": "Incorrect!",
-      "default": "Incorrect!"
+      "label":"Texte de réponse incorrect",
+      "default":"Incorrect!",
+      "description":"Text used to indicate that an answer is incorrect"
     },
     {
-      "label": "Texte de réponse manqué",
-      "englishDefault": "Missed!",
-      "default": "Manqué!"
+      "label":"Texte de réponse manqué",
+      "default":"Manqué!",
+      "description":"Text used to indicate that an answer is missing"
     },
     {
-      "label": "Description pour la solution d'affichage",
-      "englishDefault": "Task is updated to contain the solution.",
-      "default": "La tâche est mise à jour pour contenir la solution."
+      "label":"Description pour la solution d'affichage",
+      "default":"La tâche est mise à jour pour contenir la solution.",
+      "description":"This text tells the user that the tasks has been updated with the solution."
     }
   ]
 }

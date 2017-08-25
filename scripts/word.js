@@ -106,7 +106,8 @@ H5P.MarkTheWords.Word = (function () {
      */
     self.clearScorePoint = function () {
       for (var i = 0; $word[0].children.length; i++) {
-        $word[0].children[i].remove();
+        var scorePoint = $word[0].children[i];
+        scorePoint.parentNode.removeChild(scorePoint);
       }
     };
 
