@@ -38,7 +38,7 @@ H5P.MarkTheWords.Word = (function () {
     // Remove single asterisk and escape double asterisks.
     handleAsterisks();
 
-    if (isAnswer) {
+    if (isAnswer || input === "**") { 
       $word.text(handledInput);
     }
 
