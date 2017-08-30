@@ -10,7 +10,7 @@
       "placeholder":"Das ist eine Antwort: *Antwort*.",
       "description":"",
       "important":{
-        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+        "description":"<ul><li>Markierte Wörter werden mit einem Sternchen (*) hinzugefügt.</li><li>Ein Sternchen kann mit einem weiteren Sternchen davor hinzugefügt werden, also ** = *.</li></ul>"
       }
     },
     {
@@ -23,7 +23,7 @@
             }
           ],
           "label":"Benutzerdefinierte Rückmeldung für jeden Punkte-Bereich definieren",
-          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "description":"Klicke auf \"Bereich hinzufügen\", um so viele Bereiche zu erstellen, wie du benötigst. Beispiel: 0-20 % Schlechte Punktzahl, 21-91 % Durchschnittliche Punktzahl, 91-100 % Sehr gute Punktzahl!",
           "entity":"Bereich",
           "field":{
             "fields":[
@@ -34,8 +34,8 @@
                 
               },
               {
-                "label":"Feedback for defined score range",
-                "placeholder":"Fill in the feedback"
+                "label":"Rückmeldung für den definierten Punktebereich",
+                "placeholder":"Fülle die Rückmeldung aus"
               }
             ]
           }
@@ -65,8 +65,8 @@
           "label":"\"Lösung anzeigen\" ermöglichen"
         },
         {
-          "label":"Show score points",
-          "description":"Show points earned for each answer."
+          "label":"Zeige die Punktzahl",
+          "description":"Zeige die Punkte, die für jede Antwort vergeben werden."
         }
       ]
     },
