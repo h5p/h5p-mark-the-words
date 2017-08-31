@@ -10,7 +10,7 @@
       "placeholder":"これが解答です。: *answer*",
       "description":"",
       "important":{
-        "description":"<ul><li>マークする単語にはアスタリスク (*) を加えます。</li><li>アスタリスクは別のアスタリスクでエスケープ処理されるので、** は * となります。</li></ul>"
+        "description":"<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li></ul>"
       }
     },
     {
