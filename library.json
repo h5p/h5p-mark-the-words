@@ -3,13 +3,15 @@
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
   "minorVersion": 7,
-  "patchVersion": 1,
+  "patchVersion": 2,
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 6
   },
   "runnable": 1,
-  "embedTypes": ["iframe"],
+  "embedTypes": [
+    "iframe"
+  ],
   "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.MarkTheWords",
