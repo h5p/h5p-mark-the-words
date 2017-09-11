@@ -2,67 +2,67 @@
   "semantics": [
     {
       "label": "Tehtävän kuvaus",
-      "description": "Kuvaile kuinka käyttäjän pitää ratkaista tehtävä.",
-      "placeholder": "Klikkaa kaikkia verbejä seuraavasta tekstistä."
+      "description": "Kuvaile, mitä käyttäjän pitää tehdä.",
+      "placeholder": "Valitse klikkaamalla verbit seuraavasta tekstistä."
     },
     {
       "label": "Tekstikenttä",
-      "placeholder": "Tämä on vastais : *vastaus*.",
-      "description": "Tähdillä (*) merkitään halutut sanat. Jos on tarve vain esittää pelkkä tähti, niin se kirjoitetaan **. Esimerkki: Oikeat sanat merkitään *oikeasana*, ja tähti **."
+      "placeholder": "Tämä on vastaus: *vastaus*.",
+      "description": "Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*. Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **."
     },
     {
-      "label": "Nimike painikkeelle \"Tarkista\"",
+      "label": "Painikkeen \"Tarkista\" nimi",
       "default": "Tarkista"
     },
     {
-      "label": "Nimike painikkeelle \"Yritä uudelleen\"",
+      "label": "Painikkeen \"Yritä uudelleen\" nimi",
       "default": "Yritä uudelleen"
     },
     {
-      "label": "Nimike painikkeelle \"Katso vastaus\"",
+      "label": "Painikkeen \"Katso vastaus\" nimi",
       "default": "Katso vastaus"
     },
     {
       "label": "Palauteteksti",
-      "default": "Sait @score \/ @total pistettä",
-      "placeholder": "Sait @score \/ @total pistettä",
-      "description": "Palauteteksti, käytettävissä muuttujat : @score @total @correct @wrong @missed. Esimerkki: 'Pisteesi : @score \/ @total (Oikein : @correct, Väärin : @wrong, ohitetut : @missed.)'"
+      "default": "Sait @score\/@total pistettä",
+      "placeholder": "Sait @score\/@total pistettä",
+      "description": "Palauteteksti, käytettävissä on seuraavat muuttujat: @score @total @correct @wrong @missed. Esimerkki: 'Sait @score\/@total pistettä (oikein: @correct, väärin: @wrong, ohitetut: @missed)'"
     },
     {
-      "label": "Yleiasetukset.",
-      "description": "Näillä valinnoilla voit hallita tehtävän toimintaa.",
+      "label": "Yleisasetukset",
+      "description": "Näillä valinnoilla voit ohjailla tehtävän toimintoja.",
       "fields": [
         {
-          "label": "Salli nappi  \"Yritä uudelleen\""
+          "label": "Salli painike \"Yritä uudelleen\""
         },
         {
-          "label": "Salli nappi \"Katso vastaus\""
+          "label": "Salli painike \"Katso vastaus\""
         }
       ]
     },
     {
       "englishLabel": "Correct answer text",
-      "label": "Nimike oikealle vastaukselle",
+      "label": "Oikean vastauksen teksti",
       "englishDefault": "Correct!",
       "default": "Oikein!"
     },
     {
       "englishLabel": "Incorrect answer text",
-      "label": "Nimike väärälle vastaukselle",
+      "label": "Väärän vastauksen teksti",
       "englishDefault": "Incorrect!",
       "default": "Väärin!"
     },
     {
       "englishLabel": "Missed answer text",
-      "label": "Nimike ohitetuille vastauksille",
+      "label": "Ohitetun vastauksen teksti",
       "englishDefault": "Missed!",
       "default": "Ohi!"
     },
     {
       "englishLabel": "Description for Display Solution",
-      "label": "Kuvaus vastauksien näyttämiselle",
+      "label": "Painikkeen Näytä vastaukset kuvaus",
       "englishDefault": "Task is updated to contain the solution.",
-      "default": "Tehtävä on päivitetty vastauksien näyttämiseksi."
+      "default": "Tehtävä on päivitetty vastausten näyttämiseksi."
     }
   ]
 }
