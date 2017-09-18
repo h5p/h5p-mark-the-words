@@ -1,61 +1,94 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "وصف النشاط",
-      "description": "وصف الكيفية التي ينبغي للمستخدم حل النشاط"
+      "label":"وصف النشاط",
+      "description":"وصف الكيفية التي ينبغي للمستخدم حل النشاط",
+      "placeholder":"Click on all the verbs in the text that follows."
     },
     {
-      "label": "الحقل النصي",
-      "description": "تضاف الكلمات التي تحمل علامة أستريكس (*) في بديتهاونهايتها بدون اضافة مسافة في منتصف الكلمة. على سبيل المثال: يتم وضع علامة على الكلمات الصحيحة مع مثل هذا *كلمة* ا"
+      "label":"الحقل النصي",
+      "placeholder":"This is an answer: *answer*.",
+      "description":"",
+      "important":{
+        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      }
     },
     {
-      "label": "النص   \"تحقق \" لزر"
-    },
-    {
-      "label": "النص   \"إعادة المحاولة \" لزر"
-    },
-    {
-      "label": "النص  \"مشاهدة الحل \" لزر"
-    },
-    {
-      "label": "نص الملاحظات",
-      "description": "ملاحظات النص، والمتغيرات المتاحة:@score @total @correct @wrong @missed. مثال: 'نقاط : @score of @total, الصحيحة: @correct, الخطأ: @wrong, غائب: @missed'"
-    },
-    {
-      "label": "حساسية الاجابة",
-      "description": "يتأكد من إجابة المستخدم بأن تكون بالضبط نفس الجواب",
-      "fields": [
+      "label":"شفافية خلفية العناصر",
+      "fields":[
         {
-          "label": "تمكين زر \"إعادة المحاولة\""
-        },
-        {
-          "label": "تمكين زر \"مشاهدة الحل\""
+          "widgets":[
+            {
+              "label":"الافتراضي"
+            }
+          ],
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
+              {
+                "label":"Score Range"
+              },
+              {
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
+              }
+            ]
+          }
         }
       ]
     },
     {
-      "englishLabel": "Correct answer text",
-      "label": "نص الجواب الصحيح",
-      "englishDefault": "Correct!",
-      "default": "صحيح!"
+      "label":"النص ل \"تحقق \" الزر",
+      "default":"Check"
     },
     {
-      "englishLabel": "Incorrect answer text",
-      "label": "نص الجواب غير صحيح",
-      "englishDefault": "Incorrect!",
-      "default": "غير صحيح!"
+      "label":"النص ل \"إعادة المحاولة \" الزر",
+      "default":"إعادة المحاولة"
     },
     {
-      "englishLabel": "Missed answer text",
-      "label": "غاب نص الجواب",
-      "englishDefault": "Missed!",
-      "default": "افتقد!"
+      "label":"النص  \"مشاهدة الحل \" لزر",
+      "default":"مشاهدة الحل"
     },
     {
-      "englishLabel": "Description for Display Solution",
-      "label": "وصف لعرض الحل",
-      "englishDefault": "Task is updated to contain the solution.",
-      "default": "يتم تحديث مهمة لاحتواء الحل."
+      "label":"إعدادت النشاط",
+      "description":"وهذه الخيارات تمكنك من التحكم في كيفية سلوك هذا النشاط",
+      "fields":[
+        {
+          "label":"تمكين \"إعادة المحاولة \""
+        },
+        {
+          "label":"تمكين زر \"مشاهدة الحل\""
+        },
+        {
+          "label":"Show score points",
+          "description":"Show points earned for each answer."
+        }
+      ]
+    },
+    {
+      "label":"نص الجواب الصحيح",
+      "default":"صحيح!",
+      "description":"Text used to indicate that an answer is correct"
+    },
+    {
+      "label":"نص الجواب غير صحيح",
+      "default":"غير صحيح!",
+      "description":"Text used to indicate that an answer is incorrect"
+    },
+    {
+      "label":"غاب نص الجواب",
+      "default":"افتقد!",
+      "description":"Text used to indicate that an answer is missing"
+    },
+    {
+      "label":"وصف لعرض الحل",
+      "default":"يتم تحديث مهمة لاحتواء الحل.",
+      "description":"This text tells the user that the tasks has been updated with the solution."
     }
   ]
 }

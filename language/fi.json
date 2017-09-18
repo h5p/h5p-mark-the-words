@@ -1,68 +1,94 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "Tehtävän kuvaus",
-      "description": "Kuvaile, mitä käyttäjän pitää tehdä.",
-      "placeholder": "Valitse klikkaamalla verbit seuraavasta tekstistä."
+      "label":"Task description",
+      "description":"Describe how the user should solve the task.",
+      "placeholder":"Click on all the verbs in the text that follows."
     },
     {
-      "label": "Tekstikenttä",
-      "placeholder": "Tämä on vastaus: *vastaus*.",
-      "description": "Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*. Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **."
+      "label":"Textfield",
+      "placeholder":"This is an answer: *answer*.",
+      "description":"",
+      "important":{
+        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      }
     },
     {
-      "label": "Painikkeen \"Tarkista\" nimi",
-      "default": "Tarkista"
-    },
-    {
-      "label": "Painikkeen \"Yritä uudelleen\" nimi",
-      "default": "Yritä uudelleen"
-    },
-    {
-      "label": "Painikkeen \"Katso vastaus\" nimi",
-      "default": "Katso vastaus"
-    },
-    {
-      "label": "Palauteteksti",
-      "default": "Sait @score\/@total pistettä",
-      "placeholder": "Sait @score\/@total pistettä",
-      "description": "Palauteteksti, käytettävissä on seuraavat muuttujat: @score @total @correct @wrong @missed. Esimerkki: 'Sait @score\/@total pistettä (oikein: @correct, väärin: @wrong, ohitetut: @missed)'"
-    },
-    {
-      "label": "Yleisasetukset",
-      "description": "Näillä valinnoilla voit ohjailla tehtävän toimintoja.",
-      "fields": [
+      "label":"Overall Feedback",
+      "fields":[
         {
-          "label": "Salli painike \"Yritä uudelleen\""
-        },
-        {
-          "label": "Salli painike \"Katso vastaus\""
+          "widgets":[
+            {
+              "label":"Default"
+            }
+          ],
+          "label":"Define custom feedback for any score range",
+          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity":"range",
+          "field":{
+            "fields":[
+              {
+                "label":"Score Range"
+              },
+              {
+                
+              },
+              {
+                "label":"Feedback for defined score range",
+                "placeholder":"Fill in the feedback"
+              }
+            ]
+          }
         }
       ]
     },
     {
-      "englishLabel": "Correct answer text",
-      "label": "Oikean vastauksen teksti",
-      "englishDefault": "Correct!",
-      "default": "Oikein!"
+      "label":"Text for \"Check\" button",
+      "default":"Check"
     },
     {
-      "englishLabel": "Incorrect answer text",
-      "label": "Väärän vastauksen teksti",
-      "englishDefault": "Incorrect!",
-      "default": "Väärin!"
+      "label":"Text for \"Retry\" button",
+      "default":"Yritä uudelleen"
     },
     {
-      "englishLabel": "Missed answer text",
-      "label": "Ohitetun vastauksen teksti",
-      "englishDefault": "Missed!",
-      "default": "Ohi!"
+      "label":"Text for \"Show solution\" button",
+      "default":"Show solution"
     },
     {
-      "englishLabel": "Description for Display Solution",
-      "label": "Painikkeen Näytä vastaukset kuvaus",
-      "englishDefault": "Task is updated to contain the solution.",
-      "default": "Tehtävä on päivitetty vastausten näyttämiseksi."
+      "label":"Behavioural settings.",
+      "description":"These options will let you control how the task behaves.",
+      "fields":[
+        {
+          "label":"Enable \"Retry\""
+        },
+        {
+          "label":"Enable \"Show solution\" button"
+        },
+        {
+          "label":"Show score points",
+          "description":"Show points earned for each answer."
+        }
+      ]
+    },
+    {
+      "label":"Correct answer text",
+      "default":"Correct!",
+      "description":"Text used to indicate that an answer is correct"
+    },
+    {
+      "label":"Incorrect answer text",
+      "default":"Incorrect!",
+      "description":"Text used to indicate that an answer is incorrect"
+    },
+    {
+      "label":"Missed answer text",
+      "default":"Missed!",
+      "description":"Text used to indicate that an answer is missing"
+    },
+    {
+      "label":"Description for Display Solution",
+      "default":"Task is updated to contain the solution.",
+      "description":"This text tells the user that the tasks has been updated with the solution."
     }
   ]
 }
