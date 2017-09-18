@@ -1,41 +1,41 @@
 {
   "semantics":[
     {
-      "label":"Task description",
-      "description":"Describe how the user should solve the task.",
-      "placeholder":"Click on all the verbs in the text that follows."
+      "label":"Tehtävän kuvaus",
+      "description":"Kuvaile, mitä käyttäjän pitää tehdä.",
+      "placeholder":"Valitse klikkaamalla verbit seuraavasta tekstistä."
     },
     {
-      "label":"Textfield",
-      "placeholder":"This is an answer: *answer*.",
+      "label":"Tekstikenttä",
+      "placeholder":"Tämä on vastaus: *vastaus*.",
       "description":"",
       "important":{
-        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+        "description":"<ul><li>Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*.</li><li>Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **.</li></ul>"
       }
     },
     {
-      "label":"Overall Feedback",
+      "label":"Yleinen palaute",
       "fields":[
         {
           "widgets":[
             {
-              "label":"Default"
+              "label":"Oletus"
             }
           ],
-          "label":"Define custom feedback for any score range",
-          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity":"range",
+          "label":"Määritä muokattu palaute pisterajojen mukaan.",
+          "description":"Klikkaa \"Lisää alue\" painiketta lisätäksesi niin monta pisterajaa kuin tarvit. Esimerkiksi: 0-20% Huono tulos, 21-91% Kelpo tulos, 91-100% Mahtava tulos!",
+          "entity":"alue",
           "field":{
             "fields":[
               {
-                "label":"Score Range"
+                "label":"Pisteraja"
               },
               {
                 
               },
               {
-                "label":"Feedback for defined score range",
-                "placeholder":"Fill in the feedback"
+                "label":"Palaute määritellylle pisterajalle",
+                "placeholder":"Kirjoita palaute"
               }
             ]
           }
@@ -43,52 +43,52 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Check"
+      "label":"Painikkeen \"Tarkista\" nimi",
+      "default":"Tarkista"
     },
     {
-      "label":"Text for \"Retry\" button",
+      "label":"Painikkeen \"Yritä uudelleen\" nimi",
       "default":"Yritä uudelleen"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Show solution"
+      "label":"Painikkeen \"Katso vastaus\" nimi",
+      "default":"Katso vastaus"
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "label":"Yleisasetukset",
+      "description":"Näillä valinnoilla voit ohjailla tehtävän toimintoja.",
       "fields":[
         {
-          "label":"Enable \"Retry\""
+          "label":"Salli painike \"Yritä uudelleen\""
         },
         {
-          "label":"Enable \"Show solution\" button"
+          "label":"Salli painike \"Katso vastaus\""
         },
         {
-          "label":"Show score points",
-          "description":"Show points earned for each answer."
+          "label":"Näytä pisteet",
+          "description":"Näytä ansaitut pisteet joka vastaukselle."
         }
       ]
     },
     {
-      "label":"Correct answer text",
-      "default":"Correct!",
-      "description":"Text used to indicate that an answer is correct"
+      "label":"Oikean vastauksen teksti",
+      "default":"Oikein!",
+      "description":"Teksti oikealle vastaukselle"
     },
     {
-      "label":"Incorrect answer text",
-      "default":"Incorrect!",
-      "description":"Text used to indicate that an answer is incorrect"
+      "label":"Väärän vastauksen teksti",
+      "default":"Väärin!",
+      "description":"Teksti väärälle vastaukselle"
     },
     {
-      "label":"Missed answer text",
-      "default":"Missed!",
-      "description":"Text used to indicate that an answer is missing"
+      "label":"Ohitetun vastauksen teksti",
+      "default":"Ohi!",
+      "description":"Teksti ohitetulle\/puuttuvalle vastaukselle"
     },
     {
-      "label":"Description for Display Solution",
-      "default":"Task is updated to contain the solution.",
-      "description":"This text tells the user that the tasks has been updated with the solution."
+      "label":"Painikkeen Näytä vastaukset kuvaus",
+      "default":"Tehtävä on päivitetty vastausten näyttämiseksi",
+      "description":"Tämä teksti kertoo tekijälle, että tehtävä on päivitetty ratkaisulla."
     }
   ]
 }
