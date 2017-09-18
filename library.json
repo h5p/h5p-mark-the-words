@@ -2,14 +2,17 @@
   "title": "Mark the Words",
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
-  "minorVersion": 6,
-  "patchVersion": 6,
+  "minorVersion": 7,
+  "patchVersion": 2,
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 6
   },
   "runnable": 1,
-  "author": "Joubel AS",
+  "embedTypes": [
+    "iframe"
+  ],
+  "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.MarkTheWords",
   "preloadedCss": [
@@ -40,12 +43,19 @@
     {
       "machineName": "H5P.JoubelUI",
       "majorVersion": 1,
-      "minorVersion": 2
+      "minorVersion": 3
     },
     {
       "machineName": "H5P.Question",
       "majorVersion": 1,
-      "minorVersion": 2
+      "minorVersion": 3
+    }
+  ],
+  "editorDependencies": [
+    {
+      "machineName": "H5PEditor.RangeList",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ]
 }

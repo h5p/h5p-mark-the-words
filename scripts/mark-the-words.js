@@ -24,17 +24,18 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     Question.call(this, 'mark-the-words');
 
     // Set default behavior.
-    this.params = $.extend({}, {
+    this.params = $.extend(true, {
       taskDescription: "",
       textField: "This is a *nice*, *flexible* content type.",
+      overallFeedback: [],
       behaviour: {
         enableRetry: true,
-        enableSolutionsButton: true
+        enableSolutionsButton: true,
+        showScorePoints: true
       },
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
-      score: "You got @score of @total points",
       correctAnswer: "Correct!",
       incorrectAnswer: "Incorrect!",
       missedAnswer: "Missed!",
@@ -172,7 +173,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     });
 
     return indexes;
-  }
+  };
 
   /**
    * Handle task and add it to container.
@@ -189,7 +190,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       'aria-labelledby': self.introductionId,
       'aria-multiselect': true,
       'role': 'listbox',
-      'tabindex': 0,
       html: self.createHtmlForWords($.parseHTML(self.params.textField))
     });
 
@@ -226,10 +226,10 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.isAnswered = true;
       self.keyboardNav.setTabbableAt(0);
       self.keyboardNav.disableSelectability();
+      var answers = self.calculateScore();
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
 
-      var answers = self.calculateScore();
 
       if (!self.showEvaluation(answers)) {
         // Only show if a correct answer was not found.
@@ -279,6 +279,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   MarkTheWords.prototype.setAllMarks = function () {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
+      entry.clearScorePoint();
     });
 
     /**
@@ -295,12 +296,20 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.feedbackSelectedWords = function () {
+    var self = this;
+
+    var scorePoints;
+    if (self.params.behaviour.showScorePoints) {
+      scorePoints = new H5P.Question.ScorePoints();
+    }
+
     this.selectableWords.forEach(function (entry) {
       if (entry.isSelected()) {
-        entry.markCheck();
+        entry.markCheck(scorePoints);
       }
     });
 
+    this.$wordContainer.addClass('h5p-disable-hover');
     this.trigger('resize');
   };
 
@@ -315,7 +324,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var score = answers.score;
 
     //replace editor variables with values, uses regexp to replace all instances.
-    var scoreText = this.params.score.replace(/@score/g, score.toString())
+    var scoreText = H5P.Question.determineOverallFeedback(this.params.overallFeedback, score / this.answers).replace(/@score/g, score.toString())
       .replace(/@total/g, this.answers.toString())
       .replace(/@correct/g, answers.correct.toString())
       .replace(/@wrong/g, answers.wrong.toString())
@@ -333,7 +342,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.hideEvaluation = function () {
-    this.setFeedback();
+    this.removeFeedback();
     this.trigger('resize');
   };
 
@@ -395,6 +404,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       entry.markClear();
     });
 
+    this.$wordContainer.removeClass('h5p-disable-hover');
     this.trigger('resize');
   };
 
@@ -443,7 +453,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    */
   MarkTheWords.prototype.showSolutions = function () {
-    const answers = this.calculateScore();
+    var answers = this.calculateScore();
     this.showEvaluation(answers);
     this.setAllMarks();
     this.keyboardNav.setTabbableAt(0);
