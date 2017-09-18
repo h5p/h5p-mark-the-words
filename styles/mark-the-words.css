@@ -39,7 +39,7 @@
 }
 
 .h5p-mark-the-words .h5p-word-selectable-words:not(.h5p-disable-hover) [role="option"]:hover {
-  box-shadow: inset 0px 0px 0px 2px #cee0f4;
+  box-shadow: inset 0px 0px 0px 2px #8cb9f0;
 }
 
 /* Colors and styling for word selections */
