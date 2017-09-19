@@ -87,6 +87,10 @@
       "label": "Description for Display Solution",
       "default": "Task is updated to contain the solution.",
       "description": "This text tells the user that the tasks has been updated with the solution."
+    },
+    {
+      "label": "Textual representation of the score bar for those using a readspeaker",
+      "default": "You got :num out of :total points"
     }
   ]
 }
