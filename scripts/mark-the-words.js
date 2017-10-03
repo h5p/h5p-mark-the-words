@@ -31,6 +31,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       behaviour: {
         enableRetry: true,
         enableSolutionsButton: true,
+        enableCheckButton: true,
         showScorePoints: true
       },
       checkAnswerButton: "Check",
@@ -231,7 +232,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.feedbackSelectedWords();
       self.hideButton('check-answer');
 
-
       if (!self.showEvaluation(answers)) {
         // Only show if a correct answer was not found.
         if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
@@ -243,6 +243,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       }
       self.trigger(self.XapiGenerator.generateAnsweredEvent());
     });
+    if (!this.params.behaviour.enableCheckButton) {
+      this.hideButton('check-answer');
+    }
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
 
@@ -481,7 +484,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.keyboardNav.enableSelectability();
     this.hideButton('try-again');
     this.hideButton('show-solution');
-    this.showButton('check-answer');
+    if (this.params.behaviour.enableCheckButton) {
+      this.showButton('check-answer');
+    }
     this.trigger('resize');
   };
 

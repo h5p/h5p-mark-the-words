@@ -144,6 +144,14 @@
         "default": true
       },
       {
+        "name": "enableCheckButton",
+        "type": "boolean",
+        "label": "Enable \"Check\" button",
+        "importance": "low",
+        "default": true,
+        "optional": true
+      },
+      {
         "name": "showScorePoints",
         "type": "boolean",
         "label": "Show score points",
