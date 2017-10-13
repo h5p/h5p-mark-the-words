@@ -63,6 +63,9 @@
           "label": "Aktiver \"Fasit\" knapp"
         },
         {
+          "label": "Enable \"Check\" button"
+        },
+        {
           "label": "Show score points",
           "description": "Show points earned for each answer."
         }
