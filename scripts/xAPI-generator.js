@@ -39,7 +39,7 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
       $.extend(xAPIEvent.getVerifiedStatementValue(['result']), userResult);
 
       return xAPIEvent;
-    }
+    };
   }
 
   /**
@@ -92,8 +92,8 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
         description: {
           'en-US': $('<div>' + text + '</div>').text()
         }
-      }
-    })
+      };
+    });
   }
 
   /**

@@ -52,7 +52,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.keyboardNav = new KeyboardNav();
 
     // on word clicked
-    this.keyboardNav.on('select', function(event){
+    this.keyboardNav.on('select', function () {
       self.isAnswered = true;
       self.triggerXAPI('interacted');
     });
