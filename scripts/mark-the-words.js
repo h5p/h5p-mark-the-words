@@ -39,7 +39,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       correctAnswer: "Correct!",
       incorrectAnswer: "Incorrect!",
       missedAnswer: "Missed!",
-      displaySolutionDescription:  "Task is updated to contain the solution."
+      displaySolutionDescription:  "Task is updated to contain the solution.",
+      scoreBarLabel: 'You got :num out of :total points'
     }, params);
 
     this.contentData = contentData;
@@ -51,7 +52,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.keyboardNav = new KeyboardNav();
 
     // on word clicked
-    this.keyboardNav.on('select', function(event){
+    this.keyboardNav.on('select', function () {
       self.isAnswered = true;
       self.triggerXAPI('interacted');
     });
@@ -330,7 +331,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       .replace(/@wrong/g, answers.wrong.toString())
       .replace(/@missed/g, answers.missed.toString());
 
-    this.setFeedback(scoreText, score, this.answers);
+    this.setFeedback(scoreText, score, this.answers, this.params.scoreBarLabel);
 
     this.trigger('resize');
     return score === this.answers;
