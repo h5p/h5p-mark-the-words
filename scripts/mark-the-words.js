@@ -224,27 +224,26 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       'class': 'h5p-button-bar'
     });
 
-    this.addButton('check-answer', this.params.checkAnswerButton, function () {
-      self.isAnswered = true;
-      self.keyboardNav.setTabbableAt(0);
-      self.keyboardNav.disableSelectability();
-      var answers = self.calculateScore();
-      self.feedbackSelectedWords();
-      self.hideButton('check-answer');
+    if (this.params.behaviour.enableCheckButton) {
+      this.addButton('check-answer', this.params.checkAnswerButton, function () {
+        self.isAnswered = true;
+        self.keyboardNav.setTabbableAt(0);
+        self.keyboardNav.disableSelectability();
+        var answers = self.calculateScore();
+        self.feedbackSelectedWords();
+        self.hideButton('check-answer');
 
-      if (!self.showEvaluation(answers)) {
-        // Only show if a correct answer was not found.
-        if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
-          self.showButton('show-solution');
+        if (!self.showEvaluation(answers)) {
+          // Only show if a correct answer was not found.
+          if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
+            self.showButton('show-solution');
+          }
+          if (self.params.behaviour.enableRetry) {
+            self.showButton('try-again');
+          }
         }
-        if (self.params.behaviour.enableRetry) {
-          self.showButton('try-again');
-        }
-      }
-      self.trigger(self.XapiGenerator.generateAnsweredEvent());
-    });
-    if (!this.params.behaviour.enableCheckButton) {
-      this.hideButton('check-answer');
+        self.trigger(self.XapiGenerator.generateAnsweredEvent());
+      });
     }
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
@@ -484,9 +483,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.keyboardNav.enableSelectability();
     this.hideButton('try-again');
     this.hideButton('show-solution');
-    if (this.params.behaviour.enableCheckButton) {
-      this.showButton('check-answer');
-    }
+    this.showButton('check-answer');
     this.trigger('resize');
   };
 
