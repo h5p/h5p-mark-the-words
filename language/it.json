@@ -63,6 +63,9 @@
           "label": "Abilita il pulsante \"Mostra soluzioni\""
         },
         {
+          "label": "Enable \"Check\" button"
+        },
+        {
           "label": "Visualizza punteggio",
           "description": "Visualizza i punti guadagnati per ogni risposta"
         }
