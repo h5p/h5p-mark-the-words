@@ -1,39 +1,39 @@
 {
   "semantics": [
     {
-      "label": "Task description",
-      "description": "Describe how the user should solve the task.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "label": "תיאור משימה",
+      "description": "יש לתאר כיצד על המשתמש לפתור את המשימה",
+      "placeholder": "יש ללחוץ על כל הפעלים בקטע התוכן הבא."
     },
     {
-      "label": "Textfield",
-      "placeholder": "This is an answer: *answer*.",
+      "label": "אזור תוכן",
+      "placeholder": "זו תשובה: *תשובה*",
       "description": "",
       "important": {
         "description": "<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "משוב כולל",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Default"
+              "label": "ברירת מחדל"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "יש להגדיר משוב מותאם אישית לכל טווח ניקוד",
+          "description": "יש להקיש על כפתור \"הוספת טווח\" כדי להוסיף טווחים רבים ככל הנדרש.לדוגמה: 0-20% ציון רע, 21-91% ציון ממוצע, 91-100% ציון נהדר! ",
+          "entity": "טווח",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "טווח נקודות"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "משוב עבור טווח ניקוד מוגדר",
+                "placeholder": "יש למלא את המשוב"
               }
             ]
           }
@@ -41,56 +41,59 @@
       ]
     },
     {
-      "label": "Text for \"Check\" button",
-      "default": "Check"
+      "label": "תיאור עבור כפתור \"סמן\"",
+      "default": "סמנו"
     },
     {
-      "label": "Text for \"Retry\" button",
-      "default": "Retry"
+      "label": "תיאור עבור כפתור \"נסו שנית\"",
+      "default": "נסו שנית"
     },
     {
-      "label": "Text for \"Show solution\" button",
-      "default": "Show solution"
+      "label": "תיאור עבור כפתור \"הציגו פתרון\"",
+      "default": "הציגו פתרון"
     },
     {
-      "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "label": "הגדרות אופן פעולת הרכיב",
+      "description": "אפשרויות אלה יאפשרו לך לשלוט באופן הפעולה של המשימה.",
       "fields": [
         {
-          "label": "Enable \"Retry\""
+          "label": "הפעלת כפתור \"נסו בשנית\""
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "הפעלת כפתור \"הציגו פתרון\""
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "הפעלת כפתור \"סמן\""
+        },
+        {
+          "label": "הציגו נקודות ניקוד",
+          "description": "הציגו נקודות שהתקבלו עבור כל תשובה"
         }
       ]
     },
     {
-      "label": "Correct answer text",
-      "default": "Correct!",
-      "description": "Text used to indicate that an answer is correct"
+      "label": "תוכן תשובה נכונה",
+      "default": "נכון!",
+      "description": "תיאור המשמש לציון תשובה נכונה"
     },
     {
-      "label": "Incorrect answer text",
-      "default": "Incorrect!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "תוכן תשובה שאינה נכונה",
+      "default": "אינו נכון!",
+      "description": "תיאור המשמש לציון תשובה שאינה נכונה"
     },
     {
-      "label": "Missed answer text",
-      "default": "Missed!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "תוכן תשובה חסרה",
+      "default": "חסר!",
+      "description": "תיאור המשמש לציון תשובה שאינה נענתה"
     },
     {
-      "label": "Description for Display Solution",
-      "default": "Task is updated to contain the solution.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "תיאור עבור תצוגת פתרון",
+      "default": "המשימה מתעדכנת כדי להכיל את הפתרון.",
+      "description": "תוכן  זה אומר למשתמש שהמשימות עודכנו עם הפתרון."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "תצוגה מילולית של סרגל הניקוד עבור אלה המשתמשים ב- readspeaker",
+      "default": "קיבלתם: נקודות מתוך סהכ: הנקודות "
     }
   ]
 }

@@ -63,6 +63,9 @@
           "label": "Salli painike \"Katso vastaus\""
         },
         {
+          "label": "Enable \"Check\" button"
+        },
+        {
           "label": "Näytä pisteet",
           "description": "Näytä ansaitut pisteet joka vastaukselle."
         }

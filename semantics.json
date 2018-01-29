@@ -35,8 +35,8 @@
     "placeholder": "This is an answer: *answer*.",
     "description": "",
     "important": {
-      "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li></ul>",
-      "example": "The correct words are marked with like this: *correctword*, an asterisk is written like this: *correctword***."
+      "description": "<ul><li>Correct words are marked with asterisks (*) before and after the word.</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li><li>Only words may be marked as correct. Not phrases.</li></ul>",
+      "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
     }
   },
   {
@@ -142,6 +142,15 @@
         "label": "Enable \"Show solution\" button",
         "importance": "low",
         "default": true
+      },
+      {
+        "name": "enableCheckButton",
+        "type": "boolean",
+        "label": "Enable \"Check\" button",
+        "widget": "none",
+        "importance": "low",
+        "default": true,
+        "optional": true
       },
       {
         "name": "showScorePoints",
