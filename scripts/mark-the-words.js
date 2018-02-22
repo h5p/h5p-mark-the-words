@@ -86,13 +86,59 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   MarkTheWords.prototype.createHtmlForWords = function (nodes) {
     var self = this;
     var html = '';
+
+    /**
+     * Retrieves selectable words/phrases from a strings.
+     *
+     * This functions simply detects words/phrases that are inclosed in
+     * asterisks one by one. Not as elegant as finding 'the one' regex, button
+     * less prone to error.
+     *
+     * @param {string} text - Text to pull words/phrases from.
+     * @return {string[]} Array of selectable words.
+     */
+    var getSelectableStrings = function (text) {
+      var outputStrings = [];
+      /*
+       * Temporarily replace double asterisks with a replacement character,
+       * so they don't tamper with the detection of words/phrases to be marked
+       */
+      var DOUBLE_ASTERISK_REPLACEMENT = '\u200C'; // no-width space character
+      text = text.replace(/\*\*/g, DOUBLE_ASTERISK_REPLACEMENT).replace(/(&nbsp;|\r\n|\n|\r)/g, ' ');
+      text = ' ' + text + ' ';
+
+      var pos;
+      do {
+        pos = -1;
+        var match = text.match(/ \*[^\*]+\* /);
+        if (match !== null) {
+          pos = match.index;
+          // Front part (bunch of regular strings), can each be added to the output
+          outputStrings = outputStrings.concat(text.slice(0, pos + 1).match(/[^\s]+/g) || []);
+          // Middle part (word/phrase to be marked), can be added as one word/phrase
+          outputStrings.push(match[0]);
+          // back part (could be anything), still needs to be checked
+          text = text.slice(pos + match[0].length - 1);
+        }
+      } while (pos != -1);
+      // Add each remaining word to output
+      outputStrings = outputStrings.concat(text.match(/[^\s]+/g) || []);
+
+      // Should be map() in ES6
+      outputStrings.forEach(function(string, index) {
+        outputStrings[index] = string.replace(new RegExp(DOUBLE_ASTERISK_REPLACEMENT, 'g'), '*');
+      });
+
+      // Return null to match the behavior of the old word/phrase detection routine
+      return (outputStrings.length === 0) ? null : outputStrings;
+    };
+
     for (var i = 0; i < nodes.length; i++) {
       var node = nodes[i];
 
       if (node instanceof Text) {
         var text = $(node).text();
-        var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
-          .match(/ \*[^\*]+\* |[^\s]+/g);
+        var selectableStrings = getSelectableStrings(text);
 
         if (selectableStrings) {
           selectableStrings.forEach(function (entry) {

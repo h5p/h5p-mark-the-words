@@ -35,9 +35,6 @@ H5P.MarkTheWords.Word = (function () {
     // Check if word is an answer
     var isAnswer = checkForAnswer();
 
-    // Remove single asterisk and escape double asterisks.
-    handleAsterisks();
-
     if (isAnswer) {
       $word.text(handledInput);
     }
@@ -50,7 +47,8 @@ H5P.MarkTheWords.Word = (function () {
      */
     function checkForAnswer() {
       // Check last and next to last character, in case of punctuations.
-      var wordString = removeDoubleAsterisks(input);
+      //var wordString = removeDoubleAsterisks(input);
+      var wordString = input;
       if (wordString.charAt(0) === ('*') && wordString.length > 2) {
         if (wordString.charAt(wordString.length - 1) === ('*')) {
           handledInput = input.slice(1, input.length - 1);
@@ -64,41 +62,6 @@ H5P.MarkTheWords.Word = (function () {
         return false;
       }
       return false;
-    }
-
-    /**
-     * Removes double asterisks from string, used to handle input.
-     *
-     * @private
-     * @param {String} wordString The string which will be handled.
-     * @return {String} Returns a string without double asterisks.
-     */
-    function removeDoubleAsterisks(wordString) {
-      var asteriskIndex = wordString.indexOf('*');
-      var slicedWord = wordString;
-
-      while (asteriskIndex !== -1) {
-        if (wordString.indexOf('*', asteriskIndex + 1) === asteriskIndex + 1) {
-          slicedWord = wordString.slice(0, asteriskIndex) + wordString.slice(asteriskIndex + 2, input.length);
-        }
-        asteriskIndex = wordString.indexOf('*', asteriskIndex + 1);
-      }
-
-      return slicedWord;
-    }
-
-    /**
-     * Escape double asterisks ** = *, and remove single asterisk.
-     *
-     * @private
-     */
-    function handleAsterisks() {
-      var asteriskIndex = handledInput.indexOf('*');
-
-      while (asteriskIndex !== -1) {
-        handledInput = handledInput.slice(0, asteriskIndex) + handledInput.slice(asteriskIndex + 1, handledInput.length);
-        asteriskIndex = handledInput.indexOf('*', asteriskIndex + 1);
-      }
     }
 
     /**
