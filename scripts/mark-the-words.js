@@ -104,7 +104,11 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
        * so they don't tamper with the detection of words/phrases to be marked
        */
       var DOUBLE_ASTERISK_REPLACEMENT = '\u200C'; // no-width space character
-      text = text.replace(/\*\*/g, DOUBLE_ASTERISK_REPLACEMENT).replace(/(&nbsp;|\r\n|\n|\r)/g, ' ');
+      text = text
+        .replace(/\s\*\*\*/g, ' *' + DOUBLE_ASTERISK_REPLACEMENT) // Cover edge case with escaped * in front
+        .replace(/\*\*\*\s/g, DOUBLE_ASTERISK_REPLACEMENT + '* ') // Cover edge case with escaped * behind
+        .replace(/\*\*/g, DOUBLE_ASTERISK_REPLACEMENT) // Regular escaped *
+        .replace(/(&nbsp;|\r\n|\n|\r)/g, ' ');
       text = ' ' + text + ' ';
 
       var pos;
