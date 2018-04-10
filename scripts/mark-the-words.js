@@ -19,6 +19,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   function MarkTheWords(params, contentId, contentData) {
     var self = this;
     this.contentId = contentId;
+    this.contentData = contentData;
     this.introductionId = 'mark-the-words-introduction-' + contentId;
 
     Question.call(this, 'mark-the-words');
@@ -446,7 +447,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @returns {string}
    */
   MarkTheWords.prototype.getTitle = function () {
-    return H5P.createTitle(this.params.taskDescription);
+    return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Mark the Words');
   };
 
   /**
