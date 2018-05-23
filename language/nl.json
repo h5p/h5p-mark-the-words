@@ -3,18 +3,18 @@
     {
       "label": "Beschrijving taak",
       "description": "Beschrijf hoe de gebruiker de taak moet uitvoeren.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "placeholder": "Klik op alle werkwoorden in de volgende tekst."
     },
     {
-      "label": "Textfield",
-      "placeholder": "This is an answer: *answer*.",
+      "label": "Tekstveld",
+      "placeholder": "Dit is een antwoord: *antwoord*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+        "description": "<ul><li>Gemarkeerde woorden krijgen een asterisk (*).</li><li>Een asterisk mag gevolgd worden door een andere asterisk, wat resulteert in ** = *.</li></ul>"
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "Algemene feedback",
       "fields": [
         {
           "widgets": [
@@ -22,18 +22,18 @@
               "label": "Standaard"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "Definieer aangepaste  feedback voor elk scorebereik",
+          "description": "Klik op de knop \"Voeg bereik toe\" om een extra scorebereik toe te voegen. Voorbeeld: 0-20% Slechte score, 21-91% Gemiddelde score, 91-100% Uitstekende score!",
+          "entity": "bereik",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "Scorebereik"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Feedback voor gedefinieerd scorebereik",
+                "placeholder": "Vul de feedback in"
               }
             ]
           }
@@ -60,40 +60,40 @@
           "label": "Schakel de knop \"Opnieuw\" in"
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "Schakel de knop \"Toon oplossing\" in"
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "Schakel de knop \"Controleer\" in"
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "Toon gescoorde punten",
+          "description": "Toon verdiende punten voor elk antwoord."
         }
       ]
     },
     {
-      "label": "Correct answer text",
+      "label": "Tekst voor correct antwoord",
       "default": "Correct!",
-      "description": "Text used to indicate that an answer is correct"
+      "description": "Tekst om aan te geven dat een antwoord correct is"
     },
     {
-      "label": "Incorrect answer text",
-      "default": "Incorrect!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "Tekst voor fout antwoord",
+      "default": "Fout!",
+      "description": "Tekst om aan te geven dat een antwoord fout is"
     },
     {
-      "label": "Missed answer text",
-      "default": "Missed!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "Tekst voor ontbrekend antwoord",
+      "default": "Antwoord ontbreekt!",
+      "description": "Tekst om aan te geven dat een antwoord ontbreekt"
     },
     {
-      "label": "Description for Display Solution",
-      "default": "Task is updated to contain the solution.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "Beschrijving voor Antwoord Weergeven",
+      "default": "Taak werd geüpdated met de oplossing.",
+      "description": "Deze tekst zegt de gebruiker dat de oplossing werd toegevoegd."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "Tekstuele weergave van de score voor wie gebruik maakt van een readspeaker",
+      "default": "Je behaalde :num op :total punten"
     }
   ]
 }
