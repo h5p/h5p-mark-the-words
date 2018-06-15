@@ -231,7 +231,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         self.keyboardNav.disableSelectability();
         var answers = self.calculateScore();
         self.feedbackSelectedWords();
-        self.hideButton('check-answer');
 
         if (!self.showEvaluation(answers)) {
           // Only show if a correct answer was not found.
@@ -242,6 +241,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             self.showButton('try-again');
           }
         }
+        self.hideButton('check-answer');
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
       });
     }
@@ -252,11 +252,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.keyboardNav.setTabbableAt(0);
       self.keyboardNav.disableSelectability();
       self.setAllMarks();
-      self.hideButton('check-answer');
-      self.hideButton('show-solution');
+
       if (self.params.behaviour.enableRetry) {
         self.showButton('try-again');
       }
+      self.hideButton('check-answer');
+      self.hideButton('show-solution');
 
       self.read(self.params.displaySolutionDescription);
     }, false);

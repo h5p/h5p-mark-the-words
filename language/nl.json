@@ -3,18 +3,19 @@
     {
       "label": "Beschrijving taak",
       "description": "Beschrijf hoe de gebruiker de taak moet uitvoeren.",
-      "placeholder": "Klik op alle werkwoorden in de volgende tekst."
+      "placeholder": "Klik in de tekst op alle werkwoorden die volgen."
     },
     {
       "label": "Tekstveld",
       "placeholder": "Dit is een antwoord: *antwoord*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Gemarkeerde woorden krijgen een asterisk (*).</li><li>Een asterisk mag gevolgd worden door een andere asterisk, wat resulteert in ** = *.</li></ul>"
+        "description": "<ul><li>Gemarkeerde woorden worden voorzien van een asterix (*).</li><li>Een asterix mag worden ingesloten door een andere asterix, dit resulteert in ** = *.</li></ul>",
+        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
       }
     },
     {
-      "label": "Algemene feedback",
+      "label": "Algehele feedback",
       "fields": [
         {
           "widgets": [
@@ -22,18 +23,18 @@
               "label": "Standaard"
             }
           ],
-          "label": "Definieer aangepaste  feedback voor elk scorebereik",
-          "description": "Klik op de knop \"Voeg bereik toe\" om een extra scorebereik toe te voegen. Voorbeeld: 0-20% Slechte score, 21-91% Gemiddelde score, 91-100% Uitstekende score!",
-          "entity": "bereik",
+          "label": "Defineer aangepaste feedback voor elke score reeks",
+          "description": "Druk op de \"Voeg scorereeks toe\" knop om zoveel reeksen toe te voegen als nodig is. Voorbeeld: 0-20% Onvoldoende score, 21-91% Gemiddelde score, 91-100% Uitstekende score!",
+          "entity": "reeks",
           "field": {
             "fields": [
               {
-                "label": "Scorebereik"
+                "label": "Score reeks"
               },
               {},
               {
-                "label": "Feedback voor gedefinieerd scorebereik",
-                "placeholder": "Vul de feedback in"
+                "label": "Feedback voor de gedefinieerde score reeks",
+                "placeholder": "Vul de aangepaste feedback in"
               }
             ]
           }
@@ -60,40 +61,40 @@
           "label": "Schakel de knop \"Opnieuw\" in"
         },
         {
-          "label": "Schakel de knop \"Toon oplossing\" in"
+          "label": "Activeer \"Toon oplossing\" -knop"
         },
         {
-          "label": "Schakel de knop \"Controleer\" in"
+          "label": "Activeer \"Controleer\" -knop"
         },
         {
-          "label": "Toon gescoorde punten",
-          "description": "Toon verdiende punten voor elk antwoord."
+          "label": "Toon scorepunten",
+          "description": "Toon het aantal verdiende punten voor elk antwoord."
         }
       ]
     },
     {
-      "label": "Tekst voor correct antwoord",
-      "default": "Correct!",
-      "description": "Tekst om aan te geven dat een antwoord correct is"
+      "label": "Tekst voor een juist antwoord",
+      "default": "Juist!",
+      "description": "Deze tekst wordt gebruikt om aan te geven dat een antwoord juist is"
     },
     {
-      "label": "Tekst voor fout antwoord",
-      "default": "Fout!",
-      "description": "Tekst om aan te geven dat een antwoord fout is"
+      "label": "Tekst voor een onjuist antwoord",
+      "default": "Onjuist!",
+      "description": "Deze tekst wordt gebruikt om aan te geven dat een antwoord onjuist is"
     },
     {
-      "label": "Tekst voor ontbrekend antwoord",
-      "default": "Antwoord ontbreekt!",
-      "description": "Tekst om aan te geven dat een antwoord ontbreekt"
+      "label": "Tekst voor een ontbrekend antwoord",
+      "default": "Ontbreekt!",
+      "description": "Deze tekst wordt gebruikt om aan te geven dat een antwoord ontbreekt"
     },
     {
-      "label": "Beschrijving voor Antwoord Weergeven",
-      "default": "Taak werd geüpdated met de oplossing.",
-      "description": "Deze tekst zegt de gebruiker dat de oplossing werd toegevoegd."
+      "label": "Beschrijving voor de weergave van de oplossing",
+      "default": "De taak is bijgewerkt en bevat nu ook de oplossing.",
+      "description": "Deze tekst vertelt de gebruiker dat de taken zijn bijgewerkt en nu ook de oplossing bevatten."
     },
     {
-      "label": "Tekstuele weergave van de score voor wie gebruik maakt van een readspeaker",
-      "default": "Je behaalde :num op :total punten"
+      "label": "Tekstuele weergave van de scorebalk voor gebruikers van een readspeaker",
+      "default": "Je hebt :num van de :total punten"
     }
   ]
 }

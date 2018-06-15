@@ -10,7 +10,8 @@
       "placeholder": "Tämä on vastaus: *vastaus*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*.</li><li>Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **.</li></ul>"
+        "description": "<ul><li>Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*.</li><li>Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **.</li></ul>",
+        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
       }
     },
     {

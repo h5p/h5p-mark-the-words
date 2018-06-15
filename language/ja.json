@@ -10,7 +10,8 @@
       "placeholder": "これが解答です。: *answer*",
       "description": "",
       "important": {
-        "description": "<ul><li>マークする単語にはアスタリスク (*) を加えます。</li><li>アスタリスクは別のアスタリスクでエスケープ処理されるので、** は * となります。</li></ul>"
+        "description": "<ul><li>マークする単語にはアスタリスク (*) を加えます。</li><li>アスタリスクは別のアスタリスクでエスケープ処理されるので、** は * となります。</li></ul>",
+        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
       }
     },
     {
