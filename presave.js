@@ -9,12 +9,13 @@ var H5PPresave = H5PPresave || {};
  */
 H5PPresave['H5P.MarkTheWords'] = function (content, finished) {
   var presave = H5PEditor.Presave;
-  var score = 0;
 
-  if (isContentValid()) {
-    var pattern = /\*[^\*\s]+\*/g;
-    score = content.textField.match(pattern || []).length;
+  if (isContentInvalid()) {
+      throw new presave.exceptions.InvalidContentSemanticsException('Invalid Mark The Words Error')
   }
+
+  var answers = content.textField.replace("**", "").match(/\*[^\*]+\*/g);
+  var score = Array.isArray(answers) ? answers.length : 1;
 
   presave.validateScore(score);
 
@@ -26,7 +27,7 @@ H5PPresave['H5P.MarkTheWords'] = function (content, finished) {
    * Check if required parameters is present
    * @return {boolean}
    */
-  function isContentValid() {
-    return presave.checkNestedRequirements(content, 'content.textField');
+  function isContentInvalid() {
+    return !presave.checkNestedRequirements(content, 'content.textField');
   }
 };
