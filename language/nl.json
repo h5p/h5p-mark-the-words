@@ -10,7 +10,8 @@
       "placeholder": "Dit is een antwoord: *antwoord*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Gemarkeerde woorden worden voorzien van een asterix (*).</li><li>Een asterix mag worden ingesloten door een andere asterix, dit resulteert in ** = *.</li></ul>"
+        "description": "<ul><li>Gemarkeerde woorden worden voorzien van een asterix (*).</li><li>Een asterix mag worden ingesloten door een andere asterix, dit resulteert in ** = *.</li></ul>",
+        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
       }
     },
     {
