@@ -49,7 +49,7 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
 
         finished(null, parameters);
       },
-      8: function (parameters, finished, extras) {
+      9: function (parameters, finished, extras) {
         var title;
 
         if (parameters) {
