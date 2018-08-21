@@ -11,7 +11,7 @@ H5PPresave['H5P.MarkTheWords'] = function (content, finished) {
   var presave = H5PEditor.Presave;
 
   if (isContentInvalid()) {
-      throw new presave.exceptions.InvalidContentSemanticsException('Invalid Mark The Words Error')
+    throw new presave.exceptions.InvalidContentSemanticsException('Invalid Mark The Words Error');
   }
 
   var answers = content.textField.replace("**", "").match(/\*[^\*]+\*/g);
@@ -19,9 +19,7 @@ H5PPresave['H5P.MarkTheWords'] = function (content, finished) {
 
   presave.validateScore(score);
 
-  if (finished) {
-    finished({maxScore: score});
-  }
+  finished({maxScore: score});
 
   /**
    * Check if required parameters is present
