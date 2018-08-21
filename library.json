@@ -6,7 +6,7 @@
   "patchVersion": 0,
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 15
+    "minorVersion": 19
   },
   "runnable": 1,
   "embedTypes": [

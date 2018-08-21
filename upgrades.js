@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
+H5PUpgrades['H5P.MarkTheWords'] = (function () {
   return {
     1: {
       1: {
@@ -64,4 +64,4 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
       }
     }
   };
-})(H5P.jQuery);
+})();
