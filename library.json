@@ -2,11 +2,11 @@
   "title": "Mark the Words",
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
-  "minorVersion": 8,
-  "patchVersion": 0,
+  "minorVersion": 9,
+  "patchVersion": 2,
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 6
+    "minorVersion": 19
   },
   "runnable": 1,
   "embedTypes": [
