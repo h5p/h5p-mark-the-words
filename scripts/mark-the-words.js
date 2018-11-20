@@ -123,7 +123,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span role="option">' + entry + '</span>';
+              html += '<span role="option">' + self.escapeHTML(entry) + '</span>';
             }
 
             if (suffix !== null) {
@@ -132,7 +132,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
           });
         }
         else if ((selectableStrings !== null) && text.length) {
-          html += '<span role="option">' + text + '</span>';
+          html += '<span role="option">' + this.escapeHTML(text) + '</span>';
         }
       }
       else {
@@ -152,6 +152,16 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }
 
     return html;
+  };
+
+  /**
+   * Escapes HTML
+   *
+   * @param html
+   * @returns {jQuery}
+   */
+  MarkTheWords.prototype.escapeHTML = function (html) {
+    return $('<div>').text(html).html();
   };
 
   /**
