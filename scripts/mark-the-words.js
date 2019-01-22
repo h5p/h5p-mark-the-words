@@ -19,26 +19,30 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   function MarkTheWords(params, contentId, contentData) {
     var self = this;
     this.contentId = contentId;
+    this.contentData = contentData;
     this.introductionId = 'mark-the-words-introduction-' + contentId;
 
     Question.call(this, 'mark-the-words');
 
     // Set default behavior.
-    this.params = $.extend({}, {
+    this.params = $.extend(true, {
       taskDescription: "",
       textField: "This is a *nice*, *flexible* content type.",
+      overallFeedback: [],
       behaviour: {
         enableRetry: true,
-        enableSolutionsButton: true
+        enableSolutionsButton: true,
+        enableCheckButton: true,
+        showScorePoints: true
       },
       checkAnswerButton: "Check",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
-      score: "You got @score of @total points",
       correctAnswer: "Correct!",
       incorrectAnswer: "Incorrect!",
       missedAnswer: "Missed!",
-      displaySolutionDescription:  "Task is updated to contain the solution."
+      displaySolutionDescription:  "Task is updated to contain the solution.",
+      scoreBarLabel: 'You got :num out of :total points'
     }, params);
 
     this.contentData = contentData;
@@ -50,7 +54,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.keyboardNav = new KeyboardNav();
 
     // on word clicked
-    this.keyboardNav.on('select', function(event){
+    this.keyboardNav.on('select', function () {
       self.isAnswered = true;
       self.triggerXAPI('interacted');
     });
@@ -119,7 +123,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span role="option">' + entry + '</span>';
+              html += '<span role="option">' + self.escapeHTML(entry) + '</span>';
             }
 
             if (suffix !== null) {
@@ -128,7 +132,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
           });
         }
         else if ((selectableStrings !== null) && text.length) {
-          html += '<span role="option">' + text + '</span>';
+          html += '<span role="option">' + this.escapeHTML(text) + '</span>';
         }
       }
       else {
@@ -148,6 +152,16 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }
 
     return html;
+  };
+
+  /**
+   * Escapes HTML
+   *
+   * @param html
+   * @returns {jQuery}
+   */
+  MarkTheWords.prototype.escapeHTML = function (html) {
+    return $('<div>').text(html).html();
   };
 
   /**
@@ -172,7 +186,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     });
 
     return indexes;
-  }
+  };
 
   /**
    * Handle task and add it to container.
@@ -189,7 +203,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       'aria-labelledby': self.introductionId,
       'aria-multiselect': true,
       'role': 'listbox',
-      'tabindex': 0,
       html: self.createHtmlForWords($.parseHTML(self.params.textField))
     });
 
@@ -222,26 +235,27 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       'class': 'h5p-button-bar'
     });
 
-    this.addButton('check-answer', this.params.checkAnswerButton, function () {
-      self.isAnswered = true;
-      self.keyboardNav.setTabbableAt(0);
-      self.keyboardNav.disableSelectability();
-      self.feedbackSelectedWords();
-      self.hideButton('check-answer');
+    if (this.params.behaviour.enableCheckButton) {
+      this.addButton('check-answer', this.params.checkAnswerButton, function () {
+        self.isAnswered = true;
+        self.keyboardNav.setTabbableAt(0);
+        self.keyboardNav.disableSelectability();
+        var answers = self.calculateScore();
+        self.feedbackSelectedWords();
 
-      var answers = self.calculateScore();
-
-      if (!self.showEvaluation(answers)) {
-        // Only show if a correct answer was not found.
-        if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
-          self.showButton('show-solution');
+        if (!self.showEvaluation(answers)) {
+          // Only show if a correct answer was not found.
+          if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
+            self.showButton('show-solution');
+          }
+          if (self.params.behaviour.enableRetry) {
+            self.showButton('try-again');
+          }
         }
-        if (self.params.behaviour.enableRetry) {
-          self.showButton('try-again');
-        }
-      }
-      self.trigger(self.XapiGenerator.generateAnsweredEvent());
-    });
+        self.hideButton('check-answer');
+        self.trigger(self.XapiGenerator.generateAnsweredEvent());
+      });
+    }
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
 
@@ -249,11 +263,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.keyboardNav.setTabbableAt(0);
       self.keyboardNav.disableSelectability();
       self.setAllMarks();
-      self.hideButton('check-answer');
-      self.hideButton('show-solution');
+
       if (self.params.behaviour.enableRetry) {
         self.showButton('try-again');
       }
+      self.hideButton('check-answer');
+      self.hideButton('show-solution');
 
       self.read(self.params.displaySolutionDescription);
     }, false);
@@ -279,6 +294,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   MarkTheWords.prototype.setAllMarks = function () {
     this.selectableWords.forEach(function (entry) {
       entry.markCheck();
+      entry.clearScorePoint();
     });
 
     /**
@@ -295,9 +311,16 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.feedbackSelectedWords = function () {
+    var self = this;
+
+    var scorePoints;
+    if (self.params.behaviour.showScorePoints) {
+      scorePoints = new H5P.Question.ScorePoints();
+    }
+
     this.selectableWords.forEach(function (entry) {
       if (entry.isSelected()) {
-        entry.markCheck();
+        entry.markCheck(scorePoints);
       }
     });
 
@@ -316,13 +339,13 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var score = answers.score;
 
     //replace editor variables with values, uses regexp to replace all instances.
-    var scoreText = this.params.score.replace(/@score/g, score.toString())
+    var scoreText = H5P.Question.determineOverallFeedback(this.params.overallFeedback, score / this.answers).replace(/@score/g, score.toString())
       .replace(/@total/g, this.answers.toString())
       .replace(/@correct/g, answers.correct.toString())
       .replace(/@wrong/g, answers.wrong.toString())
       .replace(/@missed/g, answers.missed.toString());
 
-    this.setFeedback(scoreText, score, this.answers);
+    this.setFeedback(scoreText, score, this.answers, this.params.scoreBarLabel);
 
     this.trigger('resize');
     return score === this.answers;
@@ -334,7 +357,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @fires MarkTheWords#resize
    */
   MarkTheWords.prototype.hideEvaluation = function () {
-    this.setFeedback();
+    this.removeFeedback();
     this.trigger('resize');
   };
 
@@ -435,7 +458,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @returns {string}
    */
   MarkTheWords.prototype.getTitle = function () {
-    return H5P.createTitle(this.params.taskDescription);
+    return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Mark the Words');
   };
 
   /**
@@ -445,7 +468,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    */
   MarkTheWords.prototype.showSolutions = function () {
-    const answers = this.calculateScore();
+    var answers = this.calculateScore();
     this.showEvaluation(answers);
     this.setAllMarks();
     this.keyboardNav.setTabbableAt(0);

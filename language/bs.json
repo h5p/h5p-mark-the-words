@@ -1,13 +1,13 @@
 {
   "semantics": [
     {
-      "label": "Oppgave beskriving",
-      "description": "Forklar hvordan brukeren skal løyse oppgåva.",
+      "label": "Opis zadatka",
+      "description": "Describe how the user should solve the task.",
       "placeholder": "Click on all the verbs in the text that follows."
     },
     {
-      "label": "Tekstliner",
-      "placeholder": "Oslo er hovudstaden i *Noreg*",
+      "label": "Textfield",
+      "placeholder": "This is an answer: *answer*.",
       "description": "",
       "important": {
         "description": "<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>",
@@ -15,7 +15,7 @@
       }
     },
     {
-      "label": "Bakgrunnsopasitet på flyttbare elementer",
+      "label": "Pozadinska zamućenost za elemente za uzimanje",
       "fields": [
         {
           "widgets": [
@@ -42,26 +42,26 @@
       ]
     },
     {
-      "label": "Tekst for \"Sjekk\"-knapp",
-      "default": "Sjekk"
+      "label": "Oznaka za dugme \"Provjeri\"",
+      "default": "Provjeri"
     },
     {
-      "label": "Tekst for \"Prøv igjen\"-knapp",
-      "default": "Prøv igjen"
+      "label": "Oznaka za dugme \"Ponovi\"",
+      "default": "Ponovi"
     },
     {
-      "label": "Tekst for \"Fasit\" knapp",
-      "default": "Fasit"
+      "label": "Text for \"Show solution\" button",
+      "default": "Prikaži rješenje"
     },
     {
-      "label": "Innstillinger for oppgave-åtferd",
-      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "label": "Podešavanje ponašanja.",
+      "description": "Diese Optionen kontrollieren, wie sich die Aufgabe verhält.",
       "fields": [
         {
-          "label": "Aktiver \"Prøv igjen\"-knapp"
+          "label": "Omogući \"Ponovi\" dugme"
         },
         {
-          "label": "Aktiver \"Fasit\" knapp"
+          "label": "Enable \"Show solution\" button"
         },
         {
           "label": "Enable \"Check\" button"
@@ -73,23 +73,23 @@
       ]
     },
     {
-      "label": "Riktig svar tekst",
-      "default": "Riktig!",
+      "label": "Correct answer text",
+      "default": "Tačno!!",
       "description": "Text used to indicate that an answer is correct"
     },
     {
-      "label": "Feil svar tekst",
-      "default": "Feil!",
+      "label": "Incorrect answer text",
+      "default": "Netačno!!",
       "description": "Text used to indicate that an answer is incorrect"
     },
     {
-      "label": "Mangler svar tekst",
-      "default": "Mangler!",
+      "label": "Missed answer text",
+      "default": "Missed!",
       "description": "Text used to indicate that an answer is missing"
     },
     {
-      "label": "Beskrivelse for Vis Løsning",
-      "default": "Oppgaven er oppdatert til å inneholde fasiten.",
+      "label": "Description for Display Solution",
+      "default": "Task is updated to contain the solution.",
       "description": "This text tells the user that the tasks has been updated with the solution."
     },
     {

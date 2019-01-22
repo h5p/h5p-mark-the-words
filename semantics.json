@@ -35,9 +35,67 @@
     "placeholder": "This is an answer: *answer*.",
     "description": "",
     "important": {
-      "description": "<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>",
-      "example": "The correct words are marked with like this: *correctword*, and a character asterix is written like this: **."
+      "description": "<ul><li>Correct words are marked with asterisks (*) before and after the word.</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li><li>Only words may be marked as correct. Not phrases.</li></ul>",
+      "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
     }
+  },
+  {
+    "name": "overallFeedback",
+    "type": "group",
+    "label": "Overall Feedback",
+    "importance": "low",
+    "expanded": true,
+    "fields": [
+      {
+        "name": "overallFeedback",
+        "type": "list",
+        "widgets": [
+          {
+            "name": "RangeList",
+            "label": "Default"
+          }
+        ],
+        "importance": "high",
+        "label": "Define custom feedback for any score range",
+        "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+        "entity": "range",
+        "min": 1,
+        "defaultNum": 1,
+        "optional": true,
+        "field": {
+          "name": "overallFeedback",
+          "type": "group",
+          "importance": "low",
+          "fields": [
+            {
+              "name": "from",
+              "type": "number",
+              "label": "Score Range",
+              "min": 0,
+              "max": 100,
+              "default": 0,
+              "unit": "%"
+            },
+            {
+              "name": "to",
+              "type": "number",
+              "min": 0,
+              "max": 100,
+              "default": 100,
+              "unit": "%"
+            },
+            {
+              "name": "feedback",
+              "type": "text",
+              "label": "Feedback for defined score range",
+              "importance": "low",
+              "placeholder": "Fill in the feedback",
+              "optional": true
+            }
+          ]
+        }
+      }
+    ]
   },
   {
     "label": "Text for \"Check\" button",
@@ -64,16 +122,6 @@
     "common": true
   },
   {
-    "label": "Feedback text",
-    "importance": "low",
-    "name": "score",
-    "type": "text",
-    "default": "You got @score of @total points",
-    "placeholder": "You got @score of @total points",
-    "description": "Feedback text, variables available: @score @total @correct @wrong @missed. Example: 'Score : @score of @total, correct: @correct, wrong: @wrong, missed: @missed.'",
-    "common": true
-  },
-  {
     "name": "behaviour",
     "importance": "low",
     "type": "group",
@@ -92,6 +140,23 @@
         "name": "enableSolutionsButton",
         "type": "boolean",
         "label": "Enable \"Show solution\" button",
+        "importance": "low",
+        "default": true
+      },
+      {
+        "name": "enableCheckButton",
+        "type": "boolean",
+        "label": "Enable \"Check\" button",
+        "widget": "none",
+        "importance": "low",
+        "default": true,
+        "optional": true
+      },
+      {
+        "name": "showScorePoints",
+        "type": "boolean",
+        "label": "Show score points",
+        "description": "Show points earned for each answer.",
         "importance": "low",
         "default": true
       }
@@ -131,6 +196,14 @@
     "type": "text",
     "default": "Task is updated to contain the solution.",
     "description": "This text tells the user that the tasks has been updated with the solution.",
+    "common": true
+  },
+  {
+    "name": "scoreBarLabel",
+    "type": "text",
+    "label": "Textual representation of the score bar for those using a readspeaker",
+    "default": "You got :num out of :total points",
+    "importance": "low",
     "common": true
   }
 ]

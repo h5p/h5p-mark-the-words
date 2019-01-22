@@ -8,35 +8,67 @@
     {
       "label": "Textfeld",
       "placeholder": "Das ist eine Antwort: *Antwort*.",
-      "description": "Markierte Wörter werden mit einem Sternchen (*) hinzugefügt. Ein Sternchen kann mit einem weiteren Sternchen maskiert werden, so dass im Text aus ** ein * wird. Beispiel: Die korrekten Wörter sind mit: *korrekteswort* markiert, und ein Sternchen als Zeichen wir so geschrieben: **."
+      "description": "",
+      "important": {
+        "description": "<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>",
+        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+      }
     },
     {
-      "label": "Text für den \"Überprüfen\"-Button",
+      "label": "Hintergrunddeckkraft für bewegliche Elemente",
+      "fields": [
+        {
+          "widgets": [
+            {
+              "label": "Vorgabe"
+            }
+          ],
+          "label": "Benutzerdefinierte Rückmeldung für jeden Punkte-Bereich definieren",
+          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity": "Bereich",
+          "field": {
+            "fields": [
+              {
+                "label": "Punkte-Bereich"
+              },
+              {},
+              {
+                "label": "Feedback for defined score range",
+                "placeholder": "Fill in the feedback"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Beschriftung für den \"Überprüfen\"-Knopf",
       "default": "Überprüfen"
     },
     {
-      "label": "Text für den \"Wiederholen\"-Button",
+      "label": "Beschriftung für den \"Wiederholen\"-Button",
       "default": "Wiederholen"
     },
     {
-      "label": "Text für den \"Lösung anzeigen\"-Button",
+      "label": "Beschriftung für den \"Lösung zeigen\"-Knopf",
       "default": "Lösung anzeigen"
     },
     {
-      "label": "Rückmeldungstext",
-      "default": "Du hast @score von @total Punkten erreicht.",
-      "placeholder": "Du hast @score von @total Punkten erreicht.",
-      "description": "Als Variablen für den Rückmeldungstext gibt es: @score @total @correct @wrong @missed. Beispiel: 'Punkte: @score von @total, richtig: @correct, falsch: @wrong, übergangen: @missed.'"
-    },
-    {
-      "label": "Interaktionseinstellungen.",
-      "description": "Diese Optionen bestimmen, wie die Aufgabe auf Eingaben reagiert.",
+      "label": "Verhaltenseinstellungen.",
+      "description": "Diese Optionen legen fest, wie die Aufgabe auf Eingaben reagiert.",
       "fields": [
         {
-          "label": "\"Wiederholen\" ermöglichen"
+          "label": "\"Wiederholen\" zulassen"
         },
         {
           "label": "\"Lösung anzeigen\" ermöglichen"
+        },
+        {
+          "label": "Enable \"Check\" button"
+        },
+        {
+          "label": "Show score points",
+          "description": "Show points earned for each answer."
         }
       ]
     },
@@ -59,6 +91,10 @@
       "label": "Beschreibung für das Zeigen der Lösung",
       "default": "Die Aufgabe zeigt nun die Lösungen",
       "description": "Mit diesem Text wird angezeigt, dass nun die richtigen Lösungen angezeigt werden."
+    },
+    {
+      "label": "Textual representation of the score bar for those using a readspeaker",
+      "default": "You got :num out of :total points"
     }
   ]
 }
