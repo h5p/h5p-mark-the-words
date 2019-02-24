@@ -2,7 +2,7 @@
   "semantics": [
     {
       "label": "Aufgabenbeschreibung",
-      "description": "Beschreibe, wie der Nutzer die Aufgabe lösen kann.",
+      "description": "Beschreibung darüber, wie der Benutzer die Aufgabe lösen sollte.",
       "placeholder": "Klicke auf alle Verben im folgenden Text."
     },
     {
@@ -20,7 +20,7 @@
         {
           "widgets": [
             {
-              "label": "Vorgabe"
+              "label": "Voreinstellung"
             }
           ],
           "label": "Lege Rückmeldungen für einzelne Punktebereiche fest",
