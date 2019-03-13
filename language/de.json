@@ -2,7 +2,7 @@
   "semantics": [
     {
       "label": "Aufgabenbeschreibung",
-      "description": "Beschreibe, wie der Nutzer die Aufgabe lösen kann.",
+      "description": "Beschreibung, wie die Lernenden die Aufgabe lösen sollten.",
       "placeholder": "Klicke auf alle Verben im folgenden Text."
     },
     {
@@ -11,7 +11,7 @@
       "description": "",
       "important": {
         "description": "<ul><li>Die zu findenden Wörter werden mit einem Sternchen (*) markiert.</li><li>Soll in einem zu findenden Wort ein Sternchen verwendet werden, gibt man ** ein.</li></ul>",
-        "example": "Richtige Wörter werden wie folgt markiert: *richtigeswort*. Und so ein Sternchen in einem richtigen Wort: *richtiges**Wort*."
+        "example": "Richtige Wörter werden wie folgt markiert: *richtigeswort*. Ein Sternchen in einem richtigen Wort auf diese Weise: *richtiges**Wort*."
       }
     },
     {
@@ -20,7 +20,7 @@
         {
           "widgets": [
             {
-              "label": "Vorgabe"
+              "label": "Voreinstellung"
             }
           ],
           "label": "Lege Rückmeldungen für einzelne Punktebereiche fest",
@@ -33,7 +33,7 @@
               },
               {},
               {
-                "label": "Rückmeldung für festgelegte Punktebereiche",
+                "label": "Rückmeldung für jeweiligen Punktebereich",
                 "placeholder": "Trage die Rückmeldung ein"
               }
             ]
@@ -42,20 +42,20 @@
       ]
     },
     {
-      "label": "Beschriftung für den \"Überprüfen\"-Knopf",
+      "label": "Beschriftung des \"Überprüfen\"-Buttons",
       "default": "Überprüfen"
     },
     {
-      "label": "Beschriftung für den \"Wiederholen\"-Button",
+      "label": "Beschriftung des \"Wiederholen\"-Buttons",
       "default": "Wiederholen"
     },
     {
-      "label": "Beschriftung für den \"Lösung zeigen\"-Knopf",
+      "label": "Beschriftung des \"Lösung anzeigen\"-Buttons",
       "default": "Lösung anzeigen"
     },
     {
       "label": "Verhaltenseinstellungen",
-      "description": "Diese Optionen legen fest, wie die Aufgabe auf Eingaben reagiert.",
+      "description": "Diese Optionen legen fest, wie die Aufgabe im Detail funktioniert.",
       "fields": [
         {
           "label": "\"Wiederholen\" zulassen"
@@ -64,11 +64,11 @@
           "label": "\"Lösung anzeigen\" ermöglichen"
         },
         {
-          "label": "\"Überprüfen\"-Knopf aktivieren"
+          "label": "\"Überprüfen\"-Button anzeigen"
         },
         {
           "label": "Bepunktungsdetails anzeigen",
-          "description": "Zeigt die für jede Antwort vergebenen Punke an."
+          "description": "Zeigt die für jede Antwort vergebenen Punkte an."
         }
       ]
     },
@@ -85,11 +85,11 @@
     {
       "label": "Text für übergangene Antworten",
       "default": "Vergessen!",
-      "description": "Mit diesem Text wird angezeigt, dass die Antwort nicht gegeben wurde."
+      "description": "Mit diesem Text wird angezeigt, dass das Wort hätte ausgewählt werden sollen."
     },
     {
-      "label": "Beschreibung für das Zeigen der Lösung",
-      "default": "Die Aufgabe zeigt nun die Lösungen",
+      "label": "Nachricht, wenn die Lösung angezeigt wird",
+      "default": "Die Lösungen sind nun im Text markiert.",
       "description": "Mit diesem Text wird angezeigt, dass nun die richtigen Lösungen angezeigt werden."
     },
     {
