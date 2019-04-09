@@ -88,7 +88,7 @@
       "description": "Puuduvale vastusele osutav tekst"
     },
     {
-      "label": Näita lahendust kirjeldus",
+      "label": "Näita lahendust kirjeldus",
       "default": "Ülesanne on uuendatud ja sisaldab nüüd lahendust.",
       "description": "See tekst teatab kasutajale, et ülesandele on lisatud lahendus."
     },
