@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Mídia",
+      "fields": [
+        {
+          "label": "Tipo",
+          "description": "Mídia opcional mostrada acima da questão."
+        },
+        {
+          "label": "Desabilita zoom de imagem para questões com imagens"
+        }
+      ]
+    },
+    {
       "label": "Descrição da tarefa",
       "description": "Descreve como o usuário deve resolver a tarefa.",
       "placeholder": "Clique em todos os verbos no texto a seguir."
