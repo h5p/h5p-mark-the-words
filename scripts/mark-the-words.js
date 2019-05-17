@@ -545,6 +545,27 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @see {@link https://github.com/h5p/h5p-question/blob/1558b6144333a431dd71e61c7021d0126b18e252/scripts/question.js#L1236|Called from H5P.Question}
    */
   MarkTheWords.prototype.registerDomElements = function () {
+    
+    if (this.params.media && this.params.media.library) {
+      var type = this.params.media.library.split(' ')[0];
+      if (type === 'H5P.Image') {
+        if (this.params.media.params.file) {
+          // Register task image
+          this.setImage(this.params.media.params.file.path, {
+            disableImageZooming: this.params.behaviour.disableImageZooming,
+            alt: this.params.media.params.alt,
+            title: this.params.media.params.title
+          });
+        }
+      }
+      else if (type === 'H5P.Video') {
+        if (this.params.media.params.sources) {
+          // Register task video
+          this.setVideo(this.params.media);
+        }
+      }
+    }
+
     // wrap introduction in div with id
     var introduction = '<div id="' + this.introductionId + '">' + this.params.taskDescription + '</div>';
 

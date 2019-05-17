@@ -1,5 +1,25 @@
 [
   {
+    "name": "media",
+    "type": "group",
+    "label": "Media",
+    "importance": "medium",
+    "fields": [
+      {
+        "name": "type",
+        "type": "library",
+        "label": "Type",
+        "importance": "medium",
+        "options": [
+          "H5P.Image 1.1",
+          "H5P.Video 1.5"
+        ],
+        "optional": true,
+        "description": "Optional media to display above the question."
+      }
+    ]
+  },
+  {
     "label": "Task description",
     "importance": "high",
     "name": "taskDescription",
