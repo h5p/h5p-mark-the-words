@@ -1,41 +1,40 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Task description",
-      "description":"Describe how the user should solve the task.",
-      "placeholder":"Click on all the verbs in the text that follows."
+      "label": "Ülesande kirjeldus",
+      "description": "Kirjelda, kuidas kasutaja peaks ülesande lahendama.",
+      "placeholder": "Kliki järgnevas tekstis kõigile tegusõnadele."
     },
     {
-      "label":"Textfield",
-      "placeholder":"This is an answer: *answer*.",
-      "description":"",
-      "important":{
-        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      "label": "Tekstiväli",
+      "placeholder": "See on vastus: *vastus*.",
+      "description": "",
+      "important": {
+        "description": "<ul><li>Märgitud sõnad lisatakse tärni (*) kasutades.</li><li>Tärni lisamiseks kasuta topelt-tärni ** = *.</li></ul>",
+        "example": "Õiged sõnad märgitakse nii: *õigesõna*, tärn lisataksenii: *õigesõna***."
       }
     },
     {
-      "label":"Overall Feedback",
-      "fields":[
+      "label": "Üldine tagasiside",
+      "fields": [
         {
-          "widgets":[
+          "widgets": [
             {
-              "label":"Default"
+              "label": "Vaikimisi"
             }
           ],
-          "label":"Define custom feedback for any score range",
-          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity":"range",
-          "field":{
-            "fields":[
+          "label": "Määratle kohandatud tagasiside igale punktisumma vahemikule",
+          "description": "Kliki \"Lisa vahemik\" nupule vajalike vahemike lisamiseks. Näiteks: 0-20% halb tulemus, 21-91% keskmine tulemus, 91-100% suurepärane tulemus!",
+          "entity": "vahemik",
+          "field": {
+            "fields": [
               {
-                "label":"Score Range"
+                "label": "Punktisumma vahemik"
               },
+              {},
               {
-                
-              },
-              {
-                "label":"Feedback for defined score range",
-                "placeholder":"Fill in the feedback"
+                "label": "Tagasiside määratletud punktisumma vahemikule",
+                "placeholder": "Sisesta tagasiside"
               }
             ]
           }
@@ -43,52 +42,59 @@
       ]
     },
     {
-      "label":"Text for \"Check\" button",
-      "default":"Kontrolli"
+      "label": "\"Kontrolli\" nupu tekst",
+      "default": "Kontrolli"
     },
     {
-      "label":"Text for \"Retry\" button",
-      "default":"Proovi uuesti"
+      "label": "\"Proovi uuesti\" nupu tekst",
+      "default": "Proovi uuesti"
     },
     {
-      "label":"Text for \"Show solution\" button",
-      "default":"Õige vastus"
+      "label": "\"Näita lahendust\" nupu tekst",
+      "default": "Näita lahendust"
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
-      "fields":[
+      "label": "Käitumisseaded.",
+      "description": "Nende valikutega saad määrata ülesande käitumise.",
+      "fields": [
         {
-          "label":"Enable \"Retry\""
+          "label": "Luba \"Proovi uuesti\" nupp"
         },
         {
-          "label":"Enable \"Show solution\" button"
+          "label": "Luba \"Näita lahendust\" nupp"
         },
         {
-          "label":"Show score points",
-          "description":"Show points earned for each answer."
+          "label": "Luba \"Kontrolli\" nupp"
+        },
+        {
+          "label": "Näita punktisumma tulemus",
+          "description": "Iga vastusega teenitud punktid."
         }
       ]
     },
     {
-      "label":"Correct answer text",
-      "default":"Correct!",
-      "description":"Text used to indicate that an answer is correct"
+      "label": "Õige vastuse tekst",
+      "default": "Õige!",
+      "description": "Õigele vastusele osutav tekst"
     },
     {
-      "label":"Incorrect answer text",
-      "default":"Incorrect!",
-      "description":"Text used to indicate that an answer is incorrect"
+      "label": "Vale vastuse tekst",
+      "default": "Vale!",
+      "description": "Valele vastusele osutav tekst"
     },
     {
-      "label":"Missed answer text",
-      "default":"Missed!",
-      "description":"Text used to indicate that an answer is missing"
+      "label": "Täitmata vastuse tekst",
+      "default": "Puudu!",
+      "description": "Puuduvale vastusele osutav tekst"
     },
     {
-      "label":"Description for Display Solution",
-      "default":"Task is updated to contain the solution.",
-      "description":"This text tells the user that the tasks has been updated with the solution."
+      "label": "Näita lahendust kirjeldus",
+      "default": "Ülesanne on uuendatud ja sisaldab nüüd lahendust.",
+      "description": "See tekst teatab kasutajale, et ülesandele on lisatud lahendus."
+    },
+    {
+      "label": "Punktisumma riba tekstiline esitus tekstilugeri kasutajaile",
+      "default": "Sa said :num punkti :total punktist"
     }
   ]
 }

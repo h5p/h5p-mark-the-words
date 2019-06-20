@@ -1,41 +1,40 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Aufgabenbeschreibung",
-      "description":"Beschreibe, wie der Nutzer die Aufgabe lösen kann.",
-      "placeholder":"Klicke auf alle Verben im folgenden Text."
+      "label": "Aufgabenbeschreibung",
+      "description": "Beschreibung, wie die Lernenden die Aufgabe lösen sollten.",
+      "placeholder": "Klicke auf alle Verben im folgenden Text."
     },
     {
-      "label":"Textfeld",
-      "placeholder":"Das ist eine Antwort: *Antwort*.",
-      "description":"",
-      "important":{
-        "description":"<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>"
+      "label": "Textfeld",
+      "placeholder": "Das ist eine Antwort: *Antwort*.",
+      "description": "",
+      "important": {
+        "description": "<ul><li>Die zu findenden Wörter werden mit einem Sternchen (*) markiert.</li><li>Soll in einem zu findenden Wort ein Sternchen verwendet werden, gibt man ** ein.</li></ul>",
+        "example": "Richtige Wörter werden wie folgt markiert: *richtigeswort*. Ein Sternchen in einem richtigen Wort auf diese Weise: *richtiges**Wort*."
       }
     },
     {
-      "label":"Hintergrunddeckkraft für bewegliche Elemente",
-      "fields":[
+      "label": "Allgemeine Rückmeldung",
+      "fields": [
         {
-          "widgets":[
+          "widgets": [
             {
-              "label":"Vorgabe"
+              "label": "Voreinstellung"
             }
           ],
-          "label":"Benutzerdefinierte Rückmeldung für jeden Punkte-Bereich definieren",
-          "description":"Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity":"Bereich",
-          "field":{
-            "fields":[
+          "label": "Lege Rückmeldungen für einzelne Punktebereiche fest",
+          "description": "Klicke auf den \"Bereich hinzufügen\"-Button, um so viele Bereiche hinzuzufügen, wie du brauchst. Beispiel: 0-20% Schlechte Punktzahl, 21-91% Durchschnittliche Punktzahl, 91-100% Großartige Punktzahl!",
+          "entity": "Bereich",
+          "field": {
+            "fields": [
               {
-                "label":"Punkte-Bereich"
+                "label": "Punktebereich"
               },
+              {},
               {
-                
-              },
-              {
-                "label":"Feedback for defined score range",
-                "placeholder":"Fill in the feedback"
+                "label": "Rückmeldung für jeweiligen Punktebereich",
+                "placeholder": "Trage die Rückmeldung ein"
               }
             ]
           }
@@ -43,52 +42,59 @@
       ]
     },
     {
-      "label":"Beschriftung für den \"Überprüfen\"-Knopf",
-      "default":"Überprüfen"
+      "label": "Beschriftung des \"Überprüfen\"-Buttons",
+      "default": "Überprüfen"
     },
     {
-      "label":"Beschriftung für den \"Wiederholen\"-Button",
-      "default":"Wiederholen"
+      "label": "Beschriftung des \"Wiederholen\"-Buttons",
+      "default": "Wiederholen"
     },
     {
-      "label":"Beschriftung für den \"Lösung zeigen\"-Knopf",
-      "default":"Lösung anzeigen"
+      "label": "Beschriftung des \"Lösung anzeigen\"-Buttons",
+      "default": "Lösung anzeigen"
     },
     {
-      "label":"Verhaltenseinstellungen.",
-      "description":"Diese Optionen legen fest, wie die Aufgabe auf Eingaben reagiert.",
-      "fields":[
+      "label": "Verhaltenseinstellungen",
+      "description": "Diese Optionen legen fest, wie die Aufgabe im Detail funktioniert.",
+      "fields": [
         {
-          "label":"\"Wiederholen\" zulassen"
+          "label": "\"Wiederholen\" zulassen"
         },
         {
-          "label":"\"Lösung anzeigen\" ermöglichen"
+          "label": "\"Lösung anzeigen\" ermöglichen"
         },
         {
-          "label":"Show score points",
-          "description":"Show points earned for each answer."
+          "label": "\"Überprüfen\"-Button anzeigen"
+        },
+        {
+          "label": "Bepunktungsdetails anzeigen",
+          "description": "Zeigt die für jede Antwort vergebenen Punkte an."
         }
       ]
     },
     {
-      "label":"Text für richtige Antworten",
-      "default":"Richtig!",
-      "description":"Mit diesem Text wird angezeigt, dass die Antwort richtig war."
+      "label": "Text für richtige Antworten",
+      "default": "Richtig!",
+      "description": "Mit diesem Text wird angezeigt, dass die Antwort richtig war."
     },
     {
-      "label":"Text für falsche Antworten",
-      "default":"Falsch!",
-      "description":"Mit diesem Text wird angezeigt, dass die Antwort falsch war."
+      "label": "Text für falsche Antworten",
+      "default": "Falsch!",
+      "description": "Mit diesem Text wird angezeigt, dass die Antwort falsch war."
     },
     {
-      "label":"Text für übergangene Antworten",
-      "default":"Vergessen!",
-      "description":"Mit diesem Text wird angezeigt, dass die Antwort nicht gegeben wurde."
+      "label": "Text für übergangene Antworten",
+      "default": "Vergessen!",
+      "description": "Mit diesem Text wird angezeigt, dass das Wort hätte ausgewählt werden sollen."
     },
     {
-      "label":"Beschreibung für das Zeigen der Lösung",
-      "default":"Die Aufgabe zeigt nun die Lösungen",
-      "description":"Mit diesem Text wird angezeigt, dass nun die richtigen Lösungen angezeigt werden."
+      "label": "Nachricht, wenn die Lösung angezeigt wird",
+      "default": "Die Lösungen sind nun im Text markiert.",
+      "description": "Mit diesem Text wird angezeigt, dass nun die richtigen Lösungen angezeigt werden."
+    },
+    {
+      "label": "Anzeigetext für Vorlesewerkzeuge (Barrierefreiheit). :num wird durch die erreichten Punkte ersetzt. :total wird durch die maximal mögliche Punktzahl ersetzt.",
+      "default": "Du hast :num von :total Punkten."
     }
   ]
 }

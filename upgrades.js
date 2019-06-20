@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
+H5PUpgrades['H5P.MarkTheWords'] = (function () {
   return {
     1: {
       1: {
@@ -48,7 +48,20 @@ H5PUpgrades['H5P.MarkTheWords'] = (function ($) {
         }
 
         finished(null, parameters);
+      },
+      9: function (parameters, finished, extras) {
+        var title;
+
+        if (parameters) {
+          title = parameters.taskDescription;
+        }
+
+        extras = extras || {};
+        extras.metadata = extras.metadata || {};
+        extras.metadata.title = (title) ? title.replace(/<[^>]*>?/g, '') : ((extras.metadata.title) ? extras.metadata.title : 'Mark the Words');
+
+        finished(null, parameters, extras);
       }
     }
   };
-})(H5P.jQuery);
+})();
