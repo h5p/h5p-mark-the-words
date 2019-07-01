@@ -48,8 +48,10 @@
 }
 /* Missed word*/
 .h5p-mark-the-words [aria-describedby="h5p-description-missed"] {
-  border: 0.1em #77b395 dotted;
-  background-color: #E4F4EC;
+  color: #255c41;
+  font-weight: bold;
+  border: 1px #255c41 dashed;
+  background-color: #d4f6e6;
 }
 
 /* Correctly answered marking */
