@@ -123,7 +123,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span role="option">' + self.escapeHTML(entry) + '</span>';
+              html += '<span role="option" aria-selected="false">' + self.escapeHTML(entry) + '</span>';
             }
 
             if (suffix !== null) {

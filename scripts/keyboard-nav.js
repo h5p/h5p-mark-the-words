@@ -145,12 +145,7 @@ H5P.KeyboardNav = (function (EventDispatcher) {
     if(this.selectability) {
 
       // toggle selection
-      if (isElementSelected(el)) {
-        el.removeAttribute('aria-selected');
-      }
-      else {
-        el.setAttribute('aria-selected', 'true');
-      }
+      el.setAttribute('aria-selected', !isElementSelected(el));
 
       // focus current
       el.setAttribute('tabindex', '0');

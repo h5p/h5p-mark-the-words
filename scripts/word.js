@@ -127,7 +127,7 @@ H5P.MarkTheWords.Word = (function () {
      */
     this.markClear = function () {
       $word
-        .removeAttr('aria-selected')
+        .attr('aria-selected', false)
         .removeAttr('aria-describedby');
 
       this.clearScorePoint();
