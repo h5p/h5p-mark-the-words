@@ -132,7 +132,7 @@ H5P.MarkTheWords.Word = (function () {
      */
     this.markClear = function () {
       $word
-        .attr('aria-selected', 'false')
+        .attr('aria-selected', false)
         .removeAttr('aria-describedby');
 
       ariaText.innerHTML = '';
