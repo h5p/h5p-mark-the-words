@@ -103,3 +103,10 @@
 button.h5p-retry-button.h5p-retry-button {
   display: none;
 }
+
+.h5p-mark-the-words .hidden-but-read {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
