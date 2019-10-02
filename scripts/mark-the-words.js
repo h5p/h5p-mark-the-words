@@ -243,8 +243,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     $('<div>', {
       html: self.params.a11yFullTextLabel,
     }).appendTo($ariaTextWrapper);
+
+    // Add space after each paragraph to read the sentences better
+    const ariaText = $('<div>', {
+      'html': $wordContainer.html().replace('</p>', ' </p>'),
+    }).text();
+
     $('<div>', {
-      html: $wordContainer.text(),
+      html: ariaText,
     }).appendTo($ariaTextWrapper);
 
     // A11y clickable list label
