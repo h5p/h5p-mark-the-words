@@ -250,7 +250,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }).text();
 
     $('<div>', {
-      html: ariaText,
+      text: ariaText,
     }).appendTo($ariaTextWrapper);
 
     // A11y clickable list label
