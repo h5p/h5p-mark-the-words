@@ -42,7 +42,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       incorrectAnswer: "Incorrect!",
       missedAnswer: "Missed!",
       displaySolutionDescription:  "Task is updated to contain the solution.",
-      scoreBarLabel: 'You got :num out of :total points'
+      scoreBarLabel: 'You got :num out of :total points',
+      a11yFullTextLabel: 'Full readable text',
+      a11yClickableTextLabel: 'Full text where words can be marked',
     }, params);
 
     this.contentData = contentData;
@@ -50,14 +52,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       this.previousState = this.contentData.previousState;
     }
 
-    // Add keyboard navigation helper
-    this.keyboardNav = new KeyboardNav();
-
-    // on word clicked
-    this.keyboardNav.on('select', function () {
-      self.isAnswered = true;
-      self.triggerXAPI('interacted');
-    });
+    this.keyboardNavigators = [];
 
     this.initMarkTheWords();
     this.XapiGenerator = new XapiGenerator(this);
@@ -123,7 +118,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span role="option">' + self.escapeHTML(entry) + '</span>';
+              html += '<span role="option" aria-selected="false">' + self.escapeHTML(entry) + '</span>';
             }
 
             if (suffix !== null) {
@@ -132,7 +127,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
           });
         }
         else if ((selectableStrings !== null) && text.length) {
-          html += '<span role="option">' + this.escapeHTML(text) + '</span>';
+          html += '<span role="option" aria-selected="false">' + this.escapeHTML(text) + '</span>';
         }
       }
       else {
@@ -201,16 +196,35 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var $wordContainer = $('<div/>', {
       'class': 'h5p-word-selectable-words',
       'aria-labelledby': self.introductionId,
-      'aria-multiselect': true,
+      'aria-multiselectable': 'true',
       'role': 'listbox',
       html: self.createHtmlForWords($.parseHTML(self.params.textField))
     });
 
-    $wordContainer.find('[role="option"]').each(function () {
-      // Add keyboard navigation to this element
-      self.keyboardNav.addElement(this);
+    let isNewParagraph = true;
+    $wordContainer.find('[role="option"], br').each(function () {
+      if ($(this).is('br')) {
+        isNewParagraph = true;
+        return;
+      }
 
-      var selectableWord = new Word($(this));
+      if (isNewParagraph) {
+        // Add keyboard navigation helper
+        self.currentKeyboardNavigator = new KeyboardNav();
+
+        // on word clicked
+        self.currentKeyboardNavigator.on('select', function () {
+          self.isAnswered = true;
+          self.triggerXAPI('interacted');
+        });
+
+        self.keyboardNavigators.push(self.currentKeyboardNavigator);
+        isNewParagraph = false;
+      }
+      self.currentKeyboardNavigator.addElement(this);
+
+      // Add keyboard navigation to this element
+      var selectableWord = new Word($(this), self.params);
       if (selectableWord.isAnswer()) {
         self.answers += 1;
       }
@@ -221,6 +235,29 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     if (self.blankIsCorrect) {
       self.answers = 1;
     }
+
+    // A11y full readable text
+    const $ariaTextWrapper = $('<div>', {
+      'class': 'hidden-but-read',
+    }).appendTo($container);
+    $('<div>', {
+      html: self.params.a11yFullTextLabel,
+    }).appendTo($ariaTextWrapper);
+
+    // Add space after each paragraph to read the sentences better
+    const ariaText = $('<div>', {
+      'html': $wordContainer.html().replace('</p>', ' </p>'),
+    }).text();
+
+    $('<div>', {
+      text: ariaText,
+    }).appendTo($ariaTextWrapper);
+
+    // A11y clickable list label
+    $('<div>', {
+      'class': 'hidden-but-read',
+      html: self.params.a11yClickableTextLabel,
+    }).appendTo($container);
 
     $wordContainer.appendTo($container);
     self.$wordContainer = $wordContainer;
@@ -238,8 +275,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     if (this.params.behaviour.enableCheckButton) {
       this.addButton('check-answer', this.params.checkAnswerButton, function () {
         self.isAnswered = true;
-        self.keyboardNav.setTabbableAt(0);
-        self.keyboardNav.disableSelectability();
         var answers = self.calculateScore();
         self.feedbackSelectedWords();
 
@@ -254,14 +289,13 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         }
         self.hideButton('check-answer');
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
+        self.toggleSelectable(true);
       });
     }
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
-      self.keyboardNav.setTabbableAt(0);
-      self.keyboardNav.disableSelectability();
       self.setAllMarks();
 
       if (self.params.behaviour.enableRetry) {
@@ -271,7 +305,33 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.hideButton('show-solution');
 
       self.read(self.params.displaySolutionDescription);
+      self.toggleSelectable(true);
     }, false);
+  };
+
+  /**
+   * Toggle whether words can be selected
+   * @param {Boolean} disable
+   */
+  MarkTheWords.prototype.toggleSelectable = function (disable) {
+    this.keyboardNavigators.forEach(function (navigator) {
+      if (disable) {
+        navigator.disableSelectability();
+        navigator.removeAllTabbable();
+      }
+      else {
+        navigator.enableSelectability();
+        navigator.setTabbableAt((0));
+      }
+    });
+
+    if (disable) {
+      this.$wordContainer.removeAttr('aria-multiselectable').removeAttr('role');
+    }
+    else {
+      this.$wordContainer.attr('aria-multiselectable', 'true')
+        .attr('role', 'listbox');
+    }
   };
 
   /**
@@ -471,13 +531,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var answers = this.calculateScore();
     this.showEvaluation(answers);
     this.setAllMarks();
-    this.keyboardNav.setTabbableAt(0);
-    this.keyboardNav.disableSelectability();
     this.read(this.params.displaySolutionDescription);
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.hideButton('check-answer');
 
+    this.toggleSelectable(true);
     this.trigger('resize');
   };
 
@@ -491,11 +550,10 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.isAnswered = false;
     this.clearAllMarks();
     this.hideEvaluation();
-    this.keyboardNav.setTabbableAt(0);
-    this.keyboardNav.enableSelectability();
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.showButton('check-answer');
+    this.toggleSelectable(false);
     this.trigger('resize');
   };
 
