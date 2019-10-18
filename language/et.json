@@ -95,6 +95,14 @@
     {
       "label": "Punktisumma riba tekstiline esitus tekstilugeri kasutajaile",
       "default": "Sa said :num punkti :total punktist"
+    },
+    {
+      "label": "Label for the full readable text for assistive technologies",
+      "default": "Full readable text"
+    },
+    {
+      "label": "Label for the text where words can be marked for assistive technologies",
+      "default": "Full text where words can be marked"
     }
   ]
 }
