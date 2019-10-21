@@ -95,6 +95,14 @@
     {
       "label": "報讀器得分條文本",
       "default": "你得到 :num 分，總分 :total 分。"
+    },
+    {
+      "label": "Label for the full readable text for assistive technologies",
+      "default": "Full readable text"
+    },
+    {
+      "label": "Label for the text where words can be marked for assistive technologies",
+      "default": "Full text where words can be marked"
     }
   ]
 }

@@ -95,6 +95,14 @@
     {
       "label": "תצוגה מילולית של סרגל הניקוד עבור אלה המשתמשים ב- readspeaker",
       "default": "קיבלתם: נקודות מתוך סהכ: הנקודות "
+    },
+    {
+      "label": "Label for the full readable text for assistive technologies",
+      "default": "Full readable text"
+    },
+    {
+      "label": "Label for the text where words can be marked for assistive technologies",
+      "default": "Full text where words can be marked"
     }
   ]
 }

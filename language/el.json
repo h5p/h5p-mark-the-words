@@ -95,6 +95,14 @@
     {
       "label": "Κειμενική απόδοση της μπάρας βαθμολογίας για όσους χρησιμοποιούν ακουστική υποβοήθηση",
       "default": "Έχεις :num από :total βαθμούς"
+    },
+    {
+      "label": "Label for the full readable text for assistive technologies",
+      "default": "Full readable text"
+    },
+    {
+      "label": "Label for the text where words can be marked for assistive technologies",
+      "default": "Full text where words can be marked"
     }
   ]
 }

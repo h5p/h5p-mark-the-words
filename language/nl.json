@@ -95,6 +95,14 @@
     {
       "label": "Tekstuele weergave van de scorebalk voor gebruikers van een readspeaker",
       "default": "Je hebt :num van de :total punten"
+    },
+    {
+      "label": "Label for the full readable text for assistive technologies",
+      "default": "Full readable text"
+    },
+    {
+      "label": "Label for the text where words can be marked for assistive technologies",
+      "default": "Full text where words can be marked"
     }
   ]
 }
