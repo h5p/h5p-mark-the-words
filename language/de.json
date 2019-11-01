@@ -95,6 +95,14 @@
     {
       "label": "Anzeigetext für Vorlesewerkzeuge (Barrierefreiheit). :num wird durch die erreichten Punkte ersetzt. :total wird durch die maximal mögliche Punktzahl ersetzt.",
       "default": "Du hast :num von :total Punkten."
+    },
+    {
+      "label": "Label for the full readable text for assistive technologies",
+      "default": "Full readable text"
+    },
+    {
+      "label": "Label for the text where words can be marked for assistive technologies",
+      "default": "Full text where words can be marked"
     }
   ]
 }

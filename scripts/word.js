@@ -25,8 +25,9 @@ H5P.MarkTheWords.Word = (function () {
    * @class
    * @param {jQuery} $word
    */
-  function Word($word) {
+  function Word($word, params) {
     var self = this;
+    self.params = params;
     H5P.EventDispatcher.call(self);
 
     var input = $word.text();
@@ -41,6 +42,10 @@ H5P.MarkTheWords.Word = (function () {
     if (isAnswer) {
       $word.text(handledInput);
     }
+
+    const ariaText = document.createElement('span');
+    ariaText.classList.add('hidden-but-read');
+    $word[0].appendChild(ariaText);
 
     /**
      * Checks if the word is an answer by checking the first, second to last and last character of the word.
@@ -105,13 +110,13 @@ H5P.MarkTheWords.Word = (function () {
      * Removes any score points added to the marked word.
      */
     self.clearScorePoint = function () {
-      for (var i = 0; $word[0].children.length; i++) {
-        var scorePoint = $word[0].children[i];
+      const scorePoint = $word[0].querySelector('div');
+      if (scorePoint) {
         scorePoint.parentNode.removeChild(scorePoint);
       }
     };
 
-     /**
+    /**
      * Get Word as a string
      *
      * @return {string} Word as text
@@ -127,9 +132,10 @@ H5P.MarkTheWords.Word = (function () {
      */
     this.markClear = function () {
       $word
-        .removeAttr('aria-selected')
+        .attr('aria-selected', false)
         .removeAttr('aria-describedby');
 
+      ariaText.innerHTML = '';
       this.clearScorePoint();
     };
 
@@ -143,6 +149,9 @@ H5P.MarkTheWords.Word = (function () {
     this.markCheck = function (scorePoints) {
       if (this.isSelected()) {
         $word.attr('aria-describedby', isAnswer ? Word.ID_MARK_CORRECT : Word.ID_MARK_INCORRECT);
+        ariaText.innerHTML = isAnswer
+          ? self.params.correctAnswer
+          : self.params.incorrectAnswer;
 
         if (scorePoints) {
           $word[0].appendChild(scorePoints.getElement(isAnswer));
@@ -150,6 +159,7 @@ H5P.MarkTheWords.Word = (function () {
       }
       else if (isAnswer) {
         $word.attr('aria-describedby', Word.ID_MARK_MISSED);
+        ariaText.innerHTML = self.params.missedAnswer;
       }
     };
 
@@ -209,7 +219,7 @@ H5P.MarkTheWords.Word = (function () {
      * @public
      */
     this.setSelected = function () {
-      $word.attr('aria-selected', true);
+      $word.attr('aria-selected', 'true');
     };
   }
   Word.prototype = Object.create(H5P.EventDispatcher.prototype);

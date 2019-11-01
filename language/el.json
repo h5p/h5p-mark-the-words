@@ -1,40 +1,40 @@
 {
   "semantics": [
     {
-      "label": "Task description",
-      "description": "Describe how the user should solve the task.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "label": "Περιγραφή άσκησης",
+      "description": "Περιγράψτε πώς θα λύσει ο χρήστης την άσκηση.",
+      "placeholder": "Κάνε κλικ σε όλα τα ρήματα στο κείμενο που ακολουθεί."
     },
     {
-      "label": "Textfield",
-      "placeholder": "This is an answer: *answer*.",
+      "label": "Πεδίο κειμένου",
+      "placeholder": "Αυτή είναι μια απάντηση: *answer*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterix (*).</li><li>An asterix may be escaped with another asterix, resulting in ** = *.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "description": "<ul><li>Οι σημειωμένες λέξεις προστίθενται με έναν αστερίσκο. (*).</li><li>Αν χρειάζεται να χρησιμοποιήσετε τον αστερίσκο για άλλο λόγο, ορίστε δύο αστερίσκους στη σειρά, δηλαδή ** = *.</li></ul>",
+        "example": "Οι σωστές λέξεις σημειώνονται έτσι: *σωστηλέξη*, ένα αστερίσκος προστίθεται ως εξής: *σωστηλέξη***."
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "Συνολική ανατροφοδότηση",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Default"
+              "label": "Βασικό"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "Χαρακτηρισμός κάθε κλίμακας βαθμολογίας",
+          "description": "Κάντε κλικ στο κουμπί \"Προσθήκη κλίμακας\" για να προσθέσετε όσες κλίμακες ή διαβαθμίσεις επιθυμείτε. Παράδειγμα: 0-20% Χαμηλή βαθμολογία, 21-91% Μέτρια βαθμολογία, 91-100% Εξαιρετική βαθμολογία!",
+          "entity": "κλιμακας",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "Βαθμολογία"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Χαρακτηρισμός",
+                "placeholder": "Συμπληρώστε τον χαρακτηρισμό"
               }
             ]
           }
@@ -42,59 +42,67 @@
       ]
     },
     {
-      "label": "Text for \"Check\" button",
-      "default": "Check"
+      "label": "Ετικέτα κουμπιού \"Έλεγχος\"",
+      "default": "Έλεγχος"
     },
     {
-      "label": "Text for \"Retry\" button",
+      "label": "Ετικέτα κουμπιού \"Επανάληψη\"",
       "default": "Επανάληψη"
     },
     {
-      "label": "Text for \"Show solution\" button",
-      "default": "Show solution"
+      "label": "Ετικέτα κουμπιού \"Λύση\"",
+      "default": "Λύση"
     },
     {
-      "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Ρυθμίσεις άσκησης",
+      "description": "Αυτές οι ρυθμίσεις σας επιτρέπουν να καθορίσετε τον τρόπο λειτουργίας της άσκησης.",
       "fields": [
         {
-          "label": "Enable \"Retry\""
+          "label": "Ενεργοποίηση κουμπιού \"Επανάληψη\""
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "Ενεργοποίηση κουμπιού \"Λύση\""
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "Ενεργοποίηση κουμπιού \"Έλεγχος\""
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "Εμφάνιση βαθμολογίας",
+          "description": "Εμφάνιση βαθμών που κερδίζει ο χρήστης για κάθε απάντηση."
         }
       ]
     },
     {
-      "label": "Correct answer text",
-      "default": "Correct!",
-      "description": "Text used to indicate that an answer is correct"
+      "label": "Κείμενο για σωστή απάντηση",
+      "default": "Σωστό!",
+      "description": "Κείμενο που χρησιμοποιείται για να δηλώσει ότι μια απάντηση είναι σωστή"
     },
     {
-      "label": "Incorrect answer text",
-      "default": "Incorrect!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "Κείμενο για λάθος απάντηση",
+      "default": "Λάθος!",
+      "description": "Κείμενο που χρησιμοποιείται για να δηλώσει ότι μια απάντηση είναι λάθος"
     },
     {
-      "label": "Missed answer text",
-      "default": "Missed!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "Κείμενο για απάντηση που λείπει",
+      "default": "Δεν απαντήθηκε!",
+      "description": "Κείμενο που χρησιμοποιείται για να δηλώσει ότι μια απάντηση λείπει"
     },
     {
-      "label": "Description for Display Solution",
-      "default": "Task is updated to contain the solution.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "Περιγραφή για \"Εμφάνιση Λύσης\"",
+      "default": "Η άσκηση ενημερώνεται ώστε να περιέχει τη λύση.",
+      "description": "Αυτό το κείμενο ενημερώνει τον χρήστη ότι οι ασκήσεις εμφανίζουν πλέον και τη λύση."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "Κειμενική απόδοση της μπάρας βαθμολογίας για όσους χρησιμοποιούν ακουστική υποβοήθηση",
+      "default": "Έχεις :num από :total βαθμούς"
+    },
+    {
+      "label": "Label for the full readable text for assistive technologies",
+      "default": "Full readable text"
+    },
+    {
+      "label": "Label for the text where words can be marked for assistive technologies",
+      "default": "Full text where words can be marked"
     }
   ]
 }

@@ -28,11 +28,17 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    * @public
    */
   KeyboardNav.prototype.addElement = function(el){
-    el.addEventListener('keydown', this.handleKeyDown.bind(this));
-    el.addEventListener('click', this.onClick.bind(this));
+    const keyDown = this.handleKeyDown.bind(this);
+    const onClick = this.onClick.bind(this);
+    el.addEventListener('keydown', keyDown);
+    el.addEventListener('click', onClick);
 
     // add to array to navigate over
-    this.elements.push(el);
+    this.elements.push({
+      el: el,
+      keyDown: keyDown,
+      onClick: onClick,
+    });
 
     if(this.elements.length === 1){ // if first
       this.setTabbableAt(0);
@@ -90,7 +96,7 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    */
   KeyboardNav.prototype.focusOnElementAt = function (index) {
     this.setTabbableAt(index);
-    this.elements[index].focus();
+    this.getElements()[index].focus();
   };
 
   /**
@@ -99,6 +105,10 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    * @public
    */
   KeyboardNav.prototype.disableSelectability = function () {
+    this.elements.forEach(function (el) {
+      el.el.removeEventListener('keydown', el.keyDown);
+      el.el.removeEventListener('click', el.onClick);
+    }.bind(this));
     this.selectability = false;
   };
 
@@ -108,6 +118,10 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    * @public
    */
   KeyboardNav.prototype.enableSelectability = function () {
+    this.elements.forEach(function (el) {
+      el.el.addEventListener('keydown', el.keyDown);
+      el.el.addEventListener('click', el.onClick);
+    }.bind(this));
     this.selectability = true;
   };
 
@@ -120,7 +134,7 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    */
   KeyboardNav.prototype.setTabbableAt = function (index) {
     this.removeAllTabbable();
-    this.elements[index].setAttribute('tabindex', '0');
+    this.getElements()[index].setAttribute('tabindex', '0');
   };
 
   /**
@@ -130,7 +144,7 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    */
   KeyboardNav.prototype.removeAllTabbable = function () {
     this.elements.forEach(function(el){
-      el.removeAttribute('tabindex');
+      el.el.removeAttribute('tabindex');
     });
   };
 
@@ -145,18 +159,13 @@ H5P.KeyboardNav = (function (EventDispatcher) {
     if(this.selectability) {
 
       // toggle selection
-      if (isElementSelected(el)) {
-        el.removeAttribute('aria-selected');
-      }
-      else {
-        el.setAttribute('aria-selected', 'true');
-      }
+      el.setAttribute('aria-selected', !isElementSelected(el));
 
       // focus current
       el.setAttribute('tabindex', '0');
       el.focus();
 
-      var index = this.elements.indexOf(el);
+      var index = this.getElements().indexOf(el);
 
       /**
        * Previous option event
@@ -188,7 +197,7 @@ H5P.KeyboardNav = (function (EventDispatcher) {
       case 37: // Left Arrow
       case 38: // Up Arrow
         // Go to previous Option
-        index = this.elements.indexOf(event.currentTarget);
+        index = this.getElements().indexOf(event.currentTarget);
         this.previousOption(index);
         event.preventDefault();
         break;
@@ -196,11 +205,21 @@ H5P.KeyboardNav = (function (EventDispatcher) {
       case 39: // Right Arrow
       case 40: // Down Arrow
         // Go to next Option
-        index = this.elements.indexOf(event.currentTarget);
+        index = this.getElements().indexOf(event.currentTarget);
         this.nextOption(index);
         event.preventDefault();
         break;
     }
+  };
+
+  /**
+   * Get only elements from elements array
+   * @returns {Array}
+   */
+  KeyboardNav.prototype.getElements = function () {
+    return this.elements.map(function (el) {
+      return el.el;
+    });
   };
 
   /**
@@ -229,9 +248,9 @@ H5P.KeyboardNav = (function (EventDispatcher) {
      * @property {boolean} selected
      */
     return {
-      element: this.elements[index],
+      element: this.getElements()[index],
       index: index,
-      selected: isElementSelected(this.elements[index])
+      selected: isElementSelected(this.getElements()[index])
     };
   };
 

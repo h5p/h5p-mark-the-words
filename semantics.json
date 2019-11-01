@@ -205,5 +205,21 @@
     "default": "You got :num out of :total points",
     "importance": "low",
     "common": true
+  },
+  {
+    "name": "a11yFullTextLabel",
+    "type": "text",
+    "label": "Label for the full readable text for assistive technologies",
+    "default": "Full readable text",
+    "importance": "low",
+    "common": true
+  },
+  {
+    "name": "a11yClickableTextLabel",
+    "type": "text",
+    "label": "Label for the text where words can be marked for assistive technologies",
+    "default": "Full text where words can be marked",
+    "importance": "low",
+    "common": true
   }
 ]
