@@ -17,7 +17,9 @@
       "ol",
       "h2",
       "h3",
-      "hr"
+      "hr",
+      "pre",
+      "code"
     ]
   },
   {
@@ -30,7 +32,8 @@
       "p",
       "br",
       "strong",
-      "em"
+      "em",
+      "code"
     ],
     "placeholder": "This is an answer: *answer*.",
     "description": "",
