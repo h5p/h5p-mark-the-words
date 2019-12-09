@@ -1,40 +1,40 @@
 {
   "semantics": [
     {
-      "label": "Task description",
-      "description": "Describe how the user should solve the task.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "label": "Описание задачи",
+      "description": "Опишите, как пользователь должен решить задачу.",
+      "placeholder": "Нажмите на все глаголы в следующем тексте."
     },
     {
-      "label": "Textfield",
-      "placeholder": "This is an answer: *answer*.",
+      "label": "Область ввода",
+      "placeholder": "Ответом является: *ответ*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "description": "<ul><li>Выделенные слова необходимо обозначить звёздочкой (*).</li><li>Звёздочка должна быть добавлена с двух сторон, *правильноеслово*** => правильноеслово*.</li></ul>",
+        "example": "Правильные слова определены таким образом: *правильноеслово*, звёздочка обозначена так: *правильноеслово***."
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "Общая обратная связь",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Default"
+              "label": "По умолчанию"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "Установить обратную связь для любого диапазона баллов",
+          "description": "Нажмите кнопку \"Добавить диапазон\" для добавления необходимого количества диапазонов. Пример: 0-20% Низкий результат, 21-91% Средний результат, 91-100% Отличный результат!",
+          "entity": "диапазон",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "Диапазон баллов"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Обратная связь для определённого диапазона баллов",
+                "placeholder": "Заполните обратную связь"
               }
             ]
           }
@@ -42,67 +42,67 @@
       ]
     },
     {
-      "label": "Text for \"Check\" button",
-      "default": "Check"
+      "label": "Текст для кнопки \"Проверить\" ",
+      "default": "Проверить"
     },
     {
-      "label": "Text for \"Retry\" button",
-      "default": "Retry"
+      "label": "Текст для кнопки \"Повторить\" ",
+      "default": "Повторить"
     },
     {
-      "label": "Text for \"Show solution\" button",
-      "default": "Show solution"
+      "label": "Текст для кнопки \"Показать решение\" ",
+      "default": "Показать решение"
     },
     {
-      "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Настройки обратной связи.",
+      "description": "Эти настройки помогут вам управлять поведением задания.",
       "fields": [
         {
-          "label": "Enable \"Retry\""
+          "label": "Включить \"Повторить\""
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "Включить кнопку \"Показать решение\" "
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "Включить кнопку \"Проверить\" "
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "Показать результат",
+          "description": "Показать баллы за ответы."
         }
       ]
     },
     {
-      "label": "Correct answer text",
-      "default": "Correct!",
-      "description": "Text used to indicate that an answer is correct"
+      "label": "Текст правильного ответа",
+      "default": "Верно!",
+      "description": "Текст, определяющий, что ответ правильный"
     },
     {
-      "label": "Incorrect answer text",
-      "default": "Incorrect!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "Текст для неправильного ответа",
+      "default": "Неверно!",
+      "description": "Текст, определяющий, что ответ неправильный"
     },
     {
-      "label": "Missed answer text",
-      "default": "Missed!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "Текст для отсутствующего ответа",
+      "default": "Отсутствует!",
+      "description": "Текст, определяющий, что ответ отсутствует"
     },
     {
-      "label": "Description for Display Solution",
-      "default": "Task is updated to contain the solution.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "Описание для представления решения",
+      "default": "Задача обновлена на содержание решения.",
+      "description": "Текст, объясняющий пользователю, что задача обновлена с решением."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "Текстовое представление результатов для использующих ассистирующие технологии",
+      "default": "У тебя :num из :total баллов"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Ярлык для полного читаемого текста для ассистирующих технологии",
+      "default": "Полный читаемый текст"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Ярлык текста для выделенных слов для ассистирующих технологии",
+      "default": "Полный текст для выделенных слов"
     }
   ]
 }
