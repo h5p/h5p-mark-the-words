@@ -97,12 +97,12 @@
       "default": ":total puntutik :num puntu lortu dituzu"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Testu irakurgarri osorako etiketa laguntzarako teknologietan",
+      "default": "Testu irakurgarri osoa"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Markatu daitezkeen hitzentzako testurako etiketa laguntzarako teknologietan",
+      "default": "Hitzak markatu daitezkeen testu osoa"
     }
   ]
 }
