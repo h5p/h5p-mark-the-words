@@ -103,6 +103,14 @@
     {
       "label": "Label for the text where words can be marked for assistive technologies",
       "default": "Full text where words can be marked"
+    },
+    {
+      "label": "Solution mode header for assistive technologies",
+      "default": "Solution mode"
+    },
+    {
+      "label": "Checking mode header for assistive technologies",
+      "default": "Checking mode"
     }
   ]
 }

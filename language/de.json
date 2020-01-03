@@ -103,6 +103,14 @@
     {
       "label": "Hinweis auf den gesamten Text, wo Wörter markiert werden können für Vorlesewerkzeuge",
       "default": "Gesamter Text, wo Wörter markiert werden können"
+    },
+    {
+      "label": "Solution mode header for assistive technologies",
+      "default": "Solution mode"
+    },
+    {
+      "label": "Checking mode header for assistive technologies",
+      "default": "Checking mode"
     }
   ]
 }

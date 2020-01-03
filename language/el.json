@@ -103,6 +103,14 @@
     {
       "label": "Ετικέτα κειμένου με λέξεις που μπορούν να σημειωθούν για υποστηρικτικές τεχνολογίες",
       "default": "Πλήρες κείμενο με λέξεις που μπορούν να σημειωθούν"
+    },
+    {
+      "label": "Solution mode header for assistive technologies",
+      "default": "Solution mode"
+    },
+    {
+      "label": "Checking mode header for assistive technologies",
+      "default": "Checking mode"
     }
   ]
 }

@@ -103,6 +103,14 @@
     {
       "label": "Ярлык текста для выделенных слов для ассистирующих технологии",
       "default": "Полный текст для выделенных слов"
+    },
+    {
+      "label": "Solution mode header for assistive technologies",
+      "default": "Solution mode"
+    },
+    {
+      "label": "Checking mode header for assistive technologies",
+      "default": "Checking mode"
     }
   ]
 }

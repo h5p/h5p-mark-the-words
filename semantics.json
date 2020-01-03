@@ -188,7 +188,7 @@
     "importance": "low",
     "name": "missedAnswer",
     "type": "text",
-    "default": "Missed!",
+    "default": "Answer not found!",
     "description": "Text used to indicate that an answer is missing",
     "common": true
   },
@@ -222,6 +222,22 @@
     "type": "text",
     "label": "Label for the text where words can be marked for assistive technologies",
     "default": "Full text where words can be marked",
+    "importance": "low",
+    "common": true
+  },
+  {
+    "name": "a11ySolutionModeHeader",
+    "type": "text",
+    "label": "Solution mode header for assistive technologies",
+    "default": "Solution mode",
+    "importance": "low",
+    "common": true
+  },
+  {
+    "name": "a11yCheckingHeader",
+    "type": "text",
+    "label": "Checking mode header for assistive technologies",
+    "default": "Checking mode",
     "importance": "low",
     "common": true
   }
