@@ -290,15 +290,13 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             self.showButton('try-again');
           }
         }
+        // Set focus to start of text
+        self.$a11yClickableTextLabel.html(self.params.a11yCheckingHeader + ' - ' + self.params.a11yClickableTextLabel);
+        self.$a11yClickableTextLabel.focus();
+
         self.hideButton('check-answer');
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
         self.toggleSelectable(true);
-
-        // Set focus to start of text
-        self.$a11yClickableTextLabel.html(self.params.a11yCheckingHeader + ' - ' + self.params.a11yClickableTextLabel);
-        setTimeout(function () {
-          self.$a11yClickableTextLabel.focus();
-        }, 0);
       });
     }
 
@@ -306,6 +304,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
       self.setAllMarks();
+
+      self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
+      self.$a11yClickableTextLabel.focus();
 
       if (self.params.behaviour.enableRetry) {
         self.showButton('try-again');
@@ -315,10 +316,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
       self.read(self.params.displaySolutionDescription);
       self.toggleSelectable(true);
-      self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
-      setTimeout(function () {
-        self.$a11yClickableTextLabel.focus();
-      }, 0);
     }, false);
   };
 
