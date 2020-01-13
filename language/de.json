@@ -84,7 +84,7 @@
     },
     {
       "label": "Text für übergangene Antworten",
-      "default": "Vergessen!",
+      "default": "Nicht gefunden!",
       "description": "Mit diesem Text wird angezeigt, dass das Wort hätte ausgewählt werden sollen."
     },
     {
@@ -105,12 +105,12 @@
       "default": "Gesamter Text, wo Wörter markiert werden können"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Überschrift des Lösungsmodus (Barrierefreiheit)",
+      "default": "Lösungsmodus"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Überschrift des Antworten-Überprüfen-Modus (Barrierefreiheit)",
+      "default": "Antworten überprüfen-Modus"
     }
   ]
 }
