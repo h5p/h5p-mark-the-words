@@ -40,11 +40,13 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       showSolutionButton: "Show solution",
       correctAnswer: "Correct!",
       incorrectAnswer: "Incorrect!",
-      missedAnswer: "Missed!",
+      missedAnswer: "Answer not found!",
       displaySolutionDescription:  "Task is updated to contain the solution.",
       scoreBarLabel: 'You got :num out of :total points',
       a11yFullTextLabel: 'Full readable text',
       a11yClickableTextLabel: 'Full text where words can be marked',
+      a11ySolutionModeHeader: 'Solution mode',
+      a11yCheckingHeader: 'Checking mode',
     }, params);
 
     this.contentData = contentData;
@@ -254,9 +256,10 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }).appendTo($ariaTextWrapper);
 
     // A11y clickable list label
-    $('<div>', {
+    this.$a11yClickableTextLabel = $('<div>', {
       'class': 'hidden-but-read',
       html: self.params.a11yClickableTextLabel,
+      tabIndex: '-1',
     }).appendTo($container);
 
     $wordContainer.appendTo($container);
@@ -287,6 +290,10 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             self.showButton('try-again');
           }
         }
+        // Set focus to start of text
+        self.$a11yClickableTextLabel.html(self.params.a11yCheckingHeader + ' - ' + self.params.a11yClickableTextLabel);
+        self.$a11yClickableTextLabel.focus();
+
         self.hideButton('check-answer');
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
         self.toggleSelectable(true);
@@ -297,6 +304,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
       self.setAllMarks();
+
+      self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
+      self.$a11yClickableTextLabel.focus();
 
       if (self.params.behaviour.enableRetry) {
         self.showButton('try-again');
@@ -535,6 +545,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.hideButton('check-answer');
+    this.$a11yClickableTextLabel.html(this.params.a11ySolutionModeHeader + ' - ' + this.params.a11yClickableTextLabel);
 
     this.toggleSelectable(true);
     this.trigger('resize');
@@ -553,6 +564,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.showButton('check-answer');
+    this.$a11yClickableTextLabel.html(this.params.a11yClickableTextLabel);
+
     this.toggleSelectable(false);
     this.trigger('resize');
   };

@@ -14,7 +14,7 @@
     },
     {
       "label": "Aufgabenbeschreibung",
-      "description": "Beschreibung, wie die Lernenden die Aufgabe lösen sollten.",
+      "description": "Beschreibung, wie die Lernenden die Aufgabe lösen sollten. Wird über dem Medium angezeigt.",
       "placeholder": "Klicke auf alle Verben im folgenden Text."
     },
     {
@@ -27,12 +27,12 @@
       }
     },
     {
-      "label": "Allgemeine Rückmeldung",
+      "label": "Gesamtrückmeldung",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Voreinstellung"
+              "label": "Eingabemaske"
             }
           ],
           "label": "Lege Rückmeldungen für einzelne Punktebereiche fest",
@@ -96,7 +96,7 @@
     },
     {
       "label": "Text für übergangene Antworten",
-      "default": "Vergessen!",
+      "default": "Nicht gefunden!",
       "description": "Mit diesem Text wird angezeigt, dass das Wort hätte ausgewählt werden sollen."
     },
     {
@@ -106,7 +106,7 @@
     },
     {
       "label": "Anzeigetext für Vorlesewerkzeuge (Barrierefreiheit). :num wird durch die erreichten Punkte ersetzt. :total wird durch die maximal mögliche Punktzahl ersetzt.",
-      "default": "Du hast :num von :total Punkten."
+      "default": "Du hast :num von :total Punkten erreicht."
     },
     {
       "label": "Hinweis für den gesamten lesbaren Text für Vorlesewerkzeuge",
@@ -115,6 +115,14 @@
     {
       "label": "Hinweis auf den gesamten Text, wo Wörter markiert werden können für Vorlesewerkzeuge",
       "default": "Gesamter Text, wo Wörter markiert werden können"
+    },
+    {
+      "label": "Überschrift des Lösungsmodus (Barrierefreiheit)",
+      "default": "Lösungsmodus"
+    },
+    {
+      "label": "Überschrift des Antworten-Überprüfen-Modus (Barrierefreiheit)",
+      "default": "Antworten überprüfen-Modus"
     }
   ]
 }
