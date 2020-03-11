@@ -1,40 +1,40 @@
 {
   "semantics": [
     {
-      "label": "Task description",
-      "description": "Describe how the user should solve the task.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "label": "Popis úlohy",
+      "description": "Popište, jak by měl uživatel úlohu vyřešit.",
+      "placeholder": "Klikněte na všechna slovesa v následujícím textu."
     },
     {
-      "label": "Textfield",
-      "placeholder": "This is an answer: *answer*.",
+      "label": "Textové pole",
+      "placeholder": "To je odpověď: *odpověď*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "description": "<ul><li>Označená slova jsou přidána s hvězdičkou (*).</li><li>Hvězdičky lze přidat do označených slov přidáním další hvězdičky, *správnéslovo*** => správnéslovo*.</li></ul>",
+        "example": "Správná slova jsou takto označena: *správnéslovo*, takto je napsána hvězdička: *správnéslovo***."
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "Celková zpětná vazba",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Default"
+              "label": "Výchozí"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "Definujte vlastní zpětnou vazbu pro libovolný rozsah skóre",
+          "description": "Klikněte na tlačítko \"Přidat rozsah\"  pro přidání tolika rozsahů, kolik potřebujete. Například: 0-20% špatný výsledek, 21-91% průměrný výsledek, 91-100% výborný výsledek!",
+          "entity": "rozsah",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "Rozsah skóre"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Zpětná vazba pro definovaný rozsah skóre",
+                "placeholder": "Vyplňte ve zpětné vazbě"
               }
             ]
           }
@@ -42,75 +42,75 @@
       ]
     },
     {
-      "label": "Text for \"Check\" button",
-      "default": "Check"
+      "label": "Text tlačítka \"Zkontrolovat\" ",
+      "default": "Zkontrolovat"
     },
     {
-      "label": "Text for \"Retry\" button",
-      "default": "Retry"
+      "label": "Text tlačítka \"Opakovat\" ",
+      "default": "Opakovat"
     },
     {
-      "label": "Text for \"Show solution\" button",
-      "default": "Show solution"
+      "label": "Text tlačítka \"Zobrazit řešení\" ",
+      "default": "Zobrazit řešení"
     },
     {
-      "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "label": "	Nastavení chování.",
+      "description": "	Tyto možnosti vám umožní řídit, jak se bude úloha chovat.",
       "fields": [
         {
-          "label": "Enable \"Retry\""
+          "label": "Povolit tlačítko  \"Opakovat\""
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "Povolit tlačítko  \"Zobrazit řešení\" "
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "Povolit tlačítko  \"Zkontrolovat\" "
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "Zobrazit body",
+          "description": "Zobrazit body získané za každou odpověď."
         }
       ]
     },
     {
-      "label": "Correct answer text",
-      "default": "Correct!",
-      "description": "Text used to indicate that an answer is correct"
+      "label": "Text správné odpovědi",
+      "default": "Správně!",
+      "description": "Text používaný k označení správnosti odpovědi"
     },
     {
-      "label": "Incorrect answer text",
-      "default": "Incorrect!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "Text nesprávné odpovědi",
+      "default": "Nesprávně!",
+      "description": "Text používaný k označení nesprávnosti odpovědi"
     },
     {
-      "label": "Missed answer text",
-      "default": "Answer not found!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "Chybějící text odpovědi",
+      "default": "Odpověď nebyla nalezena!",
+      "description": "Text používaný k označení, že chybí odpověď"
     },
     {
-      "label": "Description for Display Solution",
-      "default": "Task is updated to contain the solution.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "Popis pro zobrazení řešení",
+      "default": "Úloha je aktualizována tak, aby obsahovala řešení.",
+      "description": "Tento text říká uživateli, že úkoly byly řešením aktualizovány."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "Textové znázornění výsledkové lišty pro ty, kteří používají čtecí zařízení",
+      "default": "Získal jste :num z :total bodů"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Popisek pro plně čitelný text pro pomocné technologie",
+      "default": "Plně čitelný text"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Popisek pro text, kde lze označit slova pro pomocné technologie",
+      "default": "Celý text, kde slova lze označit"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Záhlaví režimu řešení pro pomocné technologie",
+      "default": "Režim řešení"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Záhlaví kontrolního režimu pro pomocné technologie",
+      "default": "Kontrolní režim"
     }
   ]
 }
