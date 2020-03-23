@@ -117,12 +117,12 @@
       "default": "Πλήρες κείμενο με λέξεις που μπορούν να σημειωθούν"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Ετικέτα \"κατάστασης λύσης\" για υποστηρικτικές τεχνολογίες",
+      "default": "Κατάσταση λύσης"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Ετικέτα \"κατάστασης ελέγχου\" για υποστηρικτικές τεχνολογίες",
+      "default": "Κατάσταση ελέγχου"
     }
   ]
 }
