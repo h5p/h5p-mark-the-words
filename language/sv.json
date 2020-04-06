@@ -97,15 +97,15 @@
       "default": "Du fick :num av :total poäng"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Etikett för den fullständiga läsbara texten för tillgänglighetshjälpmedel",
+      "default": "Fullständigt läsbar text"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Etikett för texten där ord kan markeras, för tillgänglighetshjälpmedel",
+      "default": "Fullständig text där ord kan markeras"
     },
     {
-      "label": "Solution mode header for assistive technologies",
+      "label": "Rubrik för lösningsläge, för tillgänglighetshjälpmedel",
       "default": "Lösningsläge"
     },
     {
