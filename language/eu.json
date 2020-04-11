@@ -105,12 +105,12 @@
       "default": "Hitzak markatu daitezkeen testu osoa"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Ebazpen-modurako goiburua laguntzarako teknologietan",
+      "default": "Ebazpen-modua"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Egiaztapen-modurako goiburua laguntzarako teknologietan",
+      "default": "Egiaztapen-modua"
     }
   ]
 }
