@@ -54,8 +54,8 @@
       "default": "Zobrazit řešení"
     },
     {
-      "label": "	Nastavení chování.",
-      "description": "	Tyto možnosti vám umožní řídit, jak se bude úloha chovat.",
+      "label": "Nastavení chování.",
+      "description": "Tyto možnosti vám umožní řídit, jak se bude úloha chovat.",
       "fields": [
         {
           "label": "Povolit tlačítko  \"Opakovat\""
