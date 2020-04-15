@@ -7,10 +7,10 @@
     },
     {
       "label": "Campo de texto",
-      "placeholder": "Esta es una respuesta: *responder*.",
+      "placeholder": "Esta es una respuesta: *respuesta*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Un asterisco se puede evitar con otro asterisco, lo que resulta en ** = *.</li></ul>",
+        "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Los asteriscos úeden añadirse dentro de las palabras marcadas al añadir otro asterisco, lo que resulta en *palabracorreecta*** =>palabracorrecta*.</li></ul>",
         "example": "Las palabras correctas están marcadas así: *palabracorrecta*, un asterisco está escrito así: *palabracorrecta***."
       }
     },
@@ -58,7 +58,7 @@
       "description": "Estas opciones te permitirán controlar cómo se comporta la tarea.",
       "fields": [
         {
-          "label": "Habilitar \"Rever\""
+          "label": "Habilitar \"Reintentar\""
         },
         {
           "label": "Habilitar el botón \"Mostrar Solución\""
