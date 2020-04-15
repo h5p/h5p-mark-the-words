@@ -7,7 +7,7 @@
     },
     {
       "label": "Campo de texto",
-      "placeholder": "Esta es una respuesta: *responder*.",
+      "placeholder": "Esta es una respuesta: *respuesta*.",
       "description": "",
       "important": {
         "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Un asterisco se puede evitar con otro asterisco, lo que resulta en ** = *.</li></ul>",
@@ -24,7 +24,7 @@
             }
           ],
           "label": "Definir comentarios personalizados para cualquier rango de puntuación",
-          "description": "Haga clic en el \"Adherir rango\" para agregar tantos rangos como necesites. Ejemplo: 0-20% puntaje malo, 21-91% puntaje promedio, 91-100% puntaje excelente!",
+          "description": "Haga clic en el \"Añadir rango\" para agregar tantos rangos como necesites. Ejemplo: 0-20% puntaje malo, 21-91% puntaje promedio, 91-100% puntaje excelente!",
           "entity": "rango",
           "field": {
             "fields": [
