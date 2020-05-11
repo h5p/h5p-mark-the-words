@@ -7,10 +7,10 @@
     },
     {
       "label": "Campo de texto",
-      "placeholder": "Esta es una respuesta: *responder*.",
+      "placeholder": "Esta es una respuesta: *respuesta*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Un asterisco se puede evitar con otro asterisco, lo que resulta en ** = *.</li></ul>",
+        "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Los asteriscos úeden añadirse dentro de las palabras marcadas al añadir otro asterisco, lo que resulta en *palabracorreecta*** =>palabracorrecta*.</li></ul>",
         "example": "Las palabras correctas están marcadas así: *palabracorrecta*, un asterisco está escrito así: *palabracorrecta***."
       }
     },
@@ -24,7 +24,7 @@
             }
           ],
           "label": "Definir comentarios personalizados para cualquier rango de puntuación",
-          "description": "Haga clic en el \"Adherir rango\" para agregar tantos rangos como necesites. Ejemplo: 0-20% puntaje malo, 21-91% puntaje promedio, 91-100% puntaje excelente!",
+          "description": "Haga clic en el \"Añadir rango\" para agregar tantos rangos como necesite. Ejemplo: 0-20% puntaje malo, 21-91% puntaje promedio, 91-100% puntaje excelente!",
           "entity": "rango",
           "field": {
             "fields": [
@@ -33,7 +33,7 @@
               },
               {},
               {
-                "label": "Comentarios para el rango de puntuación definido",
+                "label": "Retroalimentación para el rango de puntuación definido",
                 "placeholder": "Complete los comentarios"
               }
             ]
@@ -58,7 +58,7 @@
       "description": "Estas opciones te permitirán controlar cómo se comporta la tarea.",
       "fields": [
         {
-          "label": "Habilitar \"Rever\""
+          "label": "Habilitar \"Reintentar\""
         },
         {
           "label": "Habilitar el botón \"Mostrar Solución\""
@@ -74,17 +74,17 @@
     },
     {
       "label": "Corregir el texto de respuesta",
-      "default": "Correcto!",
+      "default": "¡Correcto!",
       "description": "Texto utilizado para indicar que una respuesta es correcta"
     },
     {
       "label": "Texto de respuesta incorrecta",
-      "default": "Incorrecto!",
+      "default": "¡Incorrecto!",
       "description": "Texto utilizado para indicar que una respuesta es incorrecta"
     },
     {
       "label": "Texto de respuesta faltante",
-      "default": "Falta!",
+      "default": "¡Falta!",
       "description": "Texto utilizado para indicar que falta una respuesta"
     },
     {
@@ -97,20 +97,20 @@
       "default": "Tienes :num :puntos"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Etiqueta para el texto completo legible para tecnologías asistidas",
+      "default": "Texto completo legible"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Etiqueta para el texto donde las palabras pueden ser marcadas para tecnologías asitivas",
+      "default": "Texto completo donde las palabras pueden ser marcadas"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Encabezado de modo solución para tecnologías asistivas",
+      "default": "Modo Solución"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Encabezado de modo revisión para tecnologías asistivas",
+      "default": "Modo Revisión"
     }
   ]
 }
