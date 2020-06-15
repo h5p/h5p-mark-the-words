@@ -84,7 +84,7 @@
     },
     {
       "label": "Mangler svar tekst",
-      "default": "Mangler!",
+      "default": "Manglar!",
       "description": "Text used to indicate that an answer is missing"
     },
     {
@@ -94,23 +94,23 @@
     },
     {
       "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "default": "Du fekk :num av :total poeng"
     },
     {
       "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "default": "Fullstendig lesbar tekst"
     },
     {
       "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "default": "Fullstendig tekst der ord kan bli markerte"
     },
     {
       "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "default": "Løysingsmodus"
     },
     {
       "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "default": "Sjekk-modus"
     }
   ]
 }
