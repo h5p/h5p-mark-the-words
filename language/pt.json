@@ -23,7 +23,7 @@
               "label": "Predefinição"
             }
           ],
-          "label": "Defina feedback personalizado para qualquer intervalo de pontuação"
+          "label": "Defina feedback personalizado para qualquer intervalo de pontuação",
           "description": "Clique no botão \"Adicionar intervalo\" para adicionar o número de intervalos de pontuação pretendidos. Exemplo: 0-20% - Mau, 21-91% - Média, 91-100% - Excelente!",
           "entity": "range",
           "field": {
