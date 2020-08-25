@@ -111,6 +111,18 @@
     {
       "label": "Rubrik för kontrolläge for assistive technologies",
       "default": "Kontrolläge"
+    },
+    {
+      "label": "Assistive technology description for \"Check\" button",
+      "default": "Check"
+    },
+    {
+      "label": "Assistive technology description for \"Show Solution\" button",
+      "default": "Show Solution"
+    },
+    {
+      "label": "Assistive technology description for \"Retry\" button",
+      "default": "Retry"
     }
   ]
 }

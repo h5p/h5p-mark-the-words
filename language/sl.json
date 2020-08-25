@@ -111,6 +111,18 @@
     {
       "label": "Naslov za način prikaza rešitev za bralnike zaslona",
       "default": "Način prikaza rešitev"
+    },
+    {
+      "label": "Assistive technology description for \"Check\" button",
+      "default": "Check"
+    },
+    {
+      "label": "Assistive technology description for \"Show Solution\" button",
+      "default": "Show Solution"
+    },
+    {
+      "label": "Assistive technology description for \"Retry\" button",
+      "default": "Retry"
     }
   ]
 }
