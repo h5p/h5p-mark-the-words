@@ -123,6 +123,18 @@
     {
       "label": "Intestazione della modalità di verifica per tecnologie assistive",
       "default": "Modalità di verifica"
+    },
+    {
+      "label": "Assistive technology description for \"Check\" button",
+      "default": "Check"
+    },
+    {
+      "label": "Assistive technology description for \"Show Solution\" button",
+      "default": "Show Solution"
+    },
+    {
+      "label": "Assistive technology description for \"Retry\" button",
+      "default": "Retry"
     }
   ]
 }

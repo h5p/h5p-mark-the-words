@@ -1,25 +1,13 @@
 {
   "semantics": [
     {
-      "label": "Multimedia",
-      "fields": [
-        {
-          "label": "Type",
-          "description": "Eit valfritt multimediaelement som skal visast over spørsmålet."
-        },
-        {
-          "label": "Disable image zooming"
-        }
-      ]
-    },
-    {
-      "label": "Oppgave beskriving",
-      "description": "Forklar hvordan brukeren skal løyse oppgåva.",
+      "label": "Task description",
+      "description": "Describe how the user should solve the task.",
       "placeholder": "Click on all the verbs in the text that follows."
     },
     {
-      "label": "Tekstliner",
-      "placeholder": "Oslo er hovudstaden i *Noreg*",
+      "label": "Textfield",
+      "placeholder": "This is an answer: *answer*.",
       "description": "",
       "important": {
         "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li></ul>",
@@ -27,12 +15,12 @@
       }
     },
     {
-      "label": "Bakgrunnsopasitet på flyttbare elementer",
+      "label": "Overall Feedback",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Standard"
+              "label": "Default"
             }
           ],
           "label": "Define custom feedback for any score range",
@@ -54,26 +42,26 @@
       ]
     },
     {
-      "label": "Tekst for \"Sjekk\"-knapp",
-      "default": "Sjekk"
+      "label": "Text for \"Check\" button",
+      "default": "ពិនិត្យចម្លើយ"
     },
     {
-      "label": "Tekst for \"Prøv igjen\"-knapp",
-      "default": "Prøv igjen"
+      "label": "Text for \"Retry\" button",
+      "default": "សាកម្តងទៀត"
     },
     {
-      "label": "Tekst for \"Fasit\" knapp",
-      "default": "Fasit"
+      "label": "Text for \"Show solution\" button",
+      "default": "បង្ហាញចម្លើយត្រឹមត្រូវ"
     },
     {
-      "label": "Innstillinger for oppgave-åtferd",
-      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "label": "Behavioural settings.",
+      "description": "These options will let you control how the task behaves.",
       "fields": [
         {
-          "label": "Aktiver \"Prøv igjen\"-knapp"
+          "label": "Enable \"Retry\""
         },
         {
-          "label": "Aktiver \"Fasit\" knapp"
+          "label": "Enable \"Show solution\" button"
         },
         {
           "label": "Enable \"Check\" button"
@@ -85,44 +73,44 @@
       ]
     },
     {
-      "label": "Riktig svar tekst",
-      "default": "Riktig!",
+      "label": "Correct answer text",
+      "default": "ត្រឹមត្រូវ!",
       "description": "Text used to indicate that an answer is correct"
     },
     {
-      "label": "Feil svar tekst",
-      "default": "Feil!",
+      "label": "Incorrect answer text",
+      "default": "មិនត្រឹមត្រូវ!",
       "description": "Text used to indicate that an answer is incorrect"
     },
     {
-      "label": "Mangler svar tekst",
-      "default": "Manglar!",
+      "label": "Missed answer text",
+      "default": "មិនឃើញចម្លើយ!",
       "description": "Text used to indicate that an answer is missing"
     },
     {
-      "label": "Beskrivelse for Vis Løsning",
-      "default": "Oppgåva er oppdatert til å innehalde fasiten.",
+      "label": "Description for Display Solution",
+      "default": "កិច្ចត្រូវបានធ្វើបច្ចុប្បន្នភាពដើម្បីឱ្យមានដំណោះស្រាយ។",
       "description": "This text tells the user that the tasks has been updated with the solution."
     },
     {
       "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "Du fekk :num av :total poeng"
+      "default": "អ្នកទទួលបានពិន្ទុ :num លើ :total"
     },
     {
       "label": "Label for the full readable text for assistive technologies",
-      "default": "Fullstendig lesbar tekst"
+      "default": "អត្ថបទទាំងមូល"
     },
     {
       "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Fullstendig tekst der ord kan bli markerte"
+      "default": "អត្ថបទទាំងមូលដែលមានពាក្យអាចដាក់សម្គាល់បាន"
     },
     {
       "label": "Solution mode header for assistive technologies",
-      "default": "Løysingsmodus"
+      "default": "ម៉ូត «ចម្លើយត្រឹមត្រូវ»"
     },
     {
       "label": "Checking mode header for assistive technologies",
-      "default": "Sjekk-modus"
+      "default": "ម៉ូត «ពិនិត្យចម្លើយ»"
     },
     {
       "label": "Assistive technology description for \"Check\" button",

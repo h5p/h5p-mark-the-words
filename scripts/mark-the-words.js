@@ -47,6 +47,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       a11yClickableTextLabel: 'Full text where words can be marked',
       a11ySolutionModeHeader: 'Solution mode',
       a11yCheckingHeader: 'Checking mode',
+      a11yCheck: 'Check',
+      a11yShowSolution: 'Show Solution',
+      a11yRetry: 'Retry',
     }, params);
 
     this.contentData = contentData;
@@ -297,10 +300,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         self.hideButton('check-answer');
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
         self.toggleSelectable(true);
+      }, true, {
+        'aria-label': this.params.a11yCheck,
       });
     }
 
-    this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false);
+    this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false, {
+      'aria-label': this.params.a11yRetry,
+    });
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
       self.setAllMarks();
@@ -316,7 +323,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
       self.read(self.params.displaySolutionDescription);
       self.toggleSelectable(true);
-    }, false);
+    }, false, {
+      'aria-label': this.params.a11yShowSolution,
+    });
   };
 
   /**
