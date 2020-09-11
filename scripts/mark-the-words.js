@@ -660,3 +660,66 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
   return MarkTheWords;
 }(H5P.jQuery, H5P.Question, H5P.MarkTheWords.Word, H5P.KeyboardNav, H5P.MarkTheWords.XapiGenerator));
+
+/**
+ * Static utility method for parsing H5P.MarkTheWords content item questions
+ * into format useful for generating reports.
+ * 
+ * Example input: "<p lang=\"en\">I like *pizza* and *burgers*.</p>"
+ * 
+ * Produces the following:
+ * [
+ *   {
+ *     type: 'text',
+ *     content: 'I like '
+ *   },
+ *   {
+ *     type: 'answer',
+ *     correct: 'pizza',
+ *   },
+ *   {
+ *     type: 'text',
+ *     content: ' and ',
+ *   },
+ *   {
+ *     type: 'answer',
+ *     correct: 'burgers'
+ *   },
+ *   {
+ *     type: 'text',
+ *     content: '.'
+ *   }
+ * ]
+ * 
+ * @param {string} question MarkTheWords textField (html)
+ */
+H5P.MarkTheWords.parseText = function (question) {
+
+  // Create a DOM element in memory for converting HTML to plain text
+  var tempDiv = document.createElement('div');
+  tempDiv.innerHTML = question;
+  var plainTextQuestion = tempDiv.textContent;
+
+  // Split the plain text into parts by separating out all 'words' that begin
+  // and end with an asterisk. Take special note that in H5P.MarkTheWords, a
+  // correct word is allowed to contain the asterisk character itself.
+  // I.e. an author that wrote *correctword*** in the editor expects to see
+  // correctword* when the task is viewed.
+  var parts = plainTextQuestion.split(/(\*[^\*\s]+\*+)/).filter(str => str.length > 0);
+
+  function startsAndEndsWithAnAsterisk(str) {
+    return str.substr(0,1) === '*' && str.substr(-1) === '*';
+  }
+
+  return parts.map(function (part) {
+    return startsAndEndsWithAnAsterisk(part) ?
+      ({
+        type: 'answer',
+        correct: part.slice(1, -1).replace('**', '*')
+      }) :
+      ({
+        type: 'text',
+        content: part
+      })
+  });
+};
