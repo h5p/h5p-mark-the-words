@@ -695,31 +695,87 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
  */
 H5P.MarkTheWords.parseText = function (question) {
 
-  // Create a DOM element in memory for converting HTML to plain text
-  var tempDiv = document.createElement('div');
-  tempDiv.innerHTML = question;
-  var plainTextQuestion = tempDiv.textContent;
+  /**
+   * Separate all words surrounded by a space and an asterisk and any other
+   * sequence of non-whitespace characters from str into an array.
+   * 
+   * @param {string} str 
+   * @returns {string[]} array of all words in the given string
+   */
+  const getWords = str => str.match(/ \*[^\*]+\* |[^\s]+/g);
 
-  // Split the plain text into parts by separating out all 'words' that begin
-  // and end with an asterisk. Take special note that in H5P.MarkTheWords, a
-  // correct word is allowed to contain the asterisk character itself.
-  // I.e. an author that wrote *correctword*** in the editor expects to see
-  // correctword* when the task is viewed.
-  var parts = plainTextQuestion.split(/(\*[^\*\s]+\*+)/).filter(str => str.length > 0);
+  /**
+   * Replace each HTML tag in str with the provided value and return the resulting string
+   * 
+   * Regexp expression explained:
+   *   <     - first character is '<'
+   *   [^>]* - followed by zero or more occurences of any character except '>'
+   *   >     - last character is '>'
+   **/ 
+  const replaceHtmlTags = (str, value) => str.replace(/<[^>]*>/g, value);
 
-  function startsAndEndsWithAnAsterisk(str) {
-    return str.substr(0,1) === '*' && str.substr(-1) === '*';
-  }
+  const startsAndEndsWith = (char, str) => {
+    return str.startsWith(char) && str.endsWith(char);
+  };
 
-  return parts.map(function (part) {
-    return startsAndEndsWithAnAsterisk(part) ?
-      ({
-        type: 'answer',
-        correct: part.slice(1, -1).replace('**', '*')
-      }) :
-      ({
-        type: 'text',
-        content: part
-      })
-  });
+  const removeLeadingPunctuation = str => {
+    return str.replace(/^[\[\({⟨¿¡“"«„]+/, '');
+  };
+
+  const removeTrailingPunctuation = str => {
+    return str.replace(/[",….:;?!\]\)}⟩»”]+$/, '');
+  };
+
+  /**
+   * Escape double asterisks ** = *, and remove single asterisk.
+   * @param {string} str 
+   */
+  const handleAsterisks = str => {
+    var asteriskIndex = str.indexOf('*');
+
+    while (asteriskIndex !== -1) {
+      str = str.slice(0, asteriskIndex) + str.slice(asteriskIndex + 1, str.length);
+      asteriskIndex = str.indexOf('*', asteriskIndex + 1);
+    }
+    return str;
+  };
+
+  /**
+   * Decode HTML entities (e.g. &nbsp;) from the given string using the DOM API
+   * @param {string} str 
+   */
+  const decodeHtmlEntities = (str) => {
+    const el = document.createElement('textarea');
+    el.innerHTML = str;
+    return el.value;
+  };
+
+  const wordsWithAsterisksNotRemovedYet = getWords(replaceHtmlTags(decodeHtmlEntities(question), ' '))
+    .map(w => w.trim())
+    .map(w => removeLeadingPunctuation(w))
+    .map(w => removeTrailingPunctuation(w));
+  
+  const allSelectableWords = wordsWithAsterisksNotRemovedYet
+    .map(w => handleAsterisks(w));
+
+  const correctWords = wordsWithAsterisksNotRemovedYet
+    .filter(w => startsAndEndsWith('*', w))
+    .map(w => handleAsterisks(w));
+  
+  const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), '')
+    .replace('\xa0', '\x20');
+
+  return {
+    alternatives: allSelectableWords,
+    correctWords,
+    correctWordIndexes: correctWords
+      .map(w => allSelectableWords.indexOf(w)),
+    textWithPlaceholders: printableQuestion.match(/[^\s]+/g)
+      .reduce((textWithPlaceholders, word, index) => {
+        word = removeTrailingPunctuation(
+          removeLeadingPunctuation(word));
+        
+        return textWithPlaceholders.replace(word, `%${index}`);
+      }, printableQuestion)
+  };
 };
