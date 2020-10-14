@@ -702,7 +702,9 @@ H5P.MarkTheWords.parseText = function (question) {
    * @param {string} str 
    * @returns {string[]} array of all words in the given string
    */
-  const getWords = str => str.match(/ \*[^\*]+\* |[^\s]+/g);
+  function getWords(str) { 
+    return str.match(/ \*[^\*]+\* |[^\s]+/g);
+  }
 
   /**
    * Replace each HTML tag in str with the provided value and return the resulting string
@@ -712,17 +714,19 @@ H5P.MarkTheWords.parseText = function (question) {
    *   [^>]* - followed by zero or more occurences of any character except '>'
    *   >     - last character is '>'
    **/ 
-  const replaceHtmlTags = (str, value) => str.replace(/<[^>]*>/g, value);
+  function replaceHtmlTags(str, value) {
+    return str.replace(/<[^>]*>/g, value);
+  }
 
-  const startsAndEndsWith = (char, str) => {
+  function startsAndEndsWith(char, str) {
     return str.startsWith(char) && str.endsWith(char);
   };
 
-  const removeLeadingPunctuation = str => {
+  function removeLeadingPunctuation(str) {
     return str.replace(/^[\[\({⟨¿¡“"«„]+/, '');
   };
 
-  const removeTrailingPunctuation = str => {
+  function removeTrailingPunctuation(str) {
     return str.replace(/[",….:;?!\]\)}⟩»”]+$/, '');
   };
 
@@ -730,7 +734,7 @@ H5P.MarkTheWords.parseText = function (question) {
    * Escape double asterisks ** = *, and remove single asterisk.
    * @param {string} str 
    */
-  const handleAsterisks = str => {
+  function handleAsterisks(str) {
     var asteriskIndex = str.indexOf('*');
 
     while (asteriskIndex !== -1) {
@@ -744,38 +748,38 @@ H5P.MarkTheWords.parseText = function (question) {
    * Decode HTML entities (e.g. &nbsp;) from the given string using the DOM API
    * @param {string} str 
    */
-  const decodeHtmlEntities = (str) => {
+  function decodeHtmlEntities(str) {
     const el = document.createElement('textarea');
     el.innerHTML = str;
     return el.value;
   };
 
   const wordsWithAsterisksNotRemovedYet = getWords(replaceHtmlTags(decodeHtmlEntities(question), ' '))
-    .map(w => w.trim())
-    .map(w => removeLeadingPunctuation(w))
-    .map(w => removeTrailingPunctuation(w));
+    .map(function(w) { return w.trim(); })
+    .map(function(w) { return removeLeadingPunctuation(w); })
+    .map(function(w) { return removeTrailingPunctuation(w); });
   
   const allSelectableWords = wordsWithAsterisksNotRemovedYet
-    .map(w => handleAsterisks(w));
+    .map(function(w) { return handleAsterisks(w); });
 
   const correctWords = wordsWithAsterisksNotRemovedYet
-    .filter(w => startsAndEndsWith('*', w))
-    .map(w => handleAsterisks(w));
+    .filter(function(w) { return startsAndEndsWith('*', w); })
+    .map(function(w) { return handleAsterisks(w); });
   
   const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), '')
     .replace('\xa0', '\x20');
 
   return {
     alternatives: allSelectableWords,
-    correctWords,
+    correctWords: correctWords,
     correctWordIndexes: correctWords
-      .map(w => allSelectableWords.indexOf(w)),
+      .map(function(w) { return allSelectableWords.indexOf(w); }),
     textWithPlaceholders: printableQuestion.match(/[^\s]+/g)
-      .reduce((textWithPlaceholders, word, index) => {
+      .reduce(function(textWithPlaceholders, word, index) {
         word = removeTrailingPunctuation(
           removeLeadingPunctuation(word));
         
-        return textWithPlaceholders.replace(word, `%${index}`);
+        return textWithPlaceholders.replace(word, '%' + index);
       }, printableQuestion)
   };
 };
