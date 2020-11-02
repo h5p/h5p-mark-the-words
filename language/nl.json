@@ -3,7 +3,7 @@
     {
       "label": "Beschrijving taak",
       "description": "Beschrijf hoe de gebruiker de taak moet uitvoeren.",
-      "placeholder": "Klik in de tekst op alle werkwoorden die volgen."
+      "placeholder": "Klik in de volgende tekst op alle werkwoorden."
     },
     {
       "label": "Tekstveld",
@@ -11,7 +11,7 @@
       "description": "",
       "important": {
         "description": "<ul><li>Gemarkeerde woorden worden voorzien van een asterix (*).</li><li>Een asterix mag worden ingesloten door een andere asterix, dit resulteert in ** = *.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "example": "De juiste woorden zijn als volgt gemarkeerd: *juistwoord*, een asterix wordt geschreven als : *juistwoord***."
       }
     },
     {
@@ -97,20 +97,32 @@
       "default": "Je hebt :num van de :total punten"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
+      "label": "Label voor de volledige, leesbare tekst voor ondersteunende technologieën",
       "default": "Full readable text"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Label voor de tekst waarin woorden kunnen worden gemarkeerd voor ondersteunende technologieën",
+      "default": "Volledige tekst waarin woorden kunnen worden gemarkeerd"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Koptekst voor oplossingsmodus voor ondersteunende technologieën",
+      "default": "Oplossingsmodus"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Koptekst voor controlemodus voor ondersteunende technologieën",
+      "default": "Controlemodus"
+    },
+    {
+      "label": "Assistive technology description for \"Check\" button",
+      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+    },
+    {
+      "label": "Assistive technology description for \"Show Solution\" button",
+      "default": "Show the solution. The task will be marked with its correct solution."
+    },
+    {
+      "label": "Assistive technology description for \"Retry\" button",
+      "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]
 }
