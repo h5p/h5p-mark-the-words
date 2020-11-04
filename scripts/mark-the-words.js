@@ -762,8 +762,16 @@ H5P.MarkTheWords.parseText = function (question) {
   const allSelectableWords = wordsWithAsterisksNotRemovedYet
     .map(function(w) { return handleAsterisks(w); });
 
+  const correctWordIndexes = [];
+
   const correctWords = wordsWithAsterisksNotRemovedYet
-    .filter(function(w) { return startsAndEndsWith('*', w); })
+    .filter(function(w, i) { 
+      if (startsAndEndsWith('*', w)) {
+        correctWordIndexes.push(i);
+        return true;
+      }
+      return false;
+    })
     .map(function(w) { return handleAsterisks(w); });
   
   const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), '')
@@ -772,8 +780,7 @@ H5P.MarkTheWords.parseText = function (question) {
   return {
     alternatives: allSelectableWords,
     correctWords: correctWords,
-    correctWordIndexes: correctWords
-      .map(function(w) { return allSelectableWords.indexOf(w); }),
+    correctWordIndexes: correctWordIndexes,
     textWithPlaceholders: printableQuestion.match(/[^\s]+/g)
       .reduce(function(textWithPlaceholders, word, index) {
         word = removeTrailingPunctuation(
