@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "媒體",
+      "fields": [
+        {
+          "label": "類型",
+          "description": "在問題上方顯示可選的媒體."
+        },
+        {
+          "label": "針對圖片停用圖片縮放"
+        }
+      ]
+    },
+    {
       "label": "任務說明",
       "description": "說明用戶任務中要做些什麼。",
       "placeholder": "在句子中找到動詞然後圈出來。"

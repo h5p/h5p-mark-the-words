@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Multimédia",
+      "fields": [
+        {
+          "label": "Tipo",
+          "description": "Multimédia opcional a ser exibida acima da pergunta."
+        },
+        {
+          "label": "Desativar o zoom da imagem"
+        }
+      ]
+    },
+    {
       "label": "Descrição da tarefa",
       "description": "Descreva como o utilizador deve resolver a tarefa.",
       "placeholder": "Clique em todos os verbos no texto apresentado a seguir."

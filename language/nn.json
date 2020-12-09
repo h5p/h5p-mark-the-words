@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Multimedia",
+      "fields": [
+        {
+          "label": "Type",
+          "description": "Eit valfritt multimediaelement som skal visast over spørsmålet."
+        },
+        {
+          "label": "Disable image zooming"
+        }
+      ]
+    },
+    {
       "label": "Oppgave beskriving",
       "description": "Forklar hvordan brukeren skal løyse oppgåva.",
       "placeholder": "Click on all the verbs in the text that follows."

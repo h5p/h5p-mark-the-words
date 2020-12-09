@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Média",
+      "fields": [
+        {
+          "label": "Type",
+          "description": "Média à afficher au-dessus de la question (facultatif)."
+        },
+        {
+          "label": "Désactiver le zoom sur image pour l'image de la question"
+        }
+      ]
+    },
+    {
       "label": "Consigne",
       "description": "Expliquez ce que doit faire l'utilisateur.",
       "placeholder": "Cliquer sur tous les verbes dans le texte ci-dessous."
