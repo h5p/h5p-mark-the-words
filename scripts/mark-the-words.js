@@ -47,9 +47,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       a11yClickableTextLabel: 'Full text where words can be marked',
       a11ySolutionModeHeader: 'Solution mode',
       a11yCheckingHeader: 'Checking mode',
-      a11yCheck: 'Check',
-      a11yShowSolution: 'Show Solution',
-      a11yRetry: 'Retry',
+      a11yCheck: 'Check the answers. The responses will be marked as correct, incorrect, or unanswered.',
+      a11yShowSolution: 'Show the solution. The task will be marked with its correct solution.',
+      a11yRetry: 'Retry the task. Reset all responses and start the task over again.',
     }, params);
 
     this.contentData = contentData;
@@ -93,7 +93,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       if (node instanceof Text) {
         var text = $(node).text();
         var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
-          .match(/ \*[^\*]+\* |[^\s]+/g);
+          .match(/ \*[^\* ]+\* |[^\s]+/g);
 
         if (selectableStrings) {
           selectableStrings.forEach(function (entry) {
@@ -681,3 +681,133 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
   return MarkTheWords;
 }(H5P.jQuery, H5P.Question, H5P.MarkTheWords.Word, H5P.KeyboardNav, H5P.MarkTheWords.XapiGenerator));
+
+/**
+ * Static utility method for parsing H5P.MarkTheWords content item questions
+ * into format useful for generating reports.
+ * 
+ * Example input: "<p lang=\"en\">I like *pizza* and *burgers*.</p>"
+ * 
+ * Produces the following:
+ * [
+ *   {
+ *     type: 'text',
+ *     content: 'I like '
+ *   },
+ *   {
+ *     type: 'answer',
+ *     correct: 'pizza',
+ *   },
+ *   {
+ *     type: 'text',
+ *     content: ' and ',
+ *   },
+ *   {
+ *     type: 'answer',
+ *     correct: 'burgers'
+ *   },
+ *   {
+ *     type: 'text',
+ *     content: '.'
+ *   }
+ * ]
+ * 
+ * @param {string} question MarkTheWords textField (html)
+ */
+H5P.MarkTheWords.parseText = function (question) {
+
+  /**
+   * Separate all words surrounded by a space and an asterisk and any other
+   * sequence of non-whitespace characters from str into an array.
+   * 
+   * @param {string} str 
+   * @returns {string[]} array of all words in the given string
+   */
+  function getWords(str) { 
+    return str.match(/ \*[^\*]+\* |[^\s]+/g);
+  }
+
+  /**
+   * Replace each HTML tag in str with the provided value and return the resulting string
+   * 
+   * Regexp expression explained:
+   *   <     - first character is '<'
+   *   [^>]* - followed by zero or more occurences of any character except '>'
+   *   >     - last character is '>'
+   **/ 
+  function replaceHtmlTags(str, value) {
+    return str.replace(/<[^>]*>/g, value);
+  }
+
+  function startsAndEndsWith(char, str) {
+    return str.startsWith(char) && str.endsWith(char);
+  };
+
+  function removeLeadingPunctuation(str) {
+    return str.replace(/^[\[\({⟨¿¡“"«„]+/, '');
+  };
+
+  function removeTrailingPunctuation(str) {
+    return str.replace(/[",….:;?!\]\)}⟩»”]+$/, '');
+  };
+
+  /**
+   * Escape double asterisks ** = *, and remove single asterisk.
+   * @param {string} str 
+   */
+  function handleAsterisks(str) {
+    var asteriskIndex = str.indexOf('*');
+
+    while (asteriskIndex !== -1) {
+      str = str.slice(0, asteriskIndex) + str.slice(asteriskIndex + 1, str.length);
+      asteriskIndex = str.indexOf('*', asteriskIndex + 1);
+    }
+    return str;
+  };
+
+  /**
+   * Decode HTML entities (e.g. &nbsp;) from the given string using the DOM API
+   * @param {string} str 
+   */
+  function decodeHtmlEntities(str) {
+    const el = document.createElement('textarea');
+    el.innerHTML = str;
+    return el.value;
+  };
+
+  const wordsWithAsterisksNotRemovedYet = getWords(replaceHtmlTags(decodeHtmlEntities(question), ' '))
+    .map(function(w) { return w.trim(); })
+    .map(function(w) { return removeLeadingPunctuation(w); })
+    .map(function(w) { return removeTrailingPunctuation(w); });
+  
+  const allSelectableWords = wordsWithAsterisksNotRemovedYet
+    .map(function(w) { return handleAsterisks(w); });
+
+  const correctWordIndexes = [];
+
+  const correctWords = wordsWithAsterisksNotRemovedYet
+    .filter(function(w, i) { 
+      if (startsAndEndsWith('*', w)) {
+        correctWordIndexes.push(i);
+        return true;
+      }
+      return false;
+    })
+    .map(function(w) { return handleAsterisks(w); });
+  
+  const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), '')
+    .replace('\xa0', '\x20');
+
+  return {
+    alternatives: allSelectableWords,
+    correctWords: correctWords,
+    correctWordIndexes: correctWordIndexes,
+    textWithPlaceholders: printableQuestion.match(/[^\s]+/g)
+      .reduce(function(textWithPlaceholders, word, index) {
+        word = removeTrailingPunctuation(
+          removeLeadingPunctuation(word));
+        
+        return textWithPlaceholders.replace(word, '%' + index);
+      }, printableQuestion)
+  };
+};

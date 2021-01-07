@@ -55,6 +55,10 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    */
   KeyboardNav.prototype.previousOption = function (index) {
     var isFirstElement = index === 0;
+    if (isFirstElement) {
+      return;
+    }
+
     this.focusOnElementAt(isFirstElement ? (this.elements.length - 1) : (index - 1));
 
     /**
@@ -77,6 +81,10 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    */
   KeyboardNav.prototype.nextOption = function (index) {
     var isLastElement = index === this.elements.length - 1;
+    if (isLastElement) {
+      return;
+    }
+
     this.focusOnElementAt(isLastElement ? 0 : (index + 1));
 
     /**

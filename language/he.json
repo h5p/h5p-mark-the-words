@@ -14,7 +14,7 @@
     },
     {
       "label": "תיאור משימה",
-      "description": "יש לתאר כיצד על המשתמש לפתור את המשימה",
+      "description": "תארו כיצד על המשתמש לפתור את המשימה.",
       "placeholder": "יש ללחוץ על כל הפעלים בקטע התוכן הבא."
     },
     {
@@ -27,7 +27,7 @@
       }
     },
     {
-      "label": "משוב כולל",
+      "label": "Overall Feedback",
       "fields": [
         {
           "widgets": [
@@ -35,18 +35,18 @@
               "label": "ברירת מחדל"
             }
           ],
-          "label": "יש להגדיר משוב מותאם אישית לכל טווח ניקוד",
-          "description": "יש להקיש על כפתור \"הוספת טווח\" כדי להוסיף טווחים רבים ככל הנדרש.לדוגמה: 0-20% ציון רע, 21-91% ציון ממוצע, 91-100% ציון נהדר! ",
+          "label": "הגדירו משוב מותאם אישית לכל טווח ציונים",
+          "description": "לחצו על כפתור \"הוסף טווח\" כדי להוסיף כמה טווחים לפי הצורך. דוגמה: 0-20% ציון רע, 21-91% ציון ממוצע, 91-100% ציון מעולה!",
           "entity": "טווח",
           "field": {
             "fields": [
               {
-                "label": "טווח נקודות"
+                "label": "טווח ציונים"
               },
               {},
               {
-                "label": "משוב עבור טווח ניקוד מוגדר",
-                "placeholder": "יש למלא את המשוב"
+                "label": "משוב לטווח ציונים מוגדר",
+                "placeholder": "מלאו את המשוב"
               }
             ]
           }
@@ -54,16 +54,16 @@
       ]
     },
     {
-      "label": "תיאור עבור כפתור \"סמן\"",
-      "default": "סמנו"
+      "label": "טקסט לכפתור \"בדוק\"",
+      "default": "בדוק"
     },
     {
-      "label": "תיאור עבור כפתור \"נסו שנית\"",
-      "default": "נסו שנית"
+      "label": "מלל לכפתור \"נסה שוב\"",
+      "default": "נסו שוב"
     },
     {
       "label": "תיאור עבור כפתור \"הציגו פתרון\"",
-      "default": "הציגו פתרון"
+      "default": "הצגת פתרון"
     },
     {
       "label": "הגדרות אופן פעולת הרכיב",
@@ -126,15 +126,15 @@
     },
     {
       "label": "Assistive technology description for \"Check\" button",
-      "default": "Check"
+      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
       "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show Solution"
+      "default": "Show the solution. The task will be marked with its correct solution."
     },
     {
       "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry"
+      "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]
 }

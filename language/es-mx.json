@@ -125,16 +125,16 @@
       "default": "Modo Revisión"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check"
+      "label": "Descripción de tecnología asistiva para botón \"Revisar\" ",
+      "default": "Revisar las respuestas. Las respuestas serán marcadas como correcta, incorrecta o sin contestar."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show Solution"
+      "label": "Descripción de tecnología asistiva para botón \"Mostrar solución\" ",
+      "default": "Mostrar la solución. El trabajo será marcado con su solución correcta."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry"
+      "label": "Descripción de tecnología asistiva para botón \"Reintentar\" ",
+      "default": "Reintentar el trabajo. Reiniciar todas las respuestas e iniciar el trabajo de nuevo."
     }
   ]
 }

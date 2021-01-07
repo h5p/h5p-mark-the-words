@@ -125,16 +125,16 @@
       "default": "Antworten überprüfen-Modus"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check"
+      "label": "Beschreibung des \"Überprüfen\"-Buttons (für Hilfsmittel zur Barrierefreiheit)",
+      "default": "Die Antworten überprüfen. Die Auswahlen werden als richtig, falsch oder fehlend markiert."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show Solution"
+      "label": "Beschreibung des \"Lösung anzeigen\"-Buttons (für Hilfsmittel zur Barrierefreiheit)",
+      "default": "Die Lösung anzeigen. Die richtigen Lösungen werden in der Aufgabe angezeigt."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry"
+      "label": "Beschreibung des \"Wiederholen\"-Buttons (für Hilfsmittel zur Barrierefreiheit)",
+      "default": "Die Aufgabe wiederholen. Alle Versuche werden zurückgesetzt und die Aufgabe wird erneut gestartet."
     }
   ]
 }
