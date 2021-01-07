@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Type",
+          "description": "Optional media to display above the question."
+        },
+        {
+          "label": "Disable image zooming"
+        }
+      ]
+    },
+    {
       "label": "과제 설명",
       "description": "사용자가 과제를 어떻게 해결해야 하는지 설명하세요.",
       "placeholder": "(예시)다음 글에서 모든 동사를 클릭하세요."

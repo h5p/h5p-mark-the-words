@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Tyyppi",
+          "description": "Valinnainen kuva tai video, joka näkyy kysymyksen yläpuolella."
+        },
+        {
+          "label": "Älä salli kuvan suurentamista"
+        }
+      ]
+    },
+    {
       "label": "Tehtävän kuvaus",
       "description": "Kuvaile, mitä käyttäjän pitää tehdä.",
       "placeholder": "Valitse klikkaamalla verbit seuraavasta tekstistä."

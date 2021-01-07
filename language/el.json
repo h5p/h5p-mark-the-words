@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Type",
+          "description": "Optional media to display above the question."
+        },
+        {
+          "label": "Disable image zooming"
+        }
+      ]
+    },
+    {
       "label": "Περιγραφή άσκησης",
       "description": "Περιγράψτε πώς θα λύσει ο χρήστης την άσκηση.",
       "placeholder": "Κάνε κλικ σε όλα τα ρήματα στο κείμενο που ακολουθεί."

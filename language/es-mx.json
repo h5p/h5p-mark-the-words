@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Type",
+          "description": "Optional media to display above the question."
+        },
+        {
+          "label": "Disable image zooming"
+        }
+      ]
+    },
+    {
       "label": "Descripción de la tarea",
       "description": "Describe cómo el usuario debería resolver la tarea.",
       "placeholder": "Haga clic en todos los verbos en el texto que sigue."

@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Multimedia",
+      "fields": [
+        {
+          "label": "Mota",
+          "description": "Galderaren gaineko aukerako multimedia."
+        },
+        {
+          "label": "Desgaitu irudiaren zooma"
+        }
+      ]
+    },
+    {
       "label": "Zereginaren deskribapena",
       "description": "Deskribatu zereginaren irtenbidea aurkitzeko modua.",
       "placeholder": "Klik egin ondoko testuaren aditz guztietan."
