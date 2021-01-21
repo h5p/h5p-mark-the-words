@@ -10,7 +10,7 @@
       "placeholder": "Voici une réponse exacte : *réponse*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Les mots corrects sont marqués avec un astérisque (*) avant et après le mot.</li><li>Les astérisques peuvent être ajoutés dans les mots marqués en ajoutant un autre astérisque, * mot correct *** => mot correct *.</li><li>Seuls les mots peuvent être marqués comme corrects. Pas les phrases.</li></ul>",
+        "description": "<ul><li>Les mots corrects sont marqués avec un astérisque (*) avant et après le mot.</li><li>Les astérisques peuvent être ajoutés dans les mots marqués en ajoutant un autre astérisque, * mot correct *** =&gt; mot correct *.</li><li>Seuls les mots peuvent être marqués comme corrects. Pas les phrases.</li></ul>",
         "example": "Les mots corrects sont marqués comme ceci: *motcorrect *, un astérisque est écrit comme ceci: *motcorrect***."
       }
     },

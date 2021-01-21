@@ -10,7 +10,7 @@
       "placeholder": "Det här är ett svar: *svar*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Markerade ord lägg till med asterisk (*).</li><li>Asterisker kan skrivas inne i markerade ord genom att man lägger till en extra asterisk, *rättord*** => rättord*.</li></ul>",
+        "description": "<ul><li>Markerade ord lägg till med asterisk (*).</li><li>Asterisker kan skrivas inne i markerade ord genom att man lägger till en extra asterisk, *rättord*** =&gt; rättord*.</li></ul>",
         "example": "De rätta orden markeras så här: *rättord*, en asterisk skrivs så här: *rättord***."
       }
     },

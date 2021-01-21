@@ -10,7 +10,7 @@
       "placeholder": "Ovo je odgovor: *answer*.",
       "description": "",
       "important": {
-        "description": "<ul><li> Označene riječi su dadate sa znakom (*).</li><li>Znakovi mogu biti dodati unutar označenih riječi dodavanjem novog znaka, *tačnariječ*** => tačnariječ*.</li></ul>",
+        "description": "<ul><li> Označene riječi su dadate sa znakom (*).</li><li>Znakovi mogu biti dodati unutar označenih riječi dodavanjem novog znaka, *tačnariječ*** =&gt; tačnariječ*.</li></ul>",
         "example": "Tačne riječi su označene ovako: *tačnariječ*, znak je napisan ovako: *tačnariječ***."
       }
     },
