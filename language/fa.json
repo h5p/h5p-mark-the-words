@@ -1,0 +1,128 @@
+{
+  "semantics": [
+    {
+      "label": "",
+      "description": "",
+      "placeholder": ""
+    },
+    {
+      "label": "",
+      "placeholder": "",
+      "description": "",
+      "important": {
+        "description": "",
+        "example": ""
+      }
+    },
+    {
+      "label": "",
+      "fields": [
+        {
+          "widgets": [
+            {
+              "label": ""
+            }
+          ],
+          "label": "",
+          "description": "",
+          "entity": "",
+          "field": {
+            "fields": [
+              {
+                "label": ""
+              },
+              {},
+              {
+                "label": "",
+                "placeholder": ""
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "description": "",
+      "fields": [
+        {
+          "label": ""
+        },
+        {
+          "label": ""
+        },
+        {
+          "label": ""
+        },
+        {
+          "label": "نمایش امتیازات نمره",
+          "description": "نمایش امتیازات کسب شده برای هر پاسخ."
+        }
+      ]
+    },
+    {
+      "label": "متن پاسخ صحیح",
+      "default": "صحیح!",
+      "description": "متن مورد استفاده برای نشان دادن اینکه یک پاسخ صحیح است"
+    },
+    {
+      "label": "متن پاسخ غلط",
+      "default": "غلط!",
+      "description": ""
+    },
+    {
+      "label": "",
+      "default": "",
+      "description": ""
+    },
+    {
+      "label": "",
+      "default": "",
+      "description": ""
+    },
+    {
+      "label": "",
+      "default": "شما از ‎:total امتیاز، ‎:num امتیاز دریافت کردید"
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    },
+    {
+      "label": "",
+      "default": ""
+    }
+  ]
+}
