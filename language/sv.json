@@ -122,7 +122,7 @@
     },
     {
       "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "default": "Försök uppgiften igen. Nollställer alla svar och startar om uppgiften."
     }
   ]
 }
