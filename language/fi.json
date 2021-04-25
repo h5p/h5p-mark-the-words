@@ -84,7 +84,7 @@
     },
     {
       "label": "Ohitetun vastauksen teksti",
-      "default": "Ohi!",
+      "default": "Vastauksia ei löytynyt!",
       "description": "Teksti ohitetulle/puuttuvalle vastaukselle"
     },
     {
@@ -97,7 +97,7 @@
       "default": "Sait :num pistettä :total pisteestä"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
+      "label": "Otsikko koko avustavan teknologian luettavalle tekstille",
       "default": "Koko luettava teksti"
     },
     {

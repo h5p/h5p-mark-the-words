@@ -2,7 +2,7 @@
   "semantics": [
     {
       "label": "Descripción del trabajo",
-      "description": "Describe como el usuario debería resolver el trabajo.",
+      "description": "Describe como el usuario debería resolver la tarea.",
       "placeholder": "Haga clic en todos los verbos en el texto que sigue."
     },
     {
@@ -24,7 +24,7 @@
             }
           ],
           "label": "Definir retroalimentación personalizada para cualquier rango de puntaje",
-          "description": "Hacer clic en el botón \"Añadir rango\" para añadir cuantos rangos necesite. Ejemplo: 0-20% Mal puntaje, 21-91% Puntaje Promedio, 91-100% ¡Magnífico Puntaje!",
+          "description": "Haga clic en el botón \"Añadir rango\" para añadir cuantos rangos necesite. Ejemplo: 0-20% Mal puntaje, 21-91% Puntaje Promedio, 91-100% ¡Magnífico Puntaje!",
           "entity": "rango",
           "field": {
             "fields": [

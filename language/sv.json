@@ -109,19 +109,19 @@
       "default": "Lösningsläge"
     },
     {
-      "label": "Rubrik för kontrolläge for assistive technologies",
-      "default": "Kontrolläge"
+      "label": "Rubrik för rättningsläge för tillgänglighetshjälpmedel",
+      "default": "Rättningsläge"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Beskrivning av knappen \"Rätta\" för tillgänglighetshjälpmedel",
+      "default": "Rätta svaren. Svaren kommer att markeras som korrekta, felaktiga eller obesvarade."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Beskrivning av knappen \"Visa lösning\" för tillgänglighetshjälpmedel",
+      "default": "Visa lösningen. Uppgiften kommer att markeras med dess rätta lösning."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
+      "label": "Beskrivning av knappen \"Försök igen\" för tillgänglighetshjälpmedel",
       "default": "Försök uppgiften igen. Nollställer alla svar och startar om uppgiften."
     }
   ]
