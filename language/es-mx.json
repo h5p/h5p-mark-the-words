@@ -24,7 +24,7 @@
             }
           ],
           "label": "Definir retroalimentación personalizada para cualquier rango de puntaje",
-          "description": "Haga clic en el botón de \"Añadir rango\" para añadir cuantos rangos necesite. Ejemplo: 0-20% Mal puntaje, 21-91% Puntaje promedio, 91-100% ¡Magnífico puntaje!",
+          "description": "Haga clic en el botón \"Añadir rango\" para añadir cuantos rangos necesite. Ejemplo: 0-20% Mal puntaje, 21-91% Puntaje Promedio, 91-100% ¡Magnífico Puntaje!",
           "entity": "rango",
           "field": {
             "fields": [
@@ -50,7 +50,7 @@
       "default": "Reintentar"
     },
     {
-      "label": "Texto para el botón \"Mostrar solución\"",
+      "label": "Texto para botón \"Mostrar solución\"",
       "default": "Mostrar solución"
     },
     {
@@ -89,15 +89,15 @@
     },
     {
       "label": "Descripción para Mostrar Solución",
-      "default": "El trabajo se ha actualizado para contener la solución.",
+      "default": "El trabajo es actualizado para contener la solución.",
       "description": "Este texto le dice al usuario que los trabajos han sido actualizados con la solución."
     },
     {
       "label": "Representación textual de la barra de puntaje para aquellos que usan un lector de texto en voz alta",
-      "default": "Obtuvo :num de un total de :total"
+      "default": "Obtuvo :num de un total de :total puntos"
     },
     {
-      "label": "Etiqueta para el texto completo legible para tecnologías asistivas",
+      "label": "Etiqueta para el texto completo legible para tecnologías asistidas",
       "default": "Texto completo legible"
     },
     {
@@ -109,12 +109,12 @@
       "default": "Modo Solución"
     },
     {
-      "label": "Encabezado de modo revisión para tecnologías asistivas",
+      "label": "Encabezado de modo comprobación para tecnologías asistivas",
       "default": "Modo de Comprobación"
     },
     {
       "label": "Descripción de tecnología asistiva para botón \"Comprobar\"",
-      "default": "Comprobar las respuestas. Las respuestas serán marcadas como correcta, incorrecta o sin contestar."
+      "default": "Revisar las respuestas. Las respuestas serán marcadas como correcta, incorrecta o sin contestar."
     },
     {
       "label": "Descripción de tecnología asistiva para botón \"Mostrar Solución\"",
