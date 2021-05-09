@@ -98,7 +98,7 @@
     },
     {
       "label": "Label voor de volledige, leesbare tekst voor ondersteunende technologieën",
-      "default": "Full readable text"
+      "default": "Volledig leesbare tekst"
     },
     {
       "label": "Label voor de tekst waarin woorden kunnen worden gemarkeerd voor ondersteunende technologieën",
@@ -113,16 +113,16 @@
       "default": "Controlemodus"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Ondersteunende technologie beschrijving voor \"Controleer\" knop",
+      "default": "Controleer de antwoorden. De antwoorden worden gemarkeerd als juist, onjuist, of ontbrekend."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Ondersteunende technologie beschrijving voor \"Toon oplossing\" knop",
+      "default": "Toon de oplossing. De taak zal worden gemarkeerd met de juiste oplossing."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "Ondersteunende technologie beschrijving voor \"Opnieuw\" knop",
+      "default": "De taak opnieuw proberen. Alle antwoorden resetten en de taak opnieuw starten."
     }
   ]
 }
