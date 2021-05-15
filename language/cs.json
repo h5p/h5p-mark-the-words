@@ -23,8 +23,8 @@
               "label": "Výchozí"
             }
           ],
-          "label": "Definujte vlastní zpětnou vazbu pro libovolný rozsah skóre",
-          "description": "Klikněte na tlačítko \"Přidat rozsah\"  pro přidání tolika rozsahů, kolik potřebujete. Například: 0-20% špatný výsledek, 21-91% průměrný výsledek, 91-100% výborný výsledek!",
+          "label": "Definujte vlastní zpětnou vazbu pro jakýkoli rozsah skóre",
+          "description": "Klepnutím na tlačítko \"Přidat rozsah\" přidejte libovolný počet rozsahů. Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
           "entity": "rozsah",
           "field": {
             "fields": [
@@ -34,7 +34,7 @@
               {},
               {
                 "label": "Zpětná vazba pro definovaný rozsah skóre",
-                "placeholder": "Vyplňte ve zpětné vazbě"
+                "placeholder": "Vyplňte zpětnou vazbu"
               }
             ]
           }
@@ -42,15 +42,15 @@
       ]
     },
     {
-      "label": "Text tlačítka \"Zkontrolovat\" ",
+      "label": "Popisek tlačítka \"Zkontrolovat\"",
       "default": "Zkontrolovat"
     },
     {
-      "label": "Text tlačítka \"Opakovat\" ",
+      "label": "Popisek tlačítka \"Opakovat\"",
       "default": "Opakovat"
     },
     {
-      "label": "Text tlačítka \"Zobrazit řešení\" ",
+      "label": "Text tlačítka \"Zobrazit řešení\"",
       "default": "Zobrazit řešení"
     },
     {
@@ -58,13 +58,13 @@
       "description": "Tyto možnosti vám umožní řídit, jak se bude úloha chovat.",
       "fields": [
         {
-          "label": "Povolit tlačítko  \"Opakovat\""
+          "label": "Povolit tlačítko \"Opakovat\""
         },
         {
-          "label": "Povolit tlačítko  \"Zobrazit řešení\" "
+          "label": "Povolit tlačítko \"Zobrazit řešení\""
         },
         {
-          "label": "Povolit tlačítko  \"Zkontrolovat\" "
+          "label": "Povolit tlačítko \"Zkontrolovat\""
         },
         {
           "label": "Zobrazit body",
@@ -94,7 +94,7 @@
     },
     {
       "label": "Textové znázornění výsledkové lišty pro ty, kteří používají čtecí zařízení",
-      "default": "Získal jste :num z :total bodů"
+      "default": "Získal jste :num ze :total bodů"
     },
     {
       "label": "Popisek pro plně čitelný text pro pomocné technologie",
