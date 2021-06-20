@@ -10,7 +10,7 @@
       "placeholder": "Das ist eine Antwort: *Antwort*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Die zu findenden Wörter werden mit einem Sternchen (*) markiert.</li><li>Soll in einem zu findenden Wort ein Sternchen verwendet werden, gibt man ** ein.</li></ul>",
+        "description": "<ul><li>Die zu findenden Wörter werden mit einem Sternchen (*) markiert.</li><li>Soll in einem zu findenden Wort ein Sternchen verwendet werden, gibt man ** ein.</li><li>Sollen zwei oder mehrere aufeinander folgende Wörter als Phrase genutzt werden, gibt man statt der trennenden Leerzeichen __ (2 Unterstriche) ein.</li></ul>",
         "example": "Richtige Wörter werden wie folgt markiert: *richtigeswort*. Ein Sternchen in einem richtigen Wort auf diese Weise: *richtiges**Wort*."
       }
     },
