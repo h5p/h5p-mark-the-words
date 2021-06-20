@@ -92,8 +92,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
       if (node instanceof Text) {
         var text = $(node).text();
-        var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
-          .match(/ \*[^\* ]+\* |[^\s]+/g);
+        var selectableStrings = text.replace(/(\r\n|\n|\r)/g, ' ').replace(/(&nbsp;|&#32;)/g, '__')
+          .match(/ \*[^\* ]+\* |[^\s]+/g).replace(/(__)/g, ' ');
 
         if (selectableStrings) {
           selectableStrings.forEach(function (entry) {
