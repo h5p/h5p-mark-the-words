@@ -93,17 +93,18 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       if (node instanceof Text) {
         var text = $(node).text();
         var selectableStrings = text.replace(/(\r\n|\n|\r)/g, ' ').replace(/(&nbsp;|&#32;)/g, '__')
-          .match(/ \*[^\* ]+\* |[^\s]+/g).replace(/(__)/g, ' ');
+          .match(/ \*[^\* ]+\* |[^\s]+/g);
 
         if (selectableStrings) {
           selectableStrings.forEach(function (entry) {
-            entry = entry.trim();
-
+            
             // Words
-            if (html) {
+            if ((html) && (entry.substring(0, 1) == ' ')) {
               // Add space before
               html += ' ';
             }
+            
+            entry = entry.replace(/(__)/g, ' ').trim();                      
 
             // Remove prefix punctuations from word
             var prefix = entry.match(/^[\[\({⟨¿¡“"«„]+/);
