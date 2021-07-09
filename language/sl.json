@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Mediji",
+      "fields": [
+        {
+          "label": "Tip",
+          "description": "Neobvezna nastavitev dodatnega medija za prikaz nad vprašanjem."
+        },
+        {
+          "label": "Onemogoči povečavo slike"
+        }
+      ]
+    },
+    {
       "label": "Navodilo udeležencem",
       "description": "Opis reševanja zadane naloge.",
       "placeholder": "S klikom označi posamezne besede v zapisu."

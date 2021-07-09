@@ -26,6 +26,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     // Set default behavior.
     this.params = $.extend(true, {
+      media: {},
       taskDescription: "",
       textField: "This is a *nice*, *flexible* content type.",
       overallFeedback: [],
@@ -625,6 +626,29 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @see {@link https://github.com/h5p/h5p-question/blob/1558b6144333a431dd71e61c7021d0126b18e252/scripts/question.js#L1236|Called from H5P.Question}
    */
   MarkTheWords.prototype.registerDomElements = function () {
+    // Register optional media
+    let media = this.params.media;
+    if (media && media.type && media.type.library) {
+      media = media.type;
+      const type = media.library.split(' ')[0];
+      if (type === 'H5P.Image') {
+        if (media.params.file) {
+          // Register task image
+          this.setImage(media.params.file.path, {
+            disableImageZooming: this.params.media.disableImageZooming || false,
+            alt: media.params.alt,
+            title: media.params.title
+          });
+        }
+      }
+      else if (type === 'H5P.Video') {
+        if (media.params.sources) {
+          // Register task video
+          this.setVideo(media);
+        }
+      }
+    }
+
     // wrap introduction in div with id
     var introduction = '<div id="' + this.introductionId + '">' + this.params.taskDescription + '</div>';
 
@@ -664,9 +688,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 /**
  * Static utility method for parsing H5P.MarkTheWords content item questions
  * into format useful for generating reports.
- * 
+ *
  * Example input: "<p lang=\"en\">I like *pizza* and *burgers*.</p>"
- * 
+ *
  * Produces the following:
  * [
  *   {
@@ -690,7 +714,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
  *     content: '.'
  *   }
  * ]
- * 
+ *
  * @param {string} question MarkTheWords textField (html)
  */
 H5P.MarkTheWords.parseText = function (question) {
@@ -698,22 +722,22 @@ H5P.MarkTheWords.parseText = function (question) {
   /**
    * Separate all words surrounded by a space and an asterisk and any other
    * sequence of non-whitespace characters from str into an array.
-   * 
-   * @param {string} str 
+   *
+   * @param {string} str
    * @returns {string[]} array of all words in the given string
    */
-  function getWords(str) { 
+  function getWords(str) {
     return str.match(/ \*[^\*]+\* |[^\s]+/g);
   }
 
   /**
    * Replace each HTML tag in str with the provided value and return the resulting string
-   * 
+   *
    * Regexp expression explained:
    *   <     - first character is '<'
    *   [^>]* - followed by zero or more occurences of any character except '>'
    *   >     - last character is '>'
-   **/ 
+   **/
   function replaceHtmlTags(str, value) {
     return str.replace(/<[^>]*>/g, value);
   }
@@ -732,7 +756,7 @@ H5P.MarkTheWords.parseText = function (question) {
 
   /**
    * Escape double asterisks ** = *, and remove single asterisk.
-   * @param {string} str 
+   * @param {string} str
    */
   function handleAsterisks(str) {
     var asteriskIndex = str.indexOf('*');
@@ -746,7 +770,7 @@ H5P.MarkTheWords.parseText = function (question) {
 
   /**
    * Decode HTML entities (e.g. &nbsp;) from the given string using the DOM API
-   * @param {string} str 
+   * @param {string} str
    */
   function decodeHtmlEntities(str) {
     const el = document.createElement('textarea');
@@ -758,14 +782,14 @@ H5P.MarkTheWords.parseText = function (question) {
     .map(function(w) { return w.trim(); })
     .map(function(w) { return removeLeadingPunctuation(w); })
     .map(function(w) { return removeTrailingPunctuation(w); });
-  
+
   const allSelectableWords = wordsWithAsterisksNotRemovedYet
     .map(function(w) { return handleAsterisks(w); });
 
   const correctWordIndexes = [];
 
   const correctWords = wordsWithAsterisksNotRemovedYet
-    .filter(function(w, i) { 
+    .filter(function(w, i) {
       if (startsAndEndsWith('*', w)) {
         correctWordIndexes.push(i);
         return true;
@@ -773,7 +797,7 @@ H5P.MarkTheWords.parseText = function (question) {
       return false;
     })
     .map(function(w) { return handleAsterisks(w); });
-  
+
   const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), '')
     .replace('\xa0', '\x20');
 
@@ -785,7 +809,7 @@ H5P.MarkTheWords.parseText = function (question) {
       .reduce(function(textWithPlaceholders, word, index) {
         word = removeTrailingPunctuation(
           removeLeadingPunctuation(word));
-        
+
         return textWithPlaceholders.replace(word, '%' + index);
       }, printableQuestion)
   };

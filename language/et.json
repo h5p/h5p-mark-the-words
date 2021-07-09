@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Pilt või video",
+      "fields": [
+        {
+          "label": "Tüüp",
+          "description": "Pilt või video, mida kuvatakse küsimuse juures (mittekohustuslik element)."
+        },
+        {
+          "label": "Keela pildi suuruse muutmine"
+        }
+      ]
+    },
+    {
       "label": "Ülesande kirjeldus",
       "description": "Kirjelda, kuidas kasutaja peaks ülesande lahendama.",
       "placeholder": "Kliki järgnevas tekstis kõigile tegusõnadele."

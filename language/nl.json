@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Type",
+          "description": "Optionele media, die boven de vragen worden getoond"
+        },
+        {
+          "label": "Deactiveer zoomen van een afbeelding bij een vraag afbeelding"
+        }
+      ]
+    },
+    {
       "label": "Beschrijving taak",
       "description": "Beschrijf hoe de gebruiker de taak moet uitvoeren.",
       "placeholder": "Klik in de volgende tekst op alle werkwoorden."

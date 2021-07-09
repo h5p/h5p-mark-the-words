@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Tipo",
+          "description": "Media facoltativo da mostrare sopra la domanda"
+        },
+        {
+          "label": "Disabilita lo zoom dell'immagine"
+        }
+      ]
+    },
+    {
       "label": "Descrizione del compito",
       "description": "Descrivi come l'apprendente deve risolvere il compito",
       "placeholder": "Clicca su tutti i verbi nel testo che segue"

@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "وسائط",
+      "fields": [
+        {
+          "label": "النوع",
+          "description": "وسائط اختيارية لعرضها فوق السؤال."
+        },
+        {
+          "label": "تعطيل تكبير الصورة من اجل صورة السؤال"
+        }
+      ]
+    },
+    {
       "label": "وصف النشاط",
       "description": "وصف الكيفية التي ينبغي للمستخدم حل النشاط",
       "placeholder": "Click on all the verbs in the text that follows."

@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Type",
+          "description": "Volitelná média zobrazená nad otázkou."
+        },
+        {
+          "label": "Zakázat zvětšování obrazu"
+        }
+      ]
+    },
+    {
       "label": "Popis úlohy",
       "description": "Popište, jak by měl uživatel úlohu vyřešit.",
       "placeholder": "Klikněte na všechna slovesa v následujícím textu."

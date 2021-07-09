@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Medien",
+      "fields": [
+        {
+          "label": "Typ",
+          "description": "Medium, das wahlweise oberhalb der Aufgabe angezeigt wird."
+        },
+        {
+          "label": "Bildzoom deaktivieren"
+        }
+      ]
+    },
+    {
       "label": "Aufgabenbeschreibung",
       "description": "Beschreibung, wie die Lernenden die Aufgabe lösen sollten. Wird über dem Medium angezeigt.",
       "placeholder": "Klicke auf alle Verben im folgenden Text."

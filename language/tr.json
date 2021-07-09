@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Medya",
+      "fields": [
+        {
+          "label": "Tipi",
+          "description": "Soru üzerinde görüntülenecek isteğe bağlı medya."
+        },
+        {
+          "label": "Görsel yakınlaştırmasını devre dışı bırakın"
+        }
+      ]
+    },
+    {
       "label": "Task description",
       "description": "Describe how the user should solve the task.",
       "placeholder": "Click on all the verbs in the text that follows."
