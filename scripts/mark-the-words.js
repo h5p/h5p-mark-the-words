@@ -774,7 +774,7 @@ H5P.MarkTheWords.parseText = function (question) {
     })
     .map(function(w) { return handleAsterisks(w); });
   
-  const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), '')
+  const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), ' ')
     .replace('\xa0', '\x20');
 
   return {
