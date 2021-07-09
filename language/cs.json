@@ -22,7 +22,7 @@
       "placeholder": "To je odpověď: *odpověď*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Označená slova jsou přidána s hvězdičkou (*).</li><li>Hvězdičky lze přidat do označených slov přidáním další hvězdičky, *správnéslovo*** => správnéslovo*.</li></ul>",
+        "description": "<ul><li>Označená slova jsou přidána s hvězdičkou (*).</li><li>Hvězdičky lze přidat do označených slov přidáním další hvězdičky, *správnéslovo*** =&gt; správnéslovo*.</li></ul>",
         "example": "Správná slova jsou takto označena: *správnéslovo*, takto je napsána hvězdička: *správnéslovo***."
       }
     },
@@ -35,8 +35,8 @@
               "label": "Výchozí"
             }
           ],
-          "label": "Definujte vlastní zpětnou vazbu pro libovolný rozsah skóre",
-          "description": "Klikněte na tlačítko \"Přidat rozsah\"  pro přidání tolika rozsahů, kolik potřebujete. Například: 0-20% špatný výsledek, 21-91% průměrný výsledek, 91-100% výborný výsledek!",
+          "label": "Definujte vlastní zpětnou vazbu pro jakýkoli rozsah skóre",
+          "description": "Klepnutím na tlačítko \"Přidat rozsah\" přidejte libovolný počet rozsahů. Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
           "entity": "rozsah",
           "field": {
             "fields": [
@@ -46,7 +46,7 @@
               {},
               {
                 "label": "Zpětná vazba pro definovaný rozsah skóre",
-                "placeholder": "Vyplňte ve zpětné vazbě"
+                "placeholder": "Vyplňte zpětnou vazbu"
               }
             ]
           }
@@ -54,15 +54,15 @@
       ]
     },
     {
-      "label": "Text tlačítka \"Zkontrolovat\" ",
+      "label": "Popisek tlačítka \"Zkontrolovat\"",
       "default": "Zkontrolovat"
     },
     {
-      "label": "Text tlačítka \"Opakovat\" ",
+      "label": "Popisek tlačítka \"Opakovat\"",
       "default": "Opakovat"
     },
     {
-      "label": "Text tlačítka \"Zobrazit řešení\" ",
+      "label": "Text tlačítka \"Zobrazit řešení\"",
       "default": "Zobrazit řešení"
     },
     {
@@ -70,13 +70,13 @@
       "description": "Tyto možnosti vám umožní řídit, jak se bude úloha chovat.",
       "fields": [
         {
-          "label": "Povolit tlačítko  \"Opakovat\""
+          "label": "Povolit tlačítko \"Opakovat\""
         },
         {
-          "label": "Povolit tlačítko  \"Zobrazit řešení\" "
+          "label": "Povolit tlačítko \"Zobrazit řešení\""
         },
         {
-          "label": "Povolit tlačítko  \"Zkontrolovat\" "
+          "label": "Povolit tlačítko \"Zkontrolovat\""
         },
         {
           "label": "Zobrazit body",
@@ -106,7 +106,7 @@
     },
     {
       "label": "Textové znázornění výsledkové lišty pro ty, kteří používají čtecí zařízení",
-      "default": "Získal jste :num z :total bodů"
+      "default": "Získal jste :num ze :total bodů"
     },
     {
       "label": "Popisek pro plně čitelný text pro pomocné technologie",
@@ -125,16 +125,16 @@
       "default": "Kontrolní režim"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Popisek podpůrné technologie pro tlačítko „Zkontrolovat“",
+      "default": "Zkontrolovat odpovědi. Odpovědi budou označeny jako správné, nesprávné nebo nezodpovězené."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Popisek podpůrné technologie pro tlačítko „Zobrazit řešení“",
+      "default": "Zobrazit řešení. Úkol bude zobrazen se správným řešením."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "Popisek podpůrné technologie pro tlačítko „Opakovat“",
+      "default": "Zopakovat úkol. Resetovat všechny odpovědi a spustit úlohu znovu."
     }
   ]
 }

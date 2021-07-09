@@ -67,10 +67,10 @@
     },
     {
       "label": "Verhaltenseinstellungen",
-      "description": "Diese Optionen legen fest, wie die Aufgabe im Detail funktioniert.",
+      "description": "Hier kannst Du einstellen, wie sich die Aufgabe verhält.",
       "fields": [
         {
-          "label": "\"Wiederholen\" zulassen"
+          "label": "\"Wiederholen\" erlauben"
         },
         {
           "label": "\"Lösung anzeigen\" ermöglichen"

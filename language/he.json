@@ -19,15 +19,15 @@
     },
     {
       "label": "אזור תוכן",
-      "placeholder": "זו תשובה: *תשובה*",
+      "placeholder": "זו תשובה: *answer*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li></ul>",
+        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "משוב כולל",
       "fields": [
         {
           "widgets": [
@@ -58,15 +58,15 @@
       "default": "בדוק"
     },
     {
-      "label": "מלל לכפתור \"נסה שוב\"",
-      "default": "נסו שוב"
+      "label": "טקסט לכפתור \"נסה שוב\"",
+      "default": "נסה שוב"
     },
     {
       "label": "תיאור עבור כפתור \"הציגו פתרון\"",
-      "default": "הצגת פתרון"
+      "default": "הצג פתרון"
     },
     {
-      "label": "הגדרות אופן פעולת הרכיב",
+      "label": "הגדרות אופן פעולת הרכיב.",
       "description": "אפשרויות אלה יאפשרו לך לשלוט באופן הפעולה של המשימה.",
       "fields": [
         {
@@ -80,7 +80,7 @@
         },
         {
           "label": "הציגו נקודות ניקוד",
-          "description": "הציגו נקודות שהתקבלו עבור כל תשובה"
+          "description": "הציגו נקודות שהתקבלו עבור כל תשובה."
         }
       ]
     },
@@ -96,7 +96,7 @@
     },
     {
       "label": "תוכן תשובה חסרה",
-      "default": "חסר!",
+      "default": "תשובה לא נמצאה",
       "description": "תיאור המשמש לציון תשובה שאינה נענתה"
     },
     {
@@ -106,35 +106,35 @@
     },
     {
       "label": "תצוגה מילולית של סרגל הניקוד עבור אלה המשתמשים ב- readspeaker",
-      "default": "קיבלתם: נקודות מתוך סהכ: הנקודות "
+      "default": "קיבלתם :num מתוך :total נקודות"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "תווית לטקסט הקראה מלא עבור טכנולוגיות מסייעות",
+      "default": "טקסט קריא מלא"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "תווית לתוכן בו אפשר לסמן את המילים עבור טכנולוגיות מסייעות",
+      "default": "טקסט מלא בו אפשר לסמן את המילים"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "כותרת שהיא מצב פתרון לטכנולוגיות מסייעות",
+      "default": "מצב פתרון"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "מצב בדיקת כותרת עבור טכנולוגיות מסייעות",
+      "default": "מצב בדיקה"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "תיאור טכנולוגיה מסייעת עבור כפתור \"בדיקה\"",
+      "default": "בדקו את התשובות. המענים יסומנו כנכונים, לא נכונים, או כריקים."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "תיאור טכנולוגיה מסייעת עבור כפתור \"הצגת פתרון\"",
+      "default": "הציגו את הפתרון. המשימה תסומן עם הפתרון הנכון שלה."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "תיאור טכנולוגיה מסייעת עבור כפתור \"ניסיון חוזר\"",
+      "default": "נסו את המשימה שוב. אפסו את כל ניסיונות המענה והתחילו את המשימה מחדש."
     }
   ]
 }

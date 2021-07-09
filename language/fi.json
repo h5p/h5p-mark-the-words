@@ -96,7 +96,7 @@
     },
     {
       "label": "Ohitetun vastauksen teksti",
-      "default": "Ohi!",
+      "default": "Vastauksia ei löytynyt!",
       "description": "Teksti ohitetulle/puuttuvalle vastaukselle"
     },
     {
@@ -109,32 +109,32 @@
       "default": "Sait :num pistettä :total pisteestä"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Otsikko koko avustavan teknologian luettavalle tekstille",
+      "default": "Koko luettava teksti"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Otsikko tekstille josta sanat voidaan merkitä avustavalle teknologialle",
+      "default": "Koko teksti josta sanat voidaan merkitä"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Ratkaisutilan otsikko avustavalle teknologialle",
+      "default": "Ratkaisutila"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Tarkastustilan otsikko avustavalle teknologialle",
+      "default": "Tarkastustila"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Avustavan teknologian kuvaus \"Tarkista\" painikkeelle",
+      "default": "Tarkista vastaukset. Vastaukset merkitään joko oikein, väärin tai vastaamatta."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Avustavan teknologian kuvaus \"Näytä ratkaisu\" -painikkeelle",
+      "default": "Näytä ratkaisu. Tehtävään merkitään oikeat vastaukset."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "Avustavan teknologion kuvaus \"Yritä uudelleen\" -painikkeelle",
+      "default": "Yritä tehtävää uudelleen. Tyhjennä kaikki vastaukset ja aloita tehtävä uudelleen alusta."
     }
   ]
 }

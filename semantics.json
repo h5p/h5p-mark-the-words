@@ -75,7 +75,7 @@
     "placeholder": "This is an answer: *answer*.",
     "description": "",
     "important": {
-      "description": "<ul><li>Correct words are marked with asterisks (*) before and after the word.</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** => correctword*.</li><li>Only words may be marked as correct. Not phrases.</li></ul>",
+      "description": "<ul><li>Correct words are marked with asterisks (*) before and after the word.</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li><li>Only words may be marked as correct. Not phrases.</li></ul>",
       "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
     }
   },

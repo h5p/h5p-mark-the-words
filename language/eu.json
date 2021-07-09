@@ -22,7 +22,7 @@
       "placeholder": "Hau erantzun bat da: *erantzuna*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Markatutako hitzak izartxo batekin (*) eransten dira.</li><li>Markatutako hitzetan izartxo bat erantsi nahi bada bigarren izartxo bat erantsi behar da, *correctword*** => correctword*.</li></ul>",
+        "description": "<ul><li>Markatutako hitzak izartxo batekin (*) eransten dira.</li><li>Markatutako hitzetan izartxo bat erantsi nahi bada bigarren izartxo bat erantsi behar da, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "Hitz zuzenak honela markatu behar dira: *hitz-zuzena*, izartxo bat honela \" behar da: *hitz-zuzena***."
       }
     },
@@ -125,16 +125,16 @@
       "default": "Egiaztapen-modua"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "\"Egiaztatu\" botoiaren laguntza-teknologientzako etiketa",
+      "default": "Egiaztatu erantzunak. Erantzunak zuzen, oker edo erantzun gabe gisa markatuko dira."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "\"Erakutsi erantzun zuzena\" botoiaren laguntza-teknologientzako etiketa",
+      "default": "Erakutsi erantzun zuzena. Zereginaren erantzun zuzena markatuko da."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "\"Berriz saiatu\" botoiaren laguntza-teknologientzako etiketa",
+      "default": "Zeregina berriz egiten saiatu. Berrabiarazi erantzun guztiak eta hasi zeregina berriz."
     }
   ]
 }
