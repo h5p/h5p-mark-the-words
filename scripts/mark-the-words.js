@@ -17,7 +17,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @returns {Object} MarkTheWords Mark the words instance
    */
   function MarkTheWords(params, contentId, contentData) {
-    var self = this;
     this.contentId = contentId;
     this.contentData = contentData;
     this.introductionId = 'mark-the-words-introduction-' + contentId;
@@ -176,12 +175,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var indexes = [];
     var selectables = this.$wordContainer.find('span.h5p-word-selectable');
 
-    selectables.each(function(index, selectable) {
-      if ($(selectable).next().is('br')){
+    selectables.each(function (index, selectable) {
+      if ($(selectable).next().is('br')) {
         indexes.push(index);
       }
 
-      if ($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')){
+      if ($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')) {
         indexes.push(index);
       }
     });
@@ -744,15 +743,15 @@ H5P.MarkTheWords.parseText = function (question) {
 
   function startsAndEndsWith(char, str) {
     return str.startsWith(char) && str.endsWith(char);
-  };
+  }
 
   function removeLeadingPunctuation(str) {
     return str.replace(/^[\[\({⟨¿¡“"«„]+/, '');
-  };
+  }
 
   function removeTrailingPunctuation(str) {
     return str.replace(/[",….:;?!\]\)}⟩»”]+$/, '');
-  };
+  }
 
   /**
    * Escape double asterisks ** = *, and remove single asterisk.
@@ -766,7 +765,7 @@ H5P.MarkTheWords.parseText = function (question) {
       asteriskIndex = str.indexOf('*', asteriskIndex + 1);
     }
     return str;
-  };
+  }
 
   /**
    * Decode HTML entities (e.g. &nbsp;) from the given string using the DOM API
@@ -776,29 +775,38 @@ H5P.MarkTheWords.parseText = function (question) {
     const el = document.createElement('textarea');
     el.innerHTML = str;
     return el.value;
-  };
+  }
 
   const wordsWithAsterisksNotRemovedYet = getWords(replaceHtmlTags(decodeHtmlEntities(question), ' '))
-    .map(function(w) { return w.trim(); })
-    .map(function(w) { return removeLeadingPunctuation(w); })
-    .map(function(w) { return removeTrailingPunctuation(w); });
-
-  const allSelectableWords = wordsWithAsterisksNotRemovedYet
-    .map(function(w) { return handleAsterisks(w); });
+    .map(function (w) {
+      return w.trim();
+    })
+    .map(function (w) {
+      return removeLeadingPunctuation(w);
+    })
+    .map(function (w) {
+      return removeTrailingPunctuation(w);
+    });
+  
+  const allSelectableWords = wordsWithAsterisksNotRemovedYet.map(function (w) {
+    return handleAsterisks(w); 
+  });
 
   const correctWordIndexes = [];
 
   const correctWords = wordsWithAsterisksNotRemovedYet
-    .filter(function(w, i) {
+    .filter(function (w, i) { 
       if (startsAndEndsWith('*', w)) {
         correctWordIndexes.push(i);
         return true;
       }
       return false;
     })
-    .map(function(w) { return handleAsterisks(w); });
-
-  const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), '')
+    .map(function (w) {
+      return handleAsterisks(w);
+    });
+  
+  const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), ' ')
     .replace('\xa0', '\x20');
 
   return {
@@ -806,7 +814,7 @@ H5P.MarkTheWords.parseText = function (question) {
     correctWords: correctWords,
     correctWordIndexes: correctWordIndexes,
     textWithPlaceholders: printableQuestion.match(/[^\s]+/g)
-      .reduce(function(textWithPlaceholders, word, index) {
+      .reduce(function (textWithPlaceholders, word, index) {
         word = removeTrailingPunctuation(
           removeLeadingPunctuation(word));
 
