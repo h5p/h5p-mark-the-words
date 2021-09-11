@@ -646,6 +646,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
           this.setVideo(media);
         }
       }
+      else if (type === 'H5P.Audio') {
+        if (media.params.files) {
+          // Register task audio
+          this.setAudio(media);
+        }
+      }
     }
 
     // wrap introduction in div with id
@@ -787,15 +793,15 @@ H5P.MarkTheWords.parseText = function (question) {
     .map(function (w) {
       return removeTrailingPunctuation(w);
     });
-  
+
   const allSelectableWords = wordsWithAsterisksNotRemovedYet.map(function (w) {
-    return handleAsterisks(w); 
+    return handleAsterisks(w);
   });
 
   const correctWordIndexes = [];
 
   const correctWords = wordsWithAsterisksNotRemovedYet
-    .filter(function (w, i) { 
+    .filter(function (w, i) {
       if (startsAndEndsWith('*', w)) {
         correctWordIndexes.push(i);
         return true;
@@ -805,7 +811,7 @@ H5P.MarkTheWords.parseText = function (question) {
     .map(function (w) {
       return handleAsterisks(w);
     });
-  
+
   const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), ' ')
     .replace('\xa0', '\x20');
 
