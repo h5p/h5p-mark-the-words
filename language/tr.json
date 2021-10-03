@@ -1,21 +1,21 @@
 {
   "semantics": [
     {
-      "label": "Task description",
-      "description": "Describe how the user should solve the task.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "label": "Görev tanımı",
+      "description": "Kullanıcının görevi nasıl çözmesi gerektiğini açıklayın.",
+      "placeholder": "Aşağıdaki metindeki tüm fiillere tıklayın."
     },
     {
-      "label": "Textfield",
-      "placeholder": "This is an answer: *answer*.",
+      "label": "Metin alanı",
+      "placeholder": "Bu bir cevaptır: *cevap*.",
       "description": "",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "description": "<ul><li>İşaretli kelimeler yıldız işareti (*) ile eklenir.</li><li>İşaretli kelimelerin içine başka bir yıldız işareti eklenerek yıldız işareti eklenebilir, *doğru kelime*** =&gt; doğru kelime*.</li></ul>",
+        "example": "Doğru kelimeler şu şekilde işaretlenmiştir: *doğru kelime*, yıldız işareti şu şekilde yazılmıştır: *doğru kelime***."
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "Toplam geribildirim",
       "fields": [
         {
           "widgets": [
@@ -23,18 +23,18 @@
               "label": "Varsayılan"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "Herhangi bir puan aralığı için özel geri bildirim tanımlayın",
+          "description": "İstediğiniz kadar aralık eklemek için \"Aralık ekle\" düğmesini tıklayın. Örnek: %0-20 Kötü puan, %21-91 Ortalama Puan, %91-100 Büyük Puan!",
+          "entity": "Aralık",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "Puan Aralığı"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Tanımlanmış puan aralığı için geri bildirim",
+                "placeholder": "Geri bildirimi doldurun"
               }
             ]
           }
@@ -42,87 +42,87 @@
       ]
     },
     {
-      "label": "\"Kontrol et\" butonu için metin",
-      "default": "Kontrol et"
+      "label": "\"Kontrol Et\" butonu için metin",
+      "default": "kontrol Et"
     },
     {
-      "label": "\"Yeniden dene\" butonu için metin",
-      "default": "Yeniden dene"
+      "label": "\"Yeniden Dene\" butonu için metin",
+      "default": "yeniden Dene"
     },
     {
-      "label": "\"Çözümü göster\" butonunu için metin",
-      "default": "Çözümü göster"
+      "label": "\"Çözümü Göster\" butonunu için metin",
+      "default": "çözüm Göster"
     },
     {
-      "label": "Behavioural settings.",
-      "description": "Bu seçenekler aktivitenin çalışma şeklini denetlemenize izin verir.",
+      "label": "Etkinlik Ayarları",
+      "description": "Bu seçenekler, etkinliğin nasıl davranacağını kontrol etmenizi sağlar.",
       "fields": [
         {
-          "label": "Enable \"Retry\""
+          "label": "\"Yeniden Dene\" düğmesini etkinleştir"
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "\"Çözüm Göster\" düğmesini etkinleştir"
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "\"Kontrol Et\" düğmesini etkinleştir"
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "Skor puanlarını göster",
+          "description": "Her cevap için kazanılan puanları gösterin."
         }
       ]
     },
     {
-      "label": "Correct answer text",
-      "default": "Correct!",
-      "description": "Text used to indicate that an answer is correct"
+      "label": "Doğru cevap metni",
+      "default": "Doğru!",
+      "description": "Bir cevabın doğru olduğunu belirtmek için kullanılan metin"
     },
     {
-      "label": "Incorrect answer text",
-      "default": "Incorrect!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "Yanlış cevap metni",
+      "default": "Yanlış!",
+      "description": "Bir cevabın yanlış olduğunu belirtmek için kullanılan metin"
     },
     {
-      "label": "Missed answer text",
-      "default": "Answer not found!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "Cevapsız cevap metni",
+      "default": "Cevap bulunamadı!",
+      "description": "Bir cevabın eksik olduğunu belirtmek için kullanılan metin"
     },
     {
-      "label": "Description for Display Solution",
-      "default": "Task is updated to contain the solution.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "Ekran Çözümü Açıklaması",
+      "default": "Görev, çözümü içerecek şekilde güncellendi.",
+      "description": "Bu metin, kullanıcıya görevlerin çözümle güncellendiğini söyler."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "Okuyucu kullananlar için puan çubuğunun metinsel gösterimi",
+      "default": ":total puandan :num puan aldınız"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Yardımcı teknolojiler için tam okunabilir metin için etiket",
+      "default": "Tam okunabilir metin"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Yardımcı teknolojiler için kelimelerin işaretlenebileceği metin etiketi",
+      "default": "Kelimelerin işaretlenebileceği tam metin"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Yardımcı teknolojiler için çözüm modu başlığı",
+      "default": "Çözüm modu"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Yardımcı teknolojiler için kontrol modu başlığı",
+      "default": "Kontrol modu"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "\"Kontrol Et\" düğmesi için yardımcı teknoloji açıklaması",
+      "default": "Cevapları kontrol edin. Cevaplar doğru, yanlış veya cevapsız olarak işaretlenecektir."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "\"Çözüm Göster\" düğmesi için yardımcı teknoloji açıklaması",
+      "default": "Çözümü göster. Görev, doğru çözümü ile işaretlenecektir."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "\"Yeniden Dene\" düğmesi için yardımcı teknoloji açıklaması",
+      "default": "Görevi yeniden deneyin. Tüm yanıtları sıfırlayın ve görevi yeniden başlatın."
     }
   ]
 }
