@@ -42,8 +42,8 @@
       ]
     },
     {
-      "label": "Text för knappen \"Rätta\"",
-      "default": "Rätta"
+      "label": "Text för knappen \"Svara\"",
+      "default": "Svara"
     },
     {
       "label": "Text för knappen \"Försök igen\"",
@@ -64,7 +64,7 @@
           "label": "Aktivera knappen \"Visa lösning\""
         },
         {
-          "label": "Aktivera knappen \"Rätta\""
+          "label": "Aktivera knappen \"Svara\""
         },
         {
           "label": "Visa poäng",
@@ -113,7 +113,7 @@
       "default": "Rättningsläge"
     },
     {
-      "label": "Beskrivning av knappen \"Rätta\" för tillgänglighetshjälpmedel",
+      "label": "Beskrivning av knappen \"Svara\" för tillgänglighetshjälpmedel",
       "default": "Rätta svaren. Svaren kommer att markeras som korrekta, felaktiga eller obesvarade."
     },
     {
