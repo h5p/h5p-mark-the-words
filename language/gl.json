@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Medios",
+      "fields": [
+        {
+          "label": "Tipo",
+          "description": "Medios opcionais amosados enriba da pregunta."
+        },
+        {
+          "label": "Desactivar zoom da imaxe"
+        }
+      ]
+    },
+    {
       "label": "Descrición da tarefa",
       "description": "Describe como debería resolver a tarefa o usuario.",
       "placeholder": "Preme en todos os verbos do texto."

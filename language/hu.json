@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Média",
+      "fields": [
+        {
+          "label": "Típus",
+          "description": "Lehetséges Média ami a kérdés felett jelenik meg."
+        },
+        {
+          "label": "Kép ráközelítés tiltása"
+        }
+      ]
+    },
+    {
       "label": "Task description",
       "description": "Describe how the user should solve the task.",
       "placeholder": "Click on all the verbs in the text that follows."

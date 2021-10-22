@@ -1,6 +1,18 @@
 {
   "semantics": [
     {
+      "label": "Media",
+      "fields": [
+        {
+          "label": "Typ",
+          "description": "Valfri media att visa ovanför frågan."
+        },
+        {
+          "label": "Inaktivera zoomning i bild"
+        }
+      ]
+    },
+    {
       "label": "Опис задатка",
       "description": "Опишите како корисник треба да реши задатак.",
       "placeholder": "Кликните на све глаголе у тексту који следи."
