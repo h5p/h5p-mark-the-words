@@ -46,6 +46,10 @@
       "default": "チェック"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "「リトライ」ボタンのテキスト",
       "default": "リトライ"
     },

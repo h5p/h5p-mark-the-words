@@ -46,6 +46,10 @@
       "default": "Zkontrolovat"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "Text tlačítka \"Opakovat\" ",
       "default": "Opakovat"
     },

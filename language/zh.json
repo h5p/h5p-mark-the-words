@@ -46,6 +46,10 @@
       "default": "核對答案"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "再試一次按鈕文字",
       "default": "再試一次"
     },

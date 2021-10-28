@@ -46,6 +46,10 @@
       "default": "Tarkista"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "Painikkeen \"Yritä uudelleen\" nimi",
       "default": "Yritä uudelleen"
     },

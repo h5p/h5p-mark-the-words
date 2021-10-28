@@ -46,6 +46,10 @@
       "default": "Verifica"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "Text del botó \"Torna-ho a provar\"",
       "default": "Torna-ho a provar"
     },
