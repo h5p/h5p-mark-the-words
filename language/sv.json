@@ -46,6 +46,10 @@
       "default": "Kontroll"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "Text for \"Försök igen\" knapp",
       "default": "Försök igen"
     },

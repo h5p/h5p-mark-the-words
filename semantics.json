@@ -109,6 +109,14 @@
     "common": true
   },
   {
+    "label": "Text for \"Submit\" button",
+    "importance": "low",
+    "name": "submitAnswerButton",
+    "type": "text",
+    "default": "Submit",
+    "common": true
+  },
+  {
     "label": "Text for \"Retry\" button",
     "importance": "low",
     "name": "tryAgainButton",

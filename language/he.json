@@ -46,6 +46,10 @@
       "default": "בדוק"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "תוכן כפתור \"נסה שוב\"",
       "default": "נסו שוב"
     },

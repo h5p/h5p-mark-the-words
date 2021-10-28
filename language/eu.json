@@ -46,6 +46,10 @@
       "default": "Egiaztatu"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "\"Saiatu berriro\" botoiarentzako testua",
       "default": "Saiatu berriro"
     },

@@ -46,6 +46,10 @@
       "default": "Provjeri"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "Oznaka za dugme \"Ponovi\"",
       "default": "Ponovi"
     },
