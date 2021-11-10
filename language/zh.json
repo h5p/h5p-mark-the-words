@@ -8,7 +8,6 @@
     {
       "label": "文字",
       "placeholder": "我 常常 在 夜深人靜 的時候 *翻譯* 一些 軟體 。",
-      "description": "",
       "important": {
         "description": "<ul><li>在需要被標記的字詞（答案）兩側添加星號 (*)。</li><li>如果字詞中包含星號，那麼可以再加一個就會被包含，例如 *correctword*** =&gt; correctword*。</li><li>詞與詞之間要以空白符號分隔。只有字詞能使用，英語片語不行。</li></ul>",
         "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
