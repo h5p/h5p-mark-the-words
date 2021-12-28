@@ -20,7 +20,6 @@
     {
       "label": "Campodetexto",
       "placeholder": "Esta es una respuesta: *respuesta*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Los asteriscos pueden añadirse dentro de las palabras marcadas al añadir otro asterisco, lo que resulta en *palabracorrecta*** =&gt; palabracorrecta*.</li></ul>",
         "example": "Las palabras correctas están marcadas así: *palabracorrecta*, un asterisco está escrito así: *palabracorrecta***."
@@ -58,7 +57,11 @@
       "default": "Comprobar"
     },
     {
-      "label": "Texto para botón \"Reintentar\"",
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
+      "label": "Texto para el botón \"Reintentar\"",
       "default": "Reintentar"
     },
     {

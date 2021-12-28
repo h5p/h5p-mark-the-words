@@ -20,7 +20,6 @@
     {
       "label": "Tekstikenttä",
       "placeholder": "Tämä on vastaus: *vastaus*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*.</li><li>Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **.</li></ul>",
         "example": "Oikeat sanat merkitään seuraavasti: *oikeasana*, asteriskit kirjoitetaan näin: *oikeasana***."
@@ -56,6 +55,10 @@
     {
       "label": "Painikkeen \"Tarkista\" nimi",
       "default": "Tarkista"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Painikkeen \"Yritä uudelleen\" nimi",

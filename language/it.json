@@ -20,7 +20,6 @@
     {
       "label": "Campo di testo",
       "placeholder": "Questa è una risposta: *answer*",
-      "description": "",
       "important": {
         "description": "<ul><li>Le parole marcate vengono aggiunte mediante un asterisco (*).</li><li>Gli asterischi possono essere aggiunti all'interno di parole marcate attraverso un ulteriore asterisco. Es. *parola-corretta*** =&gt; parola-corretta*.</li></ul>",
         "example": "Le parole corrette sono marcate in questo modo: *parola-corretta*. Un asterisco è scritto così: *parola-corretta***"
@@ -56,6 +55,10 @@
     {
       "label": "Testo per il pulsante \"Verifica\"",
       "default": "Verifica"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Testo per il pulsante \"Riprova\"",

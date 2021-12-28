@@ -20,7 +20,6 @@
     {
       "label": "Teksveld",
       "placeholder": "Hierdie is 'n antwoord: *answer*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Gemerkte woorde word bygevoeg met 'n sterretjie (*).</li><li>Asteriske kan bygevoeg word binne woorde deur nog 'n asterisk by te voeg, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "Regte woorde word soos dit geskryf: *correctword*, 'n asterisk word soos dit geskryf: *correctword***."
@@ -56,6 +55,10 @@
     {
       "label": "Teks vir \"Toets\" knoppie",
       "default": "Toets"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Teks vir \"Probeer weer\" knoppie",

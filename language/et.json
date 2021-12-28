@@ -20,7 +20,6 @@
     {
       "label": "Tekstiväli",
       "placeholder": "See on vastus: *vastus*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Märgitud sõnad lisatakse tärni (*) kasutades.</li><li>Tärni lisamiseks kasuta topelt-tärni ** = *.</li></ul>",
         "example": "Õiged sõnad märgitakse nii: *õigesõna*, tärn lisataksenii: *õigesõna***."
@@ -56,6 +55,10 @@
     {
       "label": "\"Kontrolli\" nupu tekst",
       "default": "Kontrolli"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "\"Proovi uuesti\" nupu tekst",

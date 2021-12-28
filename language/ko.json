@@ -20,7 +20,6 @@
     {
       "label": "텍스트 필드",
       "placeholder": "이것이 정답입니다: *정답*.",
-      "description": "",
       "important": {
         "description": "<ul><li>정답으로 체크(마크)되어야 단어들은 별표(*)로 추가됩니다.</li><li>별표는 마크되어야할 단어안에 추가하여 표시할 수 있다 (*correctword*** =&gt; correctword*).</li></ul>",
         "example": "정답 표기 방법: *정답단어*, 별표를 정답에 표기하는 방법: *correctword***."
@@ -56,6 +55,10 @@
     {
       "label": "\"Check\" (확인) 버튼 텍스트",
       "default": "확인"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "\"Retry\" (재시도) 버튼 텍스트",
