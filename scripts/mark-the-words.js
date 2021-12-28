@@ -36,6 +36,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         showScorePoints: true
       },
       checkAnswerButton: "Check",
+      submitAnswerButton: "Submit",
       tryAgainButton: "Retry",
       showSolutionButton: "Show solution",
       correctAnswer: "Correct!",
@@ -302,6 +303,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         self.toggleSelectable(true);
       }, true, {
         'aria-label': this.params.a11yCheck,
+      }, {
+        contentData: this.contentData,
+        textIfSubmitting: this.params.submitAnswerButton,
       });
     }
 

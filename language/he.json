@@ -8,7 +8,6 @@
     {
       "label": "אזור תוכן",
       "placeholder": "זו תשובה: *answer*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
@@ -44,6 +43,10 @@
     {
       "label": "טקסט לכפתור \"בדוק\"",
       "default": "בדוק"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "תוכן כפתור \"נסה שוב\"",

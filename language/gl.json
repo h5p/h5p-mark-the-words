@@ -8,7 +8,6 @@
     {
       "label": "Campo de texto",
       "placeholder": "Esta é unha resposta: *resposta*.",
-      "description": "",
       "important": {
         "description": "<ul><li>As palabras marcadas engádense cun asterísco (*).</li><li>Pódense engadir asteríscos dentro das palabras marcadas engadindo outro asterísco, *palabracorrecta*** =&gt; palabracorrecta*.</li></ul>",
         "example": "As palabras correctas márcanse así: *palabracorrecta*, o asterísco escríbese así: *palabracorrecta***."
@@ -44,6 +43,10 @@
     {
       "label": "Texto para o botón \"Comprobar\"",
       "default": "Comprobar"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Texto para o botón \"Reintentar\"",

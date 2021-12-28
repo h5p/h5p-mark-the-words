@@ -8,7 +8,6 @@
     {
       "label": "Textové pole",
       "placeholder": "To je odpověď: *odpověď*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Označená slova jsou přidána s hvězdičkou (*).</li><li>Hvězdičky lze přidat do označených slov přidáním další hvězdičky, *správnéslovo*** =&gt; správnéslovo*.</li></ul>",
         "example": "Správná slova jsou takto označena: *správnéslovo*, takto je napsána hvězdička: *správnéslovo***."
@@ -44,6 +43,10 @@
     {
       "label": "Text tlačítka \"Zkontrolovat\" ",
       "default": "Zkontrolovat"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Text tlačítka \"Opakovat\" ",

@@ -8,7 +8,6 @@
     {
       "label": "Tekstliner",
       "placeholder": "Oslo er hovudstaden i *Noreg*",
-      "description": "",
       "important": {
         "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
@@ -44,6 +43,10 @@
     {
       "label": "Tekst for \"Sjekk\"-knapp",
       "default": "Sjekk"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Tekst for \"Prøv igjen\"-knapp",

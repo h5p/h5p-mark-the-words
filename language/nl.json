@@ -8,7 +8,6 @@
     {
       "label": "Tekstveld",
       "placeholder": "Dit is een antwoord: *antwoord*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Gemarkeerde woorden worden voorzien van een asterix (*).</li><li>Een asterix mag worden ingesloten door een andere asterix, dit resulteert in ** = *.</li></ul>",
         "example": "De juiste woorden zijn als volgt gemarkeerd: *juistwoord*, een asterix wordt geschreven als : *juistwoord***."
@@ -44,6 +43,10 @@
     {
       "label": "Tekst voor de \"Controleer\"-knop",
       "default": "Controleer"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Tekst voor de \"Opnieuw proberen\"-knop",

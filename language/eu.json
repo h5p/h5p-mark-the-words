@@ -8,7 +8,6 @@
     {
       "label": "Testu eremua",
       "placeholder": "Hau erantzun bat da: *erantzuna*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Markatutako hitzak izartxo batekin (*) eransten dira.</li><li>Markatutako hitzetan izartxo bat erantsi nahi bada bigarren izartxo bat erantsi behar da, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "Hitz zuzenak honela markatu behar dira: *hitz-zuzena*, izartxo bat honela \" behar da: *hitz-zuzena***."
@@ -44,6 +43,10 @@
     {
       "label": "\"Egiaztatu\" botoiarentzako testua",
       "default": "Egiaztatu"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "\"Saiatu berriro\" botoiarentzako testua",

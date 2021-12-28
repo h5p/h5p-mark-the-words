@@ -8,7 +8,6 @@
     {
       "label": "Polje za besedilo",
       "placeholder": "Pravilen odgovor: *pravilnabeseda*.",
-      "description": "",
       "important": {
         "description": "<ul><li>Pravilen odgovor se označi z zvezdico (*) pred in za besedo.</li><li>V primeru odgovora z zvezdico, je potrebno tudi zvezdico obdati po enakem principu (npr. *pravilnabeseda*** se na zaslonu izpiše kot pravilnabeseda*).</li><li>Kot pravilne se lahko označijo le besede in ne besedne zveze.</li></ul>",
         "example": "Pravilni odgovori so označeni kot: *pravilnabeseda*. Zvezdica se lahko zapiše na naslednji način: *pravilnabeseda***."
@@ -44,6 +43,10 @@
     {
       "label": "Besedilo za gumb \"Preveri\"",
       "default": "Preveri"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "Besedilo za gumb \"Poskusi ponovno\"",

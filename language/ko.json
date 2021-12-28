@@ -8,7 +8,6 @@
     {
       "label": "텍스트 필드",
       "placeholder": "이것이 정답입니다: *정답*.",
-      "description": "",
       "important": {
         "description": "<ul><li>정답으로 체크(마크)되어야 단어들은 별표(*)로 추가됩니다.</li><li>별표는 마크되어야할 단어안에 추가하여 표시할 수 있다 (*correctword*** =&gt; correctword*).</li></ul>",
         "example": "정답 표기 방법: *정답단어*, 별표를 정답에 표기하는 방법: *correctword***."
@@ -44,6 +43,10 @@
     {
       "label": "\"Check\" (확인) 버튼 텍스트",
       "default": "확인"
+    },
+    {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
     },
     {
       "label": "\"Retry\" (재시도) 버튼 텍스트",
@@ -114,15 +117,15 @@
     },
     {
       "label": "\"Check\" 버튼에 대한 보조 기술 설명",
-          "default": "정답을 체크하세요. 답변은 정답, 오답 혹은 미답변으로 표기될 것입니다."
-       },
-        {
-          "label": "\"Show Solution\" 버튼에 대한 보조 기술 설명",
-          "default": "해답 보이기. 올바른 해답과 함께 표기될 것입니다."
-        },
-        {
-          "label": "\"Retry\" 버튼에 대한 보조 기술 설명",
-          "default": "재시도하세요. 모든 답변을 초기화하고 새로 시도하세요."
+      "default": "정답을 체크하세요. 답변은 정답, 오답 혹은 미답변으로 표기될 것입니다."
+    },
+    {
+      "label": "\"Show Solution\" 버튼에 대한 보조 기술 설명",
+      "default": "해답 보이기. 올바른 해답과 함께 표기될 것입니다."
+    },
+    {
+      "label": "\"Retry\" 버튼에 대한 보조 기술 설명",
+      "default": "재시도하세요. 모든 답변을 초기화하고 새로 시도하세요."
     }
   ]
 }
