@@ -5,46 +5,46 @@
       "fields": [
         {
           "label": "Tipo",
-          "description": "Multimédia opcional a ser exibida acima da pergunta."
+          "description": "Conteúdo multimédia opcional para mostrar acima da pergunta."
         },
         {
-          "label": "Desativar o zoom da imagem"
+          "label": "Desativar zoom da imagem"
         }
       ]
     },
     {
-      "label": "Descrição da tarefa",
-      "description": "Descreva como o utilizador deve resolver a tarefa.",
+      "label": "Descrição da atividade",
+      "description": "Descreva a forma como o utilizador deve completar a atividade.",
       "placeholder": "Clique em todos os verbos no texto apresentado a seguir."
     },
     {
       "label": "Campo de texto",
-      "placeholder": "Esta é uma resposta: *answer*.",
+      "placeholder": "Isto é uma resposta: *answer*.",
       "important": {
         "description": "<ul><li>As palavras a assinalar são adicionadas com um asterisco(*).</li><li>Os asteriscos podem ser adicionados às palavras a assinalar adicionando outro asterisco, *palavracorreta*** =&gt; palavracorreta*.</li></ul>",
         "example": "As palavras corretas são marcadas desta maneira: *palavra correta* e um asterisco pode ser escrito da seguinte maneira: *palavracorreta***."
       }
     },
     {
-      "label": "Feedback geral",
+      "label": "Feedback global",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Predefinição"
+              "label": "Padrão"
             }
           ],
-          "label": "Defina feedback personalizado para qualquer intervalo de pontuação",
-          "description": "Clique no botão \"Adicionar intervalo\" para adicionar o número de intervalos de pontuação pretendidos. Exemplo: 0-20% - Mau, 21-91% - Média, 91-100% - Excelente!",
-          "entity": "intervalo",
+          "label": "Defina o feedback personalizado para qualquer faixa de pontuação",
+          "description": "Clique em \"Adicionar faixa\" e adicione quantas faixas forem necessárias. Exemplo: 0-20% Insuficiente, 21-91% Suficiente, 91-100% Excelente!",
+          "entity": "faixa",
           "field": {
             "fields": [
               {
-                "label": "Intervalo de pontuação"
+                "label": "Faixa de pontuação"
               },
               {},
               {
-                "label": "Feedback para o intervalo de pontuação",
+                "label": "Feedback para determinada faixa de pontuação",
                 "placeholder": "Preencha o feedback"
               }
             ]
@@ -57,10 +57,6 @@
       "default": "Verificar resposta"
     },
     {
-      "label": "Text for \"Submit\" button",
-      "default": "Submit"
-    },
-    {
       "label": "Texto para o botão \"Tentar novamente\"",
       "default": "Tentar novamente"
     },
@@ -69,8 +65,12 @@
       "default": "Mostrar solução"
     },
     {
-      "label": "Configurações adicionais",
-      "description": "Estas opções permitem controlar o comportamento da tarefa.",
+      "label": "Configurações gerais.",
+      "default": "Mostrar solução"
+    },
+    {
+      "label": "Texto para resposta correta",
+      "description": "Texto utilizado para indicar que a resposta está correta",
       "fields": [
         {
           "label": "Ativar o botão \"Tentar novamente\""
@@ -88,13 +88,8 @@
       ]
     },
     {
-      "label": "Texto para resposta correta",
-      "default": "Correto!",
-      "description": "Texto utilizado para indicar que a resposta está correta"
-    },
-    {
       "label": "Texto para resposta incorreta",
-      "default": "Incorreto!",
+      "default": "Incorreta!",
       "description": "Texto utilizado para indicar que a resposta está incorreta"
     },
     {
@@ -103,21 +98,22 @@
       "description": "Texto utilizado para indicar que a pergunta não foi respondida"
     },
     {
-      "label": "Descrição para solução exibida",
-      "default": "A tarefa foi atualizada com a solução.",
-      "description": "Texto utilizado para indicar que a tarefa foi atualizada com a solução."
+      "label": "Descrição para Mostrar solução",
+      "default": "A atividade foi atualizada com a solução.",
+      "description": "Texto utilizado para indicar que a atividade foi atualizada com a solução."
     },
     {
-      "label": "Representação textual da barra de pontuação para quem usa leitores de ecrã",
-      "default": "Total de :num em :total pontos"
+      "label": "Representação textual da barra de pontuação para aqueles que usam leitores de ecrã",
+      "default": "Obteve :num de :total pontos",
+      "description": "Texto utilizado para indicar que a tarefa foi atualizada com a solução."
     },
     {
       "label": "Etiqueta para o texto legível completo para tecnologias de acessibilidade",
       "default": "Texto totalmente legível"
     },
     {
-      "label": "Etiqueta para o texto onde algumas palavras assinaladas para tecnologias de acessibilidade",
-      "default": "Texto completo onde as palavras podem ser assinaladas"
+      "label": "Etiqueta para o texto onde as palavras podem ser marcadas para tecnologias assistivas",
+      "default": "Texto completo onde as palavras podem ser marcadas"
     },
     {
       "label": "Cabeçalho do modo de solução para tecnologias de acessibilidade",
@@ -128,12 +124,16 @@
       "default": "Modo de verificação"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Descrição de tecnologia assistiva para o botão \"Verificar\"",
+      "default": "Verifique as respostas. Estas serão marcadas como corretas, incorretas, ou não respondidas."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Descrição de tecnologia assistida para o botão \"Mostrar Solução\"",
+      "default": "Mostrar a solução. A atividade será marcada com a respetiva solução correta."
+    },
+    {
+      "label": "Descrição da tecnologia assistiva para o botão \"Repetir\"",
+      "default": "Repetir a atividade. Apagar todas as respostas e reiniciar a atividade."
     },
     {
       "label": "Assistive technology description for \"Retry\" button",
