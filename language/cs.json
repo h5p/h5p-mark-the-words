@@ -1,14 +1,14 @@
 {
   "semantics": [
     {
-      "label": "Media",
+      "label": "Média",
       "fields": [
         {
-          "label": "Type",
+          "label": "Typ",
           "description": "Volitelná média zobrazená nad otázkou."
         },
         {
-          "label": "Zakázat zvětšování obrazu"
+          "label": "Zakázat zvětšení obrazu"
         }
       ]
     },
