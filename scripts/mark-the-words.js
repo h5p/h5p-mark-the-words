@@ -232,6 +232,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       // Add keyboard navigation to this element
       var selectableWord = new Word($(this), self.params);
       if (selectableWord.isAnswer()) {
+        self.isAnswered = true;
         self.answers += 1;
       }
       self.selectableWords.push(selectableWord);
