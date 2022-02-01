@@ -621,7 +621,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         throw new Error('Stored user state is invalid');
       }
 
-      this.isAnswered = true;
+      self.isAnswered = true;
       self.selectableWords[answeredWordIndex].setSelected();
     });
   };
