@@ -53,12 +53,12 @@
       ]
     },
     {
-      "label": "\"Check\" (확인) 버튼 텍스트",
-      "default": "확인"
+      "label": "\"Check\" (정답 확인) 버튼 텍스트",
+      "default": "정답 확인"
     },
     {
-      "label": "Text for \"Submit\" button",
-      "default": "Submit"
+      "label": "\"Submit\" (제출하기) 버튼 텍스트",
+      "default": "제출하기"
     },
     {
       "label": "\"Retry\" (재시도) 버튼 텍스트",
@@ -79,7 +79,7 @@
           "label": "\"Show solution\" (해답보이기) 버튼 활성화"
         },
         {
-          "label": "\"Check\" (확인) 버튼 활성화"
+          "label": "\"Check\" (정답 확인) 버튼 활성화"
         },
         {
           "label": "점수 보이기",
