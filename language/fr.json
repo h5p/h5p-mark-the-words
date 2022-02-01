@@ -58,7 +58,7 @@
     },
     {
       "label": "Text for \"Submit\" button",
-      "default": "Submit"
+      "default": "Vérifier"
     },
     {
       "label": "Texte du bouton \"Recommencer\"",
