@@ -61,8 +61,8 @@
       "default": "Submit"
     },
     {
-      "label": "Tekst for \"Prøv igjen\"-knapp",
-      "default": "Prøv igjen"
+      "label": "Text for \"Retry\" button",
+      "default": "Retry"
     },
     {
       "label": "Tekst for \"Fasit\" knapp",
@@ -109,7 +109,7 @@
     },
     {
       "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "Du fekk :num av :total poeng"
+      "default": "You got :num out of :total points"
     },
     {
       "label": "Label for the full readable text for assistive technologies",
