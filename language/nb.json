@@ -61,8 +61,8 @@
       "default": "Submit"
     },
     {
-      "label": "Etikett for \"Prøv igjen\"-knappen.",
-      "default": "Prøv igjen"
+      "label": "Text for \"Retry\" button",
+      "default": "Retry"
     },
     {
       "label": "Etikett for \"Fasit\"-knapp",
