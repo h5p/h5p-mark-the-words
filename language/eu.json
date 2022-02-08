@@ -5,15 +5,15 @@
       "fields": [
         {
           "label": "Mota",
-          "description": "Galderaren gaineko aukerako multimedia."
+          "description": "Galderaren gainean bistaratzeko aukerako multimedia."
         },
         {
-          "label": "Desgaitu irudiaren zooma"
+          "label": "Desgaitu irudien zooma"
         }
       ]
     },
     {
-      "label": "Zereginaren deskribapena",
+      "label": "Atazaren deskribapena",
       "description": "Deskribatu zereginaren irtenbidea aurkitzeko modua.",
       "placeholder": "Klik egin ondoko testuaren aditz guztietan."
     },
@@ -26,26 +26,26 @@
       }
     },
     {
-      "label": "Feedback orokorra",
+      "label": "Feedback Orokorra",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Lehenetsia"
+              "label": "Lehenetsitakoa"
             }
           ],
-          "label": "Definitu puntuaketa tarte jakin baterako feedbacka",
-          "description": "Klik egin \"Erantsi tartea\" botoian behar dituzun tarteak eransteko. Adibidez: %0-20 Puntuazio kaskarra, %21-91 Puntuazio normala, %91-100 Puntuazio bikaina!",
+          "label": "Zehaztu ezazu edozein puntuazio-tarterako feedback pertsonalizatua",
+          "description": "Egin klik \"Gehitu tartea\" botoian behar dituzun tarte guztiak gehitzeko. Adibidez: 0-20% Puntuazio eskasa, 21-91% Batez besteko puntuazioa, 91-100% Puntuazio bikaina!",
           "entity": "tartea",
           "field": {
             "fields": [
               {
-                "label": "Puntuazio tartea"
+                "label": "Puntazio-tartea"
               },
               {},
               {
-                "label": "Definitutako puntuazio tarterako feedbacka",
-                "placeholder": "Bete feedbacka"
+                "label": "Zehaztutako tartearentzako feedbacka",
+                "placeholder": "Idatzi ezazu feedbacka"
               }
             ]
           }
@@ -61,22 +61,22 @@
       "default": "Submit"
     },
     {
-      "label": "\"Saiatu berriro\" botoiarentzako testua",
+      "label": "\"Erakutsi emaitza\" botoiaren testua",
       "default": "Saiatu berriro"
     },
     {
       "label": "\"Erakutsi soluzioa\" botoiarentzako testua",
-      "default": "Erakutsi soluzioa"
+      "default": "Erakutsi erantzuna"
     },
     {
-      "label": "Portaera-ezarpenak.",
-      "description": "Aukera hauen bidez kontrolatu ahal izango duzu zereginaren portaera.",
+      "label": "Portaeraren ezarpenak.",
+      "description": "Aukera hauek lanaren portaera kontrolatzea ahalbidetzen dizute.",
       "fields": [
         {
-          "label": "Gaitu \"Saiatu berriro\""
+          "label": "Gaitu \"Berriz saiatu\""
         },
         {
-          "label": "Gaitu \"Erakutsi soluzioa\" botoia"
+          "label": "Gaitu \"Erakutsi erantzuna\" botoia"
         },
         {
           "label": "Gaitu \"Egiaztatu\" botoia"
@@ -109,7 +109,7 @@
     },
     {
       "label": "Puntuazio barraren testu adierazpena irakurgailua erabiltzen dutenentzat",
-      "default": ":total puntutik :num puntu lortu dituzu"
+      "default": ":total puntutik :num puntu lortu duzu"
     },
     {
       "label": "Testu irakurgarri osorako etiketa laguntzarako teknologietan",
