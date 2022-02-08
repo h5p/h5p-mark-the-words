@@ -232,6 +232,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       // Add keyboard navigation to this element
       var selectableWord = new Word($(this), self.params);
       if (selectableWord.isAnswer()) {
+        self.isAnswered = true;
         self.answers += 1;
       }
       self.selectableWords.push(selectableWord);
@@ -619,6 +620,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
         throw new Error('Stored user state is invalid');
       }
+
+      self.isAnswered = true;
       self.selectableWords[answeredWordIndex].setSelected();
     });
   };
