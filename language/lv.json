@@ -57,6 +57,10 @@
       "default": "Pārbaudīt"
     },
     {
+      "label": "Text for \"Submit\" button",
+      "default": "Submit"
+    },
+    {
       "label": "Pogas \"Mēģināt vēlreiz\" teksts",
       "default": "Mēģināt vēlreiz"
     },
