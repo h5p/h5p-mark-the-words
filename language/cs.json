@@ -35,7 +35,7 @@
             }
           ],
           "label": "Definujte vlastní zpětnou vazbu pro jakýkoli rozsah skóre",
-          "description": "Klepnutím na tlačítko \"Přidat rozsah\" přidejte libovolný počet rozsahů. Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
+          "description": "Klepnutím na tlačítko \"Přidat rozsah\" přidáte libovolný počet rozsahů. Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
           "entity": "rozsah",
           "field": {
             "fields": [
@@ -44,8 +44,8 @@
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Zpětná vazba pro definovaný rozsah skóre",
+                "placeholder": "Vyplňte zpětnou vazbu"
               }
             ]
           }
@@ -137,7 +137,7 @@
     },
     {
       "label": "Popisek podpůrné technologie pro tlačítko „Opakovat“",
-      "default": "Zopakovat úkol. Resetovat všechny odpovědi a spustit úlohu znovu."
+      "default": "Opakovat úkol. Resetovat všechny odpovědi a spustit úlohu znovu."
     }
   ]
 }
