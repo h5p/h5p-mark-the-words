@@ -13,7 +13,7 @@
       ]
     },
     {
-      "label": "Consigne",
+      "label": "Task description",
       "description": "Expliquez ce que doit faire l'utilisateur.",
       "placeholder": "Cliquer sur tous les verbes dans le texte ci-dessous."
     },
