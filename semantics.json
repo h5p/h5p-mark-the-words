@@ -208,6 +208,14 @@
         "description": "Show points earned for each answer.",
         "importance": "low",
         "default": true
+      },
+      {
+        "name": "preventPointSubstraction",
+        "type": "boolean",
+        "label": "No score point deduction",
+        "importance": "low",
+        "description": "Enable to prevent score point deduction for wrong marked words.",
+        "default": false
       }
     ]
   },

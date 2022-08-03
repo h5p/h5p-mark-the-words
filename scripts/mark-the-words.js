@@ -19,42 +19,53 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   function MarkTheWords(params, contentId, contentData) {
     this.contentId = contentId;
     this.contentData = contentData;
-    this.introductionId = 'mark-the-words-introduction-' + contentId;
+    this.introductionId = "mark-the-words-introduction-" + contentId;
 
-    Question.call(this, 'mark-the-words');
+    Question.call(this, "mark-the-words");
 
     // Set default behavior.
-    this.params = $.extend(true, {
-      media: {},
-      taskDescription: "",
-      textField: "This is a *nice*, *flexible* content type.",
-      overallFeedback: [],
-      behaviour: {
-        enableRetry: true,
-        enableSolutionsButton: true,
-        enableCheckButton: true,
-        showScorePoints: true
+    this.params = $.extend(
+      true,
+      {
+        media: {},
+        taskDescription: "",
+        textField: "This is a *nice*, *flexible* content type.",
+        overallFeedback: [],
+        behaviour: {
+          enableRetry: true,
+          enableSolutionsButton: true,
+          enableCheckButton: true,
+          showScorePoints: true,
+          preventPointSubstraction: false,
+        },
+        checkAnswerButton: "Check",
+        submitAnswerButton: "Submit",
+        tryAgainButton: "Retry",
+        showSolutionButton: "Show solution",
+        correctAnswer: "Correct!",
+        incorrectAnswer: "Incorrect!",
+        missedAnswer: "Answer not found!",
+        displaySolutionDescription: "Task is updated to contain the solution.",
+        scoreBarLabel: "You got :num out of :total points",
+        a11yFullTextLabel: "Full readable text",
+        a11yClickableTextLabel: "Full text where words can be marked",
+        a11ySolutionModeHeader: "Solution mode",
+        a11yCheckingHeader: "Checking mode",
+        a11yCheck:
+          "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+        a11yShowSolution:
+          "Show the solution. The task will be marked with its correct solution.",
+        a11yRetry:
+          "Retry the task. Reset all responses and start the task over again.",
       },
-      checkAnswerButton: "Check",
-      submitAnswerButton: "Submit",
-      tryAgainButton: "Retry",
-      showSolutionButton: "Show solution",
-      correctAnswer: "Correct!",
-      incorrectAnswer: "Incorrect!",
-      missedAnswer: "Answer not found!",
-      displaySolutionDescription:  "Task is updated to contain the solution.",
-      scoreBarLabel: 'You got :num out of :total points',
-      a11yFullTextLabel: 'Full readable text',
-      a11yClickableTextLabel: 'Full text where words can be marked',
-      a11ySolutionModeHeader: 'Solution mode',
-      a11yCheckingHeader: 'Checking mode',
-      a11yCheck: 'Check the answers. The responses will be marked as correct, incorrect, or unanswered.',
-      a11yShowSolution: 'Show the solution. The task will be marked with its correct solution.',
-      a11yRetry: 'Retry the task. Reset all responses and start the task over again.',
-    }, params);
+      params
+    );
 
     this.contentData = contentData;
-    if (this.contentData !== undefined && this.contentData.previousState !== undefined) {
+    if (
+      this.contentData !== undefined &&
+      this.contentData.previousState !== undefined
+    ) {
       this.previousState = this.contentData.previousState;
     }
 
@@ -87,13 +98,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    */
   MarkTheWords.prototype.createHtmlForWords = function (nodes) {
     var self = this;
-    var html = '';
+    var html = "";
     for (var i = 0; i < nodes.length; i++) {
       var node = nodes[i];
 
       if (node instanceof Text) {
         var text = $(node).text();
-        var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
+        var selectableStrings = text
+          .replace(/(&nbsp;|\r\n|\n|\r)/g, " ")
           .match(/ \*[^\* ]+\* |[^\s]+/g);
 
         if (selectableStrings) {
@@ -103,7 +115,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             // Words
             if (html) {
               // Add space before
-              html += ' ';
+              html += " ";
             }
 
             // Remove prefix punctuations from word
@@ -124,30 +136,37 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             // Word
             entry = entry.substr(start, end);
             if (entry.length) {
-              html += '<span role="option" aria-selected="false">' + self.escapeHTML(entry) + '</span>';
+              html +=
+                '<span role="option" aria-selected="false">' +
+                self.escapeHTML(entry) +
+                "</span>";
             }
 
             if (suffix !== null) {
               html += suffix;
             }
           });
+        } else if (selectableStrings !== null && text.length) {
+          html +=
+            '<span role="option" aria-selected="false">' +
+            this.escapeHTML(text) +
+            "</span>";
         }
-        else if ((selectableStrings !== null) && text.length) {
-          html += '<span role="option" aria-selected="false">' + this.escapeHTML(text) + '</span>';
-        }
-      }
-      else {
-        if (node.nodeName === 'BR') {
-          html += '<br/>';
-        }
-        else {
-          var attributes = ' ';
+      } else {
+        if (node.nodeName === "BR") {
+          html += "<br/>";
+        } else {
+          var attributes = " ";
           for (var j = 0; j < node.attributes.length; j++) {
-            attributes +=node.attributes[j].name + '="' + node.attributes[j].nodeValue + '" ';
+            attributes +=
+              node.attributes[j].name +
+              '="' +
+              node.attributes[j].nodeValue +
+              '" ';
           }
-          html += '<' + node.nodeName +  attributes + '>';
+          html += "<" + node.nodeName + attributes + ">";
           html += self.createHtmlForWords(node.childNodes);
-          html += '</' + node.nodeName + '>';
+          html += "</" + node.nodeName + ">";
         }
       }
     }
@@ -162,7 +181,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @returns {jQuery}
    */
   MarkTheWords.prototype.escapeHTML = function (html) {
-    return $('<div>').text(html).html();
+    return $("<div>").text(html).html();
   };
 
   /**
@@ -172,16 +191,19 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @returns {Array}
    */
   MarkTheWords.prototype.getIndexesOfLineBreaks = function () {
-
     var indexes = [];
-    var selectables = this.$wordContainer.find('span.h5p-word-selectable');
+    var selectables = this.$wordContainer.find("span.h5p-word-selectable");
 
     selectables.each(function (index, selectable) {
-      if ($(selectable).next().is('br')) {
+      if ($(selectable).next().is("br")) {
         indexes.push(index);
       }
 
-      if ($(selectable).parent('p') && !$(selectable).parent().is(':last-child') && $(selectable).is(':last-child')) {
+      if (
+        $(selectable).parent("p") &&
+        !$(selectable).parent().is(":last-child") &&
+        $(selectable).is(":last-child")
+      ) {
         indexes.push(index);
       }
     });
@@ -199,17 +221,17 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     self.answers = 0;
 
     // Wrapper
-    var $wordContainer = $('<div/>', {
-      'class': 'h5p-word-selectable-words',
-      'aria-labelledby': self.introductionId,
-      'aria-multiselectable': 'true',
-      'role': 'listbox',
-      html: self.createHtmlForWords($.parseHTML(self.params.textField))
+    var $wordContainer = $("<div/>", {
+      class: "h5p-word-selectable-words",
+      "aria-labelledby": self.introductionId,
+      "aria-multiselectable": "true",
+      role: "listbox",
+      html: self.createHtmlForWords($.parseHTML(self.params.textField)),
     });
 
     let isNewParagraph = true;
     $wordContainer.find('[role="option"], br').each(function () {
-      if ($(this).is('br')) {
+      if ($(this).is("br")) {
         isNewParagraph = true;
         return;
       }
@@ -219,9 +241,9 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         self.currentKeyboardNavigator = new KeyboardNav();
 
         // on word clicked
-        self.currentKeyboardNavigator.on('select', function () {
+        self.currentKeyboardNavigator.on("select", function () {
           self.isAnswered = true;
-          self.triggerXAPI('interacted');
+          self.triggerXAPI("interacted");
         });
 
         self.keyboardNavigators.push(self.currentKeyboardNavigator);
@@ -238,33 +260,33 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.selectableWords.push(selectableWord);
     });
 
-    self.blankIsCorrect = (self.answers === 0);
+    self.blankIsCorrect = self.answers === 0;
     if (self.blankIsCorrect) {
       self.answers = 1;
     }
 
     // A11y full readable text
-    const $ariaTextWrapper = $('<div>', {
-      'class': 'hidden-but-read',
+    const $ariaTextWrapper = $("<div>", {
+      class: "hidden-but-read",
     }).appendTo($container);
-    $('<div>', {
+    $("<div>", {
       html: self.params.a11yFullTextLabel,
     }).appendTo($ariaTextWrapper);
 
     // Add space after each paragraph to read the sentences better
-    const ariaText = $('<div>', {
-      'html': $wordContainer.html().replace('</p>', ' </p>'),
+    const ariaText = $("<div>", {
+      html: $wordContainer.html().replace("</p>", " </p>"),
     }).text();
 
-    $('<div>', {
+    $("<div>", {
       text: ariaText,
     }).appendTo($ariaTextWrapper);
 
     // A11y clickable list label
-    this.$a11yClickableTextLabel = $('<div>', {
-      'class': 'hidden-but-read',
+    this.$a11yClickableTextLabel = $("<div>", {
+      class: "hidden-but-read",
       html: self.params.a11yClickableTextLabel,
-      tabIndex: '-1',
+      tabIndex: "-1",
     }).appendTo($container);
 
     $wordContainer.appendTo($container);
@@ -276,61 +298,91 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    */
   MarkTheWords.prototype.addButtons = function () {
     var self = this;
-    self.$buttonContainer = $('<div/>', {
-      'class': 'h5p-button-bar'
+    self.$buttonContainer = $("<div/>", {
+      class: "h5p-button-bar",
     });
 
     if (this.params.behaviour.enableCheckButton) {
-      this.addButton('check-answer', this.params.checkAnswerButton, function () {
-        self.isAnswered = true;
-        var answers = self.calculateScore();
-        self.feedbackSelectedWords();
+      this.addButton(
+        "check-answer",
+        this.params.checkAnswerButton,
+        function () {
+          self.isAnswered = true;
+          var answers = self.calculateScore();
+          self.feedbackSelectedWords();
 
-        if (!self.showEvaluation(answers)) {
-          // Only show if a correct answer was not found.
-          if (self.params.behaviour.enableSolutionsButton && (answers.correct < self.answers)) {
-            self.showButton('show-solution');
+          if (!self.showEvaluation(answers)) {
+            // Only show if a correct answer was not found.
+            if (
+              self.params.behaviour.enableSolutionsButton &&
+              answers.correct < self.answers
+            ) {
+              self.showButton("show-solution");
+            }
+            if (self.params.behaviour.enableRetry) {
+              self.showButton("try-again");
+            }
           }
-          if (self.params.behaviour.enableRetry) {
-            self.showButton('try-again');
-          }
+          // Set focus to start of text
+          self.$a11yClickableTextLabel.html(
+            self.params.a11yCheckingHeader +
+              " - " +
+              self.params.a11yClickableTextLabel
+          );
+          self.$a11yClickableTextLabel.focus();
+
+          self.hideButton("check-answer");
+          self.trigger(self.XapiGenerator.generateAnsweredEvent());
+          self.toggleSelectable(true);
+        },
+        true,
+        {
+          "aria-label": this.params.a11yCheck,
+        },
+        {
+          contentData: this.contentData,
+          textIfSubmitting: this.params.submitAnswerButton,
         }
-        // Set focus to start of text
-        self.$a11yClickableTextLabel.html(self.params.a11yCheckingHeader + ' - ' + self.params.a11yClickableTextLabel);
-        self.$a11yClickableTextLabel.focus();
-
-        self.hideButton('check-answer');
-        self.trigger(self.XapiGenerator.generateAnsweredEvent());
-        self.toggleSelectable(true);
-      }, true, {
-        'aria-label': this.params.a11yCheck,
-      }, {
-        contentData: this.contentData,
-        textIfSubmitting: this.params.submitAnswerButton,
-      });
+      );
     }
 
-    this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false, {
-      'aria-label': this.params.a11yRetry,
-    });
-
-    this.addButton('show-solution', this.params.showSolutionButton, function () {
-      self.setAllMarks();
-
-      self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
-      self.$a11yClickableTextLabel.focus();
-
-      if (self.params.behaviour.enableRetry) {
-        self.showButton('try-again');
+    this.addButton(
+      "try-again",
+      this.params.tryAgainButton,
+      this.resetTask.bind(this),
+      false,
+      {
+        "aria-label": this.params.a11yRetry,
       }
-      self.hideButton('check-answer');
-      self.hideButton('show-solution');
+    );
 
-      self.read(self.params.displaySolutionDescription);
-      self.toggleSelectable(true);
-    }, false, {
-      'aria-label': this.params.a11yShowSolution,
-    });
+    this.addButton(
+      "show-solution",
+      this.params.showSolutionButton,
+      function () {
+        self.setAllMarks();
+
+        self.$a11yClickableTextLabel.html(
+          self.params.a11ySolutionModeHeader +
+            " - " +
+            self.params.a11yClickableTextLabel
+        );
+        self.$a11yClickableTextLabel.focus();
+
+        if (self.params.behaviour.enableRetry) {
+          self.showButton("try-again");
+        }
+        self.hideButton("check-answer");
+        self.hideButton("show-solution");
+
+        self.read(self.params.displaySolutionDescription);
+        self.toggleSelectable(true);
+      },
+      false,
+      {
+        "aria-label": this.params.a11yShowSolution,
+      }
+    );
   };
 
   /**
@@ -342,19 +394,18 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       if (disable) {
         navigator.disableSelectability();
         navigator.removeAllTabbable();
-      }
-      else {
+      } else {
         navigator.enableSelectability();
-        navigator.setTabbableAt((0));
+        navigator.setTabbableAt(0);
       }
     });
 
     if (disable) {
-      this.$wordContainer.removeAttr('aria-multiselectable').removeAttr('role');
-    }
-    else {
-      this.$wordContainer.attr('aria-multiselectable', 'true')
-        .attr('role', 'listbox');
+      this.$wordContainer.removeAttr("aria-multiselectable").removeAttr("role");
+    } else {
+      this.$wordContainer
+        .attr("aria-multiselectable", "true")
+        .attr("role", "listbox");
     }
   };
 
@@ -366,7 +417,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    */
   MarkTheWords.prototype.getXAPIData = function () {
     return {
-      statement: this.XapiGenerator.generateAnsweredEvent().data.statement
+      statement: this.XapiGenerator.generateAnsweredEvent().data.statement,
     };
   };
 
@@ -386,7 +437,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
      *
      * @event MarkTheWords#resize
      */
-    this.trigger('resize');
+    this.trigger("resize");
   };
 
   /**
@@ -408,8 +459,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       }
     });
 
-    this.$wordContainer.addClass('h5p-disable-hover');
-    this.trigger('resize');
+    this.$wordContainer.addClass("h5p-disable-hover");
+    this.trigger("resize");
   };
 
   /**
@@ -423,7 +474,11 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var score = answers.score;
 
     //replace editor variables with values, uses regexp to replace all instances.
-    var scoreText = H5P.Question.determineOverallFeedback(this.params.overallFeedback, score / this.answers).replace(/@score/g, score.toString())
+    var scoreText = H5P.Question.determineOverallFeedback(
+      this.params.overallFeedback,
+      score / this.answers
+    )
+      .replace(/@score/g, score.toString())
       .replace(/@total/g, this.answers.toString())
       .replace(/@correct/g, answers.correct.toString())
       .replace(/@wrong/g, answers.wrong.toString())
@@ -431,7 +486,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     this.setFeedback(scoreText, score, this.answers, this.params.scoreBarLabel);
 
-    this.trigger('resize');
+    this.trigger("resize");
     return score === this.answers;
   };
 
@@ -442,7 +497,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    */
   MarkTheWords.prototype.hideEvaluation = function () {
     this.removeFeedback();
-    this.trigger('resize');
+    this.trigger("resize");
   };
 
   /**
@@ -464,18 +519,19 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       correct: 0,
       wrong: 0,
       missed: 0,
-      score: 0
+      score: 0,
     };
 
     // iterate over words, and calculate score
     var answers = self.selectableWords.reduce(function (result, word) {
       if (word.isCorrect()) {
         result.correct++;
-      }
-      else if (word.isWrong()) {
+      } else if (
+        word.isWrong() &&
+        !self.params.behaviour.preventPointSubstraction
+      ) {
         result.wrong++;
-      }
-      else if (word.isMissed()) {
+      } else if (word.isMissed()) {
         result.missed++;
       }
 
@@ -503,8 +559,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       entry.markClear();
     });
 
-    this.$wordContainer.removeClass('h5p-disable-hover');
-    this.trigger('resize');
+    this.$wordContainer.removeClass("h5p-disable-hover");
+    this.trigger("resize");
   };
 
   /**
@@ -542,7 +598,13 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * @returns {string}
    */
   MarkTheWords.prototype.getTitle = function () {
-    return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Mark the Words');
+    return H5P.createTitle(
+      this.contentData &&
+        this.contentData.metadata &&
+        this.contentData.metadata.title
+        ? this.contentData.metadata.title
+        : "Mark the Words"
+    );
   };
 
   /**
@@ -556,13 +618,17 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.showEvaluation(answers);
     this.setAllMarks();
     this.read(this.params.displaySolutionDescription);
-    this.hideButton('try-again');
-    this.hideButton('show-solution');
-    this.hideButton('check-answer');
-    this.$a11yClickableTextLabel.html(this.params.a11ySolutionModeHeader + ' - ' + this.params.a11yClickableTextLabel);
+    this.hideButton("try-again");
+    this.hideButton("show-solution");
+    this.hideButton("check-answer");
+    this.$a11yClickableTextLabel.html(
+      this.params.a11ySolutionModeHeader +
+        " - " +
+        this.params.a11yClickableTextLabel
+    );
 
     this.toggleSelectable(true);
-    this.trigger('resize');
+    this.trigger("resize");
   };
 
   /**
@@ -575,13 +641,13 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.isAnswered = false;
     this.clearAllMarks();
     this.hideEvaluation();
-    this.hideButton('try-again');
-    this.hideButton('show-solution');
-    this.showButton('check-answer');
+    this.hideButton("try-again");
+    this.hideButton("show-solution");
+    this.showButton("check-answer");
     this.$a11yClickableTextLabel.html(this.params.a11yClickableTextLabel);
 
     this.toggleSelectable(false);
-    this.trigger('resize');
+    this.trigger("resize");
   };
 
   /**
@@ -611,14 +677,21 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var self = this;
 
     // Do nothing if user state is undefined
-    if (this.previousState === undefined || this.previousState.length === undefined) {
+    if (
+      this.previousState === undefined ||
+      this.previousState.length === undefined
+    ) {
       return;
     }
 
     // Select words from user state
     this.previousState.forEach(function (answeredWordIndex) {
-      if (isNaN(answeredWordIndex) || answeredWordIndex >= self.selectableWords.length || answeredWordIndex < 0) {
-        throw new Error('Stored user state is invalid');
+      if (
+        isNaN(answeredWordIndex) ||
+        answeredWordIndex >= self.selectableWords.length ||
+        answeredWordIndex < 0
+      ) {
+        throw new Error("Stored user state is invalid");
       }
 
       self.isAnswered = true;
@@ -636,24 +709,22 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     let media = this.params.media;
     if (media && media.type && media.type.library) {
       media = media.type;
-      const type = media.library.split(' ')[0];
-      if (type === 'H5P.Image') {
+      const type = media.library.split(" ")[0];
+      if (type === "H5P.Image") {
         if (media.params.file) {
           // Register task image
           this.setImage(media.params.file.path, {
             disableImageZooming: this.params.media.disableImageZooming || false,
             alt: media.params.alt,
-            title: media.params.title
+            title: media.params.title,
           });
         }
-      }
-      else if (type === 'H5P.Video') {
+      } else if (type === "H5P.Video") {
         if (media.params.sources) {
           // Register task video
           this.setVideo(media);
         }
-      }
-      else if (type === 'H5P.Audio') {
+      } else if (type === "H5P.Audio") {
         if (media.params.files) {
           // Register task audio
           this.setAudio(media);
@@ -662,7 +733,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }
 
     // wrap introduction in div with id
-    var introduction = '<div id="' + this.introductionId + '">' + this.params.taskDescription + '</div>';
+    var introduction =
+      '<div id="' +
+      this.introductionId +
+      '">' +
+      this.params.taskDescription +
+      "</div>";
 
     // Register description
     this.setIntroduction(introduction);
@@ -672,7 +748,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     // Register content
     this.setContent(this.$inner, {
-      'class': 'h5p-word'
+      class: "h5p-word",
     });
 
     // Register buttons
@@ -687,15 +763,39 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     var self = this;
     var $el = $('<div class="h5p-mark-the-words-descriptions"></div>');
 
-    $('<div id="' + Word.ID_MARK_CORRECT + '">' + self.params.correctAnswer + '</div>').appendTo($el);
-    $('<div id="' + Word.ID_MARK_INCORRECT + '">' + self.params.incorrectAnswer + '</div>').appendTo($el);
-    $('<div id="' + Word.ID_MARK_MISSED + '">' + self.params.missedAnswer + '</div>').appendTo($el);
+    $(
+      '<div id="' +
+        Word.ID_MARK_CORRECT +
+        '">' +
+        self.params.correctAnswer +
+        "</div>"
+    ).appendTo($el);
+    $(
+      '<div id="' +
+        Word.ID_MARK_INCORRECT +
+        '">' +
+        self.params.incorrectAnswer +
+        "</div>"
+    ).appendTo($el);
+    $(
+      '<div id="' +
+        Word.ID_MARK_MISSED +
+        '">' +
+        self.params.missedAnswer +
+        "</div>"
+    ).appendTo($el);
 
     return $el;
   };
 
   return MarkTheWords;
-}(H5P.jQuery, H5P.Question, H5P.MarkTheWords.Word, H5P.KeyboardNav, H5P.MarkTheWords.XapiGenerator));
+})(
+  H5P.jQuery,
+  H5P.Question,
+  H5P.MarkTheWords.Word,
+  H5P.KeyboardNav,
+  H5P.MarkTheWords.XapiGenerator
+);
 
 /**
  * Static utility method for parsing H5P.MarkTheWords content item questions
@@ -730,7 +830,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
  * @param {string} question MarkTheWords textField (html)
  */
 H5P.MarkTheWords.parseText = function (question) {
-
   /**
    * Separate all words surrounded by a space and an asterisk and any other
    * sequence of non-whitespace characters from str into an array.
@@ -759,11 +858,11 @@ H5P.MarkTheWords.parseText = function (question) {
   }
 
   function removeLeadingPunctuation(str) {
-    return str.replace(/^[\[\({⟨¿¡“"«„]+/, '');
+    return str.replace(/^[\[\({⟨¿¡“"«„]+/, "");
   }
 
   function removeTrailingPunctuation(str) {
-    return str.replace(/[",….:;?!\]\)}⟩»”]+$/, '');
+    return str.replace(/[",….:;?!\]\)}⟩»”]+$/, "");
   }
 
   /**
@@ -771,11 +870,12 @@ H5P.MarkTheWords.parseText = function (question) {
    * @param {string} str
    */
   function handleAsterisks(str) {
-    var asteriskIndex = str.indexOf('*');
+    var asteriskIndex = str.indexOf("*");
 
     while (asteriskIndex !== -1) {
-      str = str.slice(0, asteriskIndex) + str.slice(asteriskIndex + 1, str.length);
-      asteriskIndex = str.indexOf('*', asteriskIndex + 1);
+      str =
+        str.slice(0, asteriskIndex) + str.slice(asteriskIndex + 1, str.length);
+      asteriskIndex = str.indexOf("*", asteriskIndex + 1);
     }
     return str;
   }
@@ -785,12 +885,14 @@ H5P.MarkTheWords.parseText = function (question) {
    * @param {string} str
    */
   function decodeHtmlEntities(str) {
-    const el = document.createElement('textarea');
+    const el = document.createElement("textarea");
     el.innerHTML = str;
     return el.value;
   }
 
-  const wordsWithAsterisksNotRemovedYet = getWords(replaceHtmlTags(decodeHtmlEntities(question), ' '))
+  const wordsWithAsterisksNotRemovedYet = getWords(
+    replaceHtmlTags(decodeHtmlEntities(question), " ")
+  )
     .map(function (w) {
       return w.trim();
     })
@@ -809,7 +911,7 @@ H5P.MarkTheWords.parseText = function (question) {
 
   const correctWords = wordsWithAsterisksNotRemovedYet
     .filter(function (w, i) {
-      if (startsAndEndsWith('*', w)) {
+      if (startsAndEndsWith("*", w)) {
         correctWordIndexes.push(i);
         return true;
       }
@@ -819,19 +921,21 @@ H5P.MarkTheWords.parseText = function (question) {
       return handleAsterisks(w);
     });
 
-  const printableQuestion = replaceHtmlTags(decodeHtmlEntities(question), ' ')
-    .replace('\xa0', '\x20');
+  const printableQuestion = replaceHtmlTags(
+    decodeHtmlEntities(question),
+    " "
+  ).replace("\xa0", "\x20");
 
   return {
     alternatives: allSelectableWords,
     correctWords: correctWords,
     correctWordIndexes: correctWordIndexes,
-    textWithPlaceholders: printableQuestion.match(/[^\s]+/g)
+    textWithPlaceholders: printableQuestion
+      .match(/[^\s]+/g)
       .reduce(function (textWithPlaceholders, word, index) {
-        word = removeTrailingPunctuation(
-          removeLeadingPunctuation(word));
+        word = removeTrailingPunctuation(removeLeadingPunctuation(word));
 
-        return textWithPlaceholders.replace(word, '%' + index);
-      }, printableQuestion)
+        return textWithPlaceholders.replace(word, "%" + index);
+      }, printableQuestion),
   };
 };

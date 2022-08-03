@@ -84,6 +84,10 @@
         {
           "label": "Bepunktungsdetails anzeigen",
           "description": "Zeigt die für jede Antwort vergebenen Punkte an."
+        },
+        {
+          "label": "Kein Punktabzug",
+          "description": "Verhindert den Punktabzug bei falsch markierten Begriffen."
         }
       ]
     },
