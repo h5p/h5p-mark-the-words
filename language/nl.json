@@ -1,60 +1,52 @@
 {
   "semantics": [
     {
-      "englishLabel": "Media",
       "label": "Media",
       "fields": [
         {
-          "englishLabel": "Type",
           "label": "Type",
-          "englishDescription": "Optional media to display above the question.",
           "description": "Optionele media, die boven de vraag wordt getoond."
         },
         {
-          "englishLabel": "Disable image zooming",
           "label": "Beeld zoomen uitschakelen"
         }
       ]
     },
     {
-      "englishLabel": "Task description",
       "label": "Taakomschrijving",
-      "englishDescription": "Describe how the user should solve the task.",
-      "description": "Beschrijf hoe de gebruiker de taak moet uitvoeren."
+      "description": "Beschrijf hoe de gebruiker de taak moet uitvoeren.",
+      "placeholder": "Klik in de volgende tekst op alle werkwoorden."
     },
     {
-      "englishLabel": "Textfield",
       "label": "Tekstveld",
-      "englishDescription": "",
-      "description": "TODO"
+      "placeholder": "Dit is een antwoord: *antwoord*.",
+      "description": "",
+      "important": {
+        "description": "<ul><li>Gemarkeerde woorden worden voorzien van een asterisk (*).</li><li>Een asterisk mag worden ingesloten door een andere asterisk, dit resulteert in ** = *.</li></ul>",
+        "example": "De juiste woorden zijn als volgt gemarkeerd: *juistwoord*, een asterisk wordt geschreven als : *juistwoord***."
+      }
     },
     {
-      "englishLabel": "Overall Feedback",
       "label": "Algehele feedback",
       "fields": [
         {
           "widgets": [
             {
-              "englishLabel": "Default",
               "label": "Standaard"
             }
           ],
-          "englishLabel": "Define custom feedback for any score range",
           "label": "Definieer aangepaste feedback voor elke scorereeks",
-          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Druk op de \"Voeg scorereeks\"-knop om zoveel reeksen toe te voegen als nodig. Voorbeeld: 0-20% Onvoldoende, 21-91% Gemiddelde score, 91-100% Uitstekende score!",
-          "englishEntity": "range",
           "entity": "reeks",
           "field": {
             "fields": [
               {
-                "englishLabel": "Score Range",
                 "label": "Scorereeks"
               },
               {},
               {
-                "englishLabel": "Feedback for defined score range",
-                "label": "Feedback voor de gedefinieerde scorereeks"
+                "label": "Feedback voor de gedefinieerde scorereeks",
+                "placeholder": "Vul de feedback in"
               }
             ]
           }
@@ -62,139 +54,94 @@
       ]
     },
     {
-      "englishLabel": "Text for \"Check\" button",
       "label": "Tekst voor \"Controleer\"-knop",
-      "englishDefault": "Check",
       "default": "Controleer"
     },
     {
-      "englishLabel": "Text for \"Submit\" button",
       "label": "Tekst voor \"Verzend\"-knop",
-      "englishDefault": "Submit",
       "default": "Verzend"
     },
     {
-      "englishLabel": "Text for \"Retry\" button",
       "label": "Tekst voor \"Opnieuw\"-knop",
-      "englishDefault": "Retry",
       "default": "Opnieuw"
     },
     {
-      "englishLabel": "Text for \"Show solution\" button",
       "label": "Tekst voor \"Toon oplossing\"-knop",
-      "englishDefault": "Show solution",
       "default": "Toon oplossing"
     },
     {
-      "englishLabel": "Behavioural settings.",
       "label": "Gedragsinstellingen.",
-      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Met deze opties kun je bepalen hoe de taak zich gedraagt.",
       "fields": [
         {
-          "englishLabel": "Enable \"Retry\"",
           "label": "Schakel \"Opnieuw\" in"
         },
         {
-          "englishLabel": "Enable \"Show solution\" button",
           "label": "Schakel \"Toon oplossing\"-knop in"
         },
         {
-          "englishLabel": "Enable \"Check\" button",
           "label": "Schakel \"Controleer\"-knop in"
         },
         {
-          "englishLabel": "Show score points",
           "label": "Toon scorepunten",
-          "englishDescription": "Show points earned for each answer.",
           "description": "Toon het aantal verdiende punten voor elk antwoord."
         },
         {
-          "englishLabel": "No score point deduction",
-          "label": "TODO",
-          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
-          "description": "TODO"
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },
     {
-      "englishLabel": "Correct answer text",
       "label": "Tekst voor juist antwoord",
-      "englishDefault": "Correct!",
       "default": "Juist!",
-      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Deze tekst wordt gebruikt om aan te geven dat een antwoord juist is"
     },
     {
-      "englishLabel": "Incorrect answer text",
       "label": "Tekst voor onjuist antwoord",
-      "englishDefault": "Incorrect!",
       "default": "Onjuist!",
-      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Deze tekst wordt gebruikt om aan te geven dat een antwoord onjuist is"
     },
     {
-      "englishLabel": "Missed answer text",
       "label": "Tekst voor ontbrekend antwoord",
-      "englishDefault": "Answer not found!",
       "default": "Niet gevonden!",
-      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Deze tekst wordt gebruikt om aan te geven dat een antwoord ontbreekt"
     },
     {
-      "englishLabel": "Description for Display Solution",
       "label": "Beschrijving voor de weergave van de oplossing",
-      "englishDefault": "Task is updated to contain the solution.",
       "default": "De taak is bijgewerkt en bevat nu ook de oplossing.",
-      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Deze tekst vertelt de gebruiker dat de taken zijn bijgewerkt en nu ook de oplossing bevatten."
     },
     {
-      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Tekstuele weergave van de scorebalk voor degene die een schermlezer gebruiken",
-      "englishDefault": "You got :num out of :total points",
       "default": "Je hebt :num van de :total punten"
     },
     {
-      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Label voor de volledige, leesbare tekst voor ondersteunende technologieën",
-      "englishDefault": "Full readable text",
       "default": "Volledig leesbare tekst"
     },
     {
-      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Label voor de tekst waarin woorden kunnen worden gemarkeerd voor ondersteunende technologieën",
-      "englishDefault": "Full text where words can be marked",
       "default": "Volledige tekst waarin woorden kunnen worden gemarkeerd"
     },
     {
-      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Koptekst voor oplossingsmodus voor ondersteunende technologieën",
-      "englishDefault": "Solution mode",
       "default": "Oplossingsmodus"
     },
     {
-      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Koptekst voor controlemodus voor ondersteunende technologieën",
-      "englishDefault": "Checking mode",
       "default": "Controlemodus"
     },
     {
-      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Ondersteunende technologie beschrijving voor \"Controleer\"-knop",
-      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Controleer de antwoorden. De antwoorden worden gemarkeerd als juist, onjuist, of niet-beantwoord."
     },
     {
-      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Ondersteunende technologie beschrijving voor \"Toon oplossing\"-knop",
-      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Toon de oplossing. De taak zal worden gemarkeerd met de juiste oplossing."
     },
     {
-      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Ondersteunende technologie beschrijving voor \"Opnieuw\"-knop",
-      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Probeer de taak opnieuw. Reset alle antwoorden en start de taak opnieuw."
     }
   ]

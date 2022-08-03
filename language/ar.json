@@ -1,60 +1,52 @@
 {
   "semantics": [
     {
-      "englishLabel": "Media",
       "label": "وسائط",
       "fields": [
         {
-          "englishLabel": "Type",
           "label": "النوع",
-          "englishDescription": "Optional media to display above the question.",
           "description": "وسائط إضافية اختيارية تُعرض أعلى السؤال."
         },
         {
-          "englishLabel": "Disable image zooming",
           "label": "إيقاف ميزة تكبير الصور"
         }
       ]
     },
     {
-      "englishLabel": "Task description",
       "label": "وصف النشاط",
-      "englishDescription": "Describe how the user should solve the task.",
-      "description": "وصف الكيفية التي ينبغي للمستخدم حل النشاط"
+      "description": "وصف الكيفية التي ينبغي للمستخدم حل النشاط",
+      "placeholder": "Click on all the verbs in the text that follows."
     },
     {
-      "englishLabel": "Textfield",
       "label": "الحقل النصي",
-      "englishDescription": "",
-      "description": "TODO"
+      "placeholder": "This is an answer: *answer*.",
+      "description": "",
+      "important": {
+        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
+        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+      }
     },
     {
-      "englishLabel": "Overall Feedback",
       "label": "شفافية خلفية العناصر",
       "fields": [
         {
           "widgets": [
             {
-              "englishLabel": "Default",
               "label": "الافتراضي"
             }
           ],
-          "englishLabel": "Define custom feedback for any score range",
           "label": "تحديد الملاحظات المخصصة لأي نطاق درجة",
-          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "انقر على زر \"إضافة نطاق\" لإضافة ما ترغب به من نطاقات، ومثال على ذلك: 0-20٪ نتيجة سيئة، 21-91٪ نتيجة متوسطة، 91-100٪ نتيجة رائعة!",
-          "englishEntity": "range",
           "entity": "النطاق",
           "field": {
             "fields": [
               {
-                "englishLabel": "Score Range",
                 "label": "نطاق الدرجة"
               },
               {},
               {
-                "englishLabel": "Feedback for defined score range",
-                "label": "ملاحظات لنطاق درجة محدد"
+                "label": "ملاحظات لنطاق درجة محدد",
+                "placeholder": "أدخل الملاحظات"
               }
             ]
           }
@@ -62,139 +54,94 @@
       ]
     },
     {
-      "englishLabel": "Text for \"Check\" button",
       "label": "النص ل \"تحقق \" الزر",
-      "englishDefault": "Check",
       "default": "Check"
     },
     {
-      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
-      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
-      "englishLabel": "Text for \"Retry\" button",
       "label": "النص ل \"إعادة المحاولة \" الزر",
-      "englishDefault": "Retry",
       "default": "إعادة المحاولة"
     },
     {
-      "englishLabel": "Text for \"Show solution\" button",
       "label": "النص  \"مشاهدة الحل \" لزر",
-      "englishDefault": "Show solution",
       "default": "مشاهدة الحل"
     },
     {
-      "englishLabel": "Behavioural settings.",
       "label": "إعدادت النشاط",
-      "englishDescription": "These options will let you control how the task behaves.",
       "description": "وهذه الخيارات تمكنك من التحكم في كيفية سلوك هذا النشاط",
       "fields": [
         {
-          "englishLabel": "Enable \"Retry\"",
           "label": "تمكين \"إعادة المحاولة \""
         },
         {
-          "englishLabel": "Enable \"Show solution\" button",
           "label": "تمكين زر \"مشاهدة الحل\""
         },
         {
-          "englishLabel": "Enable \"Check\" button",
           "label": "Enable \"Check\" button"
         },
         {
-          "englishLabel": "Show score points",
           "label": "Show score points",
-          "englishDescription": "Show points earned for each answer.",
           "description": "Show points earned for each answer."
         },
         {
-          "englishLabel": "No score point deduction",
-          "label": "TODO",
-          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
-          "description": "TODO"
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },
     {
-      "englishLabel": "Correct answer text",
       "label": "نص الجواب الصحيح",
-      "englishDefault": "Correct!",
       "default": "صحيح!",
-      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Text used to indicate that an answer is correct"
     },
     {
-      "englishLabel": "Incorrect answer text",
       "label": "نص الجواب غير صحيح",
-      "englishDefault": "Incorrect!",
       "default": "غير صحيح!",
-      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Text used to indicate that an answer is incorrect"
     },
     {
-      "englishLabel": "Missed answer text",
       "label": "غاب نص الجواب",
-      "englishDefault": "Answer not found!",
       "default": "افتقد!",
-      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Text used to indicate that an answer is missing"
     },
     {
-      "englishLabel": "Description for Display Solution",
       "label": "وصف لعرض الحل",
-      "englishDefault": "Task is updated to contain the solution.",
       "default": "يتم تحديث مهمة لاحتواء الحل.",
-      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "This text tells the user that the tasks has been updated with the solution."
     },
     {
-      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Textual representation of the score bar for those using a readspeaker",
-      "englishDefault": "You got :num out of :total points",
       "default": "You got :num out of :total points"
     },
     {
-      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Label for the full readable text for assistive technologies",
-      "englishDefault": "Full readable text",
       "default": "Full readable text"
     },
     {
-      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Label for the text where words can be marked for assistive technologies",
-      "englishDefault": "Full text where words can be marked",
       "default": "Full text where words can be marked"
     },
     {
-      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Solution mode header for assistive technologies",
-      "englishDefault": "Solution mode",
       "default": "Solution mode"
     },
     {
-      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Checking mode header for assistive technologies",
-      "englishDefault": "Checking mode",
       "default": "Checking mode"
     },
     {
-      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Assistive technology description for \"Check\" button",
-      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
-      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Assistive technology description for \"Show Solution\" button",
-      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Show the solution. The task will be marked with its correct solution."
     },
     {
-      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Assistive technology description for \"Retry\" button",
-      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]

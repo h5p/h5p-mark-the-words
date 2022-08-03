@@ -1,60 +1,52 @@
 {
   "semantics": [
     {
-      "englishLabel": "Media",
       "label": "媒體",
       "fields": [
         {
-          "englishLabel": "Type",
           "label": "類型",
-          "englishDescription": "Optional media to display above the question.",
           "description": "在問題上方顯示可選的媒體."
         },
         {
-          "englishLabel": "Disable image zooming",
           "label": "針對圖片停用圖片縮放"
         }
       ]
     },
     {
-      "englishLabel": "Task description",
       "label": "任務說明",
-      "englishDescription": "Describe how the user should solve the task.",
-      "description": "說明用戶任務中要做些什麼。"
+      "description": "說明用戶任務中要做些什麼。",
+      "placeholder": "在句子中找到動詞然後圈出來。"
     },
     {
-      "englishLabel": "Textfield",
       "label": "文字",
-      "englishDescription": "",
-      "description": "TODO"
+      "placeholder": "我 常常 在 夜深人靜 的時候 *翻譯* 一些 軟體 。",
+      "description": "",
+      "important": {
+        "description": "<ul><li>在需要被標記的字詞（答案）兩側添加星號 (*)。</li><li>如果字詞中包含星號，那麼可以再加一個就會被包含，例如 *correctword*** =&gt; correctword*。</li><li>詞與詞之間要以空白符號分隔。只有字詞能使用，英語片語不行。</li></ul>",
+        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+      }
     },
     {
-      "englishLabel": "Overall Feedback",
       "label": "結果回饋",
       "fields": [
         {
           "widgets": [
             {
-              "englishLabel": "Default",
               "label": "預設"
             }
           ],
-          "englishLabel": "Define custom feedback for any score range",
           "label": "為不同分數區間的用戶分別回饋訊息",
-          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "點擊「添加範圍」按鈕，加入你想要的範圍，例如 0%-59% 請加油、60%-79% 再努力、80%-100% 太棒了。",
-          "englishEntity": "range",
           "entity": "範圍",
           "field": {
             "fields": [
               {
-                "englishLabel": "Score Range",
                 "label": "分數區間"
               },
               {},
               {
-                "englishLabel": "Feedback for defined score range",
-                "label": "自訂區間回饋訊息"
+                "label": "自訂區間回饋訊息",
+                "placeholder": "填入回饋訊息"
               }
             ]
           }
@@ -62,139 +54,94 @@
       ]
     },
     {
-      "englishLabel": "Text for \"Check\" button",
       "label": "核對答案按鈕文字",
-      "englishDefault": "Check",
       "default": "核對答案"
     },
     {
-      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
-      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
-      "englishLabel": "Text for \"Retry\" button",
       "label": "再試一次按鈕文字",
-      "englishDefault": "Retry",
       "default": "再試一次"
     },
     {
-      "englishLabel": "Text for \"Show solution\" button",
       "label": "顯示正解按鈕文字",
-      "englishDefault": "Show solution",
       "default": "顯示正解"
     },
     {
-      "englishLabel": "Behavioural settings.",
       "label": "行為設置",
-      "englishDescription": "These options will let you control how the task behaves.",
       "description": "這些設定可以讓你控制任務的行為。",
       "fields": [
         {
-          "englishLabel": "Enable \"Retry\"",
           "label": "啟用「再試一次」按鈕"
         },
         {
-          "englishLabel": "Enable \"Show solution\" button",
           "label": "啟用「顯示正解」按鈕"
         },
         {
-          "englishLabel": "Enable \"Check\" button",
           "label": "啟用「核對答案」按鈕"
         },
         {
-          "englishLabel": "Show score points",
           "label": "顯示計分狀態",
-          "englishDescription": "Show points earned for each answer.",
           "description": "在每個項目旁顯示加分或減分情形。"
         },
         {
-          "englishLabel": "No score point deduction",
-          "label": "TODO",
-          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
-          "description": "TODO"
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },
     {
-      "englishLabel": "Correct answer text",
       "label": "答對的顯示文字",
-      "englishDefault": "Correct!",
       "default": "答對！",
-      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "用於表示答案正確的文字。"
     },
     {
-      "englishLabel": "Incorrect answer text",
       "label": "答錯的顯示文字",
-      "englishDefault": "Incorrect!",
       "default": "答錯！",
-      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "用於表示答案錯誤的文字。"
     },
     {
-      "englishLabel": "Missed answer text",
       "label": "少答的顯示文字",
-      "englishDefault": "Answer not found!",
       "default": "缺少!",
-      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "用於表示沒有作答的文字。"
     },
     {
-      "englishLabel": "Description for Display Solution",
       "label": "顯示正解的說明文字",
-      "englishDefault": "Task is updated to contain the solution.",
       "default": "這是正確的解答。",
-      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "用來告訴用戶任務已更新成正確解答。"
     },
     {
-      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "報讀器得分條文本",
-      "englishDefault": "You got :num out of :total points",
       "default": "你得到 :num 分，總分 :total 分。"
     },
     {
-      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Label for the full readable text for assistive technologies",
-      "englishDefault": "Full readable text",
       "default": "Full readable text"
     },
     {
-      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Label for the text where words can be marked for assistive technologies",
-      "englishDefault": "Full text where words can be marked",
       "default": "Full text where words can be marked"
     },
     {
-      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Solution mode header for assistive technologies",
-      "englishDefault": "Solution mode",
       "default": "Solution mode"
     },
     {
-      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Checking mode header for assistive technologies",
-      "englishDefault": "Checking mode",
       "default": "Checking mode"
     },
     {
-      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Assistive technology description for \"Check\" button",
-      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
-      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Assistive technology description for \"Show Solution\" button",
-      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Show the solution. The task will be marked with its correct solution."
     },
     {
-      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Assistive technology description for \"Retry\" button",
-      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]

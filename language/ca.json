@@ -1,60 +1,52 @@
 {
   "semantics": [
     {
-      "englishLabel": "Media",
       "label": "Recurs",
       "fields": [
         {
-          "englishLabel": "Type",
           "label": "Tipus",
-          "englishDescription": "Optional media to display above the question.",
           "description": "Recursos opcionals per mostrar al damunt de la pregunta."
         },
         {
-          "englishLabel": "Disable image zooming",
           "label": "Deshabilita el zoom de les imatges"
         }
       ]
     },
     {
-      "englishLabel": "Task description",
       "label": "Descripció de la tasca",
-      "englishDescription": "Describe how the user should solve the task.",
-      "description": "Descriu com l’usuari ha de resoldre la tasca."
+      "description": "Descriu com l’usuari ha de resoldre la tasca.",
+      "placeholder": "Feu clic en tots els verbs del text que es mostra a continuació."
     },
     {
-      "englishLabel": "Textfield",
       "label": "Camp de text",
-      "englishDescription": "",
-      "description": "TODO"
+      "placeholder": "Aquesta és una resposta: *resposta*.",
+      "description": "",
+      "important": {
+        "description": "<ul><li>Les paraules que s’han de marcar s’afegeixen amb un asterisc (*).</li><li>Es poden afegir asteriscs a les paraules marcades afegint un altre asterisc, *paraulacorrecta*** =&gt; paraulacorrecta*.</li></ul>",
+        "example": "Les paraules correctes es marquen així: *paraulacorrecta*; l’asterisc s’introdueix així: *paraulacorrecta***."
+      }
     },
     {
-      "englishLabel": "Overall Feedback",
       "label": "Suggeriment general",
       "fields": [
         {
           "widgets": [
             {
-              "englishLabel": "Default",
               "label": "Opció predeterminada"
             }
           ],
-          "englishLabel": "Define custom feedback for any score range",
           "label": "Defineix una valoració per cada rang de puntuació",
-          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Feu clic al botó \"Afegeix un rang\" per afegir tants rangs com necessiteu. Exemple: 0-20 % per a puntuació baixa, 21-91 % per a puntuació mitjana, 91-100 % per a puntuació excel·lent",
-          "englishEntity": "range",
           "entity": "rang",
           "field": {
             "fields": [
               {
-                "englishLabel": "Score Range",
                 "label": "Rang de puntuació"
               },
               {},
               {
-                "englishLabel": "Feedback for defined score range",
-                "label": "Retroacció per al rang de puntuació definit"
+                "label": "Retroacció per al rang de puntuació definit",
+                "placeholder": "Introduïu el suggeriment"
               }
             ]
           }
@@ -62,139 +54,94 @@
       ]
     },
     {
-      "englishLabel": "Text for \"Check\" button",
       "label": "Text pel botó \"Verificar\"",
-      "englishDefault": "Check",
       "default": "Verifica"
     },
     {
-      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
-      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
-      "englishLabel": "Text for \"Retry\" button",
       "label": "Text del botó \"Torna-ho a provar\"",
-      "englishDefault": "Retry",
       "default": "Torna-ho a provar"
     },
     {
-      "englishLabel": "Text for \"Show solution\" button",
       "label": "Text pel botó \"Mostrar solució\"",
-      "englishDefault": "Show solution",
       "default": "Mostra la solució"
     },
     {
-      "englishLabel": "Behavioural settings.",
       "label": "Opcions de comportament",
-      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Aquestes opcions et permetran controlar com es comporta la tasca.",
       "fields": [
         {
-          "englishLabel": "Enable \"Retry\"",
           "label": "Activa \"Torna-ho a provar\""
         },
         {
-          "englishLabel": "Enable \"Show solution\" button",
           "label": "Activa el botó \"Mostra la solució\""
         },
         {
-          "englishLabel": "Enable \"Check\" button",
           "label": "Activa el botó \"Comprova\""
         },
         {
-          "englishLabel": "Show score points",
           "label": "Mostra la puntuació",
-          "englishDescription": "Show points earned for each answer.",
           "description": "Mostra els punts obtinguts per a cada resposta."
         },
         {
-          "englishLabel": "No score point deduction",
-          "label": "TODO",
-          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
-          "description": "TODO"
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },
     {
-      "englishLabel": "Correct answer text",
       "label": "Text de la resposta correcta",
-      "englishDefault": "Correct!",
       "default": "Correcte!",
-      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Text utilitzat per a indicar que una resposta és correcta"
     },
     {
-      "englishLabel": "Incorrect answer text",
       "label": "Text de resposta incorrecta",
-      "englishDefault": "Incorrect!",
       "default": "Incorrecte!",
-      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Text utilitzat per a indicar que una resposta és correcta"
     },
     {
-      "englishLabel": "Missed answer text",
       "label": "Text de resposta no proporcionada",
-      "englishDefault": "Answer not found!",
       "default": "No s’ha trobat la resposta!",
-      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Text que s’utilitza per indicar que falta una resposta"
     },
     {
-      "englishLabel": "Description for Display Solution",
       "label": "Descripció per a Mostra la solució",
-      "englishDefault": "Task is updated to contain the solution.",
       "default": "La tasca s’ha actualitzat per incloure la solució.",
-      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Aquest text indica a l’usuari que les tasques s’han actualitzat amb la solució."
     },
     {
-      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Representació textual de la barra de puntuació pera als que utilitzen un altaveu de lectura",
-      "englishDefault": "You got :num out of :total points",
       "default": "Heu fet :num de :total punts"
     },
     {
-      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Etiqueta per al text complet que pot llegir per a les tecnologies d’assistència",
-      "englishDefault": "Full readable text",
       "default": "Text complet que es pot llegir"
     },
     {
-      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Etiqueta per al text en què es poden marcar paraules per a tecnologies d’assistència",
-      "englishDefault": "Full text where words can be marked",
       "default": "Text complet en què es poden marcar les paraules"
     },
     {
-      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Títol del mode de solució per a tecnologies d’assistència",
-      "englishDefault": "Solution mode",
       "default": "Mode de solució"
     },
     {
-      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Títol del mode de comprovació per a les tecnologies d’assistència",
-      "englishDefault": "Checking mode",
       "default": "S’està comprovant el mode"
     },
     {
-      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Descripció de la tecnologia d’assistència per al botó \"Comprova\"",
-      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Comprova les respostes. Les respostes es marcaran com a correctes, incorrectes o sense resposta."
     },
     {
-      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Descripció de la tecnologia d’assistència per al botó \"Mostra la solució\"",
-      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Mostra la solució. La tasca es marcarà amb la seva solució correcta."
     },
     {
-      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Descripció de la tecnologia d’assistència per al botó \"Torna-ho a provar\"",
-      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Intenta de nou la tasca. Esborra totes les respostes i comença la tasca de nou."
     }
   ]

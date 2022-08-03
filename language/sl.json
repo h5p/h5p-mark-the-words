@@ -1,60 +1,52 @@
 {
   "semantics": [
     {
-      "englishLabel": "Media",
       "label": "Mediji",
       "fields": [
         {
-          "englishLabel": "Type",
           "label": "Tip",
-          "englishDescription": "Optional media to display above the question.",
           "description": "Neobvezna nastavitev dodatnega medija za prikaz nad vprašanjem."
         },
         {
-          "englishLabel": "Disable image zooming",
           "label": "Onemogoči povečavo slike"
         }
       ]
     },
     {
-      "englishLabel": "Task description",
       "label": "Navodilo udeležencem",
-      "englishDescription": "Describe how the user should solve the task.",
-      "description": "Opis reševanja zadane naloge."
+      "description": "Opis reševanja zadane naloge.",
+      "placeholder": "S klikom označi posamezne besede v zapisu."
     },
     {
-      "englishLabel": "Textfield",
       "label": "Polje za besedilo",
-      "englishDescription": "",
-      "description": "TODO"
+      "placeholder": "Pravilen odgovor: *pravilnabeseda*.",
+      "description": "",
+      "important": {
+        "description": "<ul><li>Pravilen odgovor se označi z zvezdico (*) pred in za besedo.</li><li>V primeru odgovora z zvezdico, je potrebno tudi zvezdico obdati po enakem principu (npr. *pravilnabeseda*** se na zaslonu izpiše kot pravilnabeseda*).</li><li>Kot pravilne se lahko označijo le besede in ne besedne zveze.</li></ul>",
+        "example": "Pravilni odgovori so označeni kot: *pravilnabeseda*. Zvezdica se lahko zapiše na naslednji način: *pravilnabeseda***."
+      }
     },
     {
-      "englishLabel": "Overall Feedback",
       "label": "Splošna povratna informacija",
       "fields": [
         {
           "widgets": [
             {
-              "englishLabel": "Default",
               "label": "Privzeto"
             }
           ],
-          "englishLabel": "Define custom feedback for any score range",
           "label": "Določi ločeno povratno informacijo za vsak razpon rezultatov",
-          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Kliknite gumb \"Dodaj razpon\" za dodajanje dodatnih razponov. Primer: 0-20 % Slab rezultat, 21-91 % Povprečen rezultat, 91-100 % Odličen rezultat!",
-          "englishEntity": "range",
           "entity": "razpon",
           "field": {
             "fields": [
               {
-                "englishLabel": "Score Range",
                 "label": "Razpon rezultatov"
               },
               {},
               {
-                "englishLabel": "Feedback for defined score range",
-                "label": "Povratna informacija za definiran razpon rezultatov"
+                "label": "Povratna informacija za definiran razpon rezultatov",
+                "placeholder": "Vnesite povratno informacijo"
               }
             ]
           }
@@ -62,139 +54,94 @@
       ]
     },
     {
-      "englishLabel": "Text for \"Check\" button",
       "label": "Besedilo za gumb \"Preveri\"",
-      "englishDefault": "Check",
       "default": "Preveri"
     },
     {
-      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
-      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
-      "englishLabel": "Text for \"Retry\" button",
       "label": "Besedilo za gumb \"Poskusi ponovno\"",
-      "englishDefault": "Retry",
       "default": "Poskusi ponovno"
     },
     {
-      "englishLabel": "Text for \"Show solution\" button",
       "label": "Besedilo za gumb \"Prikaži rešitev\"",
-      "englishDefault": "Show solution",
       "default": "Prikaži rešitev"
     },
     {
-      "englishLabel": "Behavioural settings.",
       "label": "Nastavitve interakcije",
-      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Nastavitve omogočajo nadzor nad interakcijo aktivnosti za udeležence.",
       "fields": [
         {
-          "englishLabel": "Enable \"Retry\"",
           "label": "Omogoči gumb \"Poskusi ponovno\""
         },
         {
-          "englishLabel": "Enable \"Show solution\" button",
           "label": "Omogoči gumb \"Prikaži rešitev\""
         },
         {
-          "englishLabel": "Enable \"Check\" button",
           "label": "Omogoči gumb \"Preveri\""
         },
         {
-          "englishLabel": "Show score points",
           "label": "Prikaži dosežene točke",
-          "englishDescription": "Show points earned for each answer.",
           "description": "Dosežene točke prikaže pri vsakem oddanem odgovoru."
         },
         {
-          "englishLabel": "No score point deduction",
-          "label": "TODO",
-          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
-          "description": "TODO"
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },
     {
-      "englishLabel": "Correct answer text",
       "label": "Besedilo za pravilen odgovor",
-      "englishDefault": "Correct!",
       "default": "Pravilno!",
-      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Besedilo označuje pravilen odgovor"
     },
     {
-      "englishLabel": "Incorrect answer text",
       "label": "Besedilo za nepravilen odgovor",
-      "englishDefault": "Incorrect!",
       "default": "Nepravilno!",
-      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Besedilo označuje nepravilen odgovor"
     },
     {
-      "englishLabel": "Missed answer text",
       "label": "Besedilo za manjkajoč odgovor",
-      "englishDefault": "Answer not found!",
       "default": "Odgovor manjka!",
-      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Besedilo označuje manjkajoč odgovor"
     },
     {
-      "englishLabel": "Description for Display Solution",
       "label": "Besedilo za opis prikaza rešitve",
-      "englishDefault": "Task is updated to contain the solution.",
       "default": "Rešitev naloge je objavljena.",
-      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Besedilo obvesti uporabnika o objavi rešitve naloge."
     },
     {
-      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Besedilo, ki ga bralnik zaslona uporabi za izražanje napredka",
-      "englishDefault": "You got :num out of :total points",
       "default": "Napredek :num od :total"
     },
     {
-      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Oznaka za celotno besedilo za bralnike zaslona",
-      "englishDefault": "Full readable text",
       "default": "Celotno besedilo"
     },
     {
-      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Oznaka za besedilo z možnostjo označitve besed za bralnike zaslona",
-      "englishDefault": "Full text where words can be marked",
       "default": "Besedilo z možnostjo označitve besed"
     },
     {
-      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Naslov za način reševanja za bralnike zaslona",
-      "englishDefault": "Solution mode",
       "default": "Način reševanja"
     },
     {
-      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Naslov za način prikaza rešitev za bralnike zaslona",
-      "englishDefault": "Checking mode",
       "default": "Način prikaza rešitev"
     },
     {
-      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Assistive technology description for \"Check\" button",
-      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
-      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Assistive technology description for \"Show Solution\" button",
-      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Show the solution. The task will be marked with its correct solution."
     },
     {
-      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Assistive technology description for \"Retry\" button",
-      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]
