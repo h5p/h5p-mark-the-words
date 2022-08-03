@@ -20,6 +20,7 @@
     {
       "label": "Текстово поле",
       "placeholder": "Това е отговора: *answer*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Маркираните думи са добавени със звездичка (*).</li><li>Звездички могат да бъдат добавени в маркираните думи, като се добави друга звездичка, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "Правилните думи са маркирани така: *correctword*, звездичката е отбелязана така: *correctword***."
@@ -84,6 +85,10 @@
         {
           "label": "Показване на точките",
           "description": "Показва получените точки за всеки отговор."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

@@ -20,6 +20,7 @@
     {
       "label": "Testu eremua",
       "placeholder": "Hau erantzun bat da: *erantzuna*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Markatutako hitzak izartxo batekin (*) eransten dira.</li><li>Markatutako hitzetan izartxo bat erantsi nahi bada bigarren izartxo bat erantsi behar da, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "Hitz zuzenak honela markatu behar dira: *hitz-zuzena*, izartxo bat honela \" behar da: *hitz-zuzena***."
@@ -84,6 +85,10 @@
         {
           "label": "Erakutsi puntuazioa",
           "description": "Erakutsi erantzun bakoitzean lortutako puntuazioa."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

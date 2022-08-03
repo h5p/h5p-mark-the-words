@@ -20,6 +20,7 @@
     {
       "label": "Camp de text",
       "placeholder": "Aquesta és una resposta: *resposta*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Les paraules que s’han de marcar s’afegeixen amb un asterisc (*).</li><li>Es poden afegir asteriscs a les paraules marcades afegint un altre asterisc, *paraulacorrecta*** =&gt; paraulacorrecta*.</li></ul>",
         "example": "Les paraules correctes es marquen així: *paraulacorrecta*; l’asterisc s’introdueix així: *paraulacorrecta***."
@@ -84,6 +85,10 @@
         {
           "label": "Mostra la puntuació",
           "description": "Mostra els punts obtinguts per a cada resposta."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

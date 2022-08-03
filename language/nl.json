@@ -20,6 +20,7 @@
     {
       "label": "Tekstveld",
       "placeholder": "Dit is een antwoord: *antwoord*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Gemarkeerde woorden worden voorzien van een asterisk (*).</li><li>Een asterisk mag worden ingesloten door een andere asterisk, dit resulteert in ** = *.</li></ul>",
         "example": "De juiste woorden zijn als volgt gemarkeerd: *juistwoord*, een asterisk wordt geschreven als : *juistwoord***."
@@ -84,6 +85,10 @@
         {
           "label": "Toon scorepunten",
           "description": "Toon het aantal verdiende punten voor elk antwoord."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

@@ -20,6 +20,7 @@
     {
       "label": "Πεδίο κειμένου",
       "placeholder": "Αυτή είναι μια απάντηση: *answer*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Οι σημειωμένες λέξεις προστίθενται με έναν αστερίσκο. (*).</li><li>Αν χρειάζεται να χρησιμοποιήσετε τον αστερίσκο για άλλο λόγο, ορίστε δύο αστερίσκους στη σειρά, δηλαδή ** = *.</li></ul>",
         "example": "Οι σωστές λέξεις σημειώνονται έτσι: *σωστηλέξη*, ένα αστερίσκος προστίθεται ως εξής: *σωστηλέξη***."
@@ -84,6 +85,10 @@
         {
           "label": "Εμφάνιση βαθμολογίας",
           "description": "Εμφάνιση βαθμών που κερδίζει ο χρήστης για κάθε απάντηση."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

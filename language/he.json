@@ -20,6 +20,7 @@
     {
       "label": "אזור תוכן",
       "placeholder": "זו תשובה: *answer*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
         "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
@@ -84,6 +85,10 @@
         {
           "label": "הציגו נקודות ניקוד",
           "description": "הציגו נקודות שהתקבלו עבור כל תשובה."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

@@ -20,6 +20,7 @@
     {
       "label": "Champ de texte",
       "placeholder": "Voici une réponse exacte : *réponse*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Les mots corrects sont marqués avec un astérisque (*) avant et après le mot.</li><li>Les astérisques peuvent être ajoutés dans les mots marqués en ajoutant un autre astérisque, * mot correct *** =&gt; mot correct *.</li><li>Seuls les mots peuvent être marqués comme corrects. Pas les phrases.</li></ul>",
         "example": "Les mots corrects sont marqués comme ceci: *motcorrect *, un astérisque est écrit comme ceci: *motcorrect***."
@@ -84,6 +85,10 @@
         {
           "label": "Montrer le score en points",
           "description": "Afficher les points obtenus pour chaque réponse."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

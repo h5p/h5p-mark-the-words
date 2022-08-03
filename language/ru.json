@@ -20,6 +20,7 @@
     {
       "label": "Область ввода",
       "placeholder": "Ответом является: *ответ*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Выделенные слова необходимо обозначить звёздочкой (*).</li><li>Звёздочка должна быть добавлена с двух сторон, *правильноеслово*** =&gt; правильноеслово*.</li></ul>",
         "example": "Правильные слова определены таким образом: *правильноеслово*, звёздочка обозначена так: *правильноеслово***."
@@ -84,6 +85,10 @@
         {
           "label": "Показать результат",
           "description": "Показать баллы за ответы."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

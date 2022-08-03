@@ -20,6 +20,7 @@
     {
       "label": "Campo de texto",
       "placeholder": "Esta é unha resposta: *resposta*.",
+      "description": "",
       "important": {
         "description": "<ul><li>As palabras marcadas engádense cun asterísco (*).</li><li>Pódense engadir asteríscos dentro das palabras marcadas engadindo outro asterísco, *palabracorrecta*** =&gt; palabracorrecta*.</li></ul>",
         "example": "As palabras correctas márcanse así: *palabracorrecta*, o asterísco escríbese así: *palabracorrecta***."
@@ -84,6 +85,10 @@
         {
           "label": "Amosar puntuación",
           "description": "Amosar os puntos gañados por cada resposta."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

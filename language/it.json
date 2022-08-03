@@ -20,6 +20,7 @@
     {
       "label": "Campo di testo",
       "placeholder": "Questa è una risposta: *answer*",
+      "description": "",
       "important": {
         "description": "<ul><li>Le parole marcate vengono aggiunte mediante un asterisco (*).</li><li>Gli asterischi possono essere aggiunti all'interno di parole marcate attraverso un ulteriore asterisco. Es. *parola-corretta*** =&gt; parola-corretta*.</li></ul>",
         "example": "Le parole corrette sono marcate in questo modo: *parola-corretta*. Un asterisco è scritto così: *parola-corretta***"
@@ -84,6 +85,10 @@
         {
           "label": "Visualizza punteggio",
           "description": "Visualizza i punti guadagnati per ogni risposta"
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

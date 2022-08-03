@@ -20,6 +20,7 @@
     {
       "label": "Textfält",
       "placeholder": "Det här är ett svar: *svar*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Markerade ord lägg till med asterisk (*).</li><li>Asterisker kan skrivas inne i markerade ord genom att man lägger till en extra asterisk, *rättord*** =&gt; rättord*.</li></ul>",
         "example": "De rätta orden markeras så här: *rättord*, en asterisk skrivs så här: *rättord***."
@@ -84,6 +85,10 @@
         {
           "label": "Visa poäng",
           "description": "Visa poäng per svar."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

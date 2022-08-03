@@ -1,6 +1,7 @@
 {
   "semantics": [
     {
+      "label": "Multivide",
       "fields": [
         {
           "label": "Tips",
@@ -9,8 +10,7 @@
         {
           "label": "Atspējot attēla tālummaiņu"
         }
-      ],
-      "label": "Multivide"
+      ]
     },
     {
       "label": "Uzdevuma apraksts",
@@ -20,6 +20,7 @@
     {
       "label": "Teksta lauks",
       "placeholder": "Šī ir atbilde: *atbilde*.",
+      "description": "",
       "important": {
         "example": "Pareizie vārdi tiek atzīmēti šādi: *pareizi*, zvaigznīte ir rakstīta šādi: *pareizi***.",
         "description": "<ul><li>Atzīmētie vārdi tiek pievienoti ar zvaigznīti (*).</li><li>Atzīmētajos vārdos zvaigznītes var pievienot, pievienojot vēl vienu zvaigznīti, *pareizi*** =&gt; pareizi*.</li> </ul>"
@@ -35,6 +36,7 @@
             }
           ],
           "label": "Iestatiet pielāgotu atgriezenisko saiti katram rezultātu diapazonam",
+          "description": "Klikšķiniet pogu \"Pievienot diapazonu\", lai pievienotu tik diapazonus cik vēlaties. Piemēram, 0-20% Slikts rezultāts, 21-91% Viduvējs rezultāts, 91-100% Lielisks rezultāts!",
           "entity": "diapazons",
           "field": {
             "fields": [
@@ -47,8 +49,7 @@
                 "placeholder": "Aizpildiet atgriezenisko saiti"
               }
             ]
-          },
-          "description": "Klikšķiniet pogu \"Pievienot diapazonu\", lai pievienotu tik diapazonus cik vēlaties. Piemēram, 0-20% Slikts rezultāts, 21-91% Viduvējs rezultāts, 91-100% Lielisks rezultāts!"
+          }
         }
       ]
     },
@@ -84,6 +85,10 @@
         {
           "label": "Rādīt punktus",
           "description": "Parādīt par katru atbildi nopelnītos punktus."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },
@@ -116,8 +121,8 @@
       "default": "Pilns lasāms teksts"
     },
     {
-      "default": "Pilns teksts, kurā var atzīmēt vārdus",
-      "label": "Asistīvo tehnoloģiju etiķete tekstam, kurā var atzīmēt vārdus"
+      "label": "Asistīvo tehnoloģiju etiķete tekstam, kurā var atzīmēt vārdus",
+      "default": "Pilns teksts, kurā var atzīmēt vārdus"
     },
     {
       "label": "Risinājuma režīma galvene asistīvajām tehnoloģijām",
@@ -128,8 +133,8 @@
       "default": "Pārbaudīšanas režīms"
     },
     {
-      "default": "Pārbaudīt atbildes. Atbildes tiks atzīmētas kā pareizas, nepareizas, vai neatbildētas.",
-      "label": "Pogas \"Pārbaudīt\" apraksts asistīvajām tehnoloģijām"
+      "label": "Pogas \"Pārbaudīt\" apraksts asistīvajām tehnoloģijām",
+      "default": "Pārbaudīt atbildes. Atbildes tiks atzīmētas kā pareizas, nepareizas, vai neatbildētas."
     },
     {
       "label": "Asistīvo tehnoloģiju apraksts pogai \"Rādīt risinājumu\"",

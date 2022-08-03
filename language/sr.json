@@ -20,6 +20,7 @@
     {
       "label": "Текстуално поље",
       "placeholder": "Ово је одговор: *одговор*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Означене речи додају се звездицом (*).</li><li>Звездице се могу додати у означене речи додавањем друге звездице, *тачнареч*** =&gt; тачнареч*.</li></ul>",
         "example": "Тачне речи су означене овако: *тачнареч*, овако је написана звездица: *тачнареч***."
@@ -84,6 +85,10 @@
         {
           "label": "Прикажи бодове",
           "description": "Прикажите бодове за сваки одговор."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

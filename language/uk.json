@@ -20,6 +20,7 @@
     {
       "label": "Текстове поле",
       "placeholder": "Це відповідь: *answer*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Позначені слова додаються з зірочкою (*).</li><li>Зірочка може вийти з іншої зірочки, в результаті чого ** = *.</li></ul>",
         "example": "Правильні слова позначені так: *correctword*, зірочка написана так: *correctword***."
@@ -84,6 +85,10 @@
         {
           "label": "Показати бали",
           "description": "Показати зароблені бали за кожну відповідь."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

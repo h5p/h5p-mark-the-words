@@ -20,6 +20,7 @@
     {
       "label": "Textfeld",
       "placeholder": "Das ist eine Antwort: *Antwort*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Die zu findenden Wörter werden mit einem Sternchen (*) markiert.</li><li>Soll in einem zu findenden Wort ein Sternchen verwendet werden, gibt man ** ein.</li></ul>",
         "example": "Richtige Wörter werden wie folgt markiert: *richtigeswort*. Ein Sternchen in einem richtigen Wort auf diese Weise: *richtiges**Wort*."
@@ -84,6 +85,10 @@
         {
           "label": "Bepunktungsdetails anzeigen",
           "description": "Zeigt die für jede Antwort vergebenen Punkte an."
+        },
+        {
+          "label": "Kein Punktabzug",
+          "description": "Verhindert den Punktabzug bei falsch markierten Begriffen (Vorsicht: kann missbraucht werden, wenn alle Wörter markiert werden, um die maximale Punktzahl zu erhalten)."
         }
       ]
     },

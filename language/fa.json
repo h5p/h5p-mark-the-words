@@ -20,6 +20,7 @@
     {
       "label": "فیلد متنی",
       "placeholder": "این یک پاسخ است: *answer*.",
+      "description": "",
       "important": {
         "description": "<ul><li>کلمات نشاندار با یک ستاره (*) اضافه شده‌اند.</li><li>با افزودن یک ستاره دیگر می‌توان به کلمات نشاندار ستاره افزود، *correctword*** =&gt; correctword*.</li></ul>",
         "example": "کلمات صحیح اینگونه نشاندار می‌شوند: *correctword*، یک ستاره به این صورت نوشته می‌شود: *correctword***."
@@ -84,6 +85,10 @@
         {
           "label": "نمایش امتیازات",
           "description": "نمایش امتیازات کسب شده برای هر پاسخ."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

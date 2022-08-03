@@ -20,6 +20,7 @@
     {
       "label": "テキストフィールド",
       "placeholder": "これが解答です。: *answer*",
+      "description": "",
       "important": {
         "description": "<ul><li>マークする単語にはアスタリスク (*) を加えます。</li><li>アスタリスクは別のアスタリスクでエスケープ処理されるので、** は * となります。</li></ul>",
         "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
@@ -84,6 +85,10 @@
         {
           "label": "得点ポイントを表示",
           "description": "それぞれの解答で得られたポイントを表示"
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

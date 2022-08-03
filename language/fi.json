@@ -20,6 +20,7 @@
     {
       "label": "Tekstikenttä",
       "placeholder": "Tämä on vastaus: *vastaus*.",
+      "description": "",
       "important": {
         "description": "<ul><li>Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*.</li><li>Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **.</li></ul>",
         "example": "Oikeat sanat merkitään seuraavasti: *oikeasana*, asteriskit kirjoitetaan näin: *oikeasana***."
@@ -84,6 +85,10 @@
         {
           "label": "Näytä pisteet",
           "description": "Näytä ansaitut pisteet joka vastaukselle."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

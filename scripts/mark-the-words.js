@@ -33,7 +33,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         enableRetry: true,
         enableSolutionsButton: true,
         enableCheckButton: true,
-        showScorePoints: true
+        showScorePoints: true,
+        preventPointSubstraction: false
       },
       checkAnswerButton: "Check",
       submitAnswerButton: "Submit",
@@ -472,7 +473,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       if (word.isCorrect()) {
         result.correct++;
       }
-      else if (word.isWrong()) {
+      else if (word.isWrong() && !self.params.behaviour.preventPointSubstraction) {
         result.wrong++;
       }
       else if (word.isMissed()) {
