@@ -1,142 +1,200 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
+      "label": "Multivide",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Tips",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Papildu multimedijs, kuru atspoguļot virs jautājuma."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Atspējot attēla tālummaiņu"
         }
-      ],
-      "label": "Multivide"
+      ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Uzdevuma apraksts",
-      "description": "Aprakstiet kā lietotājam vajadzētu risināt uzdevumu.",
-      "placeholder": "Noklikšķiniet uz visiem darbības vārdiem nākamajā tekstā."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Aprakstiet kā lietotājam vajadzētu risināt uzdevumu."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Teksta lauks",
-      "placeholder": "Šī ir atbilde: *atbilde*.",
-      "important": {
-        "example": "Pareizie vārdi tiek atzīmēti šādi: *pareizi*, zvaigznīte ir rakstīta šādi: *pareizi***.",
-        "description": "<ul><li>Atzīmētie vārdi tiek pievienoti ar zvaigznīti (*).</li><li>Atzīmētajos vārdos zvaigznītes var pievienot, pievienojot vēl vienu zvaigznīti, *pareizi*** =&gt; pareizi*.</li> </ul>"
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Kopējā atgriezeniskā saite",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Pēc noklusējuma"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Iestatiet pielāgotu atgriezenisko saiti katram rezultātu diapazonam",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "description": "Klikšķiniet pogu \"Pievienot diapazonu\", lai pievienotu tik diapazonus cik vēlaties. Piemēram, 0-20% Slikts rezultāts, 21-91% Viduvējs rezultāts, 91-100% Lielisks rezultāts!",
+          "englishEntity": "range",
           "entity": "diapazons",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Rezultātu diapazons"
               },
               {},
               {
-                "label": "Norādītā diapazona atgriezeniskā saite",
-                "placeholder": "Aizpildiet atgriezenisko saiti"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Norādītā diapazona atgriezeniskā saite"
               }
             ]
-          },
-          "description": "Klikšķiniet pogu \"Pievienot diapazonu\", lai pievienotu tik diapazonus cik vēlaties. Piemēram, 0-20% Slikts rezultāts, 21-91% Viduvējs rezultāts, 91-100% Lielisks rezultāts!"
+          }
         }
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Pogas \"Pārbaudīt\" teksts",
+      "englishDefault": "Check",
       "default": "Pārbaudīt"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Pogas \"Iesniegt\" teksts",
+      "englishDefault": "Submit",
       "default": "Iesniegt"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Pogas \"Mēģināt vēlreiz\" teksts",
+      "englishDefault": "Retry",
       "default": "Mēģināt vēlreiz"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Pogas \"Parādīt risinājumu\" teksts",
+      "englishDefault": "Show solution",
       "default": "Parādīt risinājumu"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Uzvedības iestatījumi.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Šie iestatījumi ļaus jums kontrolēt uzdevuma uzvedību.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Atļaut \"Mēģināt vēlreiz\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Atļaut pogu \"Rādīt risinājumu\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Atļaut pogu \"Pārbaudīt\""
         },
         {
+          "englishLabel": "Show score points",
           "label": "Rādīt punktus",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Parādīt par katru atbildi nopelnītos punktus."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Pareizās atbildes teksts",
+      "englishDefault": "Correct!",
       "default": "Pareizi!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Teksts, ko izmanto, lai norādītu, ka atbilde ir pareiza"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Nepareizās atbildes teksts",
+      "englishDefault": "Incorrect!",
       "default": "Nepareizi!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Teksts, ko izmanto, lai norādītu, ka atbilde ir nepareiza"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Neiesniegtās atbildes teksts",
+      "englishDefault": "Answer not found!",
       "default": "Atbilde nav atrasta!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Teksts, ko izmanto, lai norādītu, ka trūkst atbildes"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Apraksts risinājuma parādīšanai",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Uzdevums ir atjaunināts, lai ietvertu risinājumu.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Šis teksts informē lietotāju, ka uzdevumi ir atjaunināti ar risinājumu."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Rezultātu skalas tekstuālais atspoguļojums tiem, kas izmanto asistīvās tehnoloģijas",
+      "englishDefault": "You got :num out of :total points",
       "default": "Tu saņēmi :num no :total punktiem"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Etiķete pilnam lasāmam tekstam priekš asistīvajām tehnoloģijām",
+      "englishDefault": "Full readable text",
       "default": "Pilns lasāms teksts"
     },
     {
-      "default": "Pilns teksts, kurā var atzīmēt vārdus",
-      "label": "Asistīvo tehnoloģiju etiķete tekstam, kurā var atzīmēt vārdus"
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
+      "label": "Asistīvo tehnoloģiju etiķete tekstam, kurā var atzīmēt vārdus",
+      "englishDefault": "Full text where words can be marked",
+      "default": "Pilns teksts, kurā var atzīmēt vārdus"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Risinājuma režīma galvene asistīvajām tehnoloģijām",
+      "englishDefault": "Solution mode",
       "default": "Risinājuma režīms"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Pārbaudīšanas režīma galvene asistīvajām tehnoloģijām",
+      "englishDefault": "Checking mode",
       "default": "Pārbaudīšanas režīms"
     },
     {
-      "default": "Pārbaudīt atbildes. Atbildes tiks atzīmētas kā pareizas, nepareizas, vai neatbildētas.",
-      "label": "Pogas \"Pārbaudīt\" apraksts asistīvajām tehnoloģijām"
+      "englishLabel": "Assistive technology description for \"Check\" button",
+      "label": "Pogas \"Pārbaudīt\" apraksts asistīvajām tehnoloģijām",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+      "default": "Pārbaudīt atbildes. Atbildes tiks atzīmētas kā pareizas, nepareizas, vai neatbildētas."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Asistīvo tehnoloģiju apraksts pogai \"Rādīt risinājumu\"",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Rādīt risinājumu. Uzdevums tiks atzīmēts ar tā pareizo risinājumu."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Pogas \"Mēģināt vēlreiz\" apraksts asistīvajām tehnoloģijām",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Mēģināt uzdevumu vēlreiz. Dzēst visas sniegtās atbildes un sākt uzdevumu vēlreiz."
     }
   ]

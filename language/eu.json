@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Multimedia",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Mota",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Galderaren gainean bistaratzeko aukerako multimedia."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Desgaitu irudien zooma"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Atazaren deskribapena",
-      "description": "Deskribatu zereginaren irtenbidea aurkitzeko modua.",
-      "placeholder": "Klik egin ondoko testuaren aditz guztietan."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Deskribatu zereginaren irtenbidea aurkitzeko modua."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Testu eremua",
-      "placeholder": "Hau erantzun bat da: *erantzuna*.",
-      "important": {
-        "description": "<ul><li>Markatutako hitzak izartxo batekin (*) eransten dira.</li><li>Markatutako hitzetan izartxo bat erantsi nahi bada bigarren izartxo bat erantsi behar da, *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "Hitz zuzenak honela markatu behar dira: *hitz-zuzena*, izartxo bat honela \" behar da: *hitz-zuzena***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Feedback Orokorra",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Lehenetsitakoa"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Zehaztu ezazu edozein puntuazio-tarterako feedback pertsonalizatua",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Egin klik \"Gehitu tartea\" botoian behar dituzun tarte guztiak gehitzeko. Adibidez: 0-20% Puntuazio eskasa, 21-91% Batez besteko puntuazioa, 91-100% Puntuazio bikaina!",
+          "englishEntity": "range",
           "entity": "tartea",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Puntazio-tartea"
               },
               {},
               {
-                "label": "Zehaztutako tartearentzako feedbacka",
-                "placeholder": "Idatzi ezazu feedbacka"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Zehaztutako tartearentzako feedbacka"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "\"Egiaztatu\" botoiarentzako testua",
+      "englishDefault": "Check",
       "default": "Egiaztatu"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "\"Erakutsi emaitza\" botoiaren testua",
+      "englishDefault": "Retry",
       "default": "Saiatu berriro"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "\"Erakutsi soluzioa\" botoiarentzako testua",
+      "englishDefault": "Show solution",
       "default": "Erakutsi erantzuna"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Portaeraren ezarpenak.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Aukera hauek lanaren portaera kontrolatzea ahalbidetzen dizute.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Gaitu \"Berriz saiatu\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Gaitu \"Erakutsi erantzuna\" botoia"
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Gaitu \"Egiaztatu\" botoia"
         },
         {
+          "englishLabel": "Show score points",
           "label": "Erakutsi puntuazioa",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Erakutsi erantzun bakoitzean lortutako puntuazioa."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Erantzun zuzenaren testua",
+      "englishDefault": "Correct!",
       "default": "Zuzena!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Erantzuna zuzena dela adierazteko testua"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Erantzun okerraren testua",
+      "englishDefault": "Incorrect!",
       "default": "Erantzun okerra!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Erantzuna okerra dela adierazteko testua"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Falta diren erantzunentzako testua",
+      "englishDefault": "Answer not found!",
       "default": "Falta da!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Erantzuna falta dela adierazteko testua"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Erakutsi soluzioarentzako deskribapena",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Zeregina eguneratzen da soluzioa adierazteko.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Testu honek erabiltzaileari informatzen dio zeregina eguneratu dela soluzioa adierazteko."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Puntuazio barraren testu adierazpena irakurgailua erabiltzen dutenentzat",
+      "englishDefault": "You got :num out of :total points",
       "default": ":total puntutik :num puntu lortu duzu"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Testu irakurgarri osorako etiketa laguntzarako teknologietan",
+      "englishDefault": "Full readable text",
       "default": "Testu irakurgarri osoa"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Markatu daitezkeen hitzentzako testurako etiketa laguntzarako teknologietan",
+      "englishDefault": "Full text where words can be marked",
       "default": "Hitzak markatu daitezkeen testu osoa"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Ebazpen-modurako goiburua laguntzarako teknologietan",
+      "englishDefault": "Solution mode",
       "default": "Ebazpen-modua"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Egiaztapen-modurako goiburua laguntzarako teknologietan",
+      "englishDefault": "Checking mode",
       "default": "Egiaztapen-modua"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "\"Egiaztatu\" botoiaren laguntza-teknologientzako etiketa",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Egiaztatu erantzunak. Erantzunak zuzen, oker edo erantzun gabe gisa markatuko dira."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "\"Erakutsi erantzun zuzena\" botoiaren laguntza-teknologientzako etiketa",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Erakutsi erantzun zuzena. Zereginaren erantzun zuzena markatuko da."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "\"Berriz saiatu\" botoiaren laguntza-teknologientzako etiketa",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Zeregina berriz egiten saiatu. Berrabiarazi erantzun guztiak eta hasi zeregina berriz."
     }
   ]

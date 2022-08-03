@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Μέσο",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Τύπος",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Προσθήκη μέσου προς εμφάνιση πάνω από την ερώτηση (προαιρετικά)."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Απενεργοποίηση της επιλογής zoom για την εικόνα της ερώτησης"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Περιγραφή άσκησης",
-      "description": "Περιγράψτε πώς θα λύσει ο χρήστης την άσκηση.",
-      "placeholder": "Κάνε κλικ σε όλα τα ρήματα στο κείμενο που ακολουθεί."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Περιγράψτε πώς θα λύσει ο χρήστης την άσκηση."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Πεδίο κειμένου",
-      "placeholder": "Αυτή είναι μια απάντηση: *answer*.",
-      "important": {
-        "description": "<ul><li>Οι σημειωμένες λέξεις προστίθενται με έναν αστερίσκο. (*).</li><li>Αν χρειάζεται να χρησιμοποιήσετε τον αστερίσκο για άλλο λόγο, ορίστε δύο αστερίσκους στη σειρά, δηλαδή ** = *.</li></ul>",
-        "example": "Οι σωστές λέξεις σημειώνονται έτσι: *σωστηλέξη*, ένα αστερίσκος προστίθεται ως εξής: *σωστηλέξη***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Συνολική ανατροφοδότηση",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Βασικό"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Χαρακτηρισμός κάθε κλίμακας βαθμολογίας",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Κάντε κλικ στο κουμπί \"Προσθήκη κλίμακας\" για να προσθέσετε όσες κλίμακες ή διαβαθμίσεις επιθυμείτε. Παράδειγμα: 0-20% Χαμηλή βαθμολογία, 21-91% Μέτρια βαθμολογία, 91-100% Εξαιρετική βαθμολογία!",
+          "englishEntity": "range",
           "entity": "κλιμακας",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Βαθμολογία"
               },
               {},
               {
-                "label": "Χαρακτηρισμός",
-                "placeholder": "Συμπληρώστε τον χαρακτηρισμό"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Χαρακτηρισμός"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Ετικέτα κουμπιού \"Έλεγχος\"",
+      "englishDefault": "Check",
       "default": "Έλεγχος"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Ετικέτα κουμπιού \"Υποβολή\"",
+      "englishDefault": "Submit",
       "default": "Υποβολή"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Ετικέτα κουμπιού \"Επανάληψη\"",
+      "englishDefault": "Retry",
       "default": "Επανάληψη"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Ετικέτα κουμπιού \"Λύση\"",
+      "englishDefault": "Show solution",
       "default": "Λύση"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Ρυθμίσεις άσκησης",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Αυτές οι ρυθμίσεις σας επιτρέπουν να καθορίσετε τον τρόπο λειτουργίας της άσκησης.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Ενεργοποίηση κουμπιού \"Επανάληψη\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Ενεργοποίηση κουμπιού \"Λύση\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Ενεργοποίηση κουμπιού \"Έλεγχος\""
         },
         {
+          "englishLabel": "Show score points",
           "label": "Εμφάνιση βαθμολογίας",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Εμφάνιση βαθμών που κερδίζει ο χρήστης για κάθε απάντηση."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Κείμενο για σωστή απάντηση",
+      "englishDefault": "Correct!",
       "default": "Σωστό!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Κείμενο που χρησιμοποιείται για να δηλώσει ότι μια απάντηση είναι σωστή"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Κείμενο για λάθος απάντηση",
+      "englishDefault": "Incorrect!",
       "default": "Λάθος!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Κείμενο που χρησιμοποιείται για να δηλώσει ότι μια απάντηση είναι λάθος"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Κείμενο για απάντηση που λείπει",
+      "englishDefault": "Answer not found!",
       "default": "Δεν απαντήθηκε!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Κείμενο που χρησιμοποιείται για να δηλώσει ότι μια απάντηση λείπει"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Περιγραφή για \"Εμφάνιση Λύσης\"",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Η άσκηση ενημερώνεται ώστε να περιέχει τη λύση.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Αυτό το κείμενο ενημερώνει τον χρήστη ότι οι ασκήσεις εμφανίζουν πλέον και τη λύση."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Κειμενική απόδοση της μπάρας βαθμολογίας για όσους χρησιμοποιούν ακουστική υποβοήθηση",
+      "englishDefault": "You got :num out of :total points",
       "default": "Έχεις :num από :total βαθμούς"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Ετικέτα πλήρως αναγνώσιμου κειμένου για υποστηρικτικές τεχνολογίες",
+      "englishDefault": "Full readable text",
       "default": "Πλήρως αναγνώσιμο κείμενο"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Ετικέτα κειμένου με λέξεις που μπορούν να σημειωθούν για υποστηρικτικές τεχνολογίες",
+      "englishDefault": "Full text where words can be marked",
       "default": "Πλήρες κείμενο με λέξεις που μπορούν να σημειωθούν"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Ετικέτα \"κατάστασης λύσης\" για υποστηρικτικές τεχνολογίες",
+      "englishDefault": "Solution mode",
       "default": "Κατάσταση λύσης"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Ετικέτα \"κατάστασης ελέγχου\" για υποστηρικτικές τεχνολογίες",
+      "englishDefault": "Checking mode",
       "default": "Κατάσταση ελέγχου"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Περιγραφή υποστηρικτικών τεχνολογιών για το πλήκτρο \"Έλεγχος\"",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Έλεγχος απαντήσεων. Οι απαντήσεις θα μαρκαριστούν ως σωστές, λάθος και μη απαντημένες."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Περιγραφή υποστηρικτικών τεχνολογιών για το πλήκτρο \"Λύση\"",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Προβολή της λύσης. Η άσκηση θα επισημανθεί με την σωστή απάντση."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Περιγραφή υποστηρικτικών τεχνολογιών για το πλήκτρο \"Επανάληψη\"",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Επανάληψη της εργασίας. Επαναφορά όλων των απαντήσεων και έναρξη από την αρχή."
     }
   ]

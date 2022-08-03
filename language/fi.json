@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Media",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Tyyppi",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Valinnainen kuva tai video, joka näkyy kysymyksen yläpuolella."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Älä salli kuvan suurentamista"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Tehtävän kuvaus",
-      "description": "Kuvaile, mitä käyttäjän pitää tehdä.",
-      "placeholder": "Valitse klikkaamalla verbit seuraavasta tekstistä."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Kuvaile, mitä käyttäjän pitää tehdä."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Tekstikenttä",
-      "placeholder": "Tämä on vastaus: *vastaus*.",
-      "important": {
-        "description": "<ul><li>Merkitse valittavat sanat tähtien (*) väliin, esimerkiksi *syön*.</li><li>Jos tarkoituksena on valita sanan sijaan pelkkä *-merkki, niin merkitse se muodossa **.</li></ul>",
-        "example": "Oikeat sanat merkitään seuraavasti: *oikeasana*, asteriskit kirjoitetaan näin: *oikeasana***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Yleinen palaute",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Oletus"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Määritä muokattu palaute pisterajojen mukaan.",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Klikkaa \"Lisää alue\" painiketta lisätäksesi niin monta pisterajaa kuin tarvit. Esimerkiksi: 0-20% Huono tulos, 21-91% Kelpo tulos, 91-100% Mahtava tulos!",
+          "englishEntity": "range",
           "entity": "alue",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Pisteraja"
               },
               {},
               {
-                "label": "Palaute määritellylle pisterajalle",
-                "placeholder": "Kirjoita palaute"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Palaute määritellylle pisterajalle"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Painikkeen \"Tarkista\" nimi",
+      "englishDefault": "Check",
       "default": "Tarkista"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Painikkeen \"Yritä uudelleen\" nimi",
+      "englishDefault": "Retry",
       "default": "Yritä uudelleen"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Painikkeen \"Katso vastaus\" nimi",
+      "englishDefault": "Show solution",
       "default": "Katso vastaus"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Yleisasetukset",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Näillä valinnoilla voit ohjailla tehtävän toimintoja.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Salli painike \"Yritä uudelleen\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Salli painike \"Katso vastaus\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Enable \"Check\" button"
         },
         {
+          "englishLabel": "Show score points",
           "label": "Näytä pisteet",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Näytä ansaitut pisteet joka vastaukselle."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Oikean vastauksen teksti",
+      "englishDefault": "Correct!",
       "default": "Oikein!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Teksti oikealle vastaukselle"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Väärän vastauksen teksti",
+      "englishDefault": "Incorrect!",
       "default": "Väärin!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Teksti väärälle vastaukselle"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Ohitetun vastauksen teksti",
+      "englishDefault": "Answer not found!",
       "default": "Vastauksia ei löytynyt!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Teksti ohitetulle/puuttuvalle vastaukselle"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Painikkeen Näytä vastaukset kuvaus",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Tehtävä on päivitetty vastausten näyttämiseksi",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Tämä teksti kertoo tekijälle, että tehtävä on päivitetty ratkaisulla."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Tekstimuotoinen esitys pistepalkista niille jotka käyttävät ruudunlukijasovellusta",
+      "englishDefault": "You got :num out of :total points",
       "default": "Sait :num pistettä :total pisteestä"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Otsikko koko avustavan teknologian luettavalle tekstille",
+      "englishDefault": "Full readable text",
       "default": "Koko luettava teksti"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Otsikko tekstille josta sanat voidaan merkitä avustavalle teknologialle",
+      "englishDefault": "Full text where words can be marked",
       "default": "Koko teksti josta sanat voidaan merkitä"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Ratkaisutilan otsikko avustavalle teknologialle",
+      "englishDefault": "Solution mode",
       "default": "Ratkaisutila"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Tarkastustilan otsikko avustavalle teknologialle",
+      "englishDefault": "Checking mode",
       "default": "Tarkastustila"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Avustavan teknologian kuvaus \"Tarkista\" painikkeelle",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Tarkista vastaukset. Vastaukset merkitään joko oikein, väärin tai vastaamatta."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Avustavan teknologian kuvaus \"Näytä ratkaisu\" -painikkeelle",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Näytä ratkaisu. Tehtävään merkitään oikeat vastaukset."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Avustavan teknologion kuvaus \"Yritä uudelleen\" -painikkeelle",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Yritä tehtävää uudelleen. Tyhjennä kaikki vastaukset ja aloita tehtävä uudelleen alusta."
     }
   ]

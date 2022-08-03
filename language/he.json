@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "מדיה",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "סוג",
+          "englishDescription": "Optional media to display above the question.",
           "description": "ניתן להוסיף תמונה אשר תוצג מעל השאלה."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "ביטול האפשרות להגדלת תמונה"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "תיאור משימה",
-      "description": "תארו כיצד על המשתמש לפתור את המשימה.",
-      "placeholder": "יש ללחוץ על כל הפעלים בקטע התוכן הבא."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "תארו כיצד על המשתמש לפתור את המשימה."
     },
     {
+      "englishLabel": "Textfield",
       "label": "אזור תוכן",
-      "placeholder": "זו תשובה: *answer*.",
-      "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "משוב כולל",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "ברירת מחדל"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "הגדירו משוב מותאם אישית לכל טווח ציונים",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "לחצו על כפתור \"הוסף טווח\" כדי להוסיף כמה טווחים לפי הצורך. דוגמה: 0-20% ציון רע, 21-91% ציון ממוצע, 91-100% ציון מעולה!",
+          "englishEntity": "range",
           "entity": "טווח",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "טווח ציונים"
               },
               {},
               {
-                "label": "משוב לטווח ציונים מוגדר",
-                "placeholder": "מלאו את המשוב"
+                "englishLabel": "Feedback for defined score range",
+                "label": "משוב לטווח ציונים מוגדר"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "טקסט לכפתור \"בדוק\"",
+      "englishDefault": "Check",
       "default": "בדוק"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "תוכן כפתור \"נסה שוב\"",
+      "englishDefault": "Retry",
       "default": "נסו שוב"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "תיאור עבור כפתור \"הציגו פתרון\"",
+      "englishDefault": "Show solution",
       "default": "הצג פתרון"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "הגדרות אופן פעולת הרכיב.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "אפשרויות אלה יאפשרו לך לשלוט באופן הפעולה של המשימה.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "הפעלת כפתור \"נסו בשנית\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "הפעלת כפתור \"הציגו פתרון\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "הפעלת כפתור \"סמן\""
         },
         {
+          "englishLabel": "Show score points",
           "label": "הציגו נקודות ניקוד",
+          "englishDescription": "Show points earned for each answer.",
           "description": "הציגו נקודות שהתקבלו עבור כל תשובה."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "תוכן תשובה נכונה",
+      "englishDefault": "Correct!",
       "default": "נכון!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "תיאור המשמש לציון תשובה נכונה"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "תוכן תשובה שאינה נכונה",
+      "englishDefault": "Incorrect!",
       "default": "אינו נכון!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "תיאור המשמש לציון תשובה שאינה נכונה"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "תוכן תשובה חסרה",
+      "englishDefault": "Answer not found!",
       "default": "תשובה לא נמצאה",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "תיאור המשמש לציון תשובה שאינה נענתה"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "תיאור עבור תצוגת פתרון",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "המשימה מתעדכנת כדי להכיל את הפתרון.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "תוכן  זה אומר למשתמש שהמשימות עודכנו עם הפתרון."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "תצוגה מילולית של סרגל הניקוד עבור אלה המשתמשים ב- readspeaker",
+      "englishDefault": "You got :num out of :total points",
       "default": "קיבלתם :num מתוך :total נקודות"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "תווית לטקסט הקראה מלא עבור טכנולוגיות מסייעות",
+      "englishDefault": "Full readable text",
       "default": "טקסט קריא מלא"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "תווית לתוכן בו אפשר לסמן את המילים עבור טכנולוגיות מסייעות",
+      "englishDefault": "Full text where words can be marked",
       "default": "טקסט מלא בו אפשר לסמן את המילים"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "כותרת שהיא מצב פתרון לטכנולוגיות מסייעות",
+      "englishDefault": "Solution mode",
       "default": "מצב פתרון"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "מצב בדיקת כותרת עבור טכנולוגיות מסייעות",
+      "englishDefault": "Checking mode",
       "default": "מצב בדיקה"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "תיאור טכנולוגיה מסייעת עבור כפתור \"בדיקה\"",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "בדקו את התשובות. המענים יסומנו כנכונים, לא נכונים, או כריקים."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "תיאור טכנולוגיה מסייעת עבור כפתור \"הצגת פתרון\"",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "הציגו את הפתרון. המשימה תסומן עם הפתרון הנכון שלה."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "תיאור טכנולוגיה מסייעת עבור כפתור \"ניסיון חוזר\"",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "נסו את המשימה שוב. אפסו את כל ניסיונות המענה והתחילו את המשימה מחדש."
     }
   ]

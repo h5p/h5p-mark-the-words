@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Media",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Tipo",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Media facoltativo da mostrare sopra la domanda"
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Disabilita lo zoom dell'immagine"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Descrizione del compito",
-      "description": "Descrivi come l'apprendente deve risolvere il compito",
-      "placeholder": "Clicca su tutti i verbi nel testo che segue"
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Descrivi come l'apprendente deve risolvere il compito"
     },
     {
+      "englishLabel": "Textfield",
       "label": "Campo di testo",
-      "placeholder": "Questa è una risposta: *answer*",
-      "important": {
-        "description": "<ul><li>Le parole marcate vengono aggiunte mediante un asterisco (*).</li><li>Gli asterischi possono essere aggiunti all'interno di parole marcate attraverso un ulteriore asterisco. Es. *parola-corretta*** =&gt; parola-corretta*.</li></ul>",
-        "example": "Le parole corrette sono marcate in questo modo: *parola-corretta*. Un asterisco è scritto così: *parola-corretta***"
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Feedback generale",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Predefinito"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Specifica un feedback per ogni intervallo di punteggio",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Clicca sul pulsante \"Aggiungi intervallo\" per aggiungere gli intervalli che ti servono. Per esempio: 0-20%, Punteggio scarso; 21-90%, Punteggio medio; 91-100% Punteggio ottimo!",
+          "englishEntity": "range",
           "entity": "intervallo",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Intervallo di punteggio"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Feedback for defined score range"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Testo per il pulsante \"Verifica\"",
+      "englishDefault": "Check",
       "default": "Verifica"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Testo per il pulsante \"Riprova\"",
+      "englishDefault": "Retry",
       "default": "Riprova"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Testo per il pulsante \"Mostra Soluzione\"",
+      "englishDefault": "Show solution",
       "default": "Mostra soluzione"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Impostazioni di esecuzione",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Queste opzioni permettono di controllare il comportamento del compito",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Attiva \"Riprova\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Attiva il pulsante \"Mostra soluzioni\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Attiva pulsante \"Verifica\""
         },
         {
+          "englishLabel": "Show score points",
           "label": "Visualizza punteggio",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Visualizza i punti guadagnati per ogni risposta"
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Testo della risposta corretta",
+      "englishDefault": "Correct!",
       "default": "Giusto!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Testo usato per indicare che una risposta è giusta"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Testo della risposta non corretta",
+      "englishDefault": "Incorrect!",
       "default": "Sbagliato!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Testo usato per indicare che una risposta è sbagliata"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Testo per risposta mancante",
+      "englishDefault": "Answer not found!",
       "default": "Risposta non trovata!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Testo usato per indicare che manca la risposta"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Descrizione della schermata delle soluzioni",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "L'attività viene aggiornata per contenere la soluzione",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Questo messaggio dice all'apprendente che l'attività è stata aggiornata con la soluzione"
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Rappresentazione testuale sulla barra del punteggio per chi usa un lettore vocale",
+      "englishDefault": "You got :num out of :total points",
       "default": "Il tuo punteggio è :num su :total"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Etichetta per il testo completo leggibile per le tecnologie assistive",
+      "englishDefault": "Full readable text",
       "default": "Testo completo leggibile"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Etichetta per il testo in cui le parole possono essere marcate per le tecnologie assistive",
+      "englishDefault": "Full text where words can be marked",
       "default": "Testo completo in cui le parole possono essere marcate"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Intestazione della modalità di soluzione per tecnologie assistive",
+      "englishDefault": "Solution mode",
       "default": "Modalità di soluzione"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Intestazione della modalità di verifica per tecnologie assistive",
+      "englishDefault": "Checking mode",
       "default": "Modalità di verifica"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Descrizione delle tecnologie assistive per il pulsante \"Verifica\"",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Verifica"
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Descrizione delle tecnologie assistive per il pulsante \"Mostra soluzione\"",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Mostra soluzione"
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Descrizione delle tecnologie assistive per il pulsante \"Riprova\"",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Riprova"
     }
   ]

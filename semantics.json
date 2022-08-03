@@ -214,8 +214,9 @@
         "type": "boolean",
         "label": "No score point deduction",
         "importance": "low",
-        "description": "Enable to prevent score point deduction for wrong marked words.",
-        "default": false
+        "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+        "default": false,
+        "status": "new"
       }
     ]
   },

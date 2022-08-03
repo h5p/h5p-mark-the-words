@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Media",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Type",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Optional media to display above the question."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Disable image zooming"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Опис завдання",
-      "description": "Опишіть, як користувач повинен вирішити завдання.",
-      "placeholder": "Клацніть всі дієслова у тексті, що випливає."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Опишіть, як користувач повинен вирішити завдання."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Текстове поле",
-      "placeholder": "Це відповідь: *answer*.",
-      "important": {
-        "description": "<ul><li>Позначені слова додаються з зірочкою (*).</li><li>Зірочка може вийти з іншої зірочки, в результаті чого ** = *.</li></ul>",
-        "example": "Правильні слова позначені так: *correctword*, зірочка написана так: *correctword***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Зворотній зв'язок",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "По умовчанню"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Визначте власні відгуки для будь-якого діапазону оцінок",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Натисніть кнопку \"Додати діапазон\" щоб додати стільки діапазонів, скільки вам потрібно. Наприклад: 0-20% Погана оцінка, 21-91% Середня оцінка, 91-100% Відмінна оцінка!",
+          "englishEntity": "range",
           "entity": "діапазон",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Діапазон оцінок"
               },
               {},
               {
-                "label": "Зворотній зв'язок на визначений діапазон оцінок",
-                "placeholder": "Заповніть відгук"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Зворотній зв'язок на визначений діапазон оцінок"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Тектс кнопки \"Перевірити\"",
+      "englishDefault": "Check",
       "default": "Перевірити"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Текст кнопки \"Повторити\"",
+      "englishDefault": "Retry",
       "default": "Повторити"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Текст кнопки \"Показати відповіді\"",
+      "englishDefault": "Show solution",
       "default": "Показати відповіді"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Налаштування поведінки.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Ці параметри дозволять вам контролювати, як поводиться завдання.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Включити кнопку \"Повторити\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Включити кнопку \"Показати відповіді\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Включити кнопку \"Перевірити\""
         },
         {
+          "englishLabel": "Show score points",
           "label": "Показати бали",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Показати зароблені бали за кожну відповідь."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Текст правильної відповіді",
+      "englishDefault": "Correct!",
       "default": "Правильно!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Текст використовується для вказівки правильності відповіді"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Текст неправильної відповіді",
+      "englishDefault": "Incorrect!",
       "default": "Неправильно!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Текст використовується для вказівки на те, що відповідь неправильна"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Текст відповіді пропущений",
+      "englishDefault": "Answer not found!",
       "default": "Пропущено!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Текст вказує на відсутність відповіді"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Опис для відображення відповідей",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Завдання оновлюється, щоб містити відповіді.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Цей текст повідомляє користувачеві, що завдання було оновлено відповідями."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Текстове представлення шкали оцінок для тих, хто використовує озвучування",
+      "englishDefault": "You got :num out of :total points",
       "default": "Ти маєш :num з :total балів"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Label for the full readable text for assistive technologies",
+      "englishDefault": "Full readable text",
       "default": "Full readable text"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Label for the text where words can be marked for assistive technologies",
+      "englishDefault": "Full text where words can be marked",
       "default": "Full text where words can be marked"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Solution mode header for assistive technologies",
+      "englishDefault": "Solution mode",
       "default": "Solution mode"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Checking mode header for assistive technologies",
+      "englishDefault": "Checking mode",
       "default": "Checking mode"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Опис допоміжної технології для кнопки «Перевірити».",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Перевірте відповіді. Відповіді будуть позначені як правильні, неправильні або без відповіді."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Опис допоміжної технології для кнопки «Показати рішення».",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Покажіть рішення. Завдання буде позначено його правильним рішенням."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Опис допоміжної технології для кнопки «Повторити».",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Повторіть завдання. Скиньте всі відповіді та почніть завдання знову."
     }
   ]

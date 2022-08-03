@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "رسانه",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "نوع",
+          "englishDescription": "Optional media to display above the question.",
           "description": "رسانه اختیاری برای نمایش در بالای سؤال."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "غیرفعال‌سازی بزرگنمایی تصویر"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "توصیف تکلیف",
-      "description": "توضیح دهید کاربر چگونه باید تکلیف را انجام دهد.",
-      "placeholder": "روی همه فعل‌ها در متن پیش رو کلیک کنید."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "توضیح دهید کاربر چگونه باید تکلیف را انجام دهد."
     },
     {
+      "englishLabel": "Textfield",
       "label": "فیلد متنی",
-      "placeholder": "این یک پاسخ است: *answer*.",
-      "important": {
-        "description": "<ul><li>کلمات نشاندار با یک ستاره (*) اضافه شده‌اند.</li><li>با افزودن یک ستاره دیگر می‌توان به کلمات نشاندار ستاره افزود، *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "کلمات صحیح اینگونه نشاندار می‌شوند: *correctword*، یک ستاره به این صورت نوشته می‌شود: *correctword***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "بازخورد کلی",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "پیش‌فرض"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "تعریف بازخورد سفارشی برای هر بازه نمره",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "برای افزودن هر تعداد بازه که می‌خواهید، رو دکمه \"افزودن بازه\" کلیک کنید. مثال: ۰-۲۰٪ نمره بد، ۲۱-۹۱٪ نمره متوسط، ۹۱-۱۰۰٪ نمره عالی!",
+          "englishEntity": "range",
           "entity": "بازه",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "بازه نمره"
               },
               {},
               {
-                "label": "بازخورد بازه نمره تعریف شده",
-                "placeholder": "بازخورد را پر کنید"
+                "englishLabel": "Feedback for defined score range",
+                "label": "بازخورد بازه نمره تعریف شده"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "متن برای دکمه بررسی",
+      "englishDefault": "Check",
       "default": "بررسی"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "متن برای دکمه تلاش مجدد",
+      "englishDefault": "Retry",
       "default": "تلاش مجدد"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "متن برای دکمه نمایش پاسخ صحیح",
+      "englishDefault": "Show solution",
       "default": "نمایش پاسخ صحیح"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "تنظیمات عملکرد.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "این گزینه‌ها به شما اجازه خواهند داد چگونگی عملکرد فعالیت را کنترل کنید.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "فعال‌سازی تلاش مجدد"
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "فعال‌سازی دکمه نمایش پاسخ صحیح"
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "فعال‌سازی دکمه بررسی"
         },
         {
+          "englishLabel": "Show score points",
           "label": "نمایش امتیازات",
+          "englishDescription": "Show points earned for each answer.",
           "description": "نمایش امتیازات کسب شده برای هر پاسخ."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "متن پاسخ صحیح",
+      "englishDefault": "Correct!",
       "default": "صحیح!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "متن مورد استفاده برای اشاره کردن به اینکه یک پاسخ صحیح است"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "متن پاسخ غلط",
+      "englishDefault": "Incorrect!",
       "default": "غلط!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "متن مورد استفاده برای اشاره کردن به اینکه یک پاسخ غلط است"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "متن پاسخ ناموجود",
+      "englishDefault": "Answer not found!",
       "default": "پاسخ یافت نشد!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "متن مورد استفاده برای اشاره به اینکه یک پاسخ ناموجود است"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "توصیف برای نمایش پاسخ صحیح",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "تکلیف به روز رسانی شده است تا پاسخ را شامل شود.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "این متن به کاربر می‌گوید که تکالیف با پاسخ صحیح به روز رسانی شدند."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "بازنمایی متنی نوار نمره برای آنهایی که از مبدل متن به گفتار استفاده می‌کنند",
+      "englishDefault": "You got :num out of :total points",
       "default": "شما از ‎:total امتیاز، نمره ‎:num را دریافت کردید"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "برچسب برای متن کاملاً خوانا برای فناوری‌های کمکی",
+      "englishDefault": "Full readable text",
       "default": "متن کاملاً خوانا"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "برچسب برای متنی که کلمات آن را می‌توان برای فناوری‌های کمکی نشاندار کرد",
+      "englishDefault": "Full text where words can be marked",
       "default": "متن کامل که کلماتش قابل نشاندار شدن است"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "سرصفحه حالت پاسخ صحیح برای فناوری‌های کمکی",
+      "englishDefault": "Solution mode",
       "default": "حالت پاسخ صحیح"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "سرصفحه حالت بررسی برای فناوری‌های کمکی",
+      "englishDefault": "Checking mode",
       "default": "حالت بررسی"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "توصیف فناوری کمکی برای دکمه بررسی",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "بررسی پاسخ‌ها. پاسخ‌ها صحیح، غلط، یا بی‌پاسخ علامت‌گذاری خواهند شد."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "توصیف فناوری کمکی برای دکمه نمایش پاسخ صحیح",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "نمایش پاسخ صحیح. تکلیف با پاسخ صحیح آن علامت‌گذاری خواهد شد."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "توصیف فناوری کمکی برای دکمه تلاش مجدد",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "تلاش مجدد. بازنشانی همه پاسخ‌ها و شروع دوباره تکلیف."
     }
   ]

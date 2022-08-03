@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Pilt või video",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Tüüp",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Pilt või video, mida kuvatakse küsimuse juures (mittekohustuslik element)."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Keela pildi suuruse muutmine"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Ülesande kirjeldus",
-      "description": "Kirjelda, kuidas kasutaja peaks ülesande lahendama.",
-      "placeholder": "Kliki järgnevas tekstis kõigile tegusõnadele."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Kirjelda, kuidas kasutaja peaks ülesande lahendama."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Tekstiväli",
-      "placeholder": "See on vastus: *vastus*.",
-      "important": {
-        "description": "<ul><li>Märgitud sõnad lisatakse tärni (*) kasutades.</li><li>Tärni lisamiseks kasuta topelt-tärni ** = *.</li></ul>",
-        "example": "Õiged sõnad märgitakse nii: *õigesõna*, tärn lisataksenii: *õigesõna***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Üldine tagasiside",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Vaikimisi"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Määratle kohandatud tagasiside igale punktisumma vahemikule",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Kliki \"Lisa vahemik\" nupule vajalike vahemike lisamiseks. Näiteks: 0-20% halb tulemus, 21-91% keskmine tulemus, 91-100% suurepärane tulemus!",
+          "englishEntity": "range",
           "entity": "vahemik",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Punktisumma vahemik"
               },
               {},
               {
-                "label": "Tagasiside määratletud punktisumma vahemikule",
-                "placeholder": "Sisesta tagasiside"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Tagasiside määratletud punktisumma vahemikule"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "\"Kontrolli\" nupu tekst",
+      "englishDefault": "Check",
       "default": "Kontrolli"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "\"Proovi uuesti\" nupu tekst",
+      "englishDefault": "Retry",
       "default": "Proovi uuesti"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "\"Näita lahendust\" nupu tekst",
+      "englishDefault": "Show solution",
       "default": "Näita lahendust"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Käitumisseaded.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Nende valikutega saad määrata ülesande käitumise.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Luba \"Proovi uuesti\" nupp"
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Luba \"Näita lahendust\" nupp"
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Luba \"Kontrolli\" nupp"
         },
         {
+          "englishLabel": "Show score points",
           "label": "Näita punktisumma tulemus",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Iga vastusega teenitud punktid."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Õige vastuse tekst",
+      "englishDefault": "Correct!",
       "default": "Õige!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Õigele vastusele osutav tekst"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Vale vastuse tekst",
+      "englishDefault": "Incorrect!",
       "default": "Vale!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Valele vastusele osutav tekst"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Täitmata vastuse tekst",
+      "englishDefault": "Answer not found!",
       "default": "Puudu!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Puuduvale vastusele osutav tekst"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Näita lahendust kirjeldus",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Ülesanne on uuendatud ja sisaldab nüüd lahendust.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "See tekst teatab kasutajale, et ülesandele on lisatud lahendus."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Punktisumma riba tekstiline esitus tekstilugeri kasutajaile",
+      "englishDefault": "You got :num out of :total points",
       "default": "Sa said :num punkti :total punktist"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Label for the full readable text for assistive technologies",
+      "englishDefault": "Full readable text",
       "default": "Full readable text"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Label for the text where words can be marked for assistive technologies",
+      "englishDefault": "Full text where words can be marked",
       "default": "Full text where words can be marked"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Solution mode header for assistive technologies",
+      "englishDefault": "Solution mode",
       "default": "Solution mode"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Checking mode header for assistive technologies",
+      "englishDefault": "Checking mode",
       "default": "Checking mode"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Assistive technology description for \"Check\" button",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Assistive technology description for \"Show Solution\" button",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Show the solution. The task will be marked with its correct solution."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Assistive technology description for \"Retry\" button",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]

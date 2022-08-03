@@ -84,6 +84,10 @@
         {
           "label": "Show score points",
           "description": "Show points earned for each answer."
+        },
+        {
+          "label": "No score point deduction",
+          "description": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)"
         }
       ]
     },

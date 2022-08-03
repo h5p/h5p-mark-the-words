@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Media",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Typ",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Valfri media att visa ovanför frågan."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Inaktivera zoomning i bild"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Опис задатка",
-      "description": "Опишите како корисник треба да реши задатак.",
-      "placeholder": "Кликните на све глаголе у тексту који следи."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Опишите како корисник треба да реши задатак."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Текстуално поље",
-      "placeholder": "Ово је одговор: *одговор*.",
-      "important": {
-        "description": "<ul><li>Означене речи додају се звездицом (*).</li><li>Звездице се могу додати у означене речи додавањем друге звездице, *тачнареч*** =&gt; тачнареч*.</li></ul>",
-        "example": "Тачне речи су означене овако: *тачнареч*, овако је написана звездица: *тачнареч***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Повратне информације",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Уобичајено"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Дефинишите прилагођене повратне информације за било који опсег резултата",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Кликните на \"Додај опсег\" дугме за додавање онолико опсега колико вам је потребно. Пример: 0-20% Лош резултат, 21-91% Просечан резултат, 91-100% Одличан резултат!",
+          "englishEntity": "range",
           "entity": "range",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Распон резултата"
               },
               {},
               {
-                "label": "Повратне информације за дефинисани опсег резултата",
-                "placeholder": "Попуните повратне информације"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Повратне информације за дефинисани опсег резултата"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Текст за \"Провери\" дугме",
+      "englishDefault": "Check",
       "default": "Провери"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Text for \"Retry\" button",
+      "englishDefault": "Retry",
       "default": "Retry"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Текст за \"Прикажи решења\" дугме",
+      "englishDefault": "Show solution",
       "default": "Прикажи решења"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Поставке понашања.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Ове опције ће вам омогућити да контролишете понашање задатка.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Омогући \"Врати\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Омогући \"Прикажи решења\" дугме"
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Омогући \"Провери\" дугме"
         },
         {
+          "englishLabel": "Show score points",
           "label": "Прикажи бодове",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Прикажите бодове за сваки одговор."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Тачан одговор текст",
+      "englishDefault": "Correct!",
       "default": "Тачно!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Текст којим се указује на тачност одговора"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Погрешан одговор текст",
+      "englishDefault": "Incorrect!",
       "default": "Погрешно!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Текст који се користи да укаже да је одговор нетачан"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Текст пропуштеног одговора",
+      "englishDefault": "Answer not found!",
       "default": "Одговор није пронађен!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Текст којим се означава да одговор недостаје"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Објашњење за Прикажи решења",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Задатак је ажуриран тако да садржи решење.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Овај текст говори кориснику да су задаци ажурирани решењем."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Текстуални приказ бодовне траке за оне који користе читач звука",
+      "englishDefault": "You got :num out of :total points",
       "default": "Освојили сте :num од :total поена"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Ознака за читав текст за помоћне технологије",
+      "englishDefault": "Full readable text",
       "default": "Читав текст"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Ознака за текст где се речи могу означити за помоћне технологије",
+      "englishDefault": "Full text where words can be marked",
       "default": "Пун текст у коме се речи могу обележити"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Заглавље режима решења за помоћне технологије",
+      "englishDefault": "Solution mode",
       "default": "Решења"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Заглавље режима провере за помоћне технологије",
+      "englishDefault": "Checking mode",
       "default": "Режим провере"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Опис помоћне технологије за \"Провери\" дугме",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Проверите одговоре. Одговори ће бити означени као тачни, нетачни или без одговора."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Опис помоћне технологије за \"Прикажи решења\" дугме",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Покажите решење. Задатак ће бити означен својим тачним решењем."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Опис помоћне технологије за \"Врати\" дугме",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Покушајте поново са задатком. Ресетујте све одговоре и покрените задатак поново."
     }
   ]

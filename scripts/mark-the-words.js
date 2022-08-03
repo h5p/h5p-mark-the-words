@@ -473,7 +473,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       if (word.isCorrect()) {
         result.correct++;
       }
-      else if (word.isWrong()&&!self.params.behaviour.preventPointSubstraction) {
+      else if (word.isWrong() && !self.params.behaviour.preventPointSubstraction) {
         result.wrong++;
       }
       else if (word.isMissed()) {

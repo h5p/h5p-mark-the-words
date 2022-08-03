@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Medios",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Tipo",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Medios adicionais amosados enriba da pregunta."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Desactivar zoom da imaxe"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Descrición da tarefa",
-      "description": "Describe como debería resolver a tarefa o usuario.",
-      "placeholder": "Preme en todos os verbos do texto."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Describe como debería resolver a tarefa o usuario."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Campo de texto",
-      "placeholder": "Esta é unha resposta: *resposta*.",
-      "important": {
-        "description": "<ul><li>As palabras marcadas engádense cun asterísco (*).</li><li>Pódense engadir asteríscos dentro das palabras marcadas engadindo outro asterísco, *palabracorrecta*** =&gt; palabracorrecta*.</li></ul>",
-        "example": "As palabras correctas márcanse así: *palabracorrecta*, o asterísco escríbese así: *palabracorrecta***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Retroalimentación xeral",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Por defecto"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Define a retroalimentación por defecto para calquera rango de puntuación",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Preme o botón \"Engadir rango\" para engadir tantos rangos como precises. Exemplo: 0-20% Mala Puntuación, 21-91% Puntuación Media, 91-100% Puntuación Xenial!",
+          "englishEntity": "range",
           "entity": "rango",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Rango de Puntuación"
               },
               {},
               {
-                "label": "Retroalimentación para rango de puntuación definido",
-                "placeholder": "Escribe a retroalimentación"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Retroalimentación para rango de puntuación definido"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Texto para o botón \"Comprobar\"",
+      "englishDefault": "Check",
       "default": "Comprobar"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Texto para o botón \"Enviar\"",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Texto para o botón \"Tentar de novo\"",
+      "englishDefault": "Retry",
       "default": "Tentar de novo"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Texto para o botón \"Amosar solución\"",
+      "englishDefault": "Show solution",
       "default": "Amosar solución"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Configuración do comportamento.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Estas opcións permiten controlar como se comporta a tarefa.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Activar \"Reintentar\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Activar botón \"Amosar solución\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Activar botón \"Comprobar\""
         },
         {
+          "englishLabel": "Show score points",
           "label": "Amosar puntuación",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Amosar os puntos gañados por cada resposta."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Texto de resposta correcta",
+      "englishDefault": "Correct!",
       "default": "Correcto!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Texto usado para indicar que unha resposta é correcta"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Texto de resposta incorrecta",
+      "englishDefault": "Incorrect!",
       "default": "Incorrecto!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Texto usado para indicar que unha resposta é incorrecta"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Texto de resposta ausente",
+      "englishDefault": "Answer not found!",
       "default": "Non se atopou a resposta!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Texto usado para indicar que falta unha resposta"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Descrición para Amosar Solución",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Actualizouse a tarefa coa solución.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Este texto dille ao usuario que as tarefas actualizáronse coas solucións."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Representación textual da puntuación cando se está a usar un lector de pantalla",
+      "englishDefault": "You got :num out of :total points",
       "default": "Conseguiches :num dun total de :total puntos"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Etiqueta para texto lexible completo para as tecnoloxías de asistencia",
+      "englishDefault": "Full readable text",
       "default": "Texto lexible completo"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Etiqueta para o texto no que se poden marcar palabras para as tecnoloxías de asistencia",
+      "englishDefault": "Full text where words can be marked",
       "default": "Texto completo no que se poden marcar palabras"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Cabeceira do modo solución para as tecnoloxías de asistencia",
+      "englishDefault": "Solution mode",
       "default": "Modo solución"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Cabeceira do modo comprobación para as tecnoloxías de asistencia",
+      "englishDefault": "Checking mode",
       "default": "Modo comprobación"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Descrición do botón \"Comprobar\" para as tecnoloxías de asistencia",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Comproba as respostas. As respostas marcaranse como correctas, incorrectas ou non contestadas."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Descrición do botón \"Amosar solución\" para as tecnoloxías de asistencia",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Amosar a solución. A tarefa marcarase coa súa solución correcta."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Descrición do botón \"Reintentar\" para as tecnoloxías de asistencia",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Tentar de novo a tarefa. Borra todas as respostas e empeza a tarefa de novo."
     }
   ]

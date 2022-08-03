@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Медия",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Тип",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Незадължителна медия, която да се показва над въпроса."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Деактивиране мащабирането на изображения"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Описание на задачата",
-      "description": "Опишете как потребителя трябва да реши задачата.",
-      "placeholder": "Щракнете с мишката върху всички глаголи в текста, който следва."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Опишете как потребителя трябва да реши задачата."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Текстово поле",
-      "placeholder": "Това е отговора: *answer*.",
-      "important": {
-        "description": "<ul><li>Маркираните думи са добавени със звездичка (*).</li><li>Звездички могат да бъдат добавени в маркираните думи, като се добави друга звездичка, *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "Правилните думи са маркирани така: *correctword*, звездичката е отбелязана така: *correctword***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Обща обратна връзка",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "По подразбиране"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Персонална обратна връзка за всеки диапазон от точки",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Натиснете бутон \"Добави диапазон\", за да добавите необходимите полета за диапазони. Пример: 0-20% Слаб резултат, 21-91% Среден резултат, 91-100% Отличен резултат!",
+          "englishEntity": "range",
           "entity": "диапазон",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Диапазон на резултата"
               },
               {},
               {
-                "label": "Обратна връзка за дефиниран диапазон на резултата",
-                "placeholder": "Въведете обратна връзка"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Обратна връзка за дефиниран диапазон на резултата"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Текст за бутон \"Провери\" ",
+      "englishDefault": "Check",
       "default": "Провери"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Текст за бутон \"Опитай пак\" ",
+      "englishDefault": "Retry",
       "default": "Опитай пак"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Текст за бутон\"Покажи решение\" ",
+      "englishDefault": "Show solution",
       "default": "Покажи решение"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Настройки за поведение",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Тези настройки позволяват да контролирате поведението на задачата.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Разреши бутон \"Опитай пак\" "
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Разреши бутон \"Покажи решение\" "
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Разреши бутон \"Провери\" "
         },
         {
+          "englishLabel": "Show score points",
           "label": "Показване на точките",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Показва получените точки за всеки отговор."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Текст за верен отговор",
+      "englishDefault": "Correct!",
       "default": "Вярно!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Текстът ще показва, че отговорът е верен"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Текст за грешен отговор",
+      "englishDefault": "Incorrect!",
       "default": "Грешно!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Текстът ще показва, че отговорът е грешен"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Текст за липсващ отговор",
+      "englishDefault": "Answer not found!",
       "default": "Липсва отговор!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Текстът ще показва, че отговорът липсва"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Описание за Покажи решение",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Задачата е обновена, за да съдържа решението.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Този текст казва на ученика, че задачите са обновени, за да се види решението."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Текстово представяне на лентата с резултати за тези, които използват readspeaker",
+      "englishDefault": "You got :num out of :total points",
       "default": "Вие имате :num от общо :total точки"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Label for the full readable text for assistive technologies",
+      "englishDefault": "Full readable text",
       "default": "Full readable text"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Label for the text where words can be marked for assistive technologies",
+      "englishDefault": "Full text where words can be marked",
       "default": "Full text where words can be marked"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Solution mode header for assistive technologies",
+      "englishDefault": "Solution mode",
       "default": "Solution mode"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Checking mode header for assistive technologies",
+      "englishDefault": "Checking mode",
       "default": "Checking mode"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Assistive technology description for \"Check\" button",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Assistive technology description for \"Show Solution\" button",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Show the solution. The task will be marked with its correct solution."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Assistive technology description for \"Retry\" button",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]

@@ -1,51 +1,60 @@
 {
   "semantics": [
     {
+      "englishLabel": "Media",
       "label": "Média",
       "fields": [
         {
+          "englishLabel": "Type",
           "label": "Typ",
+          "englishDescription": "Optional media to display above the question.",
           "description": "Volitelná média zobrazená nad otázkou."
         },
         {
+          "englishLabel": "Disable image zooming",
           "label": "Zakázat zvětšení obrazu"
         }
       ]
     },
     {
+      "englishLabel": "Task description",
       "label": "Popis úlohy",
-      "description": "Popište, jak by měl uživatel úlohu vyřešit.",
-      "placeholder": "Klikněte na všechna slovesa v následujícím textu."
+      "englishDescription": "Describe how the user should solve the task.",
+      "description": "Popište, jak by měl uživatel úlohu vyřešit."
     },
     {
+      "englishLabel": "Textfield",
       "label": "Textové pole",
-      "placeholder": "To je odpověď: *odpověď*.",
-      "important": {
-        "description": "<ul><li>Označená slova jsou přidána s hvězdičkou (*).</li><li>Hvězdičky lze přidat do označených slov přidáním další hvězdičky, *správnéslovo*** =&gt; správnéslovo*.</li></ul>",
-        "example": "Správná slova jsou takto označena: *správnéslovo*, takto je napsána hvězdička: *správnéslovo***."
-      }
+      "englishDescription": "",
+      "description": "TODO"
     },
     {
+      "englishLabel": "Overall Feedback",
       "label": "Celková zpětná vazba",
       "fields": [
         {
           "widgets": [
             {
+              "englishLabel": "Default",
               "label": "Výchozí"
             }
           ],
+          "englishLabel": "Define custom feedback for any score range",
           "label": "Definujte vlastní zpětnou vazbu pro jakýkoli rozsah skóre",
+          "englishDescription": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
           "description": "Klepnutím na tlačítko \"Přidat rozsah\" přidáte libovolný počet rozsahů. Příklad: 0-20% špatné skóre, 21-91% průměrné skóre, 91-100% výborné skóre!",
+          "englishEntity": "range",
           "entity": "rozsah",
           "field": {
             "fields": [
               {
+                "englishLabel": "Score Range",
                 "label": "Rozsah skóre"
               },
               {},
               {
-                "label": "Zpětná vazba pro definovaný rozsah skóre",
-                "placeholder": "Vyplňte zpětnou vazbu"
+                "englishLabel": "Feedback for defined score range",
+                "label": "Zpětná vazba pro definovaný rozsah skóre"
               }
             ]
           }
@@ -53,90 +62,139 @@
       ]
     },
     {
+      "englishLabel": "Text for \"Check\" button",
       "label": "Popisek tlačítka \"Zkontrolovat\"",
+      "englishDefault": "Check",
       "default": "Zkontrolovat"
     },
     {
+      "englishLabel": "Text for \"Submit\" button",
       "label": "Text for \"Submit\" button",
+      "englishDefault": "Submit",
       "default": "Submit"
     },
     {
+      "englishLabel": "Text for \"Retry\" button",
       "label": "Text tlačítka \"Opakovat\" ",
+      "englishDefault": "Retry",
       "default": "Opakovat"
     },
     {
+      "englishLabel": "Text for \"Show solution\" button",
       "label": "Text tlačítka \"Zobrazit řešení\"",
+      "englishDefault": "Show solution",
       "default": "Zobrazit řešení"
     },
     {
+      "englishLabel": "Behavioural settings.",
       "label": "Nastavení chování.",
+      "englishDescription": "These options will let you control how the task behaves.",
       "description": "Tyto možnosti vám umožní řídit, jak se bude úloha chovat.",
       "fields": [
         {
+          "englishLabel": "Enable \"Retry\"",
           "label": "Povolit tlačítko \"Opakovat\""
         },
         {
+          "englishLabel": "Enable \"Show solution\" button",
           "label": "Povolit tlačítko \"Zobrazit řešení\""
         },
         {
+          "englishLabel": "Enable \"Check\" button",
           "label": "Povolit tlačítko \"Zkontrolovat\""
         },
         {
+          "englishLabel": "Show score points",
           "label": "Zobrazit body",
+          "englishDescription": "Show points earned for each answer.",
           "description": "Zobrazit body získané za každou odpověď."
+        },
+        {
+          "englishLabel": "No score point deduction",
+          "label": "TODO",
+          "englishDescription": "Enable to prevent score point deduction for wrong marked words (be careful: might be abused from users who simply mark all the words to get full score)",
+          "description": "TODO"
         }
       ]
     },
     {
+      "englishLabel": "Correct answer text",
       "label": "Text správné odpovědi",
+      "englishDefault": "Correct!",
       "default": "Správně!",
+      "englishDescription": "Text used to indicate that an answer is correct",
       "description": "Text používaný k označení správnosti odpovědi"
     },
     {
+      "englishLabel": "Incorrect answer text",
       "label": "Text nesprávné odpovědi",
+      "englishDefault": "Incorrect!",
       "default": "Nesprávně!",
+      "englishDescription": "Text used to indicate that an answer is incorrect",
       "description": "Text používaný k označení nesprávnosti odpovědi"
     },
     {
+      "englishLabel": "Missed answer text",
       "label": "Chybějící text odpovědi",
+      "englishDefault": "Answer not found!",
       "default": "Odpověď nebyla nalezena!",
+      "englishDescription": "Text used to indicate that an answer is missing",
       "description": "Text používaný k označení, že chybí odpověď"
     },
     {
+      "englishLabel": "Description for Display Solution",
       "label": "Popis pro zobrazení řešení",
+      "englishDefault": "Task is updated to contain the solution.",
       "default": "Úloha je aktualizována tak, aby obsahovala řešení.",
+      "englishDescription": "This text tells the user that the tasks has been updated with the solution.",
       "description": "Tento text říká uživateli, že úkoly byly řešením aktualizovány."
     },
     {
+      "englishLabel": "Textual representation of the score bar for those using a readspeaker",
       "label": "Textové znázornění výsledkové lišty pro ty, kteří používají čtecí zařízení",
+      "englishDefault": "You got :num out of :total points",
       "default": "Získal jste :num ze :total bodů"
     },
     {
+      "englishLabel": "Label for the full readable text for assistive technologies",
       "label": "Popisek pro plně čitelný text pro pomocné technologie",
+      "englishDefault": "Full readable text",
       "default": "Plně čitelný text"
     },
     {
+      "englishLabel": "Label for the text where words can be marked for assistive technologies",
       "label": "Popisek pro text, kde lze označit slova pro pomocné technologie",
+      "englishDefault": "Full text where words can be marked",
       "default": "Celý text, kde slova lze označit"
     },
     {
+      "englishLabel": "Solution mode header for assistive technologies",
       "label": "Záhlaví režimu řešení pro pomocné technologie",
+      "englishDefault": "Solution mode",
       "default": "Režim řešení"
     },
     {
+      "englishLabel": "Checking mode header for assistive technologies",
       "label": "Záhlaví kontrolního režimu pro pomocné technologie",
+      "englishDefault": "Checking mode",
       "default": "Kontrolní režim"
     },
     {
+      "englishLabel": "Assistive technology description for \"Check\" button",
       "label": "Popisek podpůrné technologie pro tlačítko „Zkontrolovat“",
+      "englishDefault": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
       "default": "Zkontrolovat odpovědi. Odpovědi budou označeny jako správné, nesprávné nebo nezodpovězené."
     },
     {
+      "englishLabel": "Assistive technology description for \"Show Solution\" button",
       "label": "Popisek podpůrné technologie pro tlačítko „Zobrazit řešení“",
+      "englishDefault": "Show the solution. The task will be marked with its correct solution.",
       "default": "Zobrazit řešení. Úkol bude zobrazen se správným řešením."
     },
     {
+      "englishLabel": "Assistive technology description for \"Retry\" button",
       "label": "Popisek podpůrné technologie pro tlačítko „Opakovat“",
+      "englishDefault": "Retry the task. Reset all responses and start the task over again.",
       "default": "Opakovat úkol. Resetovat všechny odpovědi a spustit úlohu znovu."
     }
   ]
