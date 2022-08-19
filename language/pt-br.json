@@ -5,16 +5,16 @@
       "fields": [
         {
           "label": "Tipo",
-          "description": "Mídia opcional mostrada acima da questão."
+          "description": "Mídia opcional para exibir acima da pergunta."
         },
         {
-          "label": "Desabilita zoom de imagem para questões com imagens"
+          "label": "Desativar o zoom da imagem"
         }
       ]
     },
     {
       "label": "Descrição da tarefa",
-      "description": "Descreve como o usuário deve resolver a tarefa.",
+      "description": "Descreva como o usuário deve resolver a tarefa.",
       "placeholder": "Clique em todos os verbos no texto a seguir."
     },
     {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "label": "Feedback geral",
+      "label": "Feedback Geral",
       "fields": [
         {
           "widgets": [
@@ -34,17 +34,17 @@
               "label": "Padrão"
             }
           ],
-          "label": "Defina feedback customizado para qualquer faixa de pontuação",
-          "description": "Clique no botão \"Adicionar faixa\" para adicionar quantas faixas de pontuação forem necessárias. Exemplo: 0-20% Pontuação ruim, 21-91% Pontuação média, 91-100% Ótima pontuação!",
-          "entity": "range",
+          "label": "Definir feedback personalizado para qualquer faixa de pontuação",
+          "description": "Clique no botão \"Adicionar faixa\" para adicionar quantos intervalos você precisar. Exemplo: 0-20% Pontuação Ruim, 21-91% Pontuação Média, 91-100% Pontuação Ótima!",
+          "entity": "faixa",
           "field": {
             "fields": [
               {
-                "label": "Faixa de pontuação"
+                "label": "Faixa de Pontuação"
               },
               {},
               {
-                "label": "Feedback para uma faixa de pontuação determinada",
+                "label": "Feedback para a faixa de pontuação definida",
                 "placeholder": "Preencha o feedback"
               }
             ]
@@ -53,19 +53,19 @@
       ]
     },
     {
-      "label": "Texto para botão \"Verificar resposta\"",
-      "default": "Verificar resposta"
+      "label": "Texto do botão \"Verificar \"",
+      "default": "Verificar"
     },
     {
-      "label": "Text for \"Submit\" button",
-      "default": "Submit"
+      "label": "Texto do botão \"Enviar\"",
+      "default": "Enviar"
     },
     {
-      "label": "Texto para botão \"Tentar novamente\"",
-      "default": "Tentar novamente"
+      "label": "Texto para o botão \"Tentar Novamente\"",
+      "default": "Tentar Novamente"
     },
     {
-      "label": "Texto para botão \"Mostrar solução\"",
+      "label": "Texto para o botão \"Mostrar solução\"",
       "default": "Mostrar solução"
     },
     {
@@ -73,29 +73,29 @@
       "description": "Estas opções permitirão que você controle como a tarefa se comporta.",
       "fields": [
         {
-          "label": "Habilitar o botão \"Tentar novamente\""
+          "label": "Ativar o botão \"Tentar Novamente\""
         },
         {
-          "label": "Habilitar o botão \"Mostrar solução\" "
+          "label": "Ativar o botão \"Mostrar solução\""
         },
         {
-          "label": "Habilitar o botão \"Verificar resposta\" "
+          "label": "Ativar o botão \"Verificar\""
         },
         {
           "label": "Mostrar pontuação",
-          "description": "Mostra pontos ganhos para cada questão.."
+          "description": "Mostrar pontos ganhos para cada resposta."
         }
       ]
     },
     {
       "label": "Texto para resposta correta",
       "default": "Correto!",
-      "description": "Texto usado para indicar que a resposta está correta"
+      "description": "Texto usado para indicar que uma resposta está correta"
     },
     {
       "label": "Texto para resposta incorreta",
       "default": "Incorreto!",
-      "description": "Texto usado para indicar que a resposta está incorreta"
+      "description": "Texto usado para indicar que uma resposta está incorreta"
     },
     {
       "label": "Texto para questão não respondida",
@@ -103,41 +103,41 @@
       "description": "Texto usado para indicar que a questão não foi respondida"
     },
     {
-      "label": "Descrição para solução exibida",
-      "default": "A tarefa foi atualizada com a solução.",
-      "description": "Este texto diz ao usuário que a tarefa foi atualizada com a solução."
+      "label": "Descrição para Solução de Visualização",
+      "default": "A tarefa está atualizada com a solução.",
+      "description": "Este texto informa ao usuário que a tarefa foi atualizada com a solução."
     },
     {
-      "label": "Representação textual da barra de pontuação para aqueles que usam leitores de telas",
-      "default": "Você marcou :num de :total pontos"
+      "label": "Representação textual da barra de pontuação para aqueles que utilizam um leitor de tela",
+      "default": "Você conseguiu :num de :total pontos possíveis"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Rótulo para o texto legível completo para tecnologias de assistência",
+      "default": "Texto legível completo"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Rótulo das tecnologias de assistência para o texto onde as palavras podem ser marcadas",
+      "default": "Texto completo onde as palavras podem ser marcadas"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Cabeçalho do modo de solução para tecnologias de assistência",
+      "default": "Modo Solução"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Cabeçalho do modo de verificação de tecnologias de assistência",
+      "default": "Modo de verificação"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Descrição da tecnologia de assistência para o botão \"Verificar\"",
+      "default": "Verifique as respostas. As respostas serão marcadas como corretas, incorretas, ou sem resposta."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Descrição da tecnologia assistiva para o botão \"Mostrar Solução\"",
+      "default": "Mostrar a solução. A tarefa será marcada com sua solução correta."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "Descrição da tecnologia de assistência para o botão \"Tentar Novamente\"",
+      "default": "Tente realizar a tarefa novamente. Reinicialize todas as respostas e recomece."
     }
   ]
 }

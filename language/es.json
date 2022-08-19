@@ -1,11 +1,11 @@
 {
   "semantics": [
     {
-      "label": "Medio",
+      "label": "Medios",
       "fields": [
         {
           "label": "Tipo",
-          "description": "Medio opcional a mostrar arriba de la pregunta."
+          "description": "Medios opcionales mostrados encima de la pregunta."
         },
         {
           "label": "Deshabilitar acercamiento de imagen"
@@ -13,16 +13,16 @@
       ]
     },
     {
-      "label": "Descripción del trabajo",
-      "description": "Describe como el usuario debería resolver la tarea.",
-      "placeholder": "Haga clic en todos los verbos en el texto que sigue."
+      "label": "Descripción de la tarea",
+      "description": "Describe cómo debería resolver la tarea el usuario.",
+      "placeholder": "Haz clic en todos los verbos del siguiente texto."
     },
     {
-      "label": "Campodetexto",
+      "label": "Campo de texto",
       "placeholder": "Esta es una respuesta: *respuesta*.",
       "important": {
-        "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Los asteriscos pueden añadirse dentro de las palabras marcadas al añadir otro asterisco, lo que resulta en *palabracorrecta*** =&gt; palabracorrecta*.</li></ul>",
-        "example": "Las palabras correctas están marcadas así: *palabracorrecta*, un asterisco está escrito así: *palabracorrecta***."
+        "description": "<ul><li>Las palabras marcadas se agregan con un asterisco (*).</li><li>Pueden añadirse asteriscos dentro de las palabras marcadas aañadiendo otro asterisco, *palabracorrecta*** =&gt; palabracorrecta*.</li></ul>",
+        "example": "Las palabras correctas se marcan así: *palabracorrecta*, un asterisco se marca así: *palabracorrecta***."
       }
     },
     {
@@ -31,21 +31,21 @@
         {
           "widgets": [
             {
-              "label": "Predeterminado"
+              "label": "Por defecto"
             }
           ],
-          "label": "Definir retroalimentación personalizada para cualquier rango de puntaje",
-          "description": "Haga clic en el botón \"Añadir rango\" para añadir cuantos rangos necesite. Ejemplo: 0-20% Mal puntaje, 21-91% Puntaje Promedio, 91-100% ¡Magnífico Puntaje!",
+          "label": "Definir retroalimentación personalizada para cualquier rango de puntuación",
+          "description": "Haz clic en el botón \"Añadir rango\" para añadir los rangos que necesites. Ejemplo: 0-20% Mala puntuación, 21-91% Puntuación Media, 91-100% ¡Puntuación Estupenda!",
           "entity": "rango",
           "field": {
             "fields": [
               {
-                "label": "Rango del Puntaje"
+                "label": "Rango de puntuación"
               },
               {},
               {
-                "label": "Retroalimentación para rango de puntaje definido",
-                "placeholder": "Complete la retroalimentación"
+                "label": "Retroalimentación para rango de puntuación definido",
+                "placeholder": "Escribe tu retroalimentación"
               }
             ]
           }
@@ -61,19 +61,19 @@
       "default": "Enviar"
     },
     {
-      "label": "Texto para el botón \"Reintentar\"",
-      "default": "Reintentar"
+      "label": "Texto para el botón \"Intentar de nuevo\"",
+      "default": "Intentar de nuevo"
     },
     {
       "label": "Texto para botón \"Mostrar solución\"",
       "default": "Mostrar solución"
     },
     {
-      "label": "Configuraciones del comportamiento.",
-      "description": "Estas opciones le permitirán controlar como se comporta el trabajo.",
+      "label": "Configuración del comportamiento.",
+      "description": "Estas opciones te permitirán controlar cómo se comporta la tarea.",
       "fields": [
         {
-          "label": "Habilitar \"Reintentar\""
+          "label": "Habilitar \"Intentar de nuevo\""
         },
         {
           "label": "Habilitar el botón \"Mostrar solución\""
@@ -82,7 +82,7 @@
           "label": "Habilitar botón \"Comprobar\""
         },
         {
-          "label": "Mostrar el puntaje",
+          "label": "Mostrar resultados de puntuación",
           "description": "Mostrar los puntos obtenidos por cada respuesta."
         }
       ]
@@ -98,46 +98,46 @@
       "description": "Texto utilizado para indicar que una respuesta es incorrecta"
     },
     {
-      "label": "Texto de respuesta faltante",
+      "label": "Texto de respuesta ausente",
       "default": "¡Respuesta no encontrada!",
       "description": "Texto utilizado para indicar que falta una respuesta"
     },
     {
       "label": "Descripción para Mostrar Solución",
-      "default": "El trabajo se ha actualizado para contener la solución.",
-      "description": "Este texto le dice al usuario que los trabajos han sido actualizados con la solución."
+      "default": "La tarea se ha actualizado con la solución.",
+      "description": "Este texto le dice al usuario que las tareas se han actualizado con la solución."
     },
     {
-      "label": "Representación textual de la barra de puntaje para aquellos que usan un lector de texto en voz alta",
-      "default": "Obtuvo :num de un total de :total puntos"
+      "label": "Representación textual de la barra de puntuación cuando se usa un lector de pantalla",
+      "default": "Has obtenido :num de un total de :total puntos"
     },
     {
-      "label": "Etiqueta para el texto completo legible para tecnologías asistidas",
+      "label": "Etiqueta para el texto legible completo para tecnologías de asistencia",
       "default": "Texto completo legible"
     },
     {
-      "label": "Etiqueta para el texto donde las palabras pueden ser marcadas para tecnologías asistivas",
-      "default": "Texto completo donde las palabras pueden ser marcadas"
+      "label": "Etiqueta para el texto donde se pueden marcar palabras para tecnologías de asistencia",
+      "default": "Texto completo donde se pueden marcar las palabras"
     },
     {
-      "label": "Encabezado de modo solución para tecnologías asistivas",
+      "label": "Encabezado de modo de solución para tecnologías de asistencia",
       "default": "Modo Solución"
     },
     {
-      "label": "Encabezado de modo revisión para tecnologías asistivas",
+      "label": "Encabezado de modo de verificación para tecnologías de asistencia",
       "default": "Modo de Comprobación"
     },
     {
-      "label": "Descripción de tecnología asistiva para botón \"Comprobar\"",
-      "default": "Revisar las respuestas. Las respuestas serán marcadas como correcta, incorrecta o sin contestar."
+      "label": "Descripción para las tecnologías de asistencia del botón \"Comprobar\"",
+      "default": "Revisa tus respuestas. Las respuestas se marcarán como correcta, incorrecta o sin contestar."
     },
     {
-      "label": "Descripción de tecnología asistiva para botón \"Mostrar Solución\"",
-      "default": "Mostrar la solución. El trabajo será calificado con su solución correcta."
+      "label": "Descripción para las tecnologías de asistencia del botón \"Mostrar solución\"",
+      "default": "Mostrar la solución. La tarea se calificará con su solución correcta."
     },
     {
-      "label": "Descripción de tecnología asistiva para botón \"Reintentar\"",
-      "default": "Reintentar el trabajo. Reiniciar todas las respuestas e iniciar el trabajo de nuevo."
+      "label": "Descripción para las tecnologías de asistencia del botón \"Intentar de nuevo\"",
+      "default": "Vuelve a intentar la tarea. Borra todas tus respuestas y empieza de nuevo."
     }
   ]
 }

@@ -5,10 +5,10 @@
       "fields": [
         {
           "label": "النوع",
-          "description": "وسائط اختيارية لعرضها فوق السؤال."
+          "description": "وسائط إضافية اختيارية تُعرض أعلى السؤال."
         },
         {
-          "label": "تعطيل تكبير الصورة من اجل صورة السؤال"
+          "label": "إيقاف ميزة تكبير الصور"
         }
       ]
     },
@@ -34,18 +34,18 @@
               "label": "الافتراضي"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "تحديد الملاحظات المخصصة لأي نطاق درجة",
+          "description": "انقر على زر \"إضافة نطاق\" لإضافة ما ترغب به من نطاقات، ومثال على ذلك: 0-20٪ نتيجة سيئة، 21-91٪ نتيجة متوسطة، 91-100٪ نتيجة رائعة!",
+          "entity": "النطاق",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "نطاق الدرجة"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "ملاحظات لنطاق درجة محدد",
+                "placeholder": "أدخل الملاحظات"
               }
             ]
           }
