@@ -19,10 +19,10 @@
     },
     {
       "label": "الحقل النصي",
-      "placeholder": "This is an answer: *answer*.",
+      "placeholder": "هذه إجابة: *الإجابة*.",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "description": "<ul><li>الكلمات المميزة تضاف بعلامة النجمة (*).</li><li>يمكن إضافة العلامات النجمية داخل الكلمات المحددة عن طريق إضافة علامة نجمية أخرى، *الكلمة الصحيحة*** => الكلمة الصحيحة*.</li></ul>",
+        "example": "تم وضع علامة على الكلمات الصحيحة كما يلي: *الكمة الصحيحة*، تم كتابة علامة النجمة على النحو التالي: *الكلمة الصحيحة***."
       }
     },
     {
@@ -79,11 +79,11 @@
           "label": "تمكين زر \"مشاهدة الحل\""
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "تمكين زر \"التحقق\""
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "إظهار نقاط العلامة",
+          "description": "عرض النقاط المكتسبة لكل إجابة."
         }
       ]
     },
@@ -100,12 +100,12 @@
     {
       "label": "غاب نص الجواب",
       "default": "افتقد!",
-      "description": "Text used to indicate that an answer is missing"
+      "description": "النص المُشير إلى أن الإجابة مفقودة"
     },
     {
       "label": "وصف لعرض الحل",
       "default": "يتم تحديث مهمة لاحتواء الحل.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "description": "يخبر هذا النص المستخدم أنه تم تحديث المهام مع الحل."
     },
     {
       "label": "Textual representation of the score bar for those using a readspeaker",
@@ -132,12 +132,12 @@
       "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "وصف تقنية المساعدة لزر \"عرض الحلول\"",
+      "default": "اعرض الحل. سيتم تمييز المهمة بالحل الصحيح الخاص بها."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "وصف التقنية المساعدة لزر إعادة المحاولة",
+      "default": "إعادة المحاولة للمهمة. إعادة ضبط جميع الردود والبدء بالمهمة مرة أخرى."
     }
   ]
 }
