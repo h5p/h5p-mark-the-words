@@ -21,7 +21,7 @@
       "label": "Eneo la maandishi",
       "placeholder": "Hili ni jibu: *jibu*.",
       "important": {
-        "description": "<ul><li>Maneno yaliyowekwa alama huongezwa na nyota (*).</li><li>Nyota zinaweza kuongezwa ndani ya maneno yaliyowekwa alama kwa kuongeza nyota nyingine, *neno sahihi *** => neno sahihi*.</li></ul>",
+        "description": "<ul><li>Maneno yaliyowekwa alama huongezwa na nyota (*).</li><li>Nyota zinaweza kuongezwa ndani ya maneno yaliyowekwa alama kwa kuongeza nyota nyingine, *neno sahihi *** =&gt; neno sahihi*.</li></ul>",
         "example": "Maneno sahihi yamewekwa alama kama hii: *neno sahihi*, nyota imeandikwa hivi: *neno sahihi***."
       }
     },
