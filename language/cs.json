@@ -112,7 +112,7 @@
       "default": "Získal jste :num ze :total bodů"
     },
     {
-      "label": "Popisek pro plně čitelný text pro pomocné technologie",
+      "label": "Popisek pro plně čitelný text pro podpůrné technologie",
       "default": "Plně čitelný text"
     },
     {
@@ -120,11 +120,11 @@
       "default": "Celý text, kde slova lze označit"
     },
     {
-      "label": "Záhlaví režimu řešení pro pomocné technologie",
+      "label": "Záhlaví režimu řešení pro podpůrné technologie",
       "default": "Režim řešení"
     },
     {
-      "label": "Záhlaví kontrolního režimu pro pomocné technologie",
+      "label": "Záhlaví kontrolního režimu pro podpůrné technologie",
       "default": "Kontrolní režim"
     },
     {
