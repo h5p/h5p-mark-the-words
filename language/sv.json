@@ -4,11 +4,11 @@
       "label": "Media",
       "fields": [
         {
-          "label": "Type",
-          "description": "Optional media to display above the question."
+          "label": "Typ",
+          "description": "Valfri media att visa ovanför frågan."
         },
         {
-          "label": "Disable image zooming"
+          "label": "Inaktivera zoomning av bild"
         }
       ]
     },
