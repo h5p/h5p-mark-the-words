@@ -62,7 +62,7 @@
     },
     {
       "label": "Text for \"Retry\" button",
-      "default": "Retry"
+      "default": "Покушај поново"
     },
     {
       "label": "Текст за \"Прикажи решења\" дугме",
