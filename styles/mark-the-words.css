@@ -35,6 +35,7 @@
   padding: 0.15em;
   border-radius: 0.25em;
   position: relative;
+  border: 1px solid transparent;
 }
 
 .h5p-mark-the-words .h5p-word-selectable-words:not(.h5p-disable-hover) [role="option"]:hover {
@@ -45,6 +46,8 @@
 /* Colors and styling for word selections */
 .h5p-mark-the-words [aria-selected="true"] {
   background: #cee0f4;
+  border: 1px solid #1356a3;
+  /* !important overriding outline from h5p.css force us to use border */
 }
 /* Missed word*/
 .h5p-mark-the-words [aria-describedby="h5p-description-missed"] {
@@ -60,6 +63,7 @@
   color: #255c41;
   display: inline-block;
   line-height: 1;
+  border: 1px solid #9dd8bb;
 }
 /* Wrongly answered marking */
 .h5p-mark-the-words [aria-describedby="h5p-description-incorrect"] {
@@ -68,6 +72,7 @@
   text-decoration: line-through;
   display: inline-block;
   line-height: 1;
+  border: 1px solid #f7d0d0;
 }
 /* Feedback icons */
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"]:after {
