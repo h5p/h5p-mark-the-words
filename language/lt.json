@@ -26,11 +26,11 @@
       "placeholder": "Atsakymas yra: *answer*."
     },
     {
-      "label": "Overall Feedback",
+      "label": "Bendras atsiliepimas",
       "fields": [
         {
           "label": "Define custom feedback for any score range",
-          "entity": "range",
+          "entity": "diapazonas",
           "field": {
             "fields": [
               {
@@ -38,27 +38,27 @@
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Atsiliepimai apibrėžtam balų diapazonui",
+                "placeholder": "Užpildykite atsiliepimą"
               }
             ]
           },
           "widgets": [
             {
-              "label": "Default"
+              "label": "Numatytasis"
             }
           ],
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!"
+          "description": "Spustelėkite mygtuką „Pridėti diapazoną“, kad pridėtumėte tiek diapazonų, kiek jums reikia. Pavyzdys: 0–20 % blogas balas, 21–91 % vidutinis balas, 91–100 % puikus rezultatas!"
         }
       ]
     },
     {
-      "label": "Text for \"Check\" button",
-      "default": "Check"
+      "label": "Tekstas mygtukui „Tikrinti“.",
+      "default": "Tikrinti"
     },
     {
       "label": "Text for \"Submit\" button",
-      "default": "Submit"
+      "default": "Pateikti"
     },
     {
       "label": "Text for \"Retry\" button",
@@ -69,16 +69,16 @@
       "default": "Show solution"
     },
     {
-      "label": "Behavioural settings.",
+      "label": "Veiksenos nustatymai.",
       "fields": [
         {
-          "label": "Enable \"Retry\""
+          "label": "Įgalinti „Bandyti dar kartą“"
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "Įgalinti mygtuką „Rodyti sprendimą“."
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "Įgalinti mygtuką „Tikrinti“."
         },
         {
           "description": "Show points earned for each answer.",
@@ -89,7 +89,7 @@
     },
     {
       "default": "Correct!",
-      "label": "Correct answer text",
+      "label": "Teisingas atsakymo tekstas",
       "description": "Text used to indicate that an answer is correct"
     },
     {
