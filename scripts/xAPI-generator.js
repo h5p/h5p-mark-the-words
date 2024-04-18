@@ -51,7 +51,7 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
   function createDefinition(markTheWords) {
     var definition = {};
     definition.description = {
-      'en-US': replaceLineBreaks(markTheWords.params.taskDescription)
+      'en-US': markTheWords.params.taskDescription,
     };
     definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
     definition.interactionType = 'choice';
@@ -61,17 +61,6 @@ H5P.MarkTheWords.XapiGenerator = (function ($) {
       'https://h5p.org/x-api/line-breaks': markTheWords.getIndexesOfLineBreaks()
     };
     return definition;
-  }
-
-  /**
-   * Replace line breaks
-   *
-   * @param {string} description
-   * @return {string}
-   */
-  function replaceLineBreaks(description) {
-    var sanitized = $('<div>' + description + '</div>').text();
-    return sanitized.replace(/(\n)+/g, '<br/>');
   }
 
   /**
