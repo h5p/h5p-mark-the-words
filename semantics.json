@@ -179,6 +179,15 @@
     "optional": true,
     "fields": [
       {
+        "name": "numLines",
+        "type": "number",
+        "label": "Number of Lines to use",
+        "description": "Setting this to a number less than the number of paragraphs and greater than 1 will make it randomly select paragraphs each time",
+        "importance": "low",
+        "optional": true,
+        "min": 2
+      },
+      {
         "name": "enableRetry",
         "type": "boolean",
         "label": "Enable \"Retry\"",
