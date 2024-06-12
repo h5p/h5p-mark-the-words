@@ -623,6 +623,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
       self.isAnswered = true;
       self.selectableWords[answeredWordIndex].setSelected();
+      self.isAnswered = true;
     });
   };
 
