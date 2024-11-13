@@ -21,7 +21,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.contentData = contentData;
     this.introductionId = 'mark-the-words-introduction-' + contentId;
 
-    Question.call(this, 'mark-the-words');
+    Question.call(this, 'mark-the-words', true);
 
     // Set default behavior.
     this.params = $.extend(true, {
@@ -306,30 +306,49 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       }, {
         contentData: this.contentData,
         textIfSubmitting: this.params.submitAnswerButton,
+        classes: 'h5p-theme-primary-cta h5p-theme-check',
       });
     }
 
-    this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false, {
-      'aria-label': this.params.a11yRetry,
-    });
-
-    this.addButton('show-solution', this.params.showSolutionButton, function () {
-      self.setAllMarks();
-
-      self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
-      self.$a11yClickableTextLabel.focus();
-
-      if (self.params.behaviour.enableRetry) {
-        self.showButton('try-again');
+    this.addButton(
+      'try-again',
+      this.params.tryAgainButton,
+      this.resetTask.bind(this),
+      false,
+      {
+        'aria-label': this.params.a11yRetry,
+      },
+      {
+        classes: 'h5p-theme-secondary-cta h5p-theme-retry',
       }
-      self.hideButton('check-answer');
-      self.hideButton('show-solution');
+    );
 
-      self.read(self.params.displaySolutionDescription);
-      self.toggleSelectable(true);
-    }, false, {
-      'aria-label': this.params.a11yShowSolution,
-    });
+    this.addButton(
+      'show-solution',
+      this.params.showSolutionButton,
+      function () {
+        self.setAllMarks();
+
+        self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
+        self.$a11yClickableTextLabel.focus();
+
+        if (self.params.behaviour.enableRetry) {
+          self.showButton('try-again');
+        }
+        self.hideButton('check-answer');
+        self.hideButton('show-solution');
+
+        self.read(self.params.displaySolutionDescription);
+        self.toggleSelectable(true);
+      },
+      false,
+      {
+        'aria-label': this.params.a11yShowSolution,
+      },
+      {
+        classes: 'h5p-theme-secondary-cta h5p-theme-show-results',
+      }
+    );
   };
 
   /**
