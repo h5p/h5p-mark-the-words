@@ -12,11 +12,17 @@
 
 /* Actual text paragraphs */
 .h5p-mark-the-words .h5p-word-inner p {
-  font-size: 1em;
+  font-size: var(--font-size-m);
   font-weight: normal;
   padding: 0;
   margin: 0 0 1em;
   line-height: inherit;
+  color: var(--text-secondary);
+      background-color: var(--alternative-light);
+    border: solid 1px var(--alternative-base);
+    border-radius: var(--border-radius-medium);
+    padding: var(--spacing-s);
+    font-weight: 500;
 }
 
 .h5p-mark-the-words button.h5p-button:before {
@@ -35,65 +41,97 @@
   padding: 0.15em;
   border-radius: 0.25em;
   position: relative;
-  border: 1px solid transparent;
+  border: 3px solid transparent;
+}
+
+.h5p-mark-the-words .h5p-question-plus-one, 
+.h5p-mark-the-words .h5p-question-minus-one{
+    position: unset;
+}
+.h5p-mark-the-words .h5p-question-minus-one-container, 
+.h5p-mark-the-words .h5p-question-plus-one-container{
+
 }
 
 .h5p-mark-the-words .h5p-word-selectable-words:not(.h5p-disable-hover) [role="option"]:hover {
-  box-shadow: inset 0px 0px 0px 2px #cee0f4;
+      box-shadow: 0 0 0.5em 0 var(--main-cta-base);
+    border-color: var(--main-cta-base);
+  background-color: var(--ui-base);
   cursor: pointer;
 }
 
 /* Colors and styling for word selections */
 .h5p-mark-the-words [aria-selected="true"] {
-  background: #cee0f4;
-  border: 1px solid #1356a3;
+  background: var(--contrast-cta-light);
+  border: 3px solid var(--main-cta-base);
   /* !important overriding outline from h5p.css force us to use border */
 }
 /* Missed word*/
 .h5p-mark-the-words [aria-describedby="h5p-description-missed"] {
-  color: #255c41;
-  font-weight: bold;
-  border: 1px #255c41 dashed;
-  background-color: #d4f6e6;
+    color: var(--feedback-correct-main);
+    font-weight: bold;
+    border: 2px var(--feedback-correct-main) dashed;
+    background-color: var(--feedback-correct-secondary);
+    padding: calc(var(--spacing-xs) / 2);
+    border-radius: var(--border-radius-medium);
+    margin-left: var(--spacing-xxs);
 }
 
 /* Correctly answered marking */
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"] {
-  background: #9dd8bb;
-  color: #255c41;
-  display: inline-block;
+  display: inline-flex;
   line-height: 1;
-  border: 1px solid #9dd8bb;
+      color: var(--feedback-correct-main);
+    background-color: var(--feedback-correct-secondary);
+    border: 1px solid var(--feedback-correct-third);
+  padding: calc(var(--spacing-xs) / 2);
 }
 /* Wrongly answered marking */
 .h5p-mark-the-words [aria-describedby="h5p-description-incorrect"] {
-  background-color: #f7d0d0;
-  color: #b71c1c;
-  text-decoration: line-through;
-  display: inline-block;
+  display: inline-flex;
   line-height: 1;
-  border: 1px solid #f7d0d0;
+  padding: calc(var(--spacing-xs) / 2);
+  
+  color: var(--feedback-incorrect-main);
+  background-color: var(--feedback-incorrect-secondary);
+  border: solid 2px var(--feedback-incorrect-third);
+  font-weight: bold;
 }
 /* Feedback icons */
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"]:after {
   position: relative;
   right: 0.1em;
   text-decoration: none;
-  content: "\f00c";
-  font-family: 'H5PFontAwesome4';
-  color: #255c41;
+  content: "\e903";
+  font-family: 'h5p-theme';
+  color: var(--feedback-correct-main);
   padding-left: 0.75em;
 }
 .h5p-mark-the-words [aria-describedby="h5p-description-incorrect"]:after {
   position: relative;
   right: 0.1em;
-  display: inline-block;
-  font-family: 'H5PFontAwesome4';
+  display: inline-flex;
+  font-family: 'h5p-theme';
   text-decoration: none;
-  content: "\f00d";
-  color: #b71c1c;
+  content: "\e902";
+  color: var(--feedback-incorrect-main);
   padding-left: 0.75em;
 }
+
+.h5p-mark-the-words .h5p-question-plus-one-container, 
+.h5p-mark-the-words .h5p-question-minus-one-container{
+background: var(--ui-base);
+    position: absolute;
+    width: 1.923076923em;
+    height: calc(1.923076923em* 0.638297872);
+    background-size: 100% 100%;
+    right: -1.615384615em;
+    top: -0.846153846em;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 150ms linear, transform 150ms linear;
+}
+
 /* SPECIFIC CSS CLASSES FOR MARK THE WORDS MODULE: */
 /* Start state for button: */
 .h5p-mark-the-words button.h5p-button.h5p-check-button:before {
