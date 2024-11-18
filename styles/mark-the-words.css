@@ -81,10 +81,11 @@
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"] {
   display: inline-flex;
   line-height: 1;
-      color: var(--feedback-correct-main);
-    background-color: var(--feedback-correct-secondary);
-    border: 1px solid var(--feedback-correct-third);
+  color: var(--feedback-correct-main);
+  background-color: var(--feedback-correct-secondary);
+  border: 1px solid var(--feedback-correct-third);
   padding: calc(var(--spacing-xs) / 2);
+  font-weight: 600;
 }
 /* Wrongly answered marking */
 .h5p-mark-the-words [aria-describedby="h5p-description-incorrect"] {
