@@ -12,16 +12,16 @@
 
 /* Actual text paragraphs */
 .h5p-mark-the-words .h5p-word-inner p {
-  font-size: var(--font-size-m);
+  font-size: var(--h5p-theme-font-size-m);
   font-weight: normal;
   padding: 0;
   margin: 0 0 1em;
   line-height: inherit;
-  color: var(--text-secondary);
-      background-color: var(--alternative-light);
-    border: solid 1px var(--alternative-base);
-    border-radius: var(--border-radius-medium);
-    padding: var(--spacing-s);
+  color: var(--h5p-theme-text-secondary);
+      background-color: var(--h5p-theme-alternative-light);
+    border: solid 1px var(--h5p-theme-alternative-base);
+    border-radius: var(--h5p-theme-border-radius-medium);
+    padding: var(--h5p-theme-spacing-s);
     font-weight: 500;
 }
 
@@ -54,48 +54,48 @@
 }
 
 .h5p-mark-the-words .h5p-word-selectable-words:not(.h5p-disable-hover) [role="option"]:hover {
-      box-shadow: 0 0 0.5em 0 var(--main-cta-base);
-    border-color: var(--main-cta-base);
-  background-color: var(--ui-base);
+      box-shadow: 0 0 0.5em 0 var(--h5p-theme-main-cta-base);
+    border-color: var(--h5p-theme-main-cta-base);
+  background-color: var(--h5p-theme-ui-base);
   cursor: pointer;
 }
 
 /* Colors and styling for word selections */
 .h5p-mark-the-words [aria-selected="true"] {
-  background: var(--contrast-cta-light);
-  border: 3px solid var(--main-cta-base);
+  background: var(--h5p-theme-contrast-cta-light);
+  border: 3px solid var(--h5p-theme-main-cta-base);
   /* !important overriding outline from h5p.css force us to use border */
 }
 /* Missed word*/
 .h5p-mark-the-words [aria-describedby="h5p-description-missed"] {
-    color: var(--feedback-correct-main);
+    color: var(--h5p-theme-feedback-correct-main);
     font-weight: bold;
-    border: 2px var(--feedback-correct-main) dashed;
-    background-color: var(--feedback-correct-secondary);
-    padding: calc(var(--spacing-xs) / 2);
-    border-radius: var(--border-radius-medium);
-    margin-left: var(--spacing-xxs);
+    border: 2px var(--h5p-theme-feedback-correct-main) dashed;
+    background-color: var(--h5p-theme-feedback-correct-secondary);
+    padding: calc(var(--h5p-theme-spacing-xs) / 2);
+    border-radius: var(--h5p-theme-border-radius-medium);
+    margin-left: var(--h5p-theme-spacing-xxs);
 }
 
 /* Correctly answered marking */
 .h5p-mark-the-words [aria-describedby="h5p-description-correct"] {
   display: inline-flex;
   line-height: 1;
-  color: var(--feedback-correct-main);
-  background-color: var(--feedback-correct-secondary);
-  border: 1px solid var(--feedback-correct-third);
-  padding: calc(var(--spacing-xs) / 2);
+  color: var(--h5p-theme-feedback-correct-main);
+  background-color: var(--h5p-theme-feedback-correct-secondary);
+  border: 1px solid var(--h5p-theme-feedback-correct-third);
+  padding: calc(var(--h5p-theme-spacing-xs) / 2);
   font-weight: 600;
 }
 /* Wrongly answered marking */
 .h5p-mark-the-words [aria-describedby="h5p-description-incorrect"] {
   display: inline-flex;
   line-height: 1;
-  padding: calc(var(--spacing-xs) / 2);
+  padding: calc(var(--h5p-theme-spacing-xs) / 2);
   
-  color: var(--feedback-incorrect-main);
-  background-color: var(--feedback-incorrect-secondary);
-  border: solid 2px var(--feedback-incorrect-third);
+  color: var(--h5p-theme-feedback-incorrect-main);
+  background-color: var(--h5p-theme-feedback-incorrect-secondary);
+  border: solid 2px var(--h5p-theme-feedback-incorrect-third);
   font-weight: bold;
 }
 /* Feedback icons */
@@ -105,7 +105,7 @@
   text-decoration: none;
   content: "\e903";
   font-family: 'h5p-theme';
-  color: var(--feedback-correct-main);
+  color: var(--h5p-theme-feedback-correct-main);
   padding-left: 0.75em;
 }
 .h5p-mark-the-words [aria-describedby="h5p-description-incorrect"]:after {
@@ -115,13 +115,13 @@
   font-family: 'h5p-theme';
   text-decoration: none;
   content: "\e902";
-  color: var(--feedback-incorrect-main);
+  color: var(--h5p-theme-feedback-incorrect-main);
   padding-left: 0.75em;
 }
 
 .h5p-mark-the-words .h5p-question-plus-one-container, 
 .h5p-mark-the-words .h5p-question-minus-one-container{
-background: var(--ui-base);
+background: var(--h5p-theme-ui-base);
     position: absolute;
     width: 1.923076923em;
     height: calc(1.923076923em* 0.638297872);
