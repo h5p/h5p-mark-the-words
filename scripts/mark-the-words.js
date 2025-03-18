@@ -53,6 +53,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       a11yRetry: 'Retry the task. Reset all responses and start the task over again.',
     }, params);
 
+    this.resetTask = this.resetTask.bind(this);
+
     this.contentData = contentData;
     if (this.contentData !== undefined && this.contentData.previousState !== undefined) {
       this.previousState = this.contentData.previousState;
@@ -259,13 +261,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       text: ariaText,
     }).appendTo($ariaTextWrapper);
 
-    // A11y clickable list label
-    this.$a11yClickableTextLabel = $('<div>', {
-      'class': 'hidden-but-read',
-      html: self.params.a11yClickableTextLabel,
-      tabIndex: '-1',
-    }).appendTo($container);
-
     $wordContainer.appendTo($container);
     self.$wordContainer = $wordContainer;
   };
@@ -294,13 +289,20 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             self.showButton('try-again');
           }
         }
-        // Set focus to start of text
-        self.$a11yClickableTextLabel.html(self.params.a11yCheckingHeader + ' - ' + self.params.a11yClickableTextLabel);
-        self.$a11yClickableTextLabel.focus();
 
         self.hideButton('check-answer');
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
+
         self.toggleSelectable(true);
+
+        self.read(
+          self.params.a11yCheckingHeader + ' - ' +
+          self.params.a11yClickableTextLabel
+        );
+
+        window.setTimeout(() => {
+          self.focusOnFirstElement();
+        }, 1); // Read 'checking mode' before announcing focus of first answer
       }, true, {
         'aria-label': this.params.a11yCheck,
       }, {
@@ -309,15 +311,18 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       });
     }
 
-    this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false, {
-      'aria-label': this.params.a11yRetry,
-    });
+    this.addButton(
+      'try-again',
+      this.params.tryAgainButton,
+      () => {
+        this.resetTask({ focusOnFirst: true })
+      },
+      false,
+      { 'aria-label': this.params.a11yRetry }
+    );
 
-    this.addButton('show-solution', this.params.showSolutionButton, function () {
+    this.addButton('show-solution', this.params.showSolutionButton, () => {
       self.setAllMarks();
-
-      self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
-      self.$a11yClickableTextLabel.focus();
 
       if (self.params.behaviour.enableRetry) {
         self.showButton('try-again');
@@ -325,8 +330,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.hideButton('check-answer');
       self.hideButton('show-solution');
 
-      self.read(self.params.displaySolutionDescription);
       self.toggleSelectable(true);
+
+      self.read(self.params.displaySolutionDescription);
+      window.setTimeout(() => {
+        self.focusOnFirstElement();
+      }, 10); // Read 'checking mode' before announcing focus of first answer
     }, false, {
       'aria-label': this.params.a11yShowSolution,
     });
@@ -340,21 +349,32 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.keyboardNavigators.forEach(function (navigator) {
       if (disable) {
         navigator.disableSelectability();
-        navigator.removeAllTabbable();
       }
       else {
         navigator.enableSelectability();
-        navigator.setTabbableAt((0));
       }
     });
 
     if (disable) {
-      this.$wordContainer.removeAttr('aria-multiselectable').removeAttr('role');
+      this.$wordContainer.removeAttr('aria-multiselectable');
     }
     else {
-      this.$wordContainer.attr('aria-multiselectable', 'true')
-        .attr('role', 'listbox');
+      this.$wordContainer.attr('aria-multiselectable', 'true');
     }
+  };
+
+  /**
+   * Focus on first element.
+   */
+  MarkTheWords.prototype.focusOnFirstElement = function () {
+    this.keyboardNavigators.forEach((navigator, index) => {
+      if (index === 0) {
+        navigator.focusOnElementAt(0);
+      }
+      else {
+        navigator.setTabbableAt((0));
+      }
+    });
   };
 
   /**
@@ -558,9 +578,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.hideButton('check-answer');
-    this.$a11yClickableTextLabel.html(this.params.a11ySolutionModeHeader + ' - ' + this.params.a11yClickableTextLabel);
 
     this.toggleSelectable(true);
+    this.keyboardNavigators.forEach((navigator) => {
+      navigator.setTabbableAt((0));
+    });
+
     this.trigger('resize');
   };
 
@@ -568,18 +591,28 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
    * Resets the task back to its' initial state.
    *
    * @fires MarkTheWords#resize
+   * @param {object} [params={}] Parameters.
+   * @param {boolean} [params.focusOnFirst] If true, set focus on first element.
    * @see {@link https://h5p.org/documentation/developers/contracts|Needed for contracts.}
    */
-  MarkTheWords.prototype.resetTask = function () {
+  MarkTheWords.prototype.resetTask = function (params={}) {
     this.isAnswered = false;
     this.clearAllMarks();
     this.hideEvaluation();
     this.hideButton('try-again');
     this.hideButton('show-solution');
     this.showButton('check-answer');
-    this.$a11yClickableTextLabel.html(this.params.a11yClickableTextLabel);
 
     this.toggleSelectable(false);
+
+    this.read(this.params.a11yClickableTextLabel);
+
+    if (params.focusOnFirst) {
+      window.setTimeout(() => {
+        this.focusOnFirstElement();
+      }, 10); // Read 'checking mode' before announcing focus of first answer
+    }
+
     this.trigger('resize');
   };
 

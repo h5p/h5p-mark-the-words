@@ -113,10 +113,6 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    * @public
    */
   KeyboardNav.prototype.disableSelectability = function () {
-    this.elements.forEach(function (el) {
-      el.el.removeEventListener('keydown', el.keyDown);
-      el.el.removeEventListener('click', el.onClick);
-    }.bind(this));
     this.selectability = false;
   };
 
@@ -126,10 +122,6 @@ H5P.KeyboardNav = (function (EventDispatcher) {
    * @public
    */
   KeyboardNav.prototype.enableSelectability = function () {
-    this.elements.forEach(function (el) {
-      el.el.addEventListener('keydown', el.keyDown);
-      el.el.addEventListener('click', el.onClick);
-    }.bind(this));
     this.selectability = true;
   };
 
