@@ -21,7 +21,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.contentData = contentData;
     this.introductionId = 'mark-the-words-introduction-' + contentId;
 
-    Question.call(this, 'mark-the-words', true);
+    Question.call(this, 'mark-the-words', { theme: true });
 
     // Set default behavior.
     this.params = $.extend(true, {
