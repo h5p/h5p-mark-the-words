@@ -306,7 +306,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       }, {
         contentData: this.contentData,
         textIfSubmitting: this.params.submitAnswerButton,
-        classes: 'h5p-theme-primary-cta h5p-theme-check',
+        icon: 'check'
       });
     }
 
@@ -319,7 +319,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         'aria-label': this.params.a11yRetry,
       },
       {
-        classes: 'h5p-theme-secondary-cta h5p-theme-retry',
+        icon: 'retry',
+        styleType: 'secondary'
       }
     );
 
@@ -346,7 +347,8 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         'aria-label': this.params.a11yShowSolution,
       },
       {
-        classes: 'h5p-theme-secondary-cta h5p-theme-show-results',
+        icon: 'show-results',
+        styleType:'secondary'
       }
     );
   };
