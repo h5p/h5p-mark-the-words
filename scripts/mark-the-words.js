@@ -21,7 +21,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     this.contentData = contentData;
     this.introductionId = 'mark-the-words-introduction-' + contentId;
 
-    Question.call(this, 'mark-the-words');
+    Question.call(this, 'mark-the-words', { theme: true });
 
     // Set default behavior.
     this.params = $.extend(true, {
@@ -200,7 +200,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     // Wrapper
     var $wordContainer = $('<div/>', {
-      'class': 'h5p-word-selectable-words',
+      'class': 'h5p-word-selectable-words h5p-theme-lines',
       'aria-labelledby': self.introductionId,
       'aria-multiselectable': 'true',
       'role': 'listbox',
@@ -306,30 +306,51 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       }, {
         contentData: this.contentData,
         textIfSubmitting: this.params.submitAnswerButton,
+        icon: 'check'
       });
     }
 
-    this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false, {
-      'aria-label': this.params.a11yRetry,
-    });
-
-    this.addButton('show-solution', this.params.showSolutionButton, function () {
-      self.setAllMarks();
-
-      self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
-      self.$a11yClickableTextLabel.focus();
-
-      if (self.params.behaviour.enableRetry) {
-        self.showButton('try-again');
+    this.addButton(
+      'try-again',
+      this.params.tryAgainButton,
+      this.resetTask.bind(this),
+      false,
+      {
+        'aria-label': this.params.a11yRetry,
+      },
+      {
+        icon: 'retry',
+        styleType: 'secondary'
       }
-      self.hideButton('check-answer');
-      self.hideButton('show-solution');
+    );
 
-      self.read(self.params.displaySolutionDescription);
-      self.toggleSelectable(true);
-    }, false, {
-      'aria-label': this.params.a11yShowSolution,
-    });
+    this.addButton(
+      'show-solution',
+      this.params.showSolutionButton,
+      function () {
+        self.setAllMarks();
+
+        self.$a11yClickableTextLabel.html(self.params.a11ySolutionModeHeader + ' - ' + self.params.a11yClickableTextLabel);
+        self.$a11yClickableTextLabel.focus();
+
+        if (self.params.behaviour.enableRetry) {
+          self.showButton('try-again');
+        }
+        self.hideButton('check-answer');
+        self.hideButton('show-solution');
+
+        self.read(self.params.displaySolutionDescription);
+        self.toggleSelectable(true);
+      },
+      false,
+      {
+        'aria-label': this.params.a11yShowSolution,
+      },
+      {
+        icon: 'show-results',
+        styleType:'secondary'
+      }
+    );
   };
 
   /**
