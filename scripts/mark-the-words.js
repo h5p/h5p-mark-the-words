@@ -311,20 +311,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }
 
     this.addButton(
-      'try-again',
-      this.params.tryAgainButton,
-      this.resetTask.bind(this),
-      false,
-      {
-        'aria-label': this.params.a11yRetry,
-      },
-      {
-        icon: 'retry',
-        styleType: 'secondary'
-      }
-    );
-
-    this.addButton(
       'show-solution',
       this.params.showSolutionButton,
       function () {
@@ -349,6 +335,20 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       {
         icon: 'show-results',
         styleType:'secondary'
+      }
+    );
+
+    this.addButton(
+      'try-again',
+      this.params.tryAgainButton,
+      this.resetTask.bind(this),
+      false,
+      {
+        'aria-label': this.params.a11yRetry,
+      },
+      {
+        icon: 'retry',
+        styleType: 'secondary'
       }
     );
   };
