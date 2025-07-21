@@ -5,24 +5,24 @@
       "fields": [
         {
           "label": "Type",
-          "description": "Valfritt medieelement. Elementet vil bli plassert over spørsmålet."
+          "description": "Valfritt medieelement som blir vist over spørsmålet"
         },
         {
-          "label": "Deaktiver zoomingfunksjon."
+          "label": "Deaktiver zoom-funksjon"
         }
       ]
     },
     {
       "label": "Oppgåvebeskriving",
-      "description": "Forklar hvordan brukeren skal løyse oppgåva.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "description": "Forklar korleis brukaren skal løyse oppgåva.",
+      "placeholder": "Vel alle verba i denne teksten."
     },
     {
-      "label": "Tekstliner",
-      "placeholder": "Oslo er hovudstaden i *Noreg*",
+      "label": "Tekstfelt",
+      "placeholder": "Oslo er hovudstaden i *Noreg*.",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "description": "<ul><li>Marker løysingsord med asterisk (*) føre og bak ordet.</li><li>Dersom eit løysingsord inneheld ein asterisk, skriv to asteriskar (**) for denne asterisken.</li></ul>",
+        "example": "Døme på merking av løysingsord: *løysingsord*. Døme på asterisk i slutten av eit løysingsord: *løysingsord***."
       }
     },
     {
@@ -31,11 +31,11 @@
         {
           "widgets": [
             {
-              "label": "Førehandsinnstilling"
+              "label": "Standardinnstilling"
             }
           ],
-          "label": "Opprett poengområde og legg inn tilbakemeldingar.",
-          "description": "Klikk på knappen \"Legg til poengområde\" og legg til så mange poengområde du treng. Døme: 0–40 % Svakt resultat, 41–80 % Gjennomsnittleg resultat, 81–100 % Flott resultat!",
+          "label": "Opprett poengområde og legg inn tilbakemeldingar",
+          "description": "Vel knappen \"Legg til poengområde\" og legg til så mange poengområde du treng. Døme: 0–40 % Svakt resultat, 41–80 % Gjennomsnittleg resultat, 81–100 % Flott resultat!",
           "entity": "Område",
           "field": {
             "fields": [
@@ -45,7 +45,7 @@
               {},
               {
                 "label": "Tilbakemelding for definert poengområde",
-                "placeholder": "Skriv inn tilbakemelding."
+                "placeholder": "Skriv inn tilbakemelding"
               }
             ]
           }
@@ -53,91 +53,91 @@
       ]
     },
     {
-      "label": "Tekst for \"Sjekk\"-knapp",
+      "label": "Tekst på \"Sjekk\"-knapp",
       "default": "Sjekk"
     },
     {
-      "label": "Text for \"Submit\" button",
-      "default": "Submit"
+      "label": "Tekst på \"Send inn\"-knapp",
+      "default": "Send inn"
     },
     {
-      "label": "Text for \"Retry\" button",
-      "default": "Retry"
+      "label": "Tekst på \"Prøv igjen\"-igjen",
+      "default": "Prøv igjen"
     },
     {
-      "label": "Tekst for \"Fasit\" knapp",
-      "default": "Fasit"
+      "label": "Tekst på \"Vis svar\"-knapp",
+      "default": "Vis svar"
     },
     {
-      "label": "Innstillinger for oppgave-åtferd",
-      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "label": "Oppgåveinnstillingar",
+      "description": "Her kan du bestemme korleis oppgåva skal oppføre seg.",
       "fields": [
         {
           "label": "Aktiver \"Prøv igjen\"-knapp"
         },
         {
-          "label": "Aktiver \"Fasit\" knapp"
+          "label": "Aktiver \"Vis svar\"-knapp"
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "Aktiver \"Sjekk\"-button"
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "Vis poeng",
+          "description": "Vel for å vise poeng for kvart svar."
         }
       ]
     },
     {
-      "label": "Riktig svar tekst",
-      "default": "Riktig!",
-      "description": "Text used to indicate that an answer is correct"
+      "label": "Tekst ved rett svar",
+      "default": "Rett",
+      "description": "Tekst som fortel at svaret er rett"
     },
     {
-      "label": "Feil svar tekst",
-      "default": "Feil!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "Tekst ved feil svar",
+      "default": "Feil",
+      "description": "Tekst som fortel at svaret er feil"
     },
     {
-      "label": "Mangler svar tekst",
-      "default": "Manglar!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "Tekst ved manglande svar",
+      "default": "Dette ordet fann du ikkje",
+      "description": "Tekst som fortel at svaret manglar"
     },
     {
-      "label": "Beskrivelse for Vis Løsning",
-      "default": "Oppgåva er oppdatert til å innehalde fasiten.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "Melding når løysinga blir vist",
+      "default": "Løysinga er no markert i teksten.",
+      "description": "Denne teksten fortel brukaren at løysinga no er markert i teksten."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "Tekstalternativ til resultatlinja (for skjermlesar)",
+      "default": "Du fekk :num av :total poeng."
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Fullstendig lesbar tekst"
+      "label": "Etikett for heile den lesbare teksten (for skjermlesarar)",
+      "default": "Komplett lesbar tekst"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Fullstendig tekst der ord kan bli markerte"
+      "label": "Etikett for teksten der ord kan bli merkte (for skjermlesarar)",
+      "default": "Komplett tekst der ord kan bli merkte"
     },
     {
-      "label": "Solution mode header for assistive technologies",
+      "label": "Overskrift for løysingsmodus (for skjermlesarar)",
       "default": "Løysingsmodus"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Sjekk-modus"
+      "label": "Overskrift for sjekk svar-modus (for skjermlesarar)",
+      "default": "Sjekkmodus"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Beskriving av \"Sjekk\"-knapp (for skjermlesarar)",
+      "default": "Sjekk svar. Svara blir merkte som rette, feil eller utan svar."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Beskriving av \"Vis svar\"-knapp (for skjermlesarar)",
+      "default": "Vis svar. Oppgåva blir merkt med rette svar."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "Beskriving av \"Prøv igjen\"-knapp (for skjermlesarar)",
+      "default": "Prøv igjen. Alle svara blir nullstilte, og oppgåva startar på nytt."
     }
   ]
 }
