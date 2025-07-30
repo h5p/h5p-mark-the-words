@@ -40,7 +40,7 @@
   border: 3px solid transparent;
 }
 .h5p-mark-the-words [role="option"]:focus{
-  outline: 2px ridge var(--h5p-theme-main-cta-base);
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
   border-radius: 4px;
   outline-offset: 2px;
 }
@@ -50,14 +50,14 @@
 .h5p-mark-the-words .h5p-question-minus-one-container, .h5p-mark-the-words .h5p-question-plus-one-container {}
 .h5p-mark-the-words .h5p-word-selectable-words:not(.h5p-disable-hover) [role="option"]:hover {
   box-shadow: 0 0 0.5em 0 var(--h5p-theme-main-cta-base);
-  border-color: var(--h5p-theme-main-cta-base);
+  border-color: var(--h5p-theme-contrast-cta-white);
   background-color: var(--h5p-theme-ui-base);
   cursor: pointer;
 }
 /* Colors and styling for word selections */
 .h5p-mark-the-words [aria-selected="true"] {
   background: var(--h5p-theme-contrast-cta-light);
-  border: 3px solid var(--h5p-theme-main-cta-base);
+  border: 3px solid var(--h5p-theme-contrast-cta-white);
   /* !important overriding outline from h5p.css force us to use border */
 }
 /* Missed word*/
