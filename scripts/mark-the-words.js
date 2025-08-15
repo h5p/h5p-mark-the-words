@@ -145,9 +145,15 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
           for (var j = 0; j < node.attributes.length; j++) {
             attributes +=node.attributes[j].name + '="' + node.attributes[j].nodeValue + '" ';
           }
-          html += '<' + node.nodeName +  attributes + '>';
-          html += self.createHtmlForWords(node.childNodes);
-          html += '</' + node.nodeName + '>';
+          const innerHTML = self.createHtmlForWords(node.childNodes);
+          if (node.nodeName === 'P' && innerHTML.trim() === '') {
+            html += '<p>&nbsp;</p>';
+          }
+          else {
+            html += '<' + node.nodeName +  attributes + '>';
+            html += innerHTML;
+            html += '</' + node.nodeName + '>';
+          }
         }
       }
     }
