@@ -206,7 +206,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
     // Wrapper
     var $wordContainer = $('<div/>', {
-      'class': 'h5p-word-selectable-words h5p-theme-lines',
+      'class': 'h5p-word-selectable-words',
       'aria-labelledby': self.introductionId,
       'aria-multiselectable': 'true',
       'role': 'listbox',
