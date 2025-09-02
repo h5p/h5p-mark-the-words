@@ -30,6 +30,7 @@
 /* Selectable words container */
 .h5p-mark-the-words .h5p-word-selectable-words {
   outline: none;
+  line-height: var(--h5p-theme-spacing-xl);
 }
 /* Selectable words*/
 .h5p-mark-the-words [role="option"] {
