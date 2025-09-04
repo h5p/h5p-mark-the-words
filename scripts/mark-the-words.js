@@ -339,7 +339,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         'aria-label': this.params.a11yShowSolution,
       },
       {
-        icon: 'show-results',
+        icon: 'show-solutions',
         styleType:'secondary'
       }
     );
