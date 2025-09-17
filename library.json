@@ -3,7 +3,7 @@
   "description": "Test your users by making them select the correct words from a text.",
   "majorVersion": 1,
   "minorVersion": 11,
-  "patchVersion": 21,
+  "patchVersion": 22,
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 27
