@@ -1,11 +1,11 @@
 {
   "semantics": [
     {
-      "label": "Mediji",
+      "label": "Medijska vsebina",
       "fields": [
         {
           "label": "Tip",
-          "description": "Neobvezna nastavitev dodatnega medija za prikaz nad vprašanjem."
+          "description": "Neobvezna nastavitev dodatne medijske vsebine za prikaz nad vprašanjem."
         },
         {
           "label": "Onemogoči povečavo slike"
@@ -14,7 +14,7 @@
     },
     {
       "label": "Navodilo udeležencem",
-      "description": "Opis reševanja zadane naloge.",
+      "description": "Opis reševanja naloge.",
       "placeholder": "S klikom označi posamezne besede v zapisu."
     },
     {
@@ -57,8 +57,8 @@
       "default": "Preveri"
     },
     {
-      "label": "Text for \"Submit\" button",
-      "default": "Submit"
+      "label": "Besedilo za gumb \"Oddaj\"",
+      "default": "Oddaj"
     },
     {
       "label": "Besedilo za gumb \"Poskusi ponovno\"",
@@ -89,12 +89,12 @@
     },
     {
       "label": "Besedilo za pravilen odgovor",
-      "default": "Pravilno!",
+      "default": "Pravilen odgovor!",
       "description": "Besedilo označuje pravilen odgovor"
     },
     {
       "label": "Besedilo za nepravilen odgovor",
-      "default": "Nepravilno!",
+      "default": "Nepravilen odgovor!",
       "description": "Besedilo označuje nepravilen odgovor"
     },
     {
@@ -128,16 +128,16 @@
       "default": "Način prikaza rešitev"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Opis gumba \"Preveri\" za bralnike zaslona",
+      "default": "Preveri pravilnost vnesenih znakov. Odgovori bodo označeni kot pravilni, nepravilni ali brez odgovora."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "Opis gumba \"Prikaži rešitev\" za bralnike zaslona",
+      "default": "Prikaže rešitev in označi pravilne odgovore."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "Opis gumba \"Poskusi ponovno\" za bralnike zaslona",
+      "default": "Omogoči ponoven poskus. Ponastavi vse odzive in znova zažene nalogo."
     }
   ]
 }
