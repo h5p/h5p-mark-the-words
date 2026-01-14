@@ -5,47 +5,47 @@
       "fields": [
         {
           "label": "Típus",
-          "description": "Lehetséges Média ami a kérdés felett jelenik meg."
+          "description": "Opcionális média a kérdés fölött megjelenítve."
         },
         {
-          "label": "Kép ráközelítés tiltása"
+          "label": "Kép nagyításának letiltása"
         }
       ]
     },
     {
-      "label": "Task description",
-      "description": "Describe how the user should solve the task.",
-      "placeholder": "Click on all the verbs in the text that follows."
+      "label": "Feladat leírása",
+      "description": "Ismertesse, hogy a felhasználónak hogyan kell megoldania a feladatot!",
+      "placeholder": "Kattints az összes igére a következő szövegben!"
     },
     {
-      "label": "Textfield",
-      "placeholder": "This is an answer: *answer*.",
+      "label": "Szövegmező",
+      "placeholder": "Ez itt egy válasz: *válasz*.",
       "important": {
-        "description": "<ul><li>Marked words are added with an asterisk (*).</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li></ul>",
-        "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
+        "description": "<ul><li>A megjelölendő szavak csillag (*) karakterekkel adhatók meg.</li><li>A megjelölt szavakon belül csillagokat hozzáadni egy-egy további csillag beírásával lehet, pl. *jóválasz*** =&gt; jóválasz*.</li></ul>",
+        "example": "A helyes szavak így vannak megjelölve: *jóválasz*, csillag pedig így írható: *jóválasz***."
       }
     },
     {
-      "label": "Overall Feedback",
+      "label": "Globális visszajelzés",
       "fields": [
         {
           "widgets": [
             {
-              "label": "Default"
+              "label": "Alapértelmezett"
             }
           ],
-          "label": "Define custom feedback for any score range",
-          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
-          "entity": "range",
+          "label": "Egyéni visszajelzés megadása tetszőleges eredmény intervallumokra",
+          "description": "Kattintson az \"Új intervallum\" gombra további intervallumok hozzáadásához. Például: 0-20% Rossz eredmény, 21-91% Átlagos eredmény, 91-100% Kimagasló eredmény!",
+          "entity": "intervallum",
           "field": {
             "fields": [
               {
-                "label": "Score Range"
+                "label": "Eredmény intervallum"
               },
               {},
               {
-                "label": "Feedback for defined score range",
-                "placeholder": "Fill in the feedback"
+                "label": "Visszajelzés az adott eredmény intervallumnál",
+                "placeholder": "Adja meg a visszajelzést"
               }
             ]
           }
@@ -53,91 +53,91 @@
       ]
     },
     {
-      "label": "Text for \"Check\" button",
-      "default": "Check"
+      "label": "\"Ellenőrzés\" gomb szövege",
+      "default": "Ellenőrzés"
     },
     {
-      "label": "Text for \"Submit\" button",
-      "default": "Submit"
+      "label": "\"Leadás\" gomb szövege",
+      "default": "Leadás"
     },
     {
-      "label": "Text for \"Retry\" button",
-      "default": "Retry"
+      "label": "\"Újra\" gomb szövege",
+      "default": "Újra"
     },
     {
-      "label": "Text for \"Show solution\" button",
-      "default": "Show solution"
+      "label": "\"Megoldás mutatása\" gomb felülírása",
+      "default": "Megoldás mutatása"
     },
     {
-      "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Viselkedési beállítások.",
+      "description": "Ezekkel a beállításokkal szabályozható a feladat viselkedése.",
       "fields": [
         {
-          "label": "Enable \"Retry\""
+          "label": "\"Újra\" engedélyezve"
         },
         {
-          "label": "Enable \"Show solution\" button"
+          "label": "\"Megoldás mutatása\" gomb engedélyezve"
         },
         {
-          "label": "Enable \"Check\" button"
+          "label": "\"Ellenőrzés\" engedélyezve"
         },
         {
-          "label": "Show score points",
-          "description": "Show points earned for each answer."
+          "label": "Pontszámok mutatása",
+          "description": "Az egyes válaszokért kapott pontok megjelenítése. "
         }
       ]
     },
     {
-      "label": "Correct answer text",
-      "default": "Correct!",
-      "description": "Text used to indicate that an answer is correct"
+      "label": "Helyes válasz szöveg",
+      "default": "Helyes!",
+      "description": "Szöveg annak jelzésére, hogy a válasz helyes"
     },
     {
-      "label": "Incorrect answer text",
-      "default": "Incorrect!",
-      "description": "Text used to indicate that an answer is incorrect"
+      "label": "Helytelen válasz szövege",
+      "default": "Helytelen!",
+      "description": "Szöveg annak jelzésére, hogy a válasz helytelen"
     },
     {
-      "label": "Missed answer text",
-      "default": "Answer not found!",
-      "description": "Text used to indicate that an answer is missing"
+      "label": "Hiányzó válasz szövege",
+      "default": "A válasz hiányzik!",
+      "description": "Szöveg annak jelzésére, hogy a válasz hiányzik"
     },
     {
-      "label": "Description for Display Solution",
-      "default": "Task is updated to contain the solution.",
-      "description": "This text tells the user that the tasks has been updated with the solution."
+      "label": "A megoldás megjelenítése leírása",
+      "default": "A feladat frissül, hogy tartalmazza a megoldást.",
+      "description": "Ez a szöveg közli a felhasználóval, hogy a feladatok frissültek a megoldással."
     },
     {
-      "label": "Textual representation of the score bar for those using a readspeaker",
-      "default": "You got :num out of :total points"
+      "label": "A pontszámjelző sáv szöveges megjelenítése a szövegfelolvasót használók számára",
+      "default": "Elért pontszám: :num / :total"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "A \"teljesen olvasható szöveg\" felirata támogató-segítő eszközöknek",
+      "default": "Teljes mértékben olvasható szöveg"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Felirat a megjelölhető szavakat tartalmazó szöveghez, támogató-segítő eszközöknek",
+      "default": "A teljes szöveg, ahol a szavak megjelölhetők"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "Megoldási mód felirata a támogató-segítő eszközöknek",
+      "default": "Megoldási mód"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "Ellenőrzési mód felirata a támogató-segítő eszközöknek",
+      "default": "Ellenőrzési mód"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "\"Ellenőrzés\" gomb leírása támogató-segítő eszközöknek",
+      "default": "Válaszok ellenőrzése. A válaszokat helyesnek, helytelennek vagy megválaszolatlannak jelöli."
     },
     {
-      "label": "Assistive technology description for \"Show Solution\" button",
-      "default": "Show the solution. The task will be marked with its correct solution."
+      "label": "\"Megoldás mutatása\" gomb leírása támogató-segítő eszközöknek",
+      "default": "Megoldás mutatása. A feladat helyes megoldásának mutatása."
     },
     {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
+      "label": "\"Újra\" gomb leírása támogató-segítő eszközöknek",
+      "default": "Feladat újrapróbálása. Minden válasz visszaállítása és a feladat újrakezdése."
     }
   ]
 }
