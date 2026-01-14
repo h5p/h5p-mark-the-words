@@ -21,7 +21,7 @@
       "label": "Câmp de text",
       "placeholder": "Acesta este un răspuns: *răspuns*.",
       "important": {
-        "description": "<ul><li>Cuvintele marcate se adaugă cu un asterisc (*).</li><li>Asteriscurile pot fi adăugate în interiorul cuvintelor marcate adăugând un alt asterisc, *cuvântcorect*** => cuvântcorect*.</li></ul>",
+        "description": "<ul><li>Cuvintele marcate se adaugă cu un asterisc (*).</li><li>Asteriscurile pot fi adăugate în interiorul cuvintelor marcate adăugând un alt asterisc, *cuvântcorect*** =&gt; cuvântcorect*.</li></ul>",
         "example": "Cuvintele corecte sunt marcate astfel: *cuvântcorect*, un asterisc se scrie astfel: *cuvântcorect***."
       }
     },
