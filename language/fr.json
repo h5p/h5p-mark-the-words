@@ -57,7 +57,7 @@
       "default": "Vérifier"
     },
     {
-      "label": "Text for \"Submit\" button",
+      "label": "Texte du bouton \"Soumettre\"",
       "default": "Vérifier"
     },
     {
@@ -112,24 +112,24 @@
       "default": "Vous avez :num points sur un total de :total"
     },
     {
-      "label": "Label for the full readable text for assistive technologies",
-      "default": "Full readable text"
+      "label": "Étiquette pour le texte intégral lisible pour les technologies d'assistance",
+      "default": "Texte intégral lisible"
     },
     {
-      "label": "Label for the text where words can be marked for assistive technologies",
-      "default": "Full text where words can be marked"
+      "label": "Étiquette pour le texte où les mots peuvent être marqués pour les technologies d'assistance",
+      "default": "Texte complet où les mots peuvent être marqués"
     },
     {
-      "label": "Solution mode header for assistive technologies",
-      "default": "Solution mode"
+      "label": "En-tête du mode solution pour les technologies d'assistance",
+      "default": "Mode solution"
     },
     {
-      "label": "Checking mode header for assistive technologies",
-      "default": "Checking mode"
+      "label": "En-tête du mode vérification pour les technologies d'assistance",
+      "default": "Mode vérification"
     },
     {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
+      "label": "Description de la technologie d'assistance pour le bouton \"Vérifier\"",
+      "default": "Vérifier les réponses. Les réponses seront marquées comme correctes, incorrectes ou sans réponse."
     },
     {
       "label": "Description de la technologie fonctionnelle pour la touche « Afficher la solution »",
