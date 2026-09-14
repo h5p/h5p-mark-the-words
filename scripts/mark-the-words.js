@@ -93,6 +93,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
       if (node instanceof Text) {
         var text = $(node).text();
+
+        // Remove spaces inside \( ... \) so LaTeX expressions tokenize as single word
+        text = text.replace(/\\\([\s\S]*?\\\)/g, function (latex) {
+          return latex.replace(/\s+/g, '');
+        });
+
         var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
           .match(/ \*[^\* ]+\* |[^\s]+/g);
 
@@ -114,11 +120,14 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
               html += prefix;
             }
 
-            // Remove suffix punctuations from word
-            var suffix = entry.match(/[",….:;?!\]\)}⟩»”]+$/);
-            var end = entry.length - start;
-            if (suffix !== null) {
-              end -= suffix[0].length;
+            // Remove suffix punctuations from word, but keep Latex wrapper \( \) intact
+            const isLatex = entry.indexOf('\\(') !== -1 && entry.lastIndexOf('\\)') > entry.indexOf('\\(');
+            const suffixRegExp = isLatex ? /(?:\\\))?([",….:;?!\]\)}⟩»”]*)$/ : /([",….:;?!\]\)}⟩»”]*)$/
+            const suffix = entry.match(suffixRegExp)[1];
+
+            let end = entry.length - start;
+            if (suffix !== '') {
+              end -= suffix.length;
             }
 
             // Word
@@ -127,7 +136,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
               html += '<span role="option" aria-selected="false">' + self.escapeHTML(entry) + '</span>';
             }
 
-            if (suffix !== null) {
+            if (suffix !== '') {
               html += suffix;
             }
           });
