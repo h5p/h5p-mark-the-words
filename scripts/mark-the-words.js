@@ -67,6 +67,27 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
   MarkTheWords.prototype = Object.create(H5P.EventDispatcher.prototype);
   MarkTheWords.prototype.constructor = MarkTheWords;
 
+  /** @constant {RegExp} REGEXP_LATEX Matches Latex expression including its \( \) wrapper. */
+  MarkTheWords.REGEXP_LATEX = /\\\([\s\S]*?\\\)/g;
+
+  /** @constant {RegExp} REGEXP_WHITESPACE Matches any sequence of whitespace. */
+  MarkTheWords.REGEXP_WHITESPACE = /\s+/g;
+
+  /** @constant {RegExp} REGEXP_LINE_BREAKS Matches entities and line breaks that need to become plain spaces. */
+  MarkTheWords.REGEXP_LINE_BREAKS = /(&nbsp;|\r\n|\n|\r)/g;
+
+  /** @constant {RegExp} REGEXP_SELECTABLES Matches words surrounded by asterisks and other non-whitespace sequences. */
+  MarkTheWords.REGEXP_SELECTABLES = / \*[^\* ]+\* |[^\s]+/g;
+
+  /** @constant {RegExp} REGEXP_PREFIX Matches punctuation at the start of a word. */
+  MarkTheWords.REGEXP_PREFIX = /^[\[\({⟨¿¡“"«„]+/;
+
+  /** @constant {RegExp} REGEXP_SUFFIX Matches punctuation at the end of a word. */
+  MarkTheWords.REGEXP_SUFFIX = /([",….:;?!\]\)}⟩»”]*)$/;
+
+  /** @constant {RegExp} REGEXP_SUFFIX_LATEX Matches punctuation at the end of a word, but keeps a Latex \) wrapper. */
+  MarkTheWords.REGEXP_SUFFIX_LATEX = /(?:\\\))?([",….:;?!\]\)}⟩»”]*)$/;
+
   /**
    * Initialize Mark The Words task
    */
@@ -95,12 +116,12 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         var text = $(node).text();
 
         // Remove spaces inside \( ... \) so LaTeX expressions tokenize as single word
-        text = text.replace(/\\\([\s\S]*?\\\)/g, function (latex) {
-          return latex.replace(/\s+/g, '');
+        text = text.replace(MarkTheWords.REGEXP_LATEX, function (latex) {
+          return latex.replace(MarkTheWords.REGEXP_WHITESPACE, '');
         });
 
-        var selectableStrings = text.replace(/(&nbsp;|\r\n|\n|\r)/g, ' ')
-          .match(/ \*[^\* ]+\* |[^\s]+/g);
+        var selectableStrings = text.replace(MarkTheWords.REGEXP_LINE_BREAKS, ' ')
+          .match(MarkTheWords.REGEXP_SELECTABLES);
 
         if (selectableStrings) {
           selectableStrings.forEach(function (entry) {
@@ -113,7 +134,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
             }
 
             // Remove prefix punctuations from word
-            var prefix = entry.match(/^[\[\({⟨¿¡“"«„]+/);
+            var prefix = entry.match(MarkTheWords.REGEXP_PREFIX);
             var start = 0;
             if (prefix !== null) {
               start = prefix[0].length;
@@ -122,7 +143,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
 
             // Remove suffix punctuations from word, but keep Latex wrapper \( \) intact
             const isLatex = entry.indexOf('\\(') !== -1 && entry.lastIndexOf('\\)') > entry.indexOf('\\(');
-            const suffixRegExp = isLatex ? /(?:\\\))?([",….:;?!\]\)}⟩»”]*)$/ : /([",….:;?!\]\)}⟩»”]*)$/
+            const suffixRegExp = isLatex ? MarkTheWords.REGEXP_SUFFIX_LATEX : MarkTheWords.REGEXP_SUFFIX;
             const suffix = entry.match(suffixRegExp)[1];
 
             let end = entry.length - start;
