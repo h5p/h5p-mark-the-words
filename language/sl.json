@@ -126,18 +126,6 @@
     {
       "label": "Naslov za način prikaza rešitev za bralnike zaslona",
       "default": "Način prikaza rešitev"
-    },
-    {
-      "label": "Opis gumba \"Preveri\" za bralnike zaslona",
-      "default": "Preveri pravilnost vnesenih znakov. Odgovori bodo označeni kot pravilni, nepravilni ali brez odgovora."
-    },
-    {
-      "label": "Opis gumba \"Prikaži rešitev\" za bralnike zaslona",
-      "default": "Prikaže rešitev in označi pravilne odgovore."
-    },
-    {
-      "label": "Opis gumba \"Poskusi ponovno\" za bralnike zaslona",
-      "default": "Omogoči ponoven poskus. Ponastavi vse odzive in znova zažene nalogo."
     }
   ]
 }

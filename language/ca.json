@@ -126,18 +126,6 @@
     {
       "label": "Títol del mode de comprovació per a les tecnologies d’assistència",
       "default": "S’està comprovant el mode"
-    },
-    {
-      "label": "Descripció de la tecnologia d’assistència per al botó \"Comprova\"",
-      "default": "Comprova les respostes. Les respostes es marcaran com a correctes, incorrectes o sense resposta."
-    },
-    {
-      "label": "Descripció de la tecnologia d’assistència per al botó \"Mostra la solució\"",
-      "default": "Mostra la solució. La tasca es marcarà amb la seva solució correcta."
-    },
-    {
-      "label": "Descripció de la tecnologia d’assistència per al botó \"Torna-ho a provar\"",
-      "default": "Intenta de nou la tasca. Esborra totes les respostes i comença la tasca de nou."
     }
   ]
 }

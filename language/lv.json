@@ -1,6 +1,7 @@
 {
   "semantics": [
     {
+      "label": "Multivide",
       "fields": [
         {
           "label": "Tips",
@@ -9,8 +10,7 @@
         {
           "label": "Atspējot attēla tālummaiņu"
         }
-      ],
-      "label": "Multivide"
+      ]
     },
     {
       "label": "Uzdevuma apraksts",
@@ -35,6 +35,7 @@
             }
           ],
           "label": "Iestatiet pielāgotu atgriezenisko saiti katram rezultātu diapazonam",
+          "description": "Klikšķiniet pogu \"Pievienot diapazonu\", lai pievienotu tik diapazonus cik vēlaties. Piemēram, 0-20% Slikts rezultāts, 21-91% Viduvējs rezultāts, 91-100% Lielisks rezultāts!",
           "entity": "diapazons",
           "field": {
             "fields": [
@@ -47,8 +48,7 @@
                 "placeholder": "Aizpildiet atgriezenisko saiti"
               }
             ]
-          },
-          "description": "Klikšķiniet pogu \"Pievienot diapazonu\", lai pievienotu tik diapazonus cik vēlaties. Piemēram, 0-20% Slikts rezultāts, 21-91% Viduvējs rezultāts, 91-100% Lielisks rezultāts!"
+          }
         }
       ]
     },
@@ -116,8 +116,8 @@
       "default": "Pilns lasāms teksts"
     },
     {
-      "default": "Pilns teksts, kurā var atzīmēt vārdus",
-      "label": "Asistīvo tehnoloģiju etiķete tekstam, kurā var atzīmēt vārdus"
+      "label": "Asistīvo tehnoloģiju etiķete tekstam, kurā var atzīmēt vārdus",
+      "default": "Pilns teksts, kurā var atzīmēt vārdus"
     },
     {
       "label": "Risinājuma režīma galvene asistīvajām tehnoloģijām",
@@ -126,18 +126,6 @@
     {
       "label": "Pārbaudīšanas režīma galvene asistīvajām tehnoloģijām",
       "default": "Pārbaudīšanas režīms"
-    },
-    {
-      "default": "Pārbaudīt atbildes. Atbildes tiks atzīmētas kā pareizas, nepareizas, vai neatbildētas.",
-      "label": "Pogas \"Pārbaudīt\" apraksts asistīvajām tehnoloģijām"
-    },
-    {
-      "label": "Asistīvo tehnoloģiju apraksts pogai \"Rādīt risinājumu\"",
-      "default": "Rādīt risinājumu. Uzdevums tiks atzīmēts ar tā pareizo risinājumu."
-    },
-    {
-      "label": "Pogas \"Mēģināt vēlreiz\" apraksts asistīvajām tehnoloģijām",
-      "default": "Mēģināt uzdevumu vēlreiz. Dzēst visas sniegtās atbildes un sākt uzdevumu vēlreiz."
     }
   ]
 }

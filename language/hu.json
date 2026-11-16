@@ -126,18 +126,6 @@
     {
       "label": "Ellenőrzési mód felirata a támogató-segítő eszközöknek",
       "default": "Ellenőrzési mód"
-    },
-    {
-      "label": "\"Ellenőrzés\" gomb leírása támogató-segítő eszközöknek",
-      "default": "Válaszok ellenőrzése. A válaszokat helyesnek, helytelennek vagy megválaszolatlannak jelöli."
-    },
-    {
-      "label": "\"Megoldás mutatása\" gomb leírása támogató-segítő eszközöknek",
-      "default": "Megoldás mutatása. A feladat helyes megoldásának mutatása."
-    },
-    {
-      "label": "\"Újra\" gomb leírása támogató-segítő eszközöknek",
-      "default": "Feladat újrapróbálása. Minden válasz visszaállítása és a feladat újrakezdése."
     }
   ]
 }

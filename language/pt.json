@@ -126,18 +126,6 @@
     {
       "label": "Descrição de tecnologia assistiva para o botão \"Verificar\"",
       "default": "Verifique as respostas. Estas serão marcadas como corretas, incorretas, ou não respondidas."
-    },
-    {
-      "label": "Descrição de tecnologia assistida para o botão \"Mostrar Solução\"",
-      "default": "Mostrar a solução. A atividade será marcada com a respetiva solução correta."
-    },
-    {
-      "label": "Descrição da tecnologia assistiva para o botão \"Repetir\"",
-      "default": "Repetir a atividade. Apagar todas as respostas e reiniciar a atividade."
-    },
-    {
-      "label": "Assistive technology description for \"Retry\" button",
-      "default": "Retry the task. Reset all responses and start the task over again."
     }
   ]
 }
