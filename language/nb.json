@@ -126,18 +126,6 @@
     {
       "label": "Overskrift for sjekk svar-modus (for skjermlesere)",
       "default": "Sjekkmodus"
-    },
-    {
-      "label": "Beskrivelse av \"Sjekk\"-knapp (for skjermlesere)",
-      "default": "Sjekk svar. Svara blir merket som riktig, feil eller ubesvart."
-    },
-    {
-      "label": "Beskrivelse av \"Vis svar\"-knapp (for skjermlesere)",
-      "default": "Vis svar. Oppgaven blir merka med riktige svar."
-    },
-    {
-      "label": "Beskrivelse av \"Prøv igjen\"-knapp (for skjermlesere)",
-      "default": "Prøv igjen. Alle svar blir nullstilt, og oppgaven starter på nytt."
     }
   ]
 }

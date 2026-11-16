@@ -126,18 +126,6 @@
     {
       "label": "Cabeceira do modo comprobación para as tecnoloxías de asistencia",
       "default": "Modo comprobación"
-    },
-    {
-      "label": "Descrición do botón \"Comprobar\" para as tecnoloxías de asistencia",
-      "default": "Comproba as respostas. As respostas marcaranse como correctas, incorrectas ou non contestadas."
-    },
-    {
-      "label": "Descrición do botón \"Amosar solución\" para as tecnoloxías de asistencia",
-      "default": "Amosar a solución. A tarefa marcarase coa súa solución correcta."
-    },
-    {
-      "label": "Descrición do botón \"Reintentar\" para as tecnoloxías de asistencia",
-      "default": "Tentar de novo a tarefa. Borra todas as respostas e empeza a tarefa de novo."
     }
   ]
 }

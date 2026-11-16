@@ -48,9 +48,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       a11yClickableTextLabel: 'Full text where words can be marked',
       a11ySolutionModeHeader: 'Solution mode',
       a11yCheckingHeader: 'Checking mode',
-      a11yCheck: 'Check the answers. The responses will be marked as correct, incorrect, or unanswered.',
-      a11yShowSolution: 'Show the solution. The task will be marked with its correct solution.',
-      a11yRetry: 'Retry the task. Reset all responses and start the task over again.',
     }, params);
 
     this.contentData = contentData;
@@ -307,9 +304,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         self.hideButton('check-answer');
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
         self.toggleSelectable(true);
-      }, true, {
-        'aria-label': this.params.a11yCheck,
-      }, {
+      }, true, undefined, {
         contentData: this.contentData,
         textIfSubmitting: this.params.submitAnswerButton,
         icon: 'check'
@@ -335,9 +330,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         self.toggleSelectable(true);
       },
       false,
-      {
-        'aria-label': this.params.a11yShowSolution,
-      },
+      undefined,
       {
         icon: 'show-solutions',
         styleType:'secondary'
@@ -349,9 +342,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       this.params.tryAgainButton,
       this.resetTask.bind(this),
       false,
-      {
-        'aria-label': this.params.a11yRetry,
-      },
+      undefined,
       {
         icon: 'retry',
         styleType: 'secondary'

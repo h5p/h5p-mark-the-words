@@ -74,7 +74,6 @@
       "code"
     ],
     "placeholder": "This is an answer: *answer*.",
-    "description": "",
     "important": {
       "description": "<ul><li>Correct words are marked with asterisks (*) before and after the word.</li><li>Asterisks can be added within marked words by adding another asterisk, *correctword*** =&gt; correctword*.</li><li>Only words may be marked as correct. Not phrases.</li></ul>",
       "example": "The correct words are marked like this: *correctword*, an asterisk is written like this: *correctword***."
@@ -284,30 +283,6 @@
     "type": "text",
     "label": "Checking mode header for assistive technologies",
     "default": "Checking mode",
-    "importance": "low",
-    "common": true
-  },
-  {
-    "name": "a11yCheck",
-    "type": "text",
-    "label": "Assistive technology description for \"Check\" button",
-    "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
-    "importance": "low",
-    "common": true
-  },
-  {
-    "name": "a11yShowSolution",
-    "type": "text",
-    "label": "Assistive technology description for \"Show Solution\" button",
-    "default": "Show the solution. The task will be marked with its correct solution.",
-    "importance": "low",
-    "common": true
-  },
-  {
-    "name": "a11yRetry",
-    "type": "text",
-    "label": "Assistive technology description for \"Retry\" button",
-    "default": "Retry the task. Reset all responses and start the task over again.",
     "importance": "low",
     "common": true
   }

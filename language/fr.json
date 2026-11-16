@@ -126,18 +126,6 @@
     {
       "label": "Checking mode header for assistive technologies",
       "default": "Checking mode"
-    },
-    {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
-    },
-    {
-      "label": "Description de la technologie fonctionnelle pour la touche « Afficher la solution »",
-      "default": "Afficher la solution. La tâche sera notée avec sa solution correcte."
-    },
-    {
-      "label": "Description de la technologie fonctionnelle pour la touche « Réessayer »",
-      "default": "Réessayer la tâche. Réinitialiser toutes les réponses et recommencer la tâche."
     }
   ]
 }
