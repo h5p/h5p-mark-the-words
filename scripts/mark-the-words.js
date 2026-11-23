@@ -48,9 +48,6 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       a11yClickableTextLabel: 'Full text where words can be marked',
       a11ySolutionModeHeader: 'Solution mode',
       a11yCheckingHeader: 'Checking mode',
-      a11yCheck: 'Check the answers. The responses will be marked as correct, incorrect, or unanswered.',
-      a11yShowSolution: 'Show the solution. The task will be marked with its correct solution.',
-      a11yRetry: 'Retry the task. Reset all responses and start the task over again.',
     }, params);
 
     this.contentData = contentData;
@@ -302,7 +299,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
         self.trigger(self.XapiGenerator.generateAnsweredEvent());
         self.toggleSelectable(true);
       }, true, {
-        'aria-label': this.params.a11yCheck,
+        'aria-label': this.params.checkAnswerButton,
       }, {
         contentData: this.contentData,
         textIfSubmitting: this.params.submitAnswerButton,
@@ -310,7 +307,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
     }
 
     this.addButton('try-again', this.params.tryAgainButton, this.resetTask.bind(this), false, {
-      'aria-label': this.params.a11yRetry,
+      'aria-label': this.params.tryAgainButton,
     });
 
     this.addButton('show-solution', this.params.showSolutionButton, function () {
@@ -328,7 +325,7 @@ H5P.MarkTheWords = (function ($, Question, Word, KeyboardNav, XapiGenerator) {
       self.read(self.params.displaySolutionDescription);
       self.toggleSelectable(true);
     }, false, {
-      'aria-label': this.params.a11yShowSolution,
+      'aria-label': this.params.showSolutionButton,
     });
   };
 
