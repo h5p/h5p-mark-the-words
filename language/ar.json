@@ -126,18 +126,6 @@
     {
       "label": "Checking mode header for assistive technologies",
       "default": "Checking mode"
-    },
-    {
-      "label": "Assistive technology description for \"Check\" button",
-      "default": "Check the answers. The responses will be marked as correct, incorrect, or unanswered."
-    },
-    {
-      "label": "وصف تقنية المساعدة لزر \"عرض الحلول\"",
-      "default": "اعرض الحل. سيتم تمييز المهمة بالحل الصحيح الخاص بها."
-    },
-    {
-      "label": "وصف التقنية المساعدة لزر إعادة المحاولة",
-      "default": "إعادة المحاولة للمهمة. إعادة ضبط جميع الردود والبدء بالمهمة مرة أخرى."
     }
   ]
 }

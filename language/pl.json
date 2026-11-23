@@ -126,18 +126,6 @@
     {
       "label": "Nagłówek trybu sprawdzania dla technologii wspomagających",
       "default": "Tryb sprawdzania"
-    },
-    {
-      "label": "Opis przycisku \"Sprawdź\" dla technologii wspomagających",
-      "default": "Sprawdź odpowiedzi. Odpowiedzi zostaną oznaczone jako prawidłowe, błędne lub bez odpowiedzi."
-    },
-    {
-      "label": "Opis technologii wspomagającej dla przycisku \"Pokaż rozwiązanie\"",
-      "default": "Pokaż rozwiązanie. Zadanie zostanie oznaczone poprawnym rozwiązaniem."
-    },
-    {
-      "label": "Opis technologii wspomagającej dla przycisku \"Spróbuj ponownie\"",
-      "default": "Spróbuj ponownie wykonać zadanie. Zresetuj wszystkie odpowiedzi i rozpocznij zadanie od nowa."
     }
   ]
 }
